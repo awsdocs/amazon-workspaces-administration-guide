@@ -2,7 +2,7 @@
 
 You can complete the following directory management tasks using the Amazon WorkSpaces console\.
 
-
+**Topics**
 + [Select an Organizational Unit](#select-ou)
 + [Configure Automatic IP Addresses](#automatic-assignment)
 + [Control Device Access](#control-device-access)
@@ -53,9 +53,7 @@ After you enable automatic assignment of public IP addresses, each WorkSpace tha
 Note that you do not need to enable automatic assignment of public IP access if you configured your VPC with a NAT gateway\. For more information, see [Configure a VPC for Amazon WorkSpaces](amazon-workspaces-vpc.md)\.
 
 **Prerequisites**
-
 + Your VPC must have an attached Internet gateway\. For more information, see [Attaching an Internet Gateway](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Internet_Gateway.html#Add_IGW_Attach_Gateway) in the *Amazon VPC User Guide*\.
-
 + The route table for the WorkSpaces subnets must have one route for local traffic and another route that sends all other traffic to the Internet gateway\.
 
 **To configure public IP addresses**

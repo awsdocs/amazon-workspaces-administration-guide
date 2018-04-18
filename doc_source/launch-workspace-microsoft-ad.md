@@ -6,7 +6,7 @@ Amazon WorkSpaces uses directories to store and manage information for your Work
 
 In this tutorial, we launch a WorkSpace that uses Microsoft AD\. For tutorials that use the other options, see [Launch a Virtual Desktop Using Amazon WorkSpaces](launch-workspaces-tutorials.md)\.
 
-
+**Topics**
 + [Before You Begin](#prereqs-microsoft-ad)
 + [Step 1: Create a Microsoft AD Directory](#create-microsoft-ad)
 + [Step 2: Create a WorkSpace](#create-workspace-microsoft-ad)
@@ -14,11 +14,8 @@ In this tutorial, we launch a WorkSpace that uses Microsoft AD\. For tutorials t
 + [Next Steps](#next-steps-microsoft-ad)
 
 ## Before You Begin<a name="prereqs-microsoft-ad"></a>
-
 + Amazon WorkSpaces is not available in every region\. Verify the supported regions and select a region for your WorkSpaces\. For more information about the supported regions, see [Amazon WorkSpaces Pricing by AWS Region](https://aws.amazon.com/workspaces/pricing/)\.
-
 + When you launch a WorkSpace, you must select a WorkSpace bundle\. A bundle is a combination of storage, compute, and software resources\. For more information, see [Amazon WorkSpaces Bundles](https://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles)\.
-
 + When you create a directory using AWS Directory Service or launch a WorkSpace, you must create or select a virtual private cloud configured with a public subnet and two private subnets\. For more information, see [Configure a VPC for Amazon WorkSpaces](amazon-workspaces-vpc.md)\.
 
 ## Step 1: Create a Microsoft AD Directory<a name="create-microsoft-ad"></a>
@@ -91,7 +88,7 @@ After you receive the invitation email, you can connect to your WorkSpace using 
 
 1. Open the link in the invitation email\. When prompted, specify a password and activate the user\. Remember this password as you will need it to sign in to your WorkSpace\.
 **Note**  
-Passwords are case\-sensitive and must be between 8 and 64 characters in length, inclusive\. Passwords must contain at least one character from three of the following categories: lowercase letters \(a\-z\), uppercase letters \(A\-Z\), numbers \(0\-9\), and \~\!@\#$%^&\*\_\-\+=`|\\\(\)\{\}\[\]:;"'<>,\.?/\.
+Passwords are case\-sensitive and must be between 8 and 64 characters in length, inclusive\. Passwords must contain at least one character from three of the following categories: lowercase letters \(a\-z\), uppercase letters \(A\-Z\), numbers \(0\-9\), and \~\!@\#$%^&\*\_\-\+=`\|\\\(\)\{\}\[\]:;"'<>,\.?/\.
 
 1. When prompted, download one of the client applications or launch Web Access\.
 
@@ -106,11 +103,7 @@ Passwords are case\-sensitive and must be between 8 and 64 characters in length,
 ## Next Steps<a name="next-steps-microsoft-ad"></a>
 
 You can continue to customize the WorkSpace that you just created\. For example, you can install software and then create a custom bundle from your WorkSpace\. If you are finished with your WorkSpace, you can delete it\. For more information, see the following documentation\.
-
 + [Create a Custom WorkSpaces Bundle](create-custom-bundle.md)
-
 + [Administer Your WorkSpaces](administer-workspaces.md)
-
 + [Manage Directories for Amazon WorkSpaces](manage-workspaces-directory.md)
-
 + [Delete a WorkSpace](delete-workspaces.md)

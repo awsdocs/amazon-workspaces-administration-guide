@@ -45,6 +45,7 @@ Amazon's trademarks and trade dress may not be used in
    + [Reboot a WorkSpace](reboot-workspaces.md)
    + [Rebuild a WorkSpace](reset-workspace.md)
    + [Delete a WorkSpace](delete-workspaces.md)
+   + [Upgrade Windows 10 BYOL WorkSpaces](upgrade-windows-10-byol-workspaces.md)
 + [WorkSpace Bundles and Images](amazon-workspaces-bundles.md)
    + [Create a Custom WorkSpaces Bundle](create-custom-bundle.md)
    + [Update a Custom WorkSpaces Bundle](update-custom-bundle.md)

@@ -5,23 +5,14 @@ Amazon WorkSpaces enables you to provision virtual, cloud\-based Microsoft Windo
 For more information, see [Amazon WorkSpaces](https://aws.amazon.com/workspaces/)\.
 
 ## Features<a name="features"></a>
-
 + Select from a range of hardware configurations, software configurations, and AWS regions\. For more information, see [Amazon WorkSpaces Bundles](https://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles)\.
-
 + Connect to your WorkSpace and pick up from right where you left off\. Amazon WorkSpaces provides a persistent desktop experience\.
-
 + Amazon WorkSpaces provides the flexibility of either monthly or hourly billing for WorkSpaces\. For more information, see [Amazon WorkSpaces Pricing](https://aws.amazon.com/workspaces/pricing/)\.
-
 + Deploy and manage applications for your WorkSpaces using Amazon WorkSpaces Application Manager \(Amazon WAM\)\.
-
 + Bring your own licenses and applications, or purchase them from the AWS Marketplace for Desktop Apps\.
-
 + Create a standalone managed directory for your users, or connect your WorkSpaces to your on\-premises directory so that your users can use their existing credentials to obtain seamless access to corporate resources\.
-
 + Use the same tools to manage WorkSpaces that you use to manage on\-premises desktops\.
-
 + Use multi\-factor authentication \(MFA\) for additional security\.
-
 + Use AWS Key Management Service \(AWS KMS\) to encrypt data at rest, disk I/O, and volume snapshots\.
 
 ## Architecture<a name="architecture"></a>
@@ -43,25 +34,16 @@ The following diagram shows the architecture of Amazon WorkSpaces\.
 You can connect to your WorkSpaces using the client application for a supported device or using a supported web browser on a supported operating system\.
 
 There are client applications for the following devices:
-
 + Windows computers
-
 + Mac computers
-
 + Chromebooks
-
 + iPads
-
 + Android tablets
-
 + Fire tablets
-
 + Zero client devices
 
 The following web browsers are supported on Windows, macOS, and Linux:
-
 + Chrome 53 and later
-
 + Firefox 49 and later
 
 For more information, see [Amazon WorkSpaces Clients](http://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-clients.html) in the *Amazon WorkSpaces User Guide*\.
@@ -77,13 +59,8 @@ Amazon WorkSpaces provides monthly or hourly billing for WorkSpaces\. With month
 ## How to Get Started<a name="how-to-start"></a>
 
 To create a WorkSpace, try one of the following tutorials:
-
 + [Get Started with Amazon WorkSpaces Quick Setup](getting-started.md)
-
 + [Launch a WorkSpace Using Microsoft AD](launch-workspace-microsoft-ad.md)
-
 + [Launch a WorkSpace Using Simple AD](launch-workspace-simple-ad.md)
-
 + [Launch a WorkSpace Using AD Connector](launch-workspace-ad-connector.md)
-
 + [Launch a WorkSpace Using a Trusted Domain](launch-workspace-trusted-domain.md)

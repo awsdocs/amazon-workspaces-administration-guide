@@ -2,7 +2,7 @@
 
 The following information can help you troubleshoot issues with your WorkSpaces\.
 
-
+**Topics**
 + [Launching WorkSpaces in my connected directory often fails](#provision_fail)
 + [Launching WorkSpaces fails with an internal error](#launch-failure-ipv6)
 + [Can't connect to a WorkSpace with an interactive logon banner](#logon_banner)
@@ -50,9 +50,7 @@ Please ensure that the listed ports are available and retry the operation.
 ```
 
 AD Connector must be able to communicate with your on\-premises domain controllers via TCP and UDP over the following ports\. Verify that your security groups and on\-premises firewalls allow TCP and UDP communication over these ports\.
-
 + 88 \(Kerberos\)
-
 + 389 \(LDAP\)
 
 ## I receive an "SRV record" error when I try to connect to my on\-premises directory<a name="srv_record_not_found"></a>
@@ -70,17 +68,12 @@ AD Connector needs to obtain the `_ldap._tcp.dns-domain-name` and `_kerberos._tc
 ## One of my WorkSpaces has a state of "Unhealthy"<a name="unhealthy"></a>
 
 The Amazon WorkSpaces service periodically sends status requests to a WorkSpace\. A WorkSpace is marked `Unhealthy` when it fails to respond to these requests\. Common causes for this problem are:
-
 + An application on the WorkSpace is blocking network ports which prevents the WorkSpace from responding to the status request\.
-
 + High CPU utilization is preventing the WorkSpace from responding to the status request in a timely manner\.
-
 + The computer name of the WorkSpace has been changed\. This prevents a secure channel from being established between Amazon WorkSpaces and the WorkSpace\.
 
 You can attempt to correct the situation using the following methods:
-
 + Reboot the WorkSpace from the Amazon WorkSpaces console\.
-
 + Connect to the unhealthy WorkSpace using the following procedure, which should be used only for troubleshooting purposes:
 
   1. Connect to an operational WorkSpace in the same directory as the unhealthy WorkSpace\.
@@ -88,7 +81,6 @@ You can attempt to correct the situation using the following methods:
   1. From the operational WorkSpace, use Remote Desktop Protocol \(RDP\) to connect to the unhealthy WorkSpace using the IP address of the unhealthy WorkSpace\. Depending on the extent of the problem, you might not be able to connect to the unhealthy WorkSpace\.
 
   1. On the unhealthy WorkSpace, confirm that the minimum port requirements are met\.
-
 + Rebuild the WorkSpace from the Amazon WorkSpaces console\. Because rebuilding a WorkSpace can potentially cause a loss of data, this option should only be used if all other attempts to correct the problem have been unsuccessful\.
 
 ## The state of my apps was not saved when my WorkSpace was stopped<a name="save-state"></a>

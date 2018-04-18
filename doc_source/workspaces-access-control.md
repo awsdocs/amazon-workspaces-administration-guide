@@ -6,7 +6,7 @@ Amazon WorkSpaces also creates an IAM role to allow the Amazon WorkSpaces servic
 
 For more information about IAM, see [Identity and Access Management \(IAM\)](http://aws.amazon.com/iam) and the [IAM User Guide](http://docs.aws.amazon.com/IAM/latest/UserGuide/)\.
 
-**Example 1: Perform all Amazon WorkSpaces tasks**  
+**Example 1: Perform all Amazon WorkSpaces tasks**  <a name="perform-workspaces-tasks"></a>
 The following policy statement grants an IAM user permission to perform all Amazon WorkSpaces tasks, including creating and managing directories, as well as running the quick setup procedure\.  
 Note that although Amazon WorkSpaces fully supports the `Action` and `Resource` elements when using the API and command\-line tools, you must set them both to "\*" in order to use the Amazon WorkSpaces console successfully\.  
 
@@ -58,7 +58,7 @@ Note that although Amazon WorkSpaces fully supports the `Action` and `Resource` 
 }
 ```
 
-**Example 2: Perform WorkSpace\-specific tasks**  
+**Example 2: Perform WorkSpace\-specific tasks**  <a name="perform-workspace-specific-tasks"></a>
 The following policy statement grants an IAM user permission to perform WorkSpace\-specific tasks, such as launching and removing WorkSpaces\. The user can perform some tasks on the WorkSpaces directory, such as enabling or disabling the settings for Internet access, local administrator access, and maintenance mode\.  
 
 ```

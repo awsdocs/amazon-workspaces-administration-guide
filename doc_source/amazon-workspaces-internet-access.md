@@ -3,11 +3,8 @@
 We recommend that you launch your WorkSpaces in private subnets in your virtual private cloud \(VPC\) and use one of the following options to allow your WorkSpaces to access the Internet:
 
 **Options**
-
 + Configure a NAT gateway in your VPC\. For more information, see [Configure a VPC for Amazon WorkSpaces](amazon-workspaces-vpc.md)\.
-
 + Configure automatic assignment of public IP addresses\. For more information, see [Configure Automatic IP Addresses](update-directory-details.md#automatic-assignment)\.
-
 + Manually assign public IP addresses to your WorkSpaces\. For more information, see [Manually Assign IP Addresses](#manual-assignment)\.
 
 With any of these options, you must ensure that the security group for your WorkSpaces allows outbound traffic on ports 80 \(HTTP\) and 443 \(HTTPS\) to all destinations \(`0.0.0.0/0`\)\.
@@ -20,9 +17,7 @@ If you are using Amazon WorkSpaces Application Manager \(Amazon WAM\) to deploy 
 You can manually assign an Elastic IP address to a WorkSpace\.
 
 **Prerequisites**
-
 + Your VPC must have an attached Internet gateway\. For more information, see [Attaching an Internet Gateway](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Internet_Gateway.html#Add_IGW_Attach_Gateway) in the *Amazon VPC User Guide*\.
-
 + The route table for the WorkSpaces subnets must have one route for local traffic and another route that sends all other traffic to the Internet gateway\.
 
 **To assign an Elastic IP address to a WorkSpace**

@@ -35,15 +35,10 @@ You can now perform directory administration tasks using the Active Directory to
 1. In the user properties dialog box, choose **Member of**\.
 
 1. Add the user to the following groups and choose **OK**\.
-
    + Administrators
-
    + Domain Admins
-
    + Enterprise Admins
-
    + Group Policy Creator Owners
-
    + Schema Admins
 
 **To add or remove users**  

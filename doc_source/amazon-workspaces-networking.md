@@ -2,7 +2,7 @@
 
 As a WorkSpace administrator, you must understand the following about Amazon WorkSpaces networking and security\.
 
-
+**Topics**
 + [Configure a VPC for Amazon WorkSpaces](amazon-workspaces-vpc.md)
 + [Port Requirements for Amazon WorkSpaces](workspaces-port-requirements.md)
 + [Amazon WorkSpaces Client Network Requirements](workspaces-network-requirements.md)

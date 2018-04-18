@@ -9,15 +9,10 @@ The Amazon WorkSpaces client application requires outbound access on the followi
 Port 443 \(TCP\)  
 This port is used for client application updates, registration, and authentication\. The desktop client applications support the use of a proxy server for port 443 \(HTTPS\) traffic\. To enable the use of a proxy server, open the client application, choose **Advanced Settings**, select **Use Proxy Server**, specify the address and port of the proxy server, and choose **Save**\.  
 This port must be open to the following IP address ranges:  
-
 + The `AMAZON` subset in the `GLOBAL` region\.
-
 + The `AMAZON` subset in the region that the WorkSpace is in\.
-
 + The `AMAZON` subset in the `us-east-1` region\.
-
 + The `AMAZON` subset in the `us-west-2` region\.
-
 + The `S3` subset in the `us-west-2` region\.
 
 Port 4172 \(UDP and TCP\)  
@@ -39,9 +34,7 @@ This port is used for registration and authentication using HTTPS\. It must be o
 Typically, the web browser randomly selects a source port in the high range to use for streaming traffic\. Amazon WorkSpaces Web Access does not have control over the port the browser selects\. You must ensure that return traffic to this port is allowed\.
 
 Amazon WorkSpaces Web Access prefers UDP over TCP for desktop streams, but falls back to TCP if UDP is not available as follows:
-
 + Amazon WorkSpaces Web Access will work on Chrome even if all UDP ports are blocked except 53, 80, and 443, using TCP connections\.
-
 + Amazon WorkSpaces Web Access will not work on Firefox if all UDP ports are blocked except 53, 80, and 443\. Additional UDP ports must be open to enable streaming\.
 
 ## Whitelisted Domains and Ports<a name="whitelisted_ports"></a>
@@ -81,6 +74,7 @@ Amazon WorkSpaces uses PCoIP to stream the desktop session to clients over port 
 | EU \(London\) | 35\.176\.32\.0 \- 35\.176\.32\.255 | 
 | Asia Pacific \(Singapore\) | 52\.76\.127\.0 – 52\.76\.127\.255 | 
 | Asia Pacific \(Sydney\) | 54\.153\.254\.0 – 54\.153\.254\.255 | 
+| Asia Pacific \(Seoul\) | 13\.124\.247\.0 \- 13\.124\.247\.255 | 
 | Asia Pacific \(Tokyo\) | 54\.250\.251\.0 – 54\.250\.251\.255 | 
 | South America \(São Paulo\) | 54\.233\.204\.0 \- 54\.233\.204\.255 | 
 
@@ -96,15 +90,14 @@ The Amazon WorkSpaces client application performs PCoIP health checks over port 
 | EU \(London\) | drp\-lhr\.amazonworkspaces\.com | 
 | Asia Pacific \(Singapore\) | drp\-sin\.amazonworkspaces\.com | 
 | Asia Pacific \(Sydney\) | drp\-syd\.amazonworkspaces\.com | 
+| Asia Pacific \(Seoul\) | drp\-icn\.amazonworkspaces\.com | 
 | Asia Pacific \(Tokyo\) | drp\-nrt\.amazonworkspaces\.com | 
 | South America \(São Paulo\) | drp\-gru\.amazonworkspaces\.com | 
 
 ## Network Interfaces<a name="network-interfaces"></a>
 
 Each WorkSpace has the following network interfaces:
-
 + The primary network interface provides connectivity to the resources within your VPC as well as the Internet, and is used to join the WorkSpace to the directory\.
-
 + The management network interface is connected to a secure Amazon WorkSpaces management network\. It is used for interactive streaming of the WorkSpace desktop to Amazon WorkSpaces clients, and to allow Amazon WorkSpaces to manage the WorkSpace\.
 
 Amazon WorkSpaces selects the IP address for the management network interface from various address ranges, depending on the region the WorkSpaces are created in\. When a directory is registered, Amazon WorkSpaces tests the VPC CIDR and the route tables in your VPC to determine if these address ranges create a conflict\. If a conflict is found in all available address ranges in the region, an error message is displayed and the directory is not registered\. If you change the route tables in your VPC after the directory is registered, you might cause a conflict\.
@@ -125,53 +118,34 @@ The following table lists the IP address ranges used for the management network 
 | EU \(London\) | 198\.19\.0\.0/16 | 
 | Asia Pacific \(Singapore\) | 198\.19\.0\.0/16 | 
 | Asia Pacific \(Sydney\) | 172\.31\.0\.0/16 and 192\.168\.0\.0/16 | 
+| Asia Pacific \(Seoul\) | 198\.19\.0\.0/16 | 
 | Asia Pacific \(Tokyo\) | 198\.19\.0\.0/16 | 
 | South America \(São Paulo\) | 198\.19\.0\.0/16 | 
 
 ### Management Interface Ports<a name="management_ports"></a>
 
-The following ports must be open on the management network interface of all WorkSpaces:
-
+When you create a WorkSpace, Amazon WorkSpaces opens the following ports to ensure that the WorkSpace is reachable and operates correctly\. Do not install firewall software on your WorkSpace that blocks these ports\.
 + Inbound TCP on port 4172\. This is used for establishment of the streaming connection\.
-
 + Inbound UDP on port 4172\. This is used for streaming user input\.
-
 + Inbound TCP on port 8200\. This is used for management and configuration of the WorkSpace\.
-
 + Outbound UDP on port 55002\. This is used for PCoIP streaming\. If your firewall uses stateful filtering, the ephemeral port 55002 is automatically opened to allow return communication\. If your firewall uses stateless filtering, you need to open ephemeral ports 49152 \- 65535 to allow return communication\.
-
-Under normal circumstances, the Amazon WorkSpaces service properly configures these ports for your WorkSpaces\. If any security or firewall software is installed on a WorkSpace that blocks any of these ports, the WorkSpace may not function correctly or may be unreachable\.
 
 ### Primary Interface Ports<a name="primary_ports"></a>
 
 No matter which type of directory you have, the following ports must be open on the primary network interface of all WorkSpaces:
-
 + For Internet connectivity, the following ports must be open outbound to all destinations and inbound from the WorkSpaces VPC\. You need to add these manually to the security group for your WorkSpaces if you want them to have Internet access\.
-
   + TCP 80 \(HTTP\)
-
   + TCP 443 \(HTTPS\)
-
 + To communicate with the directory controllers, the following ports must be open between your WorkSpaces VPC and your directory controllers\. For a Simple AD directory, the security group created by AWS Directory Service will have these ports configured correctly\. For an AD Connector directory, you may need to adjust the default security group for the VPC to open these ports\.
-
   + TCP/UDP 53 \- DNS
-
   + TCP/UDP 88 \- Kerberos authentication
-
   + UDP 123 \- NTP
-
   + TCP 135 \- RPC
-
   + UDP 137\-138 \- Netlogon
-
   + TCP 139 \- Netlogon
-
   + TCP/UDP 389 \- LDAP
-
   + TCP/UDP 445 \- SMB
-
   + TCP 1024\-65535 \- Dynamic ports for RPC
 
   If any security or firewall software is installed on a WorkSpace that blocks any of these ports, the WorkSpace may not function correctly or may be unreachable\.
-
 + All WorkSpaces require that port 80 \(HTTP\) be open to IP address `169.254.169.254` to allow access to the EC2 metadata service\. Any HTTP proxy assigned to your WorkSpaces must exclude `169.254.169.254`\.

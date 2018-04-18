@@ -6,7 +6,7 @@ Amazon WorkSpaces uses directories to store and manage information for your Work
 
 In this tutorial, we launch a WorkSpace that uses AD Connector\. For tutorials that use the other options, see [Launch a Virtual Desktop Using Amazon WorkSpaces](launch-workspaces-tutorials.md)\.
 
-
+**Topics**
 + [Before You Begin](#prereqs-ad-connector)
 + [Step 1: Create an AD Connector](#create-ad-connector)
 + [Step 2: Create a WorkSpace](#create-workspace-ad-connector)
@@ -14,13 +14,9 @@ In this tutorial, we launch a WorkSpace that uses AD Connector\. For tutorials t
 + [Next Steps](#next-steps-ad-connector)
 
 ## Before You Begin<a name="prereqs-ad-connector"></a>
-
 + Amazon WorkSpaces is not available in every region\. Verify the supported regions and select a region for your WorkSpaces\. For more information about the supported regions, see [Amazon WorkSpaces Pricing by AWS Region](https://aws.amazon.com/workspaces/pricing/)\.
-
 + When you launch a WorkSpace, you must select a WorkSpace bundle\. A bundle is a combination of storage, compute, and software resources\. For more information, see [Amazon WorkSpaces Bundles](https://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles)\.
-
 + Create a virtual private cloud with at least two private subnets\. The VPC must be connected to your on\-premises network through a virtual private network \(VPN\) connection or AWS Direct Connect\. For more information, see [AD Connector Prerequisites](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cloud_prereq.html#cloud_prereq_connector) in the *AWS Directory Service Administration Guide*\.
-
 + Provide access to the Internet from the WorkSpace\. For more information, see [Provide Internet Access from Your WorkSpace](amazon-workspaces-internet-access.md)\.
 
 ## Step 1: Create an AD Connector<a name="create-ad-connector"></a>
@@ -110,11 +106,7 @@ You can connect to your WorkSpace using the client of your choice\. After you si
 ## Next Steps<a name="next-steps-ad-connector"></a>
 
 You can continue to customize the WorkSpace that you just created\. For example, you can install software and then create a custom bundle from your WorkSpace\. If you are finished with your WorkSpace, you can delete it\. For more information, see the following documentation\.
-
 + [Create a Custom WorkSpaces Bundle](create-custom-bundle.md)
-
 + [Administer Your WorkSpaces](administer-workspaces.md)
-
 + [Manage Directories for Amazon WorkSpaces](manage-workspaces-directory.md)
-
 + [Delete a WorkSpace](delete-workspaces.md)

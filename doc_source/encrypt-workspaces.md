@@ -4,26 +4,20 @@ Amazon WorkSpaces is integrated with the AWS Key Management Service \(AWS KMS\)\
 
 ## Prerequisites<a name="encryption_prerequisites"></a>
 
-You need a AWS KMS CMK before you can begin the encryption process\.
+You need an AWS KMS CMK before you can begin the encryption process\.
 
 The first time you launch a WorkSpace from the Amazon WorkSpaces console in a region, a default CMK is created for you automatically\. You can select this key to encrypt the user and root volumes of your WorkSpace\.
 
 Alternately, you can select a CMK that you created using AWS KMS\. For more information about creating keys, see [Creating Keys](http://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) in the *AWS Key Management Service Developer Guide*\. For more information about creating keys using the AWS KMS API, see [Working With Keys](http://docs.aws.amazon.com/kms/latest/developerguide/programming-keys.html) in the *AWS Key Management Service Developer Guide*\.
 
-You must meet the following requirements to use a AWS KMS CMK to encrypt your WorkSpaces:
-
+You must meet the following requirements to use an AWS KMS CMK to encrypt your WorkSpaces:
 + The key must be enabled\.
-
 + You must have the correct permissions and policies associated with the key\. For more information, see [IAM Permissions and Roles for Encryption](#IAM_permissions)\.
 
 ## Limits<a name="encryption_limits"></a>
-
 + Creating a custom image from an encrypted WorkSpace is not supported\.
-
 + Disabling encryption for an encrypted WorkSpace is not currently supported\.
-
 + WorkSpaces launched with root volume encryption enabled might take up to an hour to provision\.
-
 + To reboot or rebuild an encrypted WorkSpace, first make sure that the AWS KMS CMK is enabled; otherwise, the WorkSpace becomes unusable\.
 
 ## Encrypting WorkSpaces<a name="encrypt_workspace"></a>

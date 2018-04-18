@@ -6,7 +6,7 @@ Amazon WorkSpaces uses a directory to store and manage information for your Work
 
 The following tutorials show you how launch a WorkSpace using the supported directory service options\.
 
-
+**Topics**
 + [Launch a WorkSpace Using Microsoft AD](launch-workspace-microsoft-ad.md)
 + [Launch a WorkSpace Using Simple AD](launch-workspace-simple-ad.md)
 + [Launch a WorkSpace Using AD Connector](launch-workspace-ad-connector.md)
