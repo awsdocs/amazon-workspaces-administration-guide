@@ -196,3 +196,19 @@ The following is the format of the `Resource` element of a policy statement that
 ```
 
 You can use the \* wildcard to specify all bundles that belong to a specific account in a specific region\.
+
+### API Actions with No Support for Resource\-Level Permissions<a name="no-resource-level-permissions"></a>
+
+You can't specify a resource ARN with the following API actions:
++ `CreateTags`
++ `DeleteTags`
++ `DescribeTags`
++ `DescribeWorkspaceDirectories`
++ `DescribeWorkspaces`
++ `DescribeWorkspacesConnectionStatus`
+
+For API actions that don't support resource\-level permissions, you must specify the following resource statement:
+
+```
+"Resource": "*"
+```

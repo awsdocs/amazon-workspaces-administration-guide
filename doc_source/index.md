@@ -24,6 +24,7 @@ Amazon's trademarks and trade dress may not be used in
    + [Restrict WorkSpaces Access to Trusted Devices](trusted-devices.md)
    + [Provide Internet Access from Your WorkSpace](amazon-workspaces-internet-access.md)
    + [Security Groups for Your WorkSpaces](amazon-workspaces-security-groups.md)
+   + [IP Access Control Groups for Your WorkSpaces](amazon-workspaces-ip-access-control-groups.md)
    + [Set Up PCoIP Zero Client for WorkSpaces](set-up-pcoip-zero-client.md)
 + [Manage Directories for Amazon WorkSpaces](manage-workspaces-directory.md)
    + [Register a Directory with Amazon WorkSpaces](register-deregister-directory.md)

@@ -69,6 +69,7 @@ Amazon WorkSpaces uses PCoIP to stream the desktop session to clients over port 
 | --- | --- | 
 | US East \(N\. Virginia\) | 52\.23\.61\.0 – 52\.23\.62\.255 | 
 | US West \(Oregon\) | 54\.244\.46\.0 – 54\.244\.47\.255 | 
+| Canada \(Central\) | 35\.183\.255\.0 \- 35\.183\.255\.255 | 
 | EU \(Ireland\) | 52\.19\.124\.0 – 52\.19\.125\.255 | 
 | EU \(Frankfurt\) | 52\.59\.127\.0 \- 52\.59\.127\.255 | 
 | EU \(London\) | 35\.176\.32\.0 \- 35\.176\.32\.255 | 
@@ -85,6 +86,7 @@ The Amazon WorkSpaces client application performs PCoIP health checks over port 
 | --- | --- | 
 | US East \(N\. Virginia\) | drp\-iad\.amazonworkspaces\.com | 
 | US West \(Oregon\) | drp\-pdx\.amazonworkspaces\.com | 
+| Canada \(Central\) | drp\-yul\.amazonworkspaces\.com | 
 | EU \(Ireland\) | drp\-dub\.amazonworkspaces\.com | 
 | EU \(Frankfurt\) | drp\-fra\.amazonworkspaces\.com | 
 | EU \(London\) | drp\-lhr\.amazonworkspaces\.com | 
@@ -113,6 +115,7 @@ The following table lists the IP address ranges used for the management network 
 | --- | --- | 
 | US East \(N\. Virginia\) | 172\.31\.0\.0/16, 192\.168\.0\.0/16, and 198\.19\.0\.0/16 | 
 | US West \(Oregon\) | 172\.31\.0\.0/16 and 192\.168\.0\.0/16 | 
+| Canada \(Central\) | 198\.19\.0\.0/16 | 
 | EU \(Ireland\) | 172\.31\.0\.0/16 and 192\.168\.0\.0/16 | 
 | EU \(Frankfurt\) | 198\.19\.0\.0/16 | 
 | EU \(London\) | 198\.19\.0\.0/16 | 

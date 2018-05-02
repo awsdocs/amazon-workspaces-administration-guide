@@ -5,6 +5,8 @@ The following table describes important additions to the Amazon WorkSpaces servi
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| IP access control groups | You can control the IP addresses from which users can access their WorkSpaces\. For more information, see [IP Access Control Groups for Your WorkSpaces](amazon-workspaces-ip-access-control-groups.md)\. | April 30, 2018 | 
+| In\-place upgrades | You can upgrade your Windows 10 BYOL WorkSpaces to a newer version of Windows 10\. For more information, see [Upgrade Windows 10 BYOL WorkSpaces](upgrade-windows-10-byol-workspaces.md)\. | March 9, 2018 | 
 | Flexible compute options | You can switch your WorkSpaces between the Value, Standard, Performance, and Power bundles\. For more information, see [Modify a WorkSpace](modify-workspaces.md)\. | December 22, 2017 | 
 | Configurable storage | You can configure the size of the root and user volumes for your WorkSpaces when you launch them and increase the size of these volumes later on\. For more information, see [Modify a WorkSpace](modify-workspaces.md)\. | December 22, 2017 | 
 | Control device access | You can specify the types of devices that have access to WorkSpaces\. In addition, you can restrict access to WorkSpaces to trusted devices \(also known as managed devices\)\. For more information, see [Control Device Access](update-directory-details.md#control-device-access)\. | June 19, 2017 | 
