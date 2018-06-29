@@ -15,4 +15,5 @@ After you create a directory, you'll perform most directory administration tasks
 + [Update Directory Details for Your WorkSpaces](update-directory-details.md)
 + [Delete the Directory for Your WorkSpaces](delete-workspaces-directory.md)
 + [Set Up Active Directory Administration Tools for Amazon WorkSpaces](directory_administration.md)
-+ [Manage Your WorkSpaces Using Group Policy](group_policy.md)
++ [Manage Your Windows WorkSpaces Using Group Policy](group_policy.md)
++ [Manage Your Amazon Linux WorkSpaces](manage_linux_workspace.md)

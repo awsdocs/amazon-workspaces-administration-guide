@@ -120,7 +120,7 @@ The following table lists the IP address ranges used for the management network 
 | EU \(Frankfurt\) | 198\.19\.0\.0/16 | 
 | EU \(London\) | 198\.19\.0\.0/16 | 
 | Asia Pacific \(Singapore\) | 198\.19\.0\.0/16 | 
-| Asia Pacific \(Sydney\) | 172\.31\.0\.0/16 and 192\.168\.0\.0/16 | 
+| Asia Pacific \(Sydney\) | 172\.31\.0\.0/16, 192\.168\.0\.0/16, and 198\.19\.0\.0/16 | 
 | Asia Pacific \(Seoul\) | 198\.19\.0\.0/16 | 
 | Asia Pacific \(Tokyo\) | 198\.19\.0\.0/16 | 
 | South America \(São Paulo\) | 198\.19\.0\.0/16 | 

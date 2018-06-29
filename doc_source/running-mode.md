@@ -54,7 +54,7 @@ To remove the fixed infrastructure costs associated with AutoStop WorkSpaces, re
 
 ## Set Maintenance Mode<a name="set-maintenance-mode"></a>
 
-If you enable maintenance mode for your AutoStop WorkSpaces, they are started automatically one time a month in order to download and install important service, security, and Windows updates\. Unless the updates are delayed, we schedule the maintenance window for the third Monday of the month from 00:00 to 05:00 in the time zone of the Region for the WorkSpace\.
+If you enable maintenance mode for your AutoStop WorkSpaces, they are started automatically one time a month in order to download and install important service, security, and Windows updates\. Unless the updates are delayed, the maintenance window is typically between 00:00 and 05:00 every day, starting on the third Monday of the month\. The maintenance window might take up to two weeks\. A WorkSpace can be maintained on any day in the maintenance window\. 
 
 After you enable maintenance mode, ensure that your WorkSpaces are in the stopped state between 00:00 and 02:00 of the maintenance window\. Otherwise, they are not maintained automatically\.
 

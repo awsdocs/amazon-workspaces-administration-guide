@@ -1,28 +1,28 @@
-# Launch a WorkSpace Using Microsoft AD<a name="launch-workspace-microsoft-ad"></a>
+# Launch a WorkSpace Using AWS Managed Microsoft AD<a name="launch-workspace-microsoft-ad"></a>
 
-Amazon WorkSpaces enables you to provision virtual, cloud\-based Microsoft Windows desktops for your users, known as *WorkSpaces*\.
+Amazon WorkSpaces enables you to provision virtual, cloud\-based Windows desktops for your users, known as *WorkSpaces*\.
 
-Amazon WorkSpaces uses directories to store and manage information for your WorkSpaces and users\. For your directory, you can choose from Simple AD, AD Connector, or AWS Directory Service for Microsoft Active Directory \(Enterprise Edition\), also known as Microsoft AD\. In addition, you can establish a trust relationship between your Microsoft AD directory and your on\-premises domain\.
+Amazon WorkSpaces uses directories to store and manage information for your WorkSpaces and users\. For your directory, you can choose from Simple AD, AD Connector, or AWS Directory Service for Microsoft Active Directory, also known as AWS Managed Microsoft AD\. In addition, you can establish a trust relationship between your AWS Managed Microsoft AD directory and your on\-premises domain\.
 
-In this tutorial, we launch a WorkSpace that uses Microsoft AD\. For tutorials that use the other options, see [Launch a Virtual Desktop Using Amazon WorkSpaces](launch-workspaces-tutorials.md)\.
+In this tutorial, we launch a WorkSpace that uses AWS Managed Microsoft AD\. For tutorials that use the other options, see [Launch a Virtual Desktop Using Amazon WorkSpaces](launch-workspaces-tutorials.md)\.
 
 **Topics**
 + [Before You Begin](#prereqs-microsoft-ad)
-+ [Step 1: Create a Microsoft AD Directory](#create-microsoft-ad)
++ [Step 1: Create an AWS Managed Microsoft AD Directory](#create-microsoft-ad)
 + [Step 2: Create a WorkSpace](#create-workspace-microsoft-ad)
 + [Step 3: Connect to the WorkSpace](#connect-workspace-microsoft-ad)
 + [Next Steps](#next-steps-microsoft-ad)
 
 ## Before You Begin<a name="prereqs-microsoft-ad"></a>
 + Amazon WorkSpaces is not available in every region\. Verify the supported regions and select a region for your WorkSpaces\. For more information about the supported regions, see [Amazon WorkSpaces Pricing by AWS Region](https://aws.amazon.com/workspaces/pricing/)\.
-+ When you launch a WorkSpace, you must select a WorkSpace bundle\. A bundle is a combination of storage, compute, and software resources\. For more information, see [Amazon WorkSpaces Bundles](https://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles)\.
++ When you launch a WorkSpace, you must select a WorkSpace bundle\. A bundle is a combination of an operating system, and storage, compute, and software resources\. For more information, see [Amazon WorkSpaces Bundles](https://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles)\.
 + When you create a directory using AWS Directory Service or launch a WorkSpace, you must create or select a virtual private cloud configured with a public subnet and two private subnets\. For more information, see [Configure a VPC for Amazon WorkSpaces](amazon-workspaces-vpc.md)\.
 
-## Step 1: Create a Microsoft AD Directory<a name="create-microsoft-ad"></a>
+## Step 1: Create an AWS Managed Microsoft AD Directory<a name="create-microsoft-ad"></a>
 
-Create a Microsoft AD directory\. AWS Directory Service creates two directory servers, one in each of the private subnets of your VPC\. Note that there are no users in the directory initially\. You will add a user in the next step when you launch the WorkSpace\.
+First, create an AWS Managed Microsoft AD directory\. AWS Directory Service creates two directory servers, one in each of the private subnets of your VPC\. Note that there are no users in the directory initially\. You will add a user in the next step when you launch the WorkSpace\.
 
-**To create a Microsoft AD directory**
+**To create an AWS Managed Microsoft AD directory**
 
 1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
@@ -38,7 +38,7 @@ Create a Microsoft AD directory\. AWS Directory Service creates two directory se
 
    1. For **NetBIOS name**, type a short name for the directory \(for example, workspaces\)\.
 
-   1. For **Admin password** and **Confirm password**, type a password for the directory administrator account\. For more information about the password requirements, see [How to Create a Microsoft AD Directory](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/create_managed_ad.html) in the *AWS Directory Service Administration Guide*\.
+   1. For **Admin password** and **Confirm password**, type a password for the directory administrator account\. For more information about the password requirements, see [Create Your AWS Managed Microsoft AD Directory](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/create_managed_ad.html) in the *AWS Directory Service Administration Guide*\.
 
    1. \(Optional\) For **Description**, type a description for the directory\.
 
@@ -54,7 +54,7 @@ Create a Microsoft AD directory\. AWS Directory Service creates two directory se
 
 ## Step 2: Create a WorkSpace<a name="create-workspace-microsoft-ad"></a>
 
-Now that you have created a Microsoft AD directory, you are ready to create a WorkSpace\.
+Now that you have created an AWS Managed Microsoft AD directory, you are ready to create a WorkSpace\.
 
 **To create a WorkSpace**
 
@@ -90,13 +90,15 @@ After you receive the invitation email, you can connect to your WorkSpace using 
 **Note**  
 Passwords are case\-sensitive and must be between 8 and 64 characters in length, inclusive\. Passwords must contain at least one character from three of the following categories: lowercase letters \(a\-z\), uppercase letters \(A\-Z\), numbers \(0\-9\), and \~\!@\#$%^&\*\_\-\+=`\|\\\(\)\{\}\[\]:;"'<>,\.?/\.
 
-1. When prompted, download one of the client applications or launch Web Access\.
+1. When prompted, download one of the client applications or, for Windows WorkSpaces, launch Web Access\. 
+**Note**  
+You cannot use a web browser to connect to Amazon Linux WorkSpaces\.
 
    If you aren't prompted and you haven't installed a client application already, open [http://clients\.amazonworkspaces\.com/](http://clients.amazonworkspaces.com/) and follow the directions\.
 
 1. Start the client, enter the registration code from the invitation email, and choose **Register**\.
 
-1. When prompted to sign in, type the username and password for the user, and then choose **Sign In**\.
+1. When prompted to sign in, type the user name and password for the user, and then choose **Sign In**\.
 
 1. \(Optional\) When prompted to save your credentials, choose **Yes**\.
 

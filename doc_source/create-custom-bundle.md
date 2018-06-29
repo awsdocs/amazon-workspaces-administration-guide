@@ -1,8 +1,8 @@
 # Create a Custom WorkSpaces Bundle<a name="create-custom-bundle"></a>
 
-After you've launched a WorkSpace and customized it, you can create an image from the WorkSpace and then create a custom bundle from the image\. You can specify this bundle when you launch new WorkSpaces to ensure that they have the same configuration and software as the WorkSpace you used to create the bundle\.
+After you've launched a Windows or Amazon Linux WorkSpace and customized it, you can create an image from the WorkSpace and then create a custom bundle from the image\. You can specify this bundle when you launch new WorkSpaces to ensure that they have the same configuration and software as the WorkSpace you used to create the bundle\.
 
-**Requirements**
+**Requirements to create Windows custom images**
 + All applications to be included in the image must be installed on the `C:\` drive, or the user profile in `D:\Users\`*username*\. They must also be compatible with Microsoft Sysprep\.
 + The user profile must exist and its total size \(files and data\) must be less than 10 GB\.
 + The `C:\` drive must have enough available space for the contents of the user profile, plus an additional 2 GB\.
@@ -16,6 +16,14 @@ After you've launched a WorkSpace and customized it, you can create an image fro
   + Teradici PCoIP agents and drivers
   + STXHD agents and drivers
   + AWS and WorkSpaces certificates
+  + Skylight agent
+
+**Requirements to create Amazon Linux custom images**
++ All applications to be included in the image must be installed outside of the /home directory \(or user volume\)\.
++ The root volume \(/\) should be less than 97% full\.
++ The following components are required in an image; otherwise, the WorkSpaces you launch from the image will not function correctly:
+  + Cloud\-init
+  + Teradici PCoIP agents and drivers
   + Skylight agent
 
 **Best Practices**
@@ -35,17 +43,31 @@ Before you create an image from a WorkSpace, do the following:
 
 1. Select the WorkSpace and choose **Actions**, **Create Image**\.
 
-1. Type an image name and a description that will help you identify the image, and then choose **Create Image**\. The WorkSpace is unavailable while the image is being created\.
+1. A message displays prompting you to restart your WorkSpace before continuing, to update your WorkSpaces software to the latest version necessary\. 
+
+   Restart your WorkSpace if needed by closing the message and following the steps in [Restart a WorkSpace](reboot-workspaces.md)\. When you're done, repeat the previous step, and choose **Next** when this message appears\.
+
+1. Type an image name and a description that will help you identify the image, and then choose **Create Image**\. While the image is being created, the status of the WorkSpace is **Suspended** and the WorkSpace is unavailable\.
 
 1. In the navigation pane, choose **Images**\. The image is complete when the status changes to **Available**\.
 
 1. Select the image and choose **Actions**, **Create Bundle**\.
 
-1. Type a bundle name and a description, select a hardware type, and choose **Create Bundle**\.
+1. Type a bundle name and a description, and then do the following: 
+   + For **Bundle Type**, choose the hardware from which your WorkSpace is launched\. 
+   + For **Root Volume Size**, leave the default value or type a new value, then type a value for **User Volume Size**\.
 
-**Image Creation**
+      The available sizes for the root volume \(for Microsoft Windows, the C: drive, for Linux, /\) and the user volume user volume \(for Windows, the D: drive; for Linux, /home\) are as follows: 
+     + Root: 80 GB, User: 10 GB, 50 GB, or 100 GB
+     + Root: 175 GB, User: 100 GB
 
-When you create an image, the entire contents of the `C:\` drive are included\. The entire contents of the user profile in `D:\Users\`*username* are included except for the following:
+     Alternatively, you can expand the root and user volumes up to 1000 GB each\.
+
+1. Choose **Create Bundle**\.
+
+**Image Creation for Windows WorkSpaces**
+
+When you create an image from a Windows WorkSpace, the entire contents of the `C:\` drive are included\. The entire contents of the user profile in `D:\Users\`*username* are included except for the following:
 + Contacts
 + Downloads
 + Music
@@ -79,3 +101,32 @@ When you create an image, the entire contents of the `C:\` drive are included\. 
 + appdata\\locallow\\microsoft\\internet explorer\\imagestore\\
 + appdata\\local\\microsoft\\internet explorer\\recovery\\
 + appdata\\local\\mozilla\\firefox\\profiles\\
+
+**Image Creation for Amazon Linux WorkSpaces**
+
+When you create an image from an Amazon Linux WorkSpace, the entire contents of the user volume \(/home\) are removed\. The contents of the root volume \(/\) are included, except the following folders and keys, which are removed:
++ /tmp
++ /var/spool/mail
++ /var/tmp
++ /var/lib/dhcp
++ /var/lib/cloud
++ /var/cache
++ /var/backups
++ /etc/sudoers\.d
++ /etc/udev/rules\.d/70\-persistent\-net\.rules
++ /etc/network/interfaces\.d/50\-cloud\-init\.cfg
++ /var/log/amazon/ssm
++ /var/log/pcoip\-agent
++ /var/log/skylight
++ /var/lock/\.skylight\.domain\-join\.lock
++ /var/lib/skylight/domain\-join\-status
++ /var/lib/skylight/configuration\-data
++ /var/lib/skylight/config\-data\.json
++ /home
+
+The following keys are shredded during custom image creation:
++ /etc/ssh/ssh\_host\_\*\_key
++ /etc/ssh/ssh\_host\_\*\_key\.pub
++ /var/lib/skylight/tls\.\*
++ /var/lib/skylight/private\.key
++ /var/lib/skylight/public\.key

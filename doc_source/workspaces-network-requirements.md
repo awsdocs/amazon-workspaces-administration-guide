@@ -1,6 +1,11 @@
 # Amazon WorkSpaces Client Network Requirements<a name="workspaces-network-requirements"></a>
 
-Your Amazon WorkSpaces users access their WorkSpaces using the client application for a supported device or a web browser\. To provide your users with a good experience with their WorkSpaces, verify that their client devices meet the following network requirements:
+Your Amazon WorkSpaces users access their WorkSpaces using the client application for a supported device\. For Windows WorkSpaces, they can also use a web browser\.
+
+**Note**  
+A web browser cannot be used to connect to Amazon Linux WorkSpaces\.
+
+To provide your users with a good experience with their WorkSpaces, verify that their client devices meet the following network requirements:
 + The client device must have a broadband Internet connection\.
 + The network that the client device is connected to, and any firewall on the client device, must have certain ports open to the IP address ranges for various AWS services\. For more information, see [Port Requirements for Amazon WorkSpaces](workspaces-port-requirements.md)\.
 + The round trip time \(RTT\) from the client's network to the region that the WorkSpaces are in should be less than 100ms\. If the RTT is between 100ms and 250ms, the user can access the WorkSpace but performance is degraded\.

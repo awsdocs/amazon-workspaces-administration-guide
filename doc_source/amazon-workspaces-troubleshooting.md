@@ -5,13 +5,12 @@ The following information can help you troubleshoot issues with your WorkSpaces\
 **Topics**
 + [Launching WorkSpaces in my connected directory often fails](#provision_fail)
 + [Launching WorkSpaces fails with an internal error](#launch-failure-ipv6)
-+ [Can't connect to a WorkSpace with an interactive logon banner](#logon_banner)
++ [Can't connect to a Windows WorkSpace with an interactive logon banner](#logon_banner)
 + [No WorkSpaces in my directory can connect to the Internet](#no_internet)
 + [I receive a "DNS unavailable" error when I try to connect to my on\-premises directory](#dns_unavailable)
 + [I receive a "Connectivity issues detected" error when I try to connect to my on\-premises directory](#connectivity_issues_detected)
 + [I receive an "SRV record" error when I try to connect to my on\-premises directory](#srv_record_not_found)
 + [One of my WorkSpaces has a state of "Unhealthy"](#unhealthy)
-+ [The state of my apps was not saved when my WorkSpace was stopped](#save-state)
 
 ## Launching WorkSpaces in my connected directory often fails<a name="provision_fail"></a>
 
@@ -21,9 +20,9 @@ Verify that the two DNS servers or domain controllers in your on\-premises direc
 
 Check whether your subnets are configured to automatically assign IPv6 addresses to instances launched in the subnet\. To check this setting, open the Amazon VPC console, select your subnet, and choose **Subnet Actions**, **Modify auto\-assign IP settings**\. If this setting is enabled, you cannot launch WorkSpaces using the Performance or Graphics bundles\. Instead, disable this setting and specify IPv6 addresses manually when you launch your instances\.
 
-## Can't connect to a WorkSpace with an interactive logon banner<a name="logon_banner"></a>
+## Can't connect to a Windows WorkSpace with an interactive logon banner<a name="logon_banner"></a>
 
-Implementing an interactive logon message to display a logon banner prevents users from being able to access their WorkSpaces\. The interactive logon message Group Policy setting is not currently supported by Amazon WorkSpaces\.
+Implementing an interactive logon message to display a logon banner prevents users from being able to access their Windows WorkSpaces\. The interactive logon message Group Policy setting is not currently supported by Amazon WorkSpaces\.
 
 ## No WorkSpaces in my directory can connect to the Internet<a name="no_internet"></a>
 
@@ -82,9 +81,3 @@ You can attempt to correct the situation using the following methods:
 
   1. On the unhealthy WorkSpace, confirm that the minimum port requirements are met\.
 + Rebuild the WorkSpace from the Amazon WorkSpaces console\. Because rebuilding a WorkSpace can potentially cause a loss of data, this option should only be used if all other attempts to correct the problem have been unsuccessful\.
-
-## The state of my apps was not saved when my WorkSpace was stopped<a name="save-state"></a>
-
-To save the state of your apps, you must have enough free space on the root volume of your WorkSpace to store the total memory offered on the WorkSpace bundle\. For example, a Standard Workspace has 4 GB of memory, so you must have 4 GB of free space on the root volume of the WorkSpace\.
-
-Also, if the Amazon WorkSpaces service could not communicate with the WorkSpace when a stop request is issued, it will force shut down the operating system and the state of the apps will not be saved\.

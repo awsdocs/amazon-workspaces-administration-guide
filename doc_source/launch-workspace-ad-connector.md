@@ -2,7 +2,7 @@
 
 Amazon WorkSpaces enables you to provision virtual, cloud\-based Microsoft Windows desktops for your users, known as *WorkSpaces*\.
 
-Amazon WorkSpaces uses directories to store and manage information for your WorkSpaces and users\. For your directory, you can choose from Simple AD, AD Connector, or AWS Directory Service for Microsoft Active Directory \(Enterprise Edition\), also known as Microsoft AD\. In addition, you can establish a trust relationship between your Microsoft AD directory and your on\-premises domain\.
+Amazon WorkSpaces uses directories to store and manage information for your WorkSpaces and users\. For your directory, you can choose from Simple AD, AD Connector, or AWS Directory Service for Microsoft Active Directory, also known as AWS Managed Microsoft AD\. In addition, you can establish a trust relationship between your AWS Managed Microsoft AD directory and your on\-premises domain\.
 
 In this tutorial, we launch a WorkSpace that uses AD Connector\. For tutorials that use the other options, see [Launch a Virtual Desktop Using Amazon WorkSpaces](launch-workspaces-tutorials.md)\.
 
@@ -15,7 +15,7 @@ In this tutorial, we launch a WorkSpace that uses AD Connector\. For tutorials t
 
 ## Before You Begin<a name="prereqs-ad-connector"></a>
 + Amazon WorkSpaces is not available in every region\. Verify the supported regions and select a region for your WorkSpaces\. For more information about the supported regions, see [Amazon WorkSpaces Pricing by AWS Region](https://aws.amazon.com/workspaces/pricing/)\.
-+ When you launch a WorkSpace, you must select a WorkSpace bundle\. A bundle is a combination of storage, compute, and software resources\. For more information, see [Amazon WorkSpaces Bundles](https://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles)\.
++ When you launch a WorkSpace, you must select a WorkSpace bundle\. A bundle is a combination of an operating system, and storage, compute, and software resources\. For more information, see [Amazon WorkSpaces Bundles](https://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles)\.
 + Create a virtual private cloud with at least two private subnets\. The VPC must be connected to your on\-premises network through a virtual private network \(VPN\) connection or AWS Direct Connect\. For more information, see [AD Connector Prerequisites](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cloud_prereq.html#cloud_prereq_connector) in the *AWS Directory Service Administration Guide*\.
 + Provide access to the Internet from the WorkSpace\. For more information, see [Provide Internet Access from Your WorkSpace](amazon-workspaces-internet-access.md)\.
 

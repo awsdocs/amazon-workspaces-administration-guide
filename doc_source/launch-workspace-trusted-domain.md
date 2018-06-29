@@ -2,7 +2,7 @@
 
 Amazon WorkSpaces enables you to provision virtual, cloud\-based Microsoft Windows desktops for your users, known as *WorkSpaces*\.
 
-Amazon WorkSpaces uses directories to store and manage information for your WorkSpaces and users\. For your directory, you can choose from Simple AD, AD Connector, or AWS Directory Service for Microsoft Active Directory \(Enterprise Edition\), also known as Microsoft AD\. In addition, you can establish a trust relationship between your Microsoft AD directory and your on\-premises domain\.
+Amazon WorkSpaces uses directories to store and manage information for your WorkSpaces and users\. For your directory, you can choose from Simple AD, AD Connector, or AWS Directory Service for Microsoft Active Directory, also known as AWS Managed Microsoft AD\. In addition, you can establish a trust relationship between your AWS Managed Microsoft AD directory and your on\-premises domain\.
 
 In this tutorial, we launch a WorkSpace that uses a trust relationship\. For tutorials that use the other options, see [Launch a Virtual Desktop Using Amazon WorkSpaces](launch-workspaces-tutorials.md)\.
 
@@ -21,13 +21,13 @@ In this tutorial, we launch a WorkSpace that uses a trust relationship\. For tut
 
 **To set up the trust relationship**
 
-1. Set up Microsoft AD in your virtual private cloud \(VPC\)\. For more information, see [How to Create a Microsoft AD directory](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/create_managed_ad.html) in the *AWS Directory Service Administration Guide*\.
+1. Set up AWS Managed Microsoft AD in your virtual private cloud \(VPC\)\. For more information, see [Create Your AWS Managed Microsoft AD directory](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/create_managed_ad.html) in the *AWS Directory Service Administration Guide*\.
 
-1. Create a trust relationship between your Microsoft AD and your on\-premises domain\. Ensure that the trust is configured as a two\-way trust\. For more information, see [Tutorial: Create a Trust Relationship Between Your Microsoft AD and Your On\-Premises Domain](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/tutorial_setup_trust.html) in the *AWS Directory Service Administration Guide*\.
+1. Create a trust relationship between your AWS Managed Microsoft AD and your on\-premises domain\. Ensure that the trust is configured as a two\-way trust\. For more information, see [Tutorial: Create a Trust Relationship Between Your AWS Managed Microsoft AD and Your On\-Premises Domain](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/tutorial_setup_trust.html) in the *AWS Directory Service Administration Guide*\.
 
 ## Step 2: Create a WorkSpace<a name="create-workspace-trusted-domain"></a>
 
-After you establish a trust relationship between your AWS Microsoft AD and your on\-premises Microsoft Active Directory domain, you can provision WorkSpaces for users in the on\-premises domain\.
+After you establish a trust relationship between your AWS Managed Microsoft AD and your on\-premises Microsoft Active Directory domain, you can provision WorkSpaces for users in the on\-premises domain\.
 
 Note that you must ensure that GPO settings are replicated across domains before you can apply them to Amazon WorkSpaces\.
 

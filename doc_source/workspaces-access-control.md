@@ -59,7 +59,7 @@ Note that although Amazon WorkSpaces fully supports the `Action` and `Resource` 
 ```
 
 **Example 2: Perform WorkSpace\-specific tasks**  <a name="perform-workspace-specific-tasks"></a>
-The following policy statement grants an IAM user permission to perform WorkSpace\-specific tasks, such as launching and removing WorkSpaces\. The user can perform some tasks on the WorkSpaces directory, such as enabling or disabling the settings for Internet access, local administrator access, and maintenance mode\.  
+The following policy statement grants an IAM user permission to perform WorkSpace\-specific tasks, such as launching and removing WorkSpaces\. In the policy statement, the `ds:*` action grants broad permissions — full control over all Directory Services objects in the account\.  
 
 ```
 {

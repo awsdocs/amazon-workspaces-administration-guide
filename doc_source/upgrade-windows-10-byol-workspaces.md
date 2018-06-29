@@ -18,7 +18,7 @@ This guidance applies only to Windows 10 BYOL WorkSpaces\. WorkSpaces with the W
 
     You can do this manually\. If you have multiple WorkSpaces to update, you can use Group Policy or SCCM to push a [PowerShell script](#update-windows-10-byol-script)\.
    + **HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Amazon\\WorkSpacesConfig\\enable\-inplace\-upgrade\.ps1**
-   + **HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Amazon\\WorkSpacesConfig\\upgrade\-pvdrivers\.ps1**
+   + **HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Amazon\\WorkSpacesConfig\\update\-pvdrivers\.ps1**
 **Note**  
 If these keys do not exist, reboot the WorkSpace\. The keys should be added when the system is rebooted\.
 
