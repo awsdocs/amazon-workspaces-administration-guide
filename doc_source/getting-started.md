@@ -65,7 +65,7 @@ After you receive the invitation email, you can connect to the WorkSpace using t
    Note that passwords are case\-sensitive and must be between 8 and 64 characters in length, inclusive\. Passwords must contain at least one character from three of the following categories: lowercase letters \(a\-z\), uppercase letters \(A\-Z\), numbers \(0\-9\), and the set \~\!@\#$%^&\*\_\-\+=`\|\\\(\)\{\}\[\]:;"'<>,\.?/\.  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/images/get-started-user-profile2.png)
 
-1. When prompted, download one of the client applications or launch Web Access\. For more information about the requirements for each client, see [Amazon WorkSpaces Clients](http://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-clients.html) in the *Amazon WorkSpaces User Guide*\.
+1. When prompted, download one of the client applications or launch Web Access\. For more information about the requirements for each client, see [Amazon WorkSpaces Clients](https://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-clients.html) in the *Amazon WorkSpaces User Guide*\.
 
    If you aren't prompted and you haven't installed a client application already, open [https://clients\.amazonworkspaces\.com](https://clients.amazonworkspaces.com/) and follow the directions\.
 

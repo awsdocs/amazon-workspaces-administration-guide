@@ -16,7 +16,7 @@ In this tutorial, we launch a WorkSpace that uses AD Connector\. For tutorials t
 ## Before You Begin<a name="prereqs-ad-connector"></a>
 + Amazon WorkSpaces is not available in every region\. Verify the supported regions and select a region for your WorkSpaces\. For more information about the supported regions, see [Amazon WorkSpaces Pricing by AWS Region](https://aws.amazon.com/workspaces/pricing/)\.
 + When you launch a WorkSpace, you must select a WorkSpace bundle\. A bundle is a combination of an operating system, and storage, compute, and software resources\. For more information, see [Amazon WorkSpaces Bundles](https://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles)\.
-+ Create a virtual private cloud with at least two private subnets\. The VPC must be connected to your on\-premises network through a virtual private network \(VPN\) connection or AWS Direct Connect\. For more information, see [AD Connector Prerequisites](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cloud_prereq.html#cloud_prereq_connector) in the *AWS Directory Service Administration Guide*\.
++ Create a virtual private cloud with at least two private subnets\. The VPC must be connected to your on\-premises network through a virtual private network \(VPN\) connection or AWS Direct Connect\. For more information, see [AD Connector Prerequisites](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/cloud_prereq.html#cloud_prereq_connector) in the *AWS Directory Service Administration Guide*\.
 + Provide access to the Internet from the WorkSpace\. For more information, see [Provide Internet Access from Your WorkSpace](amazon-workspaces-internet-access.md)\.
 
 ## Step 1: Create an AD Connector<a name="create-ad-connector"></a>
@@ -67,7 +67,7 @@ Now you are ready to launch WorkSpaces for one or more users in your on\-premise
 
 1. For **Directory**, choose the directory that you created\.
 
-1. \(Optional\) If this is the first time you have launched a WorkSpace in this directory, and Amazon WorkDocs is supported in the region, you can enable or disable Amazon WorkDocs for all users in the directory\. For more information, see [Amazon WorkDocs Sync Client Help](http://docs.aws.amazon.com/workdocs/latest/userguide/sync_client_help.html) in the *Amazon WorkDocs Administration Guide*\.
+1. \(Optional\) If this is the first time you have launched a WorkSpace in this directory, and Amazon WorkDocs is supported in the region, you can enable or disable Amazon WorkDocs for all users in the directory\. For more information, see [Amazon WorkDocs Sync Client Help](https://docs.aws.amazon.com/workdocs/latest/userguide/sync_client_help.html) in the *Amazon WorkDocs Administration Guide*\.
 
 1. Choose **Next**\. Amazon WorkSpaces registers your AD Connector\.
 

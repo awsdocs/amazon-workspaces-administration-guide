@@ -1,10 +1,10 @@
 # Control Access to Amazon WorkSpaces Resources<a name="workspaces-access-control"></a>
 
-By default, IAM users don't have permissions for Amazon WorkSpaces resources and operations\. To allow IAM users to manage Amazon WorkSpaces resources, you must create an IAM policy that explicitly grants them permissions, and attach the policy to the IAM users or groups that require those permissions\. For more information about IAM policies, see [Permissions and Policies](http://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html) in the *IAM User Guide* guide\.
+By default, IAM users don't have permissions for Amazon WorkSpaces resources and operations\. To allow IAM users to manage Amazon WorkSpaces resources, you must create an IAM policy that explicitly grants them permissions, and attach the policy to the IAM users or groups that require those permissions\. For more information about IAM policies, see [Permissions and Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html) in the *IAM User Guide* guide\.
 
 Amazon WorkSpaces also creates an IAM role to allow the Amazon WorkSpaces service access to required resources\.
 
-For more information about IAM, see [Identity and Access Management \(IAM\)](http://aws.amazon.com/iam) and the [IAM User Guide](http://docs.aws.amazon.com/IAM/latest/UserGuide/)\.
+For more information about IAM, see [Identity and Access Management \(IAM\)](http://aws.amazon.com/iam) and the [IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/)\.
 
 **Example 1: Perform all Amazon WorkSpaces tasks**  <a name="perform-workspaces-tasks"></a>
 The following policy statement grants an IAM user permission to perform all Amazon WorkSpaces tasks, including creating and managing directories, as well as running the quick setup procedure\.  
@@ -110,32 +110,6 @@ To also grant the user the ability to use the Launch WorkSpaces wizard, add the 
         "workdocs:RemoveUserFromGroup",
         "kms:ListAliases",
         "kms:ListKeys"
-      ],
-      "Resource": "*"
-    }
-  ]
-}
-```
-To grant the user the ability to perform WorkSpaces\-specific tasks except for certificate tasks, add a statement to deny the certificate operations:  
-
-```
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "workspaces:*",
-        "ds:*"
-      ],
-      "Resource": "*"
-    },
-    {
-      "Effect": "Deny",
-      "Action": [
-        "workspaces:DeleteCertificate",
-        "workspaces:ImportCertificate",
-        "workspaces:DescribeCertificates"
       ],
       "Resource": "*"
     }

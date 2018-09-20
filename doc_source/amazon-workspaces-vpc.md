@@ -8,7 +8,7 @@ To provide internet access to WorkSpaces in a private subnet, configure a NAT ga
 
 ![\[Configure your WorkSpaces VPC\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/images/vpc-configuration-new.png)
 
-To configure your VPC for use with Amazon WorkSpaces, complete the following tasks\. For more information about Amazon VPC, see the [Amazon VPC User Guide](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/)\.
+To configure your VPC for use with Amazon WorkSpaces, complete the following tasks\. For more information about Amazon VPC, see the [Amazon VPC User Guide](https://docs.aws.amazon.com/vpc/latest/userguide/)\.
 
 **Topics**
 + [Step 1: Allocate an Elastic IP Address](#allocate-eip)

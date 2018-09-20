@@ -74,7 +74,7 @@ After you create the dedicated administrators group, follow these steps to enabl
 
 ## Use the Amazon Linux Extras Library Repository<a name="linux_extras"></a>
 
-With Amazon Linux, you can use the Extras Library to install application and software updates on your instances\. For information about using the Extras Library, see [Extras Library \(Amazon Linux\)](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/amazon-linux-ami-basics.html#extras-library) in the *Amazon EC2 User Guide for Linux Instances*\.
+With Amazon Linux, you can use the Extras Library to install application and software updates on your instances\. For information about using the Extras Library, see [Extras Library \(Amazon Linux\)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/amazon-linux-ami-basics.html#extras-library) in the *Amazon EC2 User Guide for Linux Instances*\.
 
 **Note**  
 If you are using the Amazon Linux repository, your Amazon Linux WorkSpaces must have internet access or you must configure virtual private cloud \(VPC\) endpoints to this repository and to the main Amazon Linux repository\. For more information, see [Provide Internet Access from Your WorkSpace](amazon-workspaces-internet-access.md)\.

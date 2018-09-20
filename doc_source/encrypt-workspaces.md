@@ -8,7 +8,7 @@ You need an AWS KMS CMK before you can begin the encryption process\.
 
 The first time you launch a WorkSpace from the Amazon WorkSpaces console in a region, a default CMK is created for you automatically\. You can select this key to encrypt the user and root volumes of your WorkSpace\.
 
-Alternately, you can select a CMK that you created using AWS KMS\. For more information about creating keys, see [Creating Keys](http://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) in the *AWS Key Management Service Developer Guide*\. For more information about creating keys using the AWS KMS API, see [Working With Keys](http://docs.aws.amazon.com/kms/latest/developerguide/programming-keys.html) in the *AWS Key Management Service Developer Guide*\.
+Alternately, you can select a CMK that you created using AWS KMS\. For more information about creating keys, see [Creating Keys](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) in the *AWS Key Management Service Developer Guide*\. For more information about creating keys using the AWS KMS API, see [Working With Keys](https://docs.aws.amazon.com/kms/latest/developerguide/programming-keys.html) in the *AWS Key Management Service Developer Guide*\.
 
 You must meet the following requirements to use an AWS KMS CMK to encrypt your WorkSpaces:
 + The key must be enabled\.

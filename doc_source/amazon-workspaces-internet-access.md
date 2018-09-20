@@ -13,7 +13,7 @@ With any of these options, you must ensure that the security group for your Work
 If you are using Amazon WorkSpaces Application Manager \(Amazon WAM\) to deploy applications to your WorkSpaces, your WorkSpaces must have access to the internet\.
 
 **Amazon Linux Extras Library**  
-If you are using the Amazon Linux repository, your Amazon Linux WorkSpaces must either have internet access or you must configure VPC endpoints to this repository and to the main Amazon Linux repository\. For more information, see the *Example: Enabling Access to the Amazon Linux AMI Repositories* section in [Endpoints for Amazon S3](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-endpoints-s3.html)\. The Amazon Linux AMI repositories are Amazon S3 buckets in each region\. If you want instances in your VPC to access the repositories through an endpoint, create an endpoint policy that enables access to these buckets\. The following policy allows access to the Amazon Linux repositories\.
+If you are using the Amazon Linux repository, your Amazon Linux WorkSpaces must either have internet access or you must configure VPC endpoints to this repository and to the main Amazon Linux repository\. For more information, see the *Example: Enabling Access to the Amazon Linux AMI Repositories* section in [Endpoints for Amazon S3](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-s3.html)\. The Amazon Linux AMI repositories are Amazon S3 buckets in each region\. If you want instances in your VPC to access the repositories through an endpoint, create an endpoint policy that enables access to these buckets\. The following policy allows access to the Amazon Linux repositories\.
 
 ```
 {
@@ -40,7 +40,7 @@ If you are using the Amazon Linux repository, your Amazon Linux WorkSpaces must 
 You can manually assign an Elastic IP address to a WorkSpace\.
 
 **Prerequisites**
-+ Your VPC must have an attached internet gateway\. For more information, see [Attaching an Internet Gateway](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Internet_Gateway.html#Add_IGW_Attach_Gateway) in the *Amazon VPC User Guide*\.
++ Your VPC must have an attached internet gateway\. For more information, see [Attaching an Internet Gateway](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html#Add_IGW_Attach_Gateway) in the *Amazon VPC User Guide*\.
 + The route table for the WorkSpaces subnets must have one route for local traffic and another route that sends all other traffic to the internet gateway\.
 
 **To assign an Elastic IP address to a WorkSpace**

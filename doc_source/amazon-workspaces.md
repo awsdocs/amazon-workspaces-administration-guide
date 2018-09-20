@@ -18,7 +18,7 @@ For more information, see [Amazon WorkSpaces](https://aws.amazon.com/workspaces/
 
 ## Architecture<a name="architecture"></a>
 
-For both Windows and Amazon Linux WorkSpaces, each WorkSpace is associated with a virtual private cloud \(VPC\), and a directory to store and manage information for your WorkSpaces and users\. Directories are managed through the AWS Directory Service, which offers the following options: Simple AD, AD Connector, or AWS Directory Service for Microsoft Active Directory, also known as AWS Managed Microsoft AD\. For more information, see the [AWS Directory Service Administration Guide](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/)\.
+For both Windows and Amazon Linux WorkSpaces, each WorkSpace is associated with a virtual private cloud \(VPC\), and a directory to store and manage information for your WorkSpaces and users\. Directories are managed through the AWS Directory Service, which offers the following options: Simple AD, AD Connector, or AWS Directory Service for Microsoft Active Directory, also known as AWS Managed Microsoft AD\. For more information, see the [AWS Directory Service Administration Guide](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/)\.
 
 Amazon WorkSpaces uses a directory, either AWS Directory Service or AWS Managed Microsoft AD, to authenticate users\. Users access their WorkSpaces by using a client application from a supported device or, for Windows WorkSpaces, a web browser, and they log in by using their directory credentials\. The login information is sent to an authentication gateway, which forwards the traffic to the directory for the WorkSpace\. After the user is authenticated, streaming traffic is initiated through the streaming gateway\.
 
@@ -50,7 +50,7 @@ On Windows, macOS, and Linux PCs, you can use the following web browsers to conn
 + Chrome 53 and later
 + Firefox 49 and later
 
-For more information, see [Amazon WorkSpaces Clients](http://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-clients.html) in the *Amazon WorkSpaces User Guide*\.
+For more information, see [Amazon WorkSpaces Clients](https://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-clients.html) in the *Amazon WorkSpaces User Guide*\.
 
 ## Pricing<a name="pricing"></a>
 

@@ -21,9 +21,9 @@ In this tutorial, we launch a WorkSpace that uses a trust relationship\. For tut
 
 **To set up the trust relationship**
 
-1. Set up AWS Managed Microsoft AD in your virtual private cloud \(VPC\)\. For more information, see [Create Your AWS Managed Microsoft AD directory](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/create_managed_ad.html) in the *AWS Directory Service Administration Guide*\.
+1. Set up AWS Managed Microsoft AD in your virtual private cloud \(VPC\)\. For more information, see [Create Your AWS Managed Microsoft AD directory](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/create_managed_ad.html) in the *AWS Directory Service Administration Guide*\.
 
-1. Create a trust relationship between your AWS Managed Microsoft AD and your on\-premises domain\. Ensure that the trust is configured as a two\-way trust\. For more information, see [Tutorial: Create a Trust Relationship Between Your AWS Managed Microsoft AD and Your On\-Premises Domain](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/tutorial_setup_trust.html) in the *AWS Directory Service Administration Guide*\.
+1. Create a trust relationship between your AWS Managed Microsoft AD and your on\-premises domain\. Ensure that the trust is configured as a two\-way trust\. For more information, see [Tutorial: Create a Trust Relationship Between Your AWS Managed Microsoft AD and Your On\-Premises Domain](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/tutorial_setup_trust.html) in the *AWS Directory Service Administration Guide*\.
 
 ## Step 2: Create a WorkSpace<a name="create-workspace-trusted-domain"></a>
 

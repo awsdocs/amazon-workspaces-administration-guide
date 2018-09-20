@@ -2,6 +2,9 @@
 
 After you've launched a Windows or Amazon Linux WorkSpace and customized it, you can create an image from the WorkSpace and then create a custom bundle from the image\. You can specify this bundle when you launch new WorkSpaces to ensure that they have the same configuration and software as the WorkSpace you used to create the bundle\.
 
+**Important**  
+If you plan to create an image from a Windows 10 WorkSpace, do so from one that hasn't been upgraded\. Image creation from Windows 10 WorkSpaces that have been upgraded isn't supported because running Microsoft Sysprep on an upgraded operating system isn't recommended\.
+
 **Requirements to create Windows custom images**
 + All applications to be included in the image must be installed on the `C:\` drive, or the user profile in `D:\Users\`*username*\. They must also be compatible with Microsoft Sysprep\.
 + The user profile must exist and its total size \(files and data\) must be less than 10 GB\.

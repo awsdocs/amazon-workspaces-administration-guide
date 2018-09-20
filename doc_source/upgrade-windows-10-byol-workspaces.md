@@ -2,8 +2,10 @@
 
 On your Windows 10 BYOL WorkSpaces, you can upgrade your Windows 10 WorkSpace to a newer version of Windows 10 using in\-place upgrade\. Follow the instructions in this topic to do so\.
 
-**Note**  
 This guidance applies only to Windows 10 BYOL WorkSpaces\. WorkSpaces with the Windows 10 desktop experience are based on Windows Server 2016 and do not need regular OS release upgrades from Microsoft\.
+
+**Important**  
+Do not run Sysprep on an upgraded WorkSpace\. If you do so, an error that prevents Sysprep from completing may occur\. If you plan to run Sysprep, do so only on a WorkSpace that hasn't been upgraded\.
 
 **Prerequisites**
 + If you have deferred or paused Windows 10 upgrades using Group Policy or System Center Configuration Manager \(SCCM\), enable operating system upgrades for your Windows 10 WorkSpaces\.

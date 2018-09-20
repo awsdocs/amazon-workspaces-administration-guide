@@ -1,11 +1,14 @@
 # Bring Your Own Windows Desktop Images<a name="byol-windows-images"></a>
 
-If your licensing agreement with Microsoft allows it, you can use your Windows 7 or Windows 10 Enterprise or Professional desktop images for your WorkSpaces\. To do this, you must bring your own Microsoft Windows License \(BYOL\) and provide a Windows 7 or Windows 10 image that meets the requirements listed below\. To stay compliant with Microsoft licensing terms, you must run your Amazon WorkSpaces on hardware that is dedicated to you on the AWS cloud\. By bringing your own license, you can save money and provide a consistent experience for your users\. For more information, see [Amazon WorkSpaces Pricing](https://aws.amazon.com/workspaces/pricing/)\.
+If your licensing agreement with Microsoft allows it, you can use your Windows 7 or Windows 10 Enterprise or Professional desktop images for your WorkSpaces\. To do this, you must bring your own Microsoft Windows License \(BYOL\) and provide a Windows 7 or Windows 10 image that meets the following requirements\. To stay compliant with Microsoft licensing terms, you must run your Amazon WorkSpaces on hardware that is dedicated to you on the AWS cloud\. By bringing your own license, you can save money and provide a consistent experience for your users\. For more information, see [Amazon WorkSpaces Pricing](https://aws.amazon.com/workspaces/pricing/)\.
+
+**Important**  
+If you plan to create an image from a computer running the Windows 10 operating system, do so from one that hasn't been upgraded\. Image creation from Windows 10 computers that have been upgraded isn't supported because running Microsoft Sysprep on an upgraded operating system isn't recommended\.
 
 ## Requirements<a name="windows_images_prerequisties"></a>
 
 Before you begin, do the following:
-+ Review the prerequisites and limitations for importing Windows operating systems from a VM\. For more information, see [Importing a VM as an Image](http://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html)\.
++ Review the prerequisites and limitations for importing Windows operating systems from a VM\. For more information, see [Importing a VM as an Image](https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html)\.
 + Verify that your Microsoft licensing agreement allows Windows to be run in a virtual hosted environment\.
 + Verify that your Windows operating system is 64\-bit and activated against your key management servers\.
 + Verify that your Windows operating system has "English \(United States\)" as the primary language\.

@@ -14,7 +14,7 @@ In this tutorial, we launch a WorkSpace that uses Simple AD\. For tutorials that
 + [Next Steps](#next-steps-simple-ad)
 
 ## Before You Begin<a name="prereqs-simple-ad"></a>
-+ Simple AD is not available in every region\. Verify the supported regions and select a region for your Simple AD directory\. For more information about the supported regions, see the **Simple AD** table under [AWS Directory Service](http://docs.aws.amazon.com/general/latest/gr/rande.html#ds_region)\.
++ Simple AD is not available in every region\. Verify the supported regions and select a region for your Simple AD directory\. For more information about the supported regions, see the **Simple AD** table under [AWS Directory Service](https://docs.aws.amazon.com/general/latest/gr/rande.html#ds_region)\.
 + Amazon WorkSpaces is not available in every region\. Verify the supported regions and select a region for your WorkSpaces\. For more information about the supported regions, see [Amazon WorkSpaces Pricing by AWS Region](https://aws.amazon.com/workspaces/pricing/)\.
 + When you launch a WorkSpace, you must select a WorkSpace bundle\. A bundle is a combination of an operating system, and storage, compute, and software resources\. For more information, see [Amazon WorkSpaces Bundles](https://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles)\.
 + When you create a directory using AWS Directory Service or launch a WorkSpace, you must create or select a virtual private cloud configured with a public subnet and two private subnets\. For more information, see [Configure a VPC for Amazon WorkSpaces](amazon-workspaces-vpc.md)\.
@@ -39,7 +39,7 @@ Create a Simple AD directory\. AWS Directory Service creates two directory serve
 
    1. For **NetBIOS name**, type a short name for the directory \(for example, example\)\.
 
-   1. For **Admin password** and **Confirm password**, type a password for the directory administrator account\. For more information about the password requirements, see [How to Create a Microsoft AD Directory](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/create_managed_ad.html) in the *AWS Directory Service Administration Guide*\.
+   1. For **Admin password** and **Confirm password**, type a password for the directory administrator account\. For more information about the password requirements, see [How to Create a Microsoft AD Directory](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/create_managed_ad.html) in the *AWS Directory Service Administration Guide*\.
 
    1. \(Optional\) For **Description**, type a description for the directory\.
 

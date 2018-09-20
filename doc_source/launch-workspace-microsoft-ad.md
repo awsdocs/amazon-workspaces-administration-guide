@@ -38,7 +38,7 @@ First, create an AWS Managed Microsoft AD directory\. AWS Directory Service crea
 
    1. For **NetBIOS name**, type a short name for the directory \(for example, workspaces\)\.
 
-   1. For **Admin password** and **Confirm password**, type a password for the directory administrator account\. For more information about the password requirements, see [Create Your AWS Managed Microsoft AD Directory](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/create_managed_ad.html) in the *AWS Directory Service Administration Guide*\.
+   1. For **Admin password** and **Confirm password**, type a password for the directory administrator account\. For more information about the password requirements, see [Create Your AWS Managed Microsoft AD Directory](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/create_managed_ad.html) in the *AWS Directory Service Administration Guide*\.
 
    1. \(Optional\) For **Description**, type a description for the directory\.
 
