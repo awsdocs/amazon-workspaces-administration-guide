@@ -57,7 +57,6 @@ For the Amazon WorkSpaces client application to be able to access the Amazon Wor
 | Registration Dependency | https://s3\.amazonaws\.com | 
 | Connectivity Check | https://connectivity\.amazonworkspaces\.com/  | 
 | User Login Pages | https://<directory id>\.awsapps\.com/ \(where <directory id> is the customer's domain\) | 
-| Web client |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 | Web Access TURN Servers |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 
 ## PCoIP Gateway and Health Check Servers<a name="gateway_IP"></a>
@@ -127,9 +126,26 @@ The following table lists the IP address ranges used for the management network 
 
 ### Management Interface Ports<a name="management_ports"></a>
 
-When you create a WorkSpace, Amazon WorkSpaces opens the following ports to ensure that the WorkSpace is reachable and operates correctly\. Do not install firewall software on your WorkSpace that blocks these ports\.
+The following ports must be open on the management network interface of all WorkSpaces:
 + Inbound TCP on port 4172\. This is used for establishment of the streaming connection\.
 + Inbound UDP on port 4172\. This is used for streaming user input\.
+
++ Inbound TCP on port 4489\. This is for access using the web client\.
+
++ Inbound TCP on port 8200\. This is used for management and configuration of the WorkSpace\.
+
++ Outbound TCP on ports 8443 and 9997\. This is used for access using the web client\.
+
++ Outbound UDP on port 3478 and 4172\. This is used for access using the web client\.
+
++ Outbound UDP on port 55002\. This is used for PCoIP streaming\. If your firewall uses stateful filtering, the ephemeral port 55002 is automatically opened to allow return communication\. If your firewall uses stateless filtering, you need to open ephemeral ports 49152 \- 65535 to allow return communication\.
+
++ Outbound TCP on port 80 to IP address `169.254.169.254` for access to the EC2 metadata service. Any HTTP proxy assigned to your WorkSpaces must also exclude 169.254.169.254\.
+
++ Outbound TCP on port 1688 to IP addresses `169.254.169.250` and `169.254.169.251` to allow access to Microsoft KMS for Windows and Office activation\.
+
+Under normal circumstances, the Amazon WorkSpaces service properly configures these ports for your WorkSpaces\. If any security or firewall software is installed on a WorkSpace that blocks any of these ports, the WorkSpace may not function correctly or may be unreachable\.
+
 + Inbound TCP on port 8200\. This is used for management and configuration of the WorkSpace\.
 + Outbound UDP on port 55002\. This is used for PCoIP streaming\. If your firewall uses stateful filtering, the ephemeral port 55002 is automatically opened to allow return communication\. If your firewall uses stateless filtering, you need to open ephemeral ports 49152 \- 65535 to allow return communication\.
 
@@ -151,4 +167,3 @@ No matter which type of directory you have, the following ports must be open on 
   + TCP 1024\-65535 \- Dynamic ports for RPC
 
   If any security or firewall software is installed on a WorkSpace that blocks any of these ports, the WorkSpace may not function correctly or may be unreachable\.
-+ All WorkSpaces require that port 80 \(HTTP\) be open to IP address `169.254.169.254` to allow access to the EC2 metadata service\. Any HTTP proxy assigned to your WorkSpaces must exclude `169.254.169.254`\.
