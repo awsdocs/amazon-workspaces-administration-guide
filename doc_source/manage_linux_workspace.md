@@ -69,7 +69,7 @@ After you create the dedicated administrators group, follow these steps to enabl
 1. Add the following line:
 
    ```
-   #+:(example\Linux_WorkSpaces_Admins):ALL 
+   +:(example\Linux_WorkSpaces_Admins):ALL 
    ```
 
 ## Use the Amazon Linux Extras Library Repository<a name="linux_extras"></a>

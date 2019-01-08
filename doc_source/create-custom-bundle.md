@@ -3,10 +3,12 @@
 After you've launched a Windows or Amazon Linux WorkSpace and customized it, you can create an image from the WorkSpace and then create a custom bundle from the image\. You can specify this bundle when you launch new WorkSpaces to ensure that they have the same configuration and software as the WorkSpace you used to create the bundle\.
 
 **Important**  
-If you plan to create an image from a Windows 10 WorkSpace, do so from one that hasn't been upgraded\. Image creation from Windows 10 WorkSpaces that have been upgraded isn't supported because running Microsoft Sysprep on an upgraded operating system isn't recommended\.
+If you plan to create an image from a Windows 10 WorkSpace, do so from one that hasn't been upgraded\. Image creation is not supported on Windows 10 systems that have been upgraded from one version of Windows 10 to a newer version of Windows 10\. 
 
 **Requirements to create Windows custom images**
 + All applications to be included in the image must be installed on the `C:\` drive, or the user profile in `D:\Users\`*username*\. They must also be compatible with Microsoft Sysprep\.
+**Note**  
+If you are preparing a bring your own Microsoft Windows License \(BYOL\) Windows 10 image, place the user profile in C:\\Users\\Default\.
 + The user profile must exist and its total size \(files and data\) must be less than 10 GB\.
 + The `C:\` drive must have enough available space for the contents of the user profile, plus an additional 2 GB\.
 + All application services running on the WorkSpace must use a local system account instead of domain user credentials\. For example, you cannot have a Microsoft SQL Server Express installation running with a domain user's credentials\.
@@ -60,7 +62,7 @@ Before you create an image from a WorkSpace, do the following:
    + For **Bundle Type**, choose the hardware from which your WorkSpace is launched\. 
    + For **Root Volume Size**, leave the default value or type a new value, then type a value for **User Volume Size**\.
 
-      The available sizes for the root volume \(for Microsoft Windows, the C: drive, for Linux, /\) and the user volume user volume \(for Windows, the D: drive; for Linux, /home\) are as follows: 
+      The available sizes for the root volume \(for Microsoft Windows, the C: drive, for Linux, /\) and the user volume \(for Windows, the D: drive; for Linux, /home\) are as follows: 
      + Root: 80 GB, User: 10 GB, 50 GB, or 100 GB
      + Root: 175 GB, User: 100 GB
 
@@ -118,6 +120,7 @@ When you create an image from an Amazon Linux WorkSpace, the entire contents of 
 + /etc/sudoers\.d
 + /etc/udev/rules\.d/70\-persistent\-net\.rules
 + /etc/network/interfaces\.d/50\-cloud\-init\.cfg
++ /etc/security/access\.conf
 + /var/log/amazon/ssm
 + /var/log/pcoip\-agent
 + /var/log/skylight

@@ -1,7 +1,7 @@
 # Amazon WorkSpaces Administration Guide
 
 -----
-*****Copyright &copy; 2018 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
+*****Copyright &copy; 2019 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
 Amazon's trademarks and trade dress may not be used in 
@@ -48,7 +48,10 @@ Amazon's trademarks and trade dress may not be used in
    + [Restart a WorkSpace](reboot-workspaces.md)
    + [Rebuild a WorkSpace](reset-workspace.md)
    + [Delete a WorkSpace](delete-workspaces.md)
+   + [Enable Self-Service WorkSpace Management Capabilities for Your Users](enable-user-self-service-workspace-management.md)
+   + [Connect to Amazon Linux WorkSpaces by Using SSH](connect-to-linux-workspaces-with-ssh.md)
    + [Upgrade Windows 10 BYOL WorkSpaces](upgrade-windows-10-byol-workspaces.md)
+   + [Required Configuration Elements and Service Components for WorkSpaces](required-service-components.md)
 + [WorkSpace Bundles and Images](amazon-workspaces-bundles.md)
    + [Create a Custom WorkSpaces Bundle](create-custom-bundle.md)
    + [Update a Custom WorkSpaces Bundle](update-custom-bundle.md)

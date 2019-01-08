@@ -2,7 +2,10 @@
 
 When you register a directory with Amazon WorkSpaces, it creates two security groups, one for directory controllers and another for WorkSpaces in the directory\. The security group for directory controllers has a name that consists of the directory identifier followed by \_controllers \(for example, d\-92673056e8\_controllers\) and the security group for WorkSpaces has a name that consists of the directory identifier followed by \_workspacesMembers \(for example, d\-926720fc18\_workspacesMembers\)\.
 
-You have the option to have an additional security group for WorkSpaces\. After you add the security group to the directory, it is associated with new WorkSpaces that you launch or existing WorkSpaces that you rebuild\.
+**Important**  
+Do not delete the **\_workspacesMembers** security group\. If you delete this security group, your WorkSpaces won't function correctly and you won't be able to recreate this group and add it back\. 
+
+You can have an additional security group for WorkSpaces\. After you add the security group to the directory, it is associated with new WorkSpaces that you launch or existing WorkSpaces that you rebuild\.
 
 **To add a security group to a directory**
 

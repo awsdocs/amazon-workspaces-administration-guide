@@ -82,7 +82,7 @@ Use the following procedure to create a CloudWatch Events rule to handle the Wor
 
    1. For **Service Name**, choose **WorkSpaces**\.
 
-   1. For **Event Type**, choose **WorkSpaces Access** and then choose **Any event**\.
+   1. For **Event Type**, choose **WorkSpaces Access**\.
 
 1. For **Targets**, choose **Add target**, and then choose the service that is to act when a WorkSpaces event is detected\. Provide any information required by this service\.
 

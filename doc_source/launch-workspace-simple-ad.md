@@ -106,7 +106,7 @@ After you receive the invitation email, you can connect to your WorkSpace using 
 
 1. Open the link in the invitation email\. When prompted, type a password and activate the user\. Remember this password as you will need it to sign in to your WorkSpace\.
 **Note**  
-Passwords are case\-sensitive and must be between 8 and 64 characters in length, inclusive\. Passwords must contain at least one character from three of the following categories: lowercase letters \(a\-z\), uppercase letters \(A\-Z\), numbers \(0\-9\), and \~\!@\#$%^&\*\_\-\+=`\|\\\(\)\{\}\[\]:;"'<>,\.?/\.
+Passwords are case\-sensitive and must be between 8 and 64 characters in length, inclusive\. Passwords must contain at least one character from four of the following categories: lowercase letters \(a\-z\), uppercase letters \(A\-Z\), numbers \(0\-9\), and \~\!@\#$%^&\*\_\-\+=`\|\\\(\)\{\}\[\]:;"'<>,\.?/\.
 
 1. When prompted, download one of the client applications or launch Web Access\.
 

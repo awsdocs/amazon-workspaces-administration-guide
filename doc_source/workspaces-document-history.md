@@ -6,8 +6,11 @@ For notification about these updates, you can subscribe to the Amazon WorkSpaces
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Self\-Service WorkSpace Management Capabilities for Users](https://docs.aws.amazon.com/workspaces/latest/adminguide//enable-user-self-service-workspace-management.html) | You can enable self\-service WorkSpace management capabilities for your users to provide them with more control over their experience\. | November 19, 2018 | 
+| [BYOL Automation](https://docs.aws.amazon.com/workspaces/latest/adminguide//byol-windows-images.html) | You can use bring your own license \(BYOL\) automation to simplify the process of using Windows 7 and Windows 10 desktop images for your WorkSpaces\. | November 16, 2018 | 
+| [PowerPro and Graphics Pro bundles](https://docs.aws.amazon.com/workspaces/latest/adminguide//amazon-workspaces-bundles.html) | The PowerPro and GraphicsPro bundles are now available for Amazon WorkSpaces\. | October 18, 2018 | 
 | [Monitor successful WorkSpace logins](https://docs.aws.amazon.com/workspaces/latest/adminguide/cloudwatch-events.html) | You can use events from Amazon CloudWatch Events to monitor and respond to successful WorkSpace logins\. | September 17, 2018 | 
-| [Web Access for Windows 10 WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-web-access.html) | Users can now use the Web Access client to access a WorkSpace running the Windows 10 desktop experience, as well as Windows 7\.  | August 24, 2018 | 
+| [Web Access for Windows 10 WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-web-access.html) | Users can now use the web access client to access a WorkSpace running the Windows 10 desktop experience, as well as Windows 7\.  | August 24, 2018 | 
 | [URI login](https://docs.aws.amazon.com/workspaces/latest/adminguide/customize-workspaces-user-login.html) | You can use uniform resource identifiers \(URIs\) to provide users with access to their WorkSpaces\.  | July 31, 2018 | 
 | [Amazon Linux WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) | You can provision Amazon Linux WorkSpaces for your users\. | June 26, 2018 | 
 | [IP access control groups](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-ip-access-control-groups.html) | You can control the IP addresses from which users can access their WorkSpaces\. | April 30, 2018 | 
