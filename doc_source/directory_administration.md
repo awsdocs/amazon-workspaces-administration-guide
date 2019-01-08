@@ -8,11 +8,11 @@ If you create a Microsoft AD or Simple AD with five or more WorkSpaces, we recom
 
 1. Launch a Windows instance and join it to your WorkSpaces directory\.
 
-   You can join an Amazon EC2 Windows instance to your directory domain when you launch the instance\. For more information, see [Joining a Windows Instance to an AWS Directory Service Domain](http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-join-aws-domain.html) in the *Amazon EC2 User Guide for Windows Instances*\.
+   You can join an Amazon EC2 Windows instance to your directory domain when you launch the instance\. For more information, see [Joining a Windows Instance to an AWS Directory Service Domain](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-join-aws-domain.html) in the *Amazon EC2 User Guide for Windows Instances*\.
 
-   Alternatively, you can join the instance to your directory manually\. For more information, see [Manually Add a Windows Instance \(Simple AD and Microsoft AD\)](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/join_a_directory.html) in the *AWS Directory Service Administration Guide*\.
+   Alternatively, you can join the instance to your directory manually\. For more information, see [Manually Add a Windows Instance \(Simple AD and Microsoft AD\)](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/join_a_directory.html) in the *AWS Directory Service Administration Guide*\.
 
-1. Install the Active Directory Administration Tools on the instance\. For more information, see [Installing the Active Directory Administration Tools](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/install_ad_tools.html) in the *AWS Directory Service Administration Guide*\.
+1. Install the Active Directory Administration Tools on the instance\. For more information, see [Installing the Active Directory Administration Tools](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/install_ad_tools.html) in the *AWS Directory Service Administration Guide*\.
 
 1. Run the tools as a directory administrator as follows:
 
@@ -35,15 +35,10 @@ You can now perform directory administration tasks using the Active Directory to
 1. In the user properties dialog box, choose **Member of**\.
 
 1. Add the user to the following groups and choose **OK**\.
-
    + Administrators
-
    + Domain Admins
-
    + Enterprise Admins
-
    + Group Policy Creator Owners
-
    + Schema Admins
 
 **To add or remove users**  

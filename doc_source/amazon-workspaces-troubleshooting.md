@@ -2,16 +2,29 @@
 
 The following information can help you troubleshoot issues with your WorkSpaces\.
 
-
+**Topics**
++ [I can't create an Amazon Linux WorkSpace because there are invalid characters in the user name](#linux_workspace_provision_fail_username)
 + [Launching WorkSpaces in my connected directory often fails](#provision_fail)
 + [Launching WorkSpaces fails with an internal error](#launch-failure-ipv6)
-+ [Can't connect to a WorkSpace with an interactive logon banner](#logon_banner)
-+ [No WorkSpaces in my directory can connect to the Internet](#no_internet)
++ [My users can't connect to a Windows WorkSpace with an interactive logon banner](#logon_banner)
++ [My users are having issues when they try to log on to BYOL WorkSpaces from WorkSpaces Web Access](#byol_logon_issues)
++ [No WorkSpaces in my directory can connect to the internet](#no_internet)
 + [I receive a "DNS unavailable" error when I try to connect to my on\-premises directory](#dns_unavailable)
 + [I receive a "Connectivity issues detected" error when I try to connect to my on\-premises directory](#connectivity_issues_detected)
 + [I receive an "SRV record" error when I try to connect to my on\-premises directory](#srv_record_not_found)
++ [My Windows WorkSpace goes to sleep when it's left idle](#windows_workspace_sleeps_when_idle)
 + [One of my WorkSpaces has a state of "Unhealthy"](#unhealthy)
-+ [The state of my apps was not saved when my WorkSpace was stopped](#save-state)
+
+## I can't create an Amazon Linux WorkSpace because there are invalid characters in the user name<a name="linux_workspace_provision_fail_username"></a>
+
+For Amazon Linux WorkSpaces, user names can contain only 20 letters, spaces, and numbers representable in UTF\-8, plus the following special characters:
+
+ \_\.\-\#
+
+Additionally, you can't use a dash symbol \(\-\) as the first character of the user name\.
+
+**Note**  
+These limitations do not apply to Windows WorkSpaces\. Windows WorkSpaces support the @ and \- symbols for all characters in the user name\.
 
 ## Launching WorkSpaces in my connected directory often fails<a name="provision_fail"></a>
 
@@ -21,13 +34,43 @@ Verify that the two DNS servers or domain controllers in your on\-premises direc
 
 Check whether your subnets are configured to automatically assign IPv6 addresses to instances launched in the subnet\. To check this setting, open the Amazon VPC console, select your subnet, and choose **Subnet Actions**, **Modify auto\-assign IP settings**\. If this setting is enabled, you cannot launch WorkSpaces using the Performance or Graphics bundles\. Instead, disable this setting and specify IPv6 addresses manually when you launch your instances\.
 
-## Can't connect to a WorkSpace with an interactive logon banner<a name="logon_banner"></a>
+## My users can't connect to a Windows WorkSpace with an interactive logon banner<a name="logon_banner"></a>
 
-Implementing an interactive logon message to display a logon banner prevents users from being able to access their WorkSpaces\. The interactive logon message Group Policy setting is not currently supported by Amazon WorkSpaces\.
+Implementing an interactive logon message to display a logon banner prevents users from being able to access their Windows WorkSpaces\. The interactive logon message Group Policy setting is not currently supported by Amazon WorkSpaces\.
 
-## No WorkSpaces in my directory can connect to the Internet<a name="no_internet"></a>
+## My users are having issues when they try to log on to BYOL WorkSpaces from WorkSpaces Web Access<a name="byol_logon_issues"></a>
 
-WorkSpaces cannot communicate with the Internet by default\. You must explicitly provide Internet access\. For more information, see [Provide Internet Access from Your WorkSpace](amazon-workspaces-internet-access.md)\.
+BYOL WorkSpaces rely on a specific logon screen configuration to enable users to successfully log on from their Web Access client\. To enable Web Access users to log on to their BYOL WorkSpaces, you must configure a Group Policy setting and a Local Security Policy setting\. If these two settings are not correctly configured, users may experience long logon times or black screens when they try to log on to their BYOL WorkSpaces\. To configure the settings, follow these steps\. 
+
+**To enable the WorkSpaces logon agent to switch users**
+
+In most cases, when a user attempts to log on to a WorkSpace, the user name field is prepopulated with the name of that user\. However, if an administrator establishes an RDP connection to the WorkSpace to perform maintenance tasks, the user name field is populated with the name of the administrator instead\. To resolve this issue, disable the **Hide entry points for Fast User Switching** Group Policy setting\. When you do so, the WorkSpaces logon agent can use the **Switch User** button to populate the user name field with the correct name\.
+
+1. Open Local Group Policy Editor by opening the command prompt as an administrator, typing `gpedit.msc`, and then pressing ENTER\. 
+
+1. In the console tree, choose **Local Computer Policy**, **Computer Configuration**, **Administrative Templates**, **System**, and **Logon**\.
+
+1. Open the **Hide entry points for Fast User Switching** setting\.
+
+1. In the **Hide entry points for Fast User Switching** dialog box, choose **Disabled**, and then choose **OK**\.
+
+**To configure Local Security Policy Editor to hide the last logged on user name**
+
+By default, the list of last logged on users displays, rather than the **Switch User** button\. Depending on the configuration of the WorkSpace, the list may not display the **Other User** tile\. When this occurs, if the prepopulated user name isn't correct, the WorkSpaces logon agent can't populate the field with the correct name\. To resolve this issue, enable the **Interactive logon: Don't display last signed\-in** Local Security Policy setting\.
+
+1. Open Local Security Policy Editor by opening the command prompt as an administrator, typing `secpol.msc`, and then pressing ENTER\. 
+
+1. In the console tree, choose **Security Settings**, **Local Policies**, and **Security Options**\.
+
+1. Open one of the following settings:
+   + For Windows 7 — **Interactive logon: Do not display last user name**
+   + For Windows 10 — **Interactive logon: Don't display last signed\-in**
+
+1. In the **Properties** dialog box for the setting, choose **Enabled**, and then choose **OK**\.
+
+## No WorkSpaces in my directory can connect to the internet<a name="no_internet"></a>
+
+WorkSpaces cannot communicate with the internet by default\. You must explicitly provide internet access\. For more information, see [Provide Internet Access from Your WorkSpace](amazon-workspaces-internet-access.md)\.
 
 ## I receive a "DNS unavailable" error when I try to connect to my on\-premises directory<a name="dns_unavailable"></a>
 
@@ -50,9 +93,7 @@ Please ensure that the listed ports are available and retry the operation.
 ```
 
 AD Connector must be able to communicate with your on\-premises domain controllers via TCP and UDP over the following ports\. Verify that your security groups and on\-premises firewalls allow TCP and UDP communication over these ports\.
-
 + 88 \(Kerberos\)
-
 + 389 \(LDAP\)
 
 ## I receive an "SRV record" error when I try to connect to my on\-premises directory<a name="srv_record_not_found"></a>
@@ -67,20 +108,41 @@ SRV record for Kerberos does not exist for IP: dns-ip-address
 
 AD Connector needs to obtain the `_ldap._tcp.dns-domain-name` and `_kerberos._tcp.dns-domain-name` SRV records when connecting to your directory\. You will get this error if the service cannot obtain these records from the DNS servers that you specified when connecting to your directory\. Make sure that your DNS servers contains these SRV records\. For more information, see [SRV Resource Records](http://technet.microsoft.com/en-us/library/cc961719.aspx) on Microsoft TechNet\.
 
+## My Windows WorkSpace goes to sleep when it's left idle<a name="windows_workspace_sleeps_when_idle"></a>
+
+To resolve this issue, connect to the WorkSpace and change the power plan to **High performance** by using the following procedure:
+
+1. From the WorkSpace, open **Control Panel**, then choose **Hardware and Sound**\.
+
+1. Under **Power Options**, choose **Choose a power plan**\. 
+
+1. In the **Choose or customize a power plan** pane, choose the **High performance** power plan\. If this plan isn't visible, choose the arrow to the right of **Show additional plans** to display it\. 
+
+If the preceding steps do not solve the issue, do the following: 
+
+1. In the **Choose or customize a power plan** pane, choose the **Change plan settings** link to the right of the **High performance** power plan, then choose the **Change advanced power settings** link\.
+
+1. In the **Power Options** dialog box, in the list of settings, choose the plus sign to the left of **Hard disk** to display the relevant settings\. 
+
+1. Verify that the **Turn off hard disk after** value for **Plugged in** is greater than the value for **On battery** \(the default value is 20 minutes\)\.
+
+1. Choose the plus sign to the left of **PCI Express**, and do the same for **Link State Power Management**\.
+
+1. Verify that the **Link State Power Management** settings are **Off**\.
+
+1. Choose **OK** \(or **Apply** if you changed any settings\) to close the dialog box\.
+
+1. In the **Change settings for the plan** pane, if you changed any settings, choose **Save changes**\.
+
 ## One of my WorkSpaces has a state of "Unhealthy"<a name="unhealthy"></a>
 
 The Amazon WorkSpaces service periodically sends status requests to a WorkSpace\. A WorkSpace is marked `Unhealthy` when it fails to respond to these requests\. Common causes for this problem are:
-
 + An application on the WorkSpace is blocking network ports which prevents the WorkSpace from responding to the status request\.
-
 + High CPU utilization is preventing the WorkSpace from responding to the status request in a timely manner\.
-
 + The computer name of the WorkSpace has been changed\. This prevents a secure channel from being established between Amazon WorkSpaces and the WorkSpace\.
 
 You can attempt to correct the situation using the following methods:
-
 + Reboot the WorkSpace from the Amazon WorkSpaces console\.
-
 + Connect to the unhealthy WorkSpace using the following procedure, which should be used only for troubleshooting purposes:
 
   1. Connect to an operational WorkSpace in the same directory as the unhealthy WorkSpace\.
@@ -88,11 +150,4 @@ You can attempt to correct the situation using the following methods:
   1. From the operational WorkSpace, use Remote Desktop Protocol \(RDP\) to connect to the unhealthy WorkSpace using the IP address of the unhealthy WorkSpace\. Depending on the extent of the problem, you might not be able to connect to the unhealthy WorkSpace\.
 
   1. On the unhealthy WorkSpace, confirm that the minimum port requirements are met\.
-
 + Rebuild the WorkSpace from the Amazon WorkSpaces console\. Because rebuilding a WorkSpace can potentially cause a loss of data, this option should only be used if all other attempts to correct the problem have been unsuccessful\.
-
-## The state of my apps was not saved when my WorkSpace was stopped<a name="save-state"></a>
-
-To save the state of your apps, you must have enough free space on the root volume of your WorkSpace to store the total memory offered on the WorkSpace bundle\. For example, a Standard Workspace has 4 GB of memory, so you must have 4 GB of free space on the root volume of the WorkSpace\.
-
-Also, if the Amazon WorkSpaces service could not communicate with the WorkSpace when a stop request is issued, it will force shut down the operating system and the state of the apps will not be saved\.

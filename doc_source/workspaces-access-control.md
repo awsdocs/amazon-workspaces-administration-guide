@@ -1,12 +1,12 @@
 # Control Access to Amazon WorkSpaces Resources<a name="workspaces-access-control"></a>
 
-By default, IAM users don't have permissions for Amazon WorkSpaces resources and operations\. To allow IAM users to manage Amazon WorkSpaces resources, you must create an IAM policy that explicitly grants them permissions, and attach the policy to the IAM users or groups that require those permissions\. For more information about IAM policies, see [Permissions and Policies](http://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html) in the *IAM User Guide* guide\.
+By default, IAM users don't have permissions for Amazon WorkSpaces resources and operations\. To allow IAM users to manage Amazon WorkSpaces resources, you must create an IAM policy that explicitly grants them permissions, and attach the policy to the IAM users or groups that require those permissions\. For more information about IAM policies, see [Permissions and Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html) in the *IAM User Guide* guide\.
 
 Amazon WorkSpaces also creates an IAM role to allow the Amazon WorkSpaces service access to required resources\.
 
-For more information about IAM, see [Identity and Access Management \(IAM\)](http://aws.amazon.com/iam) and the [IAM User Guide](http://docs.aws.amazon.com/IAM/latest/UserGuide/)\.
+For more information about IAM, see [Identity and Access Management \(IAM\)](http://aws.amazon.com/iam) and the [IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/)\.
 
-**Example 1: Perform all Amazon WorkSpaces tasks**  
+**Example 1: Perform all Amazon WorkSpaces tasks**  <a name="perform-workspaces-tasks"></a>
 The following policy statement grants an IAM user permission to perform all Amazon WorkSpaces tasks, including creating and managing directories, as well as running the quick setup procedure\.  
 Note that although Amazon WorkSpaces fully supports the `Action` and `Resource` elements when using the API and command\-line tools, you must set them both to "\*" in order to use the Amazon WorkSpaces console successfully\.  
 
@@ -58,8 +58,8 @@ Note that although Amazon WorkSpaces fully supports the `Action` and `Resource` 
 }
 ```
 
-**Example 2: Perform WorkSpace\-specific tasks**  
-The following policy statement grants an IAM user permission to perform WorkSpace\-specific tasks, such as launching and removing WorkSpaces\. The user can perform some tasks on the WorkSpaces directory, such as enabling or disabling the settings for Internet access, local administrator access, and maintenance mode\.  
+**Example 2: Perform WorkSpace\-specific tasks**  <a name="perform-workspace-specific-tasks"></a>
+The following policy statement grants an IAM user permission to perform WorkSpace\-specific tasks, such as launching and removing WorkSpaces\. In the policy statement, the `ds:*` action grants broad permissions — full control over all Directory Services objects in the account\.  
 
 ```
 {
@@ -110,32 +110,6 @@ To also grant the user the ability to use the Launch WorkSpaces wizard, add the 
         "workdocs:RemoveUserFromGroup",
         "kms:ListAliases",
         "kms:ListKeys"
-      ],
-      "Resource": "*"
-    }
-  ]
-}
-```
-To grant the user the ability to perform WorkSpaces\-specific tasks except for certificate tasks, add a statement to deny the certificate operations:  
-
-```
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "workspaces:*",
-        "ds:*"
-      ],
-      "Resource": "*"
-    },
-    {
-      "Effect": "Deny",
-      "Action": [
-        "workspaces:DeleteCertificate",
-        "workspaces:ImportCertificate",
-        "workspaces:DescribeCertificates"
       ],
       "Resource": "*"
     }
@@ -196,3 +170,19 @@ The following is the format of the `Resource` element of a policy statement that
 ```
 
 You can use the \* wildcard to specify all bundles that belong to a specific account in a specific region\.
+
+### API Actions with No Support for Resource\-Level Permissions<a name="no-resource-level-permissions"></a>
+
+You can't specify a resource ARN with the following API actions:
++ `CreateTags`
++ `DeleteTags`
++ `DescribeTags`
++ `DescribeWorkspaceDirectories`
++ `DescribeWorkspaces`
++ `DescribeWorkspacesConnectionStatus`
+
+For API actions that don't support resource\-level permissions, you must specify the following resource statement:
+
+```
+"Resource": "*"
+```

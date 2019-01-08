@@ -3,7 +3,7 @@
 When you are finished with a WorkSpace, you can delete it\. You can also delete related resources\.
 
 **Warning**  
-This is a permanent action and cannot be undone\. The WorkSpace user's data does not persist and will be destroyed\. If you need guidance on backing up user data, contact AWS Support\.
+This is a permanent action and cannot be undone\. The WorkSpace user's data does not persist and is destroyed\. For help with backing up user data, contact AWS Support\.
 
 **To delete a WorkSpace**
 
@@ -19,4 +19,4 @@ This is a permanent action and cannot be undone\. The WorkSpace user's data does
 
 1. \(Optional\) After you delete all WorkSpaces in a directory, you can delete the directory\. For more information, see [Delete the Directory for Your WorkSpaces](delete-workspaces-directory.md)\.
 
-1. \(Optional\) After you delete all resources in the virtual private cloud \(VPC\) for your directory service, you can delete the VPC and release the Elastic IP address used for the NAT gateway\.
+1. \(Optional\) After you delete all resources in the virtual private cloud \(VPC\) for your directory, you can delete the VPC and release the Elastic IP address used for the NAT gateway\.
