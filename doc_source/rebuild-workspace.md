@@ -1,4 +1,4 @@
-# Rebuild a WorkSpace<a name="reset-workspace"></a>
+# Rebuild a WorkSpace<a name="rebuild-workspace"></a>
 
 If needed, you can rebuild the operating system of a WorkSpace to its original state\. Rebuilding a WorkSpace causes the following to occur:
 + The system is restored to the most recent image of the bundle that the WorkSpace is created from\. Any applications that have been installed, or system settings that have been made after the WorkSpace was created are lost\.

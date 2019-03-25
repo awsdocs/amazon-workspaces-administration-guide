@@ -30,7 +30,7 @@ After you select a new OU, the machine accounts for all WorkSpaces that are crea
 
 1. Select the OU and choose **Update and Exit**\.
 
-1. \(Optional\) Rebuild the existing WorkSpaces to update the OU\. For more information, see [Rebuild a WorkSpace](reset-workspace.md)\.
+1. \(Optional\) Rebuild the existing WorkSpaces to update the OU\. For more information, see [Rebuild a WorkSpace](rebuild-workspace.md)\.
 
 **To specify a target domain and organizational unit**
 
@@ -44,7 +44,7 @@ After you select a new OU, the machine accounts for all WorkSpaces that are crea
 
 1. For **Selected OU**, type the full LDAP distinguished name for the target domain and OU and then choose **Update and Exit**\. For example, **OU=WorkSpaces\_machines,DC=machines,DC=example,DC=com**\.
 
-1. \(Optional\) Rebuild the existing WorkSpaces to update the OU\. For more information, see [Rebuild a WorkSpace](reset-workspace.md)\.
+1. \(Optional\) Rebuild the existing WorkSpaces to update the OU\. For more information, see [Rebuild a WorkSpace](rebuild-workspace.md)\.
 
 ## Configure Automatic IP Addresses<a name="automatic-assignment"></a>
 

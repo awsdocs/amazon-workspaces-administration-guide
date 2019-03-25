@@ -60,7 +60,7 @@ Before you create an image from a WorkSpace, do the following:
 
 1. Type a bundle name and a description, and then do the following: 
    + For **Bundle Type**, choose the hardware from which your WorkSpace is launched\. 
-   + For **Root Volume Size**, leave the default value or type a new value, then type a value for **User Volume Size**\.
+   + For **Root Volume Size**, leave the default value or type a new value that is equal or greater than the current size\. Then, type a value for **User Volume Size**\.
 
       The available sizes for the root volume \(for Microsoft Windows, the C: drive, for Linux, /\) and the user volume \(for Windows, the D: drive; for Linux, /home\) are as follows: 
      + Root: 80 GB, User: 10 GB, 50 GB, or 100 GB

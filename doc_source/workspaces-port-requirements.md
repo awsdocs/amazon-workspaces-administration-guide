@@ -46,16 +46,16 @@ For the Amazon WorkSpaces client application to be able to access the Amazon Wor
 
 | Category | Whitelisted | 
 | --- | --- | 
-| Session Broker \(PCM\) |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
-| PCoIP Session Gateway \(PSG\) | [PCoIP Gateway and Health Check Servers](#gateway_IP) | 
-| PCoIP Healthcheck \(DRP\) |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
-| Device Metrics  | https://device\-metrics\-us\-2\.amazon\.com/ | 
-| Forrester Log Service  | https://fls\-na\.amazon\.com/ | 
-| Directory Settings |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 | CAPTCHA | https://opfcaptcha\-prod\.s3\.amazonaws\.com/ | 
-| Client Auto\-update | https://d2td7dqidlhjx7\.cloudfront\.net/ | 
-| Registration Dependency | https://s3\.amazonaws\.com | 
+| Client Auto\-update |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 | Connectivity Check | https://connectivity\.amazonworkspaces\.com/  | 
+| Device Metrics  | https://device\-metrics\-us\-2\.amazon\.com/ | 
+| Directory Settings |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
+| Forrester Log Service  | https://fls\-na\.amazon\.com/ | 
+| PCoIP Healthcheck \(DRP\) |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
+| PCoIP Session Gateway \(PSG\) | [PCoIP Gateway and Health Check Servers](#gateway_IP) | 
+| Registration Dependency | https://s3\.amazonaws\.com | 
+| Session Broker \(PCM\) |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 | User Login Pages | https://<directory id>\.awsapps\.com/ \(where <directory id> is the customer's domain\) | 
 | Web Access TURN Servers |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 | WS Broker |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
@@ -67,16 +67,17 @@ Amazon WorkSpaces uses PCoIP to stream the desktop session to clients over port 
 
 | Region | Public IP Address Range | 
 | --- | --- | 
-| US East \(N\. Virginia\) | 52\.23\.61\.0 – 52\.23\.62\.255 | 
-| US West \(Oregon\) | 54\.244\.46\.0 – 54\.244\.47\.255 | 
+| US East \(N\. Virginia\) | 52\.23\.61\.0 \- 52\.23\.62\.255 | 
+| AWS GovCloud \(US\-West\) | 52\.61\.193\.0/24  | 
+| US West \(Oregon\) | 54\.244\.46\.0 \- 54\.244\.47\.255 | 
 | Canada \(Central\) | 35\.183\.255\.0 \- 35\.183\.255\.255 | 
-| EU \(Ireland\) | 52\.19\.124\.0 – 52\.19\.125\.255 | 
+| EU \(Ireland\) | 52\.19\.124\.0 \- 52\.19\.125\.255 | 
 | EU \(Frankfurt\) | 52\.59\.127\.0 \- 52\.59\.127\.255 | 
 | EU \(London\) | 35\.176\.32\.0 \- 35\.176\.32\.255 | 
-| Asia Pacific \(Singapore\) | 52\.76\.127\.0 – 52\.76\.127\.255 | 
-| Asia Pacific \(Sydney\) | 54\.153\.254\.0 – 54\.153\.254\.255 | 
+| Asia Pacific \(Singapore\) | 52\.76\.127\.0 \- 52\.76\.127\.255 | 
+| Asia Pacific \(Sydney\) | 54\.153\.254\.0 \- 54\.153\.254\.255 | 
 | Asia Pacific \(Seoul\) | 13\.124\.247\.0 \- 13\.124\.247\.255 | 
-| Asia Pacific \(Tokyo\) | 54\.250\.251\.0 – 54\.250\.251\.255 | 
+| Asia Pacific \(Tokyo\) | 54\.250\.251\.0 \- 54\.250\.251\.255 | 
 | South America \(São Paulo\) | 54\.233\.204\.0 \- 54\.233\.204\.255 | 
 
 The Amazon WorkSpaces client application performs PCoIP health checks over port 4172\. This validates whether TCP or UDP traffic streams from the Amazon WorkSpaces servers to the client applications\. To do this successfully, your firewall policies must take into account the following regional PCoIP health check servers\.
@@ -85,6 +86,7 @@ The Amazon WorkSpaces client application performs PCoIP health checks over port 
 | Region | Health check server | 
 | --- | --- | 
 | US East \(N\. Virginia\) | drp\-iad\.amazonworkspaces\.com | 
+| AWS GovCloud \(US\-West\) | drp\-pdt\.amazonworkspaces\.com | 
 | US West \(Oregon\) | drp\-pdx\.amazonworkspaces\.com | 
 | Canada \(Central\) | drp\-yul\.amazonworkspaces\.com | 
 | EU \(Ireland\) | drp\-dub\.amazonworkspaces\.com | 
@@ -114,9 +116,10 @@ The following table lists the IP address ranges used for the management network 
 | Region | IP Address Range | 
 | --- | --- | 
 | US East \(N\. Virginia\) | 172\.31\.0\.0/16, 192\.168\.0\.0/16, and 198\.19\.0\.0/16 | 
-| US West \(Oregon\) | 172\.31\.0\.0/16 and 192\.168\.0\.0/16 | 
+| AWS GovCloud \(US\-West\) | 198\.19\.0\.0/16 | 
+| US West \(Oregon\) | 172\.31\.0\.0/16, 192\.168\.0\.0/16, and 198\.19\.0\.0/16 | 
 | Canada \(Central\) | 198\.19\.0\.0/16 | 
-| EU \(Ireland\) | 172\.31\.0\.0/16 and 192\.168\.0\.0/16 | 
+| EU \(Ireland\) | 172\.31\.0\.0/16, 192\.168\.0\.0/16, and 198\.19\.0\.0/16 | 
 | EU \(Frankfurt\) | 198\.19\.0\.0/16 | 
 | EU \(London\) | 198\.19\.0\.0/16 | 
 | Asia Pacific \(Singapore\) | 198\.19\.0\.0/16 | 

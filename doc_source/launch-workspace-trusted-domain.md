@@ -59,6 +59,11 @@ Note that you must ensure that GPO settings are replicated across domains before
 
 After you receive the invitation email, you can connect to your WorkSpace\. Users can enter their user names as *username*, *corp*\\*username*, or *corp\.example\.com*\\*username*\)\.
 
+**Note**  
+When you are connected to your WorkSpace from a Windows or MacOS client, you can toggle the fullscreen display by using following command shortcuts:  
+Windows client: Ctrl\+Alt\+Enter
+MacOS client: Control\+Option\+Return
+
 **To connect to the WorkSpace**
 
 1. Open the link in the invitation email\. When prompted, type a password and activate the user\. Remember this password as you will need it to sign in to your WorkSpace\.

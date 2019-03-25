@@ -59,7 +59,7 @@ The Group Policy setting change takes effect after the WorkSpace's next Group Po
 
 1. Open the **Configure remote printing** setting\.
 
-1. In the **Configure remote printing** dialog box, choose **Enabled** or **Disabled**, and then choose **OK**\.
+1. In the **Configure remote printing** dialog box, choose **Enabled** or **Disabled**, and then choose one of the following settings:
 
 By default, local printer auto\-redirection is disabled\. You can use Group Policy settings to enable this feature so that your local printer is set as the default printer every time you connect to your WorkSpace\.
 
@@ -91,7 +91,11 @@ The Group Policy setting change takes effect after the WorkSpace's next Group Po
 
 1. Open the **Configure clipboard redirection** setting\.
 
-1. In the **Configure clipboard redirection** dialog box, choose **Enabled** and set the **Configure clipboard redirection** option to the desired setting, enabled or disabled, and choose **OK**\. 
+1. In the **Configure clipboard redirection** dialog box, choose **Enabled** and then choose one of the following settings to determine the direction in which clipboard redirection is allowed\. When you're done, choose **OK**\.
+   + Disabled in both directions
+   + Enabled agent to client only
+   + Enabled client to agent only
+   + Enabled in both directions 
 
 **Known Limitation**  
 With clipboard redirection enabled on the WorkSpace, if you copy content that is larger than 890KB from a Microsoft Office application, the application might become slow or unresponsive for up to 5 seconds\.

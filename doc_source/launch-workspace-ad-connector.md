@@ -89,6 +89,11 @@ Now you are ready to launch WorkSpaces for one or more users in your on\-premise
 
 You can connect to your WorkSpace using the client of your choice\. After you sign in, the client displays the WorkSpace desktop\.
 
+**Note**  
+When you are connected to your WorkSpace from a Windows or MacOS client, you can toggle the fullscreen display by using following command shortcuts:  
+Windows client: Ctrl\+Alt\+Enter
+MacOS client: Control\+Option\+Return
+
 **To connect to the WorkSpace**
 
 1. Open the link in the invitation email\.

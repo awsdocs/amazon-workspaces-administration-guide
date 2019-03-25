@@ -15,7 +15,7 @@ To enable SSH connections, you create a new security group or update an existing
 
   If you plan to connect to a WorkSpace from your local device, you can use the search phrase "what is my IP address" in an internet browser or use the following service: [Check IP](http://checkip.amazonaws.com/)\. 
 + Connecting to a WorkSpace — The following information is required to initiate an SSH connection from a device to an Amazon Linux WorkSpace\.
-  + The NetBIOS name of the WorkSpace that you want to connect to\.
+  + The NetBIOS name of the Active Directory domain that you are connected to\.
   + Your WorkSpace user name\.
   + The public or private IP address of the WorkSpace that you want to connect to\.
 
@@ -49,7 +49,7 @@ To enable SSH connections, you create a new security group or update an existing
 
 1. If your WorkSpace has a public IP address, it is displayed in the **IPv4 Public IP** column\. Make a note of this address, if applicable\.
 
-**To find the NetBIOS name of the directory for the WorkSpace you want to connect to**
+**To find the NetBIOS name of the Active Directory domain that you are connected to**
 
 1. Open the AWS Directory Service console at [https://console\.aws\.amazon\.com/directoryservicev2/](https://console.aws.amazon.com/directoryservicev2//)\.
 
@@ -113,7 +113,7 @@ After you create or update your security group and add the required rule, your u
 
 **Note**  
 Before completing either of the following procedures, make sure that you have the following:  
-The NetBIOS name of the WorkSpace that you want to connect to\.
+The NetBIOS name of the Active Directory domain that you are connected to\.
 The username that you use to connect to the WorkSpace\.
 The public or private IP address of the WorkSpace that you want to connect to\.
 For instructions on how to obtain this information, see "Prerequisites for SSH Connections to Amazon Linux WorkSpaces" earlier in this topic\.
@@ -142,7 +142,7 @@ For instructions on how to obtain this information, see "Prerequisites for SSH C
 1. Open PuTTY\.
 
 1. In the **PuTTY Configuration** dialog box, do the following:
-   + For **Host Name \(or IP address\)**, type the following command\. Replace the values with the NetBIOS name of the WorkSpace that you want to connect to, the user name that you use to connect to the WorkSpace, and the IP address of the WorkSpace that you want to connect to\.
+   + For **Host Name \(or IP address\)**, type the following command\. Replace the values with the NetBIOS name of the Active Directory domain that you are connected to, the user name that you use to connect to the WorkSpace, and the IP address of the WorkSpace that you want to connect to\.
 
      ```
      "NetBIOS_NAME\Username"@WorkSpaceIP

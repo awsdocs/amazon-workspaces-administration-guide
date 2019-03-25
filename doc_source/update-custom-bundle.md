@@ -22,4 +22,4 @@ You can update an existing custom WorkSpaces bundle by modifying a WorkSpace bas
 
 1. For **Update WorkSpace Bundle**, select the image that you created and choose **Update Bundle**\.
 
-1. \(Optional\) Rebuild the existing WorkSpaces based on the bundle\. For more information, see [Rebuild a WorkSpace](reset-workspace.md)\.
+1. \(Optional\) Rebuild the existing WorkSpaces based on the bundle\. For more information, see [Rebuild a WorkSpace](rebuild-workspace.md)\.

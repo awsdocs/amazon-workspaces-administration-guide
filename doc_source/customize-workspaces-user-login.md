@@ -25,11 +25,11 @@ For example, if you have user names that include any of these characters, you sh
 
 | Supported Syntax | Description | 
 | --- | --- | 
-| WorkSpaces:// | Opens the WorkSpaces client application\. | 
-| WorkSpaces://@RegistrationCode | Registers a user by using their WorkSpaces registration code\. Also displays the client login page\. | 
-| WorkSpaces://username@RegistrationCode | Registers a user by using their WorkSpaces registration code\. Also automatically enters the user name in the username field on the client login page\. | 
-| WorkSpaces://username@RegistrationCode?MFACode=MFA | Registers a user by using their WorkSpaces registration code\. Also automatically enters the user name in the username field and the multifactor authentication \(MFA\) code in the MFA code field on the client login page\. | 
-| WorkSpaces://@RegistrationCode?MFACode=MFA | Registers a user by using their WorkSpaces registration code\. Also automatically enters the multifactor authentication \(MFA\) code in the MFA code field on the client login page\. | 
+| workspaces:// | Opens the WorkSpaces client application\. | 
+| workspaces://@registrationcode | Registers a user by using their WorkSpaces registration code\. Also displays the client login page\. | 
+| workspaces://username@registrationcode | Registers a user by using their WorkSpaces registration code\. Also automatically enters the user name in the username field on the client login page\. | 
+| workspaces://username@registrationcode?mfacode=mfa | Registers a user by using their WorkSpaces registration code\. Also automatically enters the user name in the username field and the multifactor authentication \(MFA\) code in the MFA code field on the client login page\. | 
+| workspaces://@registrationcode?mfacode=mfa | Registers a user by using their WorkSpaces registration code\. Also automatically enters the multifactor authentication \(MFA\) code in the MFA code field on the client login page\. | 
 
 **Note**  
 If users open a URI link when they are already connected to a WorkSpace from a Windows client, a new WorkSpaces session opens and their original WorkSpaces session remains open\. If users open a URI link when they are connected to a WorkSpace from a macOS, iPad, or Android client, no new session opens; only their original WorkSpaces session remains open\.

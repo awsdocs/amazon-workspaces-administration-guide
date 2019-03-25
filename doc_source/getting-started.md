@@ -2,12 +2,16 @@
 
 In this tutorial, you'll learn how to provision a virtual, cloud\-based Microsoft Windows or Amazon Linux desktop, known as a *WorkSpace*, by using Amazon WorkSpaces and AWS Directory Service\.
 
-This tutorial uses the Quick Setup option to launch your WorkSpace\. This option is available only if you have never launched a WorkSpace\.
+This tutorial uses the Quick Setup option to launch your WorkSpace\. This option is available only if you have never launched a WorkSpace\. Alternatively, see [Launch a Virtual Desktop Using Amazon WorkSpaces](launch-workspaces-tutorials.md)\.
 
 **Note**  
-Quick Setup is not supported in the EU \(Frankfurt\) region\.
-
-Alternatively, see [Launch a Virtual Desktop Using Amazon WorkSpaces](launch-workspaces-tutorials.md)\.
+Quick Setup is only supported in the following AWS Regions:   
+US East \(N\. Virginia\)
+US West \(Oregon\)
+EU \(Ireland\)
+Asia Pacific \(Singapore\)
+Asia Pacific \(Sydney\)
+Asia Pacific \(Tokyo\)
 
 **Topics**
 + [Before You Begin](#quick-setup-prereqs)
@@ -57,6 +61,11 @@ Quick Setup completes the following tasks on your behalf:
 ## Step 2: Connect to the WorkSpace<a name="quick-setup-connect-workspace"></a>
 
 After you receive the invitation email, you can connect to the WorkSpace using the client of your choice\. After you sign in, the client displays the WorkSpace desktop\.
+
+**Note**  
+When you are connected to your WorkSpace from a Windows or MacOS client, you can toggle the fullscreen display by using following command shortcuts:  
+Windows client: Ctrl\+Alt\+Enter
+MacOS client: Control\+Option\+Return
 
 **To connect to the WorkSpace**
 

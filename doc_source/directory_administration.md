@@ -2,7 +2,7 @@
 
 You'll perform most administrative tasks for your WorkSpaces directory using directory management tools, such as the Active Directory Administration Tools\. However, you'll use Amazon WorkSpaces console to perform some directory\-related tasks\. For more information, see [Manage Directories for Amazon WorkSpaces](manage-workspaces-directory.md)\.
 
-If you create a Microsoft AD or Simple AD with five or more WorkSpaces, we recommend that you centralize administration on an Amazon EC2 instance\. Although it is possible to install the directory management tools on a WorkSpace, there are limitations, and using an instance is a more robust solution\.
+If you create a directory with Microsoft AD or Simple AD that includes five or more WorkSpaces, we recommend that you centralize administration on an Amazon EC2 instance\. Although you can install the directory management tools on a WorkSpace, using an Amazon EC2 instance is a more robust solution\.
 
 **To set up the Active Directory Administration Tools**
 

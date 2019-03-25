@@ -1,6 +1,6 @@
 # IP Access Control Groups for Your WorkSpaces<a name="amazon-workspaces-ip-access-control-groups"></a>
 
-An *IP access control group* acts as a virtual firewall that controls the IP addresses from which users are allowed to access their WorkSpaces\. You can associate each IP access control group with one or more directories\. You can associate up to 25 IP access control groups with each directory\.
+An *IP access control group* acts as a virtual firewall that controls the IP addresses from which users are allowed to access their WorkSpaces\. You can associate each IP access control group with one or more directories\. You can create up to 100 IP access control groups per AWS account\. However, you can only associate up to 25 IP access control groups with a single directory\.
 
 There is a default IP access control group associated with each directory\. The default group allows all traffic\. If you associate an IP access control group with a directory, the default IP access control group is disassociated\.
 
@@ -10,7 +10,7 @@ You can use this feature with Web Access and the client applications for Mac OS 
 
 ## Create an IP Access Control Group<a name="create-ip-access-control-group"></a>
 
-You can create up to 25 IP access control groups\. Each IP access control group can contain up to 10 rules\.
+You can create an IP access control group as follows\. Each IP access control group can contain up to 10 rules\.
 
 **To create an IP access control group**
 

@@ -70,6 +70,7 @@ The following policy statement grants an IAM user permission to perform WorkSpac
       "Action": [
         "workspaces:*",
         "ds:*"
+        "iam:PutRolePolicy"
       ],
       "Resource": "*"
     }

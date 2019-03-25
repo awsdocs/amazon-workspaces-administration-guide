@@ -46,7 +46,7 @@ Amazon's trademarks and trade dress may not be used in
    + [Tag a WorkSpace](tag-workspaces.md)
    + [Launch an Encrypted WorkSpace](encrypt-workspaces.md)
    + [Restart a WorkSpace](reboot-workspaces.md)
-   + [Rebuild a WorkSpace](reset-workspace.md)
+   + [Rebuild a WorkSpace](rebuild-workspace.md)
    + [Delete a WorkSpace](delete-workspaces.md)
    + [Enable Self-Service WorkSpace Management Capabilities for Your Users](enable-user-self-service-workspace-management.md)
    + [Connect to Amazon Linux WorkSpaces by Using SSH](connect-to-linux-workspaces-with-ssh.md)

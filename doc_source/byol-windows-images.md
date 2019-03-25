@@ -38,6 +38,7 @@ Before you begin, verify the following:
   + No software beyond what is included with Windows 7 or Windows 10 can be installed on the VM\. You can add additional software, such as an antivirus solution, when you later create a custom image\.
   + If the VM is running Windows 10, the user profile must be placed in C:\\Users\\Default\.
   + We recommend that you create a WorkSpaces\_BYOL account with local administrator access before you share the image\. The password for this account may be required later\.
++ Your VM must also run PowerShell version 4 or later\.
 
 ## Windows Versions That Are Supported for BYOL<a name="windows_images_supported_versions"></a>
 
@@ -47,6 +48,9 @@ Your VM must run one of the following Windows versions:
 + Windows 10 Version 1703 \(Creators Update\) 
 + Windows 10 Version 1709 \(Fall Creators Update\) 
 + Windows 10 Version 1803 \(April 2018 Update\) 
++ Windows 10 Version 1809 \(October 2018 Update\) 
+**Note**  
+Graphics and GraphicsPro bundles currently do not support Windows 10 Version 1809 \(October 2018 Update\) with BYOL\.
 
 ## Step 1: Enable BYOL for Your Account by Using the Amazon WorkSpaces Console<a name="windows_images_enable_byol"></a>
 
@@ -143,7 +147,7 @@ Perform these steps to run the BYOL Checker script\.
 To create an image for BYOL, you must first export the VM from your virtualization environment\. The VM must be on a single volume that is at least 10 GB and smaller than 80 GB\. For more information, see the documentation for your virtualization environment and [Export Your VM from its Virtualization Environment](https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#export-vm-image) in the *VM Import/Export User Guide*\.
 
 **Important**  
-Before you export the VM from your virtualization environment, verify that the VM meets the requirements for running Sysprep\. However, do not run Sysprep\. Amazon WorkSpaces runs Sysprep as part of the BYOL image creation process\. For information about Sysprep, see [Sysprep \(System Preparation\) Overview](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview) in the Microsoft documentation\.
+Before you export the VM from your virtualization environment, verify that the VM meets the requirements for running Sysprep\. Test run Sysprep on the image to make sure it works, but do not run Sysprep on the image that you upload for BYOL\. Amazon WorkSpaces runs Sysprep as part of the BYOL image creation process\. For information about Sysprep, see [Sysprep \(System Preparation\) Overview](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview) in the Microsoft documentation\.
 
 ## Step 4: Import the VM as an Image into EC2<a name="windows_images_import_image_ec2_byol"></a>
 
@@ -157,7 +161,7 @@ Perform these steps to create an Amazon WorkSpaces BYOL image\.
 To perform this procedure, verify that you have permissions to:  
 Call Amazon WorkSpaces **ImportWorkspaceImage**\.
 Call EC2 **DescribeImages** on the EC2 image that you want to use to create the BYOL image\.
-Call EC2 **ModifyImageAttributes** on the EC2 image that you want to use to create the BYOL image\.
+Call EC2 **ModifyImageAttribute** on the EC2 image that you want to use to create the BYOL image\.
 For more information, see [Changing Permissions for an IAM User ](https://docs.aws.amazon.com/IAM/latest/UserGuide//id_users_change-permissions.html) in the *IAM User Guide*\.
 
 **To create an image from the Windows VM**
