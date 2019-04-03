@@ -51,7 +51,7 @@ To enable SSH connections, you create a new security group or update an existing
 
 **To find the NetBIOS name of the Active Directory domain that you are connected to**
 
-1. Open the AWS Directory Service console at [https://console\.aws\.amazon\.com/directoryservicev2/](https://console.aws.amazon.com/directoryservicev2//)\.
+1. Open the AWS Directory Service console at [https://console\.aws\.amazon\.com/directoryservicev2/](https://console.aws.amazon.com/directoryservicev2/)\.
 
 1. In the list of directories, click the **Directory ID** link of the directory for the WorkSpace\.
 

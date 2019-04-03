@@ -68,17 +68,17 @@ Amazon WorkSpaces uses PCoIP to stream the desktop session to clients over port 
 | Region | Public IP Address Range | 
 | --- | --- | 
 | US East \(N\. Virginia\) | 52\.23\.61\.0 \- 52\.23\.62\.255 | 
-| AWS GovCloud \(US\-West\) | 52\.61\.193\.0/24  | 
 | US West \(Oregon\) | 54\.244\.46\.0 \- 54\.244\.47\.255 | 
-| Canada \(Central\) | 35\.183\.255\.0 \- 35\.183\.255\.255 | 
-| EU \(Ireland\) | 52\.19\.124\.0 \- 52\.19\.125\.255 | 
-| EU \(Frankfurt\) | 52\.59\.127\.0 \- 52\.59\.127\.255 | 
-| EU \(London\) | 35\.176\.32\.0 \- 35\.176\.32\.255 | 
+| Asia Pacific \(Seoul\) | 13\.124\.247\.0 \- 13\.124\.247\.255 | 
 | Asia Pacific \(Singapore\) | 52\.76\.127\.0 \- 52\.76\.127\.255 | 
 | Asia Pacific \(Sydney\) | 54\.153\.254\.0 \- 54\.153\.254\.255 | 
-| Asia Pacific \(Seoul\) | 13\.124\.247\.0 \- 13\.124\.247\.255 | 
 | Asia Pacific \(Tokyo\) | 54\.250\.251\.0 \- 54\.250\.251\.255 | 
+| Canada \(Central\) | 35\.183\.255\.0 \- 35\.183\.255\.255 | 
+| EU \(Frankfurt\) | 52\.59\.127\.0 \- 52\.59\.127\.255 | 
+| EU \(Ireland\) | 52\.19\.124\.0 \- 52\.19\.125\.255 | 
+| EU \(London\) | 35\.176\.32\.0 \- 35\.176\.32\.255 | 
 | South America \(São Paulo\) | 54\.233\.204\.0 \- 54\.233\.204\.255 | 
+| AWS GovCloud \(US\-West\) | 52\.61\.193\.0 \- 52\.61\.193\.255 | 
 
 The Amazon WorkSpaces client application performs PCoIP health checks over port 4172\. This validates whether TCP or UDP traffic streams from the Amazon WorkSpaces servers to the client applications\. To do this successfully, your firewall policies must take into account the following regional PCoIP health check servers\.
 
@@ -86,17 +86,17 @@ The Amazon WorkSpaces client application performs PCoIP health checks over port 
 | Region | Health check server | 
 | --- | --- | 
 | US East \(N\. Virginia\) | drp\-iad\.amazonworkspaces\.com | 
-| AWS GovCloud \(US\-West\) | drp\-pdt\.amazonworkspaces\.com | 
 | US West \(Oregon\) | drp\-pdx\.amazonworkspaces\.com | 
-| Canada \(Central\) | drp\-yul\.amazonworkspaces\.com | 
-| EU \(Ireland\) | drp\-dub\.amazonworkspaces\.com | 
-| EU \(Frankfurt\) | drp\-fra\.amazonworkspaces\.com | 
-| EU \(London\) | drp\-lhr\.amazonworkspaces\.com | 
+| Asia Pacific \(Seoul\) | drp\-icn\.amazonworkspaces\.com | 
 | Asia Pacific \(Singapore\) | drp\-sin\.amazonworkspaces\.com | 
 | Asia Pacific \(Sydney\) | drp\-syd\.amazonworkspaces\.com | 
-| Asia Pacific \(Seoul\) | drp\-icn\.amazonworkspaces\.com | 
 | Asia Pacific \(Tokyo\) | drp\-nrt\.amazonworkspaces\.com | 
+| Canada \(Central\) | drp\-yul\.amazonworkspaces\.com | 
+| EU \(Frankfurt\) | drp\-fra\.amazonworkspaces\.com | 
+| EU \(Ireland\) | drp\-dub\.amazonworkspaces\.com | 
+| EU \(London\) | drp\-lhr\.amazonworkspaces\.com | 
 | South America \(São Paulo\) | drp\-gru\.amazonworkspaces\.com | 
+| AWS GovCloud \(US\-West\) | drp\-pdt\.amazonworkspaces\.com | 
 
 ## Network Interfaces<a name="network-interfaces"></a>
 
@@ -116,17 +116,17 @@ The following table lists the IP address ranges used for the management network 
 | Region | IP Address Range | 
 | --- | --- | 
 | US East \(N\. Virginia\) | 172\.31\.0\.0/16, 192\.168\.0\.0/16, and 198\.19\.0\.0/16 | 
-| AWS GovCloud \(US\-West\) | 198\.19\.0\.0/16 | 
 | US West \(Oregon\) | 172\.31\.0\.0/16, 192\.168\.0\.0/16, and 198\.19\.0\.0/16 | 
-| Canada \(Central\) | 198\.19\.0\.0/16 | 
-| EU \(Ireland\) | 172\.31\.0\.0/16, 192\.168\.0\.0/16, and 198\.19\.0\.0/16 | 
-| EU \(Frankfurt\) | 198\.19\.0\.0/16 | 
-| EU \(London\) | 198\.19\.0\.0/16 | 
+| Asia Pacific \(Seoul\) | 198\.19\.0\.0/16 | 
 | Asia Pacific \(Singapore\) | 198\.19\.0\.0/16 | 
 | Asia Pacific \(Sydney\) | 172\.31\.0\.0/16, 192\.168\.0\.0/16, and 198\.19\.0\.0/16 | 
-| Asia Pacific \(Seoul\) | 198\.19\.0\.0/16 | 
 | Asia Pacific \(Tokyo\) | 198\.19\.0\.0/16 | 
+| Canada \(Central\) | 198\.19\.0\.0/16 | 
+| EU \(Frankfurt\) | 198\.19\.0\.0/16 | 
+| EU \(Ireland\) | 172\.31\.0\.0/16, 192\.168\.0\.0/16, and 198\.19\.0\.0/16 | 
+| EU \(London\) | 198\.19\.0\.0/16 | 
 | South America \(São Paulo\) | 198\.19\.0\.0/16 | 
+| AWS GovCloud \(US\-West\) | 198\.19\.0\.0/16 | 
 
 ### Management Interface Ports<a name="management_ports"></a>
 

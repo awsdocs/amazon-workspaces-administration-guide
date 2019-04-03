@@ -43,7 +43,7 @@ Amazon's trademarks and trade dress may not be used in
    + [Customize How Users Log in to their WorkSpaces](customize-workspaces-user-login.md)
    + [Manage the WorkSpace Running Mode](running-mode.md)
    + [Modify a WorkSpace](modify-workspaces.md)
-   + [Tag a WorkSpace](tag-workspaces.md)
+   + [Tag WorkSpaces Resources](tag-workspaces-resources.md)
    + [Launch an Encrypted WorkSpace](encrypt-workspaces.md)
    + [Restart a WorkSpace](reboot-workspaces.md)
    + [Rebuild a WorkSpace](rebuild-workspace.md)
