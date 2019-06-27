@@ -37,6 +37,7 @@ Before you create an image from a WorkSpace, do the following:
 + Install all operating system and application updates on the WorkSpace\.
 + Delete cached data from the WorkSpace that shouldn't be included in the bundle \(for example, browser history, cached files, and browser cookies\)\.
 + Delete configuration settings from the WorkSpace that shouldn't be included in the bundle \(for example, email profiles\)\.
++ Switch to Dynamic IP Address settings using DHCP\.
 
 **To create a custom bundle**
 

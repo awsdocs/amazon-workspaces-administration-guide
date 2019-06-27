@@ -7,5 +7,6 @@ You can create an image from a Windows or Amazon Linux WorkSpace that you've cus
 **Topics**
 + [Create a Custom WorkSpaces Bundle](create-custom-bundle.md)
 + [Update a Custom WorkSpaces Bundle](update-custom-bundle.md)
++ [Copy a Custom WorkSpaces Image](copy-custom-image.md)
 + [Delete a Custom WorkSpaces Bundle](delete_bundle.md)
 + [Bring Your Own Windows Desktop Images](byol-windows-images.md)

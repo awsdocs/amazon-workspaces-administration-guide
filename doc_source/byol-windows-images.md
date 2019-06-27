@@ -37,7 +37,7 @@ Before you begin, verify the following:
   + The Windows operating system must have **English \(United States\)** as the primary language\.
   + No software beyond what is included with Windows 7 or Windows 10 can be installed on the VM\. You can add additional software, such as an antivirus solution, when you later create a custom image\.
   + If the VM is running Windows 10, the user profile must be placed in C:\\Users\\Default\.
-  + We recommend that you create a WorkSpaces\_BYOL account with local administrator access before you share the image\. The password for this account may be required later\.
+  + We recommend that you create a **WorkSpaces\_BYOL** account with local administrator access before you share the image\. The password for this account may be required later\.
 + Your VM must also run PowerShell version 4 or later\.
 
 ## Windows Versions That Are Supported for BYOL<a name="windows_images_supported_versions"></a>
@@ -86,23 +86,21 @@ The VM must pass all tests before you can use it for BYOL\.
 
 Before you download and run the BYOL Checker script, verify that the latest Windows security updates are installed on your VM\. While this script runs, it disables the Windows Update service\. 
 
-1. Navigate to the following URL to download the BYOL Checker script \.zip file: [https://d2zdcak60k1ljz\.cloudfront\.net/BYOLChecker\.zip](https://d2zdcak60k1ljz.cloudfront.net/BYOLChecker.zip)\.
+1. Open the following URL to download the BYOL Checker script \.zip file: [https://d2zdcak60k1ljz\.cloudfront\.net/BYOLChecker\.zip](https://d2zdcak60k1ljz.cloudfront.net/BYOLChecker.zip)\.
 
 1. When prompted, right\-click the **Download** link and choose **Save target as**\.
 
-1. In the **Save as** dialog box, navigate to the location where you want to save the script file, and choose **Save**\. For example, you can create a folder in Drive C for this purpose, such as C:\\BYOL\.
+1. In the **Save as** dialog box, navigate to the location where you want to save the script file, and choose **Save**\. We recommend that you create a folder in the Windows Temp folder for this purpose\. For example, `C:\Windows\Temp\byol`\.
 
 1. When a message notifies you that the BYOL Checker script \.zip file has finished downloading, choose **OK** to close the message\.
 
 1. Windows Explorer opens in the location where you saved the \.zip file\. Right\-click the file, and choose **Extract All**\.
 
-1. In the **Select a Destination and Extract Files** dialog box, navigate to the location where you want to extract the script \(for example, C:\\BYOL\\\), and choose **Extract\.**
+1. In the **Select a Destination and Extract Files** dialog box, navigate to the location where you want to extract the script \(for example, `C:\Windows\Temp\byol\`\), and choose **Extract**\.
 
 1. If you created a folder for the BYOL script, you can copy the extracted files to the root of the folder\.
 
 1. Delete the original \.zip files so that only the extracted files remain\. Close any open applications and windows \(for example, close Windows Explorer and your browser, if they are open\)\.
-
-1. If the VM is running on EC2, enable user data execution before you create an AMI from the instance\. If the VM is running on on\-premises software, this step is not required\.
 
 Perform these steps to run the BYOL Checker script\.
 
@@ -114,7 +112,7 @@ Perform these steps to run the BYOL Checker script\.
 
    cd/
 
-   cd byol
+   cd C:\\Windows\\Temp\\byol
 
 1. Type the following command to update the PowerShell execution policy on the computer\. Doing so allows the BYOL Checker script to run: 
 
@@ -134,24 +132,29 @@ Perform these steps to run the BYOL Checker script\.
 
 1. If applicable, resolve any issues that cause test failures and warnings, and repeat steps 7 and 8 until the VM passes all tests\. All failures and warnings must be resolved before you export the VM\.
 
-1. The BYOL script checker generates two log files\. These two files are located in the directory that contains the BYOL Checker script files and are named as follows:
+1. The BYOL script checker generates two log files, `BYOLPrevalidationlogYYYYMMDDT` and `ImageInfo.text`\. These files are located in the directory that contains the BYOL Checker script files\.
+**Tip**  
+Do not delete these files\. If an issue occurs, they may be helpful in troubleshooting\.
 
-   BYOLPrevalidationlogYYYYMMDDT
+1. After your VM passes all test, you get a **Validation Successful** message\. Review the VM locale settings displayed in the tool\. To update the locale settings, follow [these instructions](https://docs.microsoft.com/en-us/previous-versions/windows/hardware/previsioning-framework/dn965674(v=vs.85)) in the Microsoft documentation and run the BYOL Checker script again\.
 
-   ImageInfo\.text
+1. Choose **Run Sysprep**\. If Sysprep is successful, your VM shuts down\. Otherwise, review the Sysprep logs, resolve the reported issues, and run the BYOL Checker script again\.
 
-   Do not delete these files\. If an issue occurs, they may be helpful in troubleshooting\.
+   The most common reason that Sysprep fails is that the Modern Appx Packages are not installed for all users\. Use the Remove\-AppxPackage cmdlet to remove the Appx Packages\.
 
 ## Step 3: Export the VM from Your Virtualization Environment<a name="windows_images_create_image_byol"></a>
 
 To create an image for BYOL, you must first export the VM from your virtualization environment\. The VM must be on a single volume that is at least 10 GB and smaller than 80 GB\. For more information, see the documentation for your virtualization environment and [Export Your VM from its Virtualization Environment](https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#export-vm-image) in the *VM Import/Export User Guide*\.
 
-**Important**  
-Before you export the VM from your virtualization environment, verify that the VM meets the requirements for running Sysprep\. Test run Sysprep on the image to make sure it works, but do not run Sysprep on the image that you upload for BYOL\. Amazon WorkSpaces runs Sysprep as part of the BYOL image creation process\. For information about Sysprep, see [Sysprep \(System Preparation\) Overview](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview) in the Microsoft documentation\.
-
 ## Step 4: Import the VM as an Image into EC2<a name="windows_images_import_image_ec2_byol"></a>
 
-After you export your VM, review the [VM Import/Export Requirements](https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html) for importing Windows operating systems from a VM\. You can use the AWS Command Line Interface \(AWS CLI\) import\-image command or the ImportImage API operation to import your VM into Amazon EC2 as an Amazon Machine Image \(AMI\)\. For more information, see [Importing a VM as an Image](https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html) in the *VM Import/Export User Guide*\.
+After you export your VM, review the requirements for importing Windows operating systems from a VM\. Take action as needed\. For more information, see [VM Import/Export Requirements](https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html)\.
+
+Import your VM into Amazon EC2 as an Amazon Machine Image \(AMI\)\. Use one of the following methods:
++ Use the import\-workspace\-image command with the AWS Command Line Interface \(AWS CLI\)\. For more information, see [import\-workspace\-image](https://docs.aws.amazon.com/cli/latest/reference/workspaces/import-workspace-image.html) in the *AWS CLI Command Reference*\.
++ Use the ImportWorkspaceImage API operation\. For more information, see [ImportWorkspaceImage](https://docs.aws.amazon.com/workspaces/latest/api/API_ImportWorkspaceImage.html) in the *Amazon WorkSpaces API Reference*\.
+
+For more information, see [Importing a VM as an Image](https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html) in the *VM Import/Export User Guide*\.
 
 ## Step 5: Create a BYOL Image by Using the Amazon WorkSpaces Console<a name="windows_images_create_byol_image_console"></a>
 

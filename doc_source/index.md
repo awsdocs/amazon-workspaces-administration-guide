@@ -55,6 +55,7 @@ Amazon's trademarks and trade dress may not be used in
 + [WorkSpace Bundles and Images](amazon-workspaces-bundles.md)
    + [Create a Custom WorkSpaces Bundle](create-custom-bundle.md)
    + [Update a Custom WorkSpaces Bundle](update-custom-bundle.md)
+   + [Copy a Custom WorkSpaces Image](copy-custom-image.md)
    + [Delete a Custom WorkSpaces Bundle](delete_bundle.md)
    + [Bring Your Own Windows Desktop Images](byol-windows-images.md)
 + [Monitor Your WorkSpaces](amazon-workspaces-monitoring.md)

@@ -5,6 +5,7 @@ The following are the limits for Amazon WorkSpaces for your AWS account\. To req
 **WorkSpace and Image Limits**
 + WorkSpaces per Region: 1
 + Graphics WorkSpaces per Region: 0
++ GraphicsPro WorkSpaces per Region: 0
 + Images per Region: 5
 
 **IP Access Control Limits**

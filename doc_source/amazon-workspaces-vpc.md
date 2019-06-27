@@ -40,13 +40,13 @@ Create a VPC with one public subnet and two private subnets as follows\.
 
 1. In the navigation pane, choose **VPC Dashboard**\.
 
-1. Choose **Create VPC**\.
+1. Choose **Launch VPC Wizard**\.
 
 1. Choose **VPC with Public and Private Subnets** and then choose **Select**\.
 
 1. Configure the VPC as follows:
 
-   1. For **IPv4 CIDR block**, type the CIDR block for the VPC\.
+   1. For **IPv4 CIDR block**, type the CIDR block for the VPC\. We recommend that you use a CIDR block from the private \(non\-publicly routable\) IP address ranges specified in [RFC 1918](http://www.faqs.org/rfcs/rfc1918.html)\. For example, `10.0.0.0/16`\. For more information, see [VPC and Subnet Sizing for IPv4](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-sizing-ipv4) in the *Amazon VPC User Guide*\.
 
    1. For **VPC name**, type a name for the VPC\.
 

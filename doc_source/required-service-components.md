@@ -9,6 +9,9 @@ We recommend that you not modify the operating system\-level routing table for a
 ## Required Service Components<a name="required-service-components"></a>
 
 On Windows WorkSpaces, the service components are installed in the following locations\. Do not delete, change, block, or quarantine these objects\. If you do so, the WorkSpace will not function correctly\.
+
+**Note**  
+If antivirus software is installed on the WorkSpace, exclude the following locations\.
 + C:\\Program Files\\Amazon
 + C:\\Program Files \(x86\)\\Teradici
 + C:\\ProgramData\\Amazon

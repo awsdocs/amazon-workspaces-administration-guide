@@ -93,8 +93,8 @@ The Group Policy setting change takes effect after the WorkSpace's next Group Po
 
 1. In the **Configure clipboard redirection** dialog box, choose **Enabled** and then choose one of the following settings to determine the direction in which clipboard redirection is allowed\. When you're done, choose **OK**\.
    + Disabled in both directions
-   + Enabled agent to client only
-   + Enabled client to agent only
+   + Enabled agent to client only \(WorkSpace to local computer\)
+   + Enabled client to agent only \(local computer to WorkSpace\)
    + Enabled in both directions 
 
 **Known Limitation**  
