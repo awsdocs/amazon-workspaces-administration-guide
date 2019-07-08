@@ -12,3 +12,5 @@ As a WorkSpace administrator, you must understand the following about Amazon Wor
 + [Security Groups for Your WorkSpaces](amazon-workspaces-security-groups.md)
 + [IP Access Control Groups for Your WorkSpaces](amazon-workspaces-ip-access-control-groups.md)
 + [Set Up PCoIP Zero Client for WorkSpaces](set-up-pcoip-zero-client.md)
++ [Enable SSH Connections for Your Linux WorkSpaces](connect-to-linux-workspaces-with-ssh.md)
++ [Required Configuration and Service Components for WorkSpaces](required-service-components.md)

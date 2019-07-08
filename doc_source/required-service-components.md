@@ -1,4 +1,4 @@
-# Required Configuration Elements and Service Components for WorkSpaces<a name="required-service-components"></a>
+# Required Configuration and Service Components for WorkSpaces<a name="required-service-components"></a>
 
 As a WorkSpace administrator, you must understand the following about required configuration and service components\. 
 

@@ -1,4 +1,4 @@
-# Launch an Encrypted WorkSpace<a name="encrypt-workspaces"></a>
+# Encrypted WorkSpaces<a name="encrypt-workspaces"></a>
 
 Amazon WorkSpaces is integrated with the AWS Key Management Service \(AWS KMS\)\. This enables you to encrypt storage volumes of WorkSpaces using customer master keys \(CMK\)\. When you launch a WorkSpace, you can encrypt the root volume \(for Microsoft Windows, the C: drive, for Linux, /\) and the user volume \(for Windows, the D: drive; for Linux, /home\)\. Doing so ensures that the data stored at rest, disk I/O to the volume, and snapshots created from the volumes are all encrypted\.
 

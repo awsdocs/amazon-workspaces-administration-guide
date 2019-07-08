@@ -1,7 +1,5 @@
 # Manage WorkSpaces Users<a name="manage-workspaces-users"></a>
 
-Each WorkSpace is assigned to a single user and cannot be shared by multiple users\. Whenever you launch a WorkSpace, you must assign it to a user that does not already have a WorkSpace\.
-
 As an administrator for Amazon WorkSpaces, you can use the Amazon WorkSpaces console to perform the following tasks to manage WorkSpaces users\.
 
 ## Edit User Information<a name="edit-user"></a>

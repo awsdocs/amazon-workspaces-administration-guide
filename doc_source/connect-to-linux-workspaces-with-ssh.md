@@ -1,4 +1,4 @@
-# Connect to Amazon Linux WorkSpaces by Using SSH<a name="connect-to-linux-workspaces-with-ssh"></a>
+# Enable SSH Connections for Your Linux WorkSpaces<a name="connect-to-linux-workspaces-with-ssh"></a>
 
 If you or your users want to connect to your Amazon Linux WorkSpaces by using the command line, you can enable SSH connections\. You can enable SSH connections to all WorkSpaces in a directory or to individual WorkSpaces in a directory\. 
 

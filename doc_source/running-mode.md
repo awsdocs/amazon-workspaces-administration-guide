@@ -51,25 +51,3 @@ You can restart AutoStop WorkSpaces that are available or in an error state\.
 1. When prompted for confirmation, choose **Start**\.
 
 To remove the fixed infrastructure costs associated with AutoStop WorkSpaces, remove the WorkSpace from your account\. For more information, see [Delete a WorkSpace](delete-workspaces.md)\.
-
-## Set Maintenance Mode<a name="set-maintenance-mode"></a>
-
-If you enable maintenance mode for your AutoStop WorkSpaces, they are started automatically one time a month in order to download and install important service, security, and Windows updates\. Unless the updates are delayed, the maintenance window is typically between 00:00 and 05:00 every day, starting on the third Monday of the month\. The maintenance window might take up to two weeks\. A WorkSpace can be maintained on any day in the maintenance window\. 
-
-After you enable maintenance mode, ensure that your WorkSpaces are in the stopped state between 00:00 and 02:00 of the maintenance window\. Otherwise, they are not maintained automatically\.
-
-If you manage updates to your WorkSpaces on a regular basis, you can disable maintenance mode\.
-
-**To set maintenance mode**
-
-1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
-
-1. In the navigation pane, choose **Directories**\.
-
-1. Select your directory, and choose **Actions**, **Update Details**\.
-
-1. Expand **Maintenance Mode**\.
-
-1. To enable automatic updates, choose **Enabled**\. If you manage updates manually, choose **Disabled**\.
-
-1. Choose **Update and Exit**\.
