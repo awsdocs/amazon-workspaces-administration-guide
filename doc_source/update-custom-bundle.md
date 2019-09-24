@@ -14,7 +14,7 @@ You can update an existing custom WorkSpaces bundle by modifying a WorkSpace bas
 
 1. Select the WorkSpace and choose **Actions**, **Create Image**\. 
 
-1. Type an image name and a description, and then choose **Create Image**\. The WorkSpace is unavailable while the image is being created\.
+1. Enter an image name and a description, and then choose **Create Image**\. The WorkSpace is unavailable while the image is being created\.
 
 1. In the navigation pane, choose **Bundles**\.
 

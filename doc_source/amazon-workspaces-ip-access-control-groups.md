@@ -4,9 +4,9 @@ An *IP access control group* acts as a virtual firewall that controls the IP add
 
 There is a default IP access control group associated with each directory\. The default group allows all traffic\. If you associate an IP access control group with a directory, the default IP access control group is disassociated\.
 
-To specify the IP addresses and ranges of IP addresses for your trusted networks, add rules to your IP access control groups\. If your users access their WorkSpaces through a NAT gateway or VPN, you must create rules that allow traffic from the IP addresses for the NAT gateway or VPN\.
+To specify the public IP addresses and ranges of IP addresses for your trusted networks, add rules to your IP access control groups\. If your users access their WorkSpaces through a NAT gateway or VPN, you must create rules that allow traffic from the public IP addresses for the NAT gateway or VPN\.
 
-You can use this feature with Web Access and the client applications for Mac OS X, iPad, Windows, Android, and Chromebook\. To use this feature with a PCoIP zero client, you cannot use PCoIP Connection Manager\.
+You can use this feature with Web Access and the client applications for macOS X, iPad, Windows, Android, and Chromebook\. To use this feature with a PCoIP zero client, you cannot use PCoIP Connection Manager\.
 
 ## Create an IP Access Control Group<a name="create-ip-access-control-group"></a>
 
@@ -20,11 +20,11 @@ You can create an IP access control group as follows\. Each IP access control gr
 
 1. Choose **Create IP Group**\.
 
-1. In the **Create IP Group** dialog box, type a name and description for the group and choose **Create**\.
+1. In the **Create IP Group** dialog box, enter a name and description for the group and choose **Create**\.
 
 1. Select the group and choose **Edit**\.
 
-1. For each IP address, choose **Add Rule**\. For **Source**, type the IP address or IP address range\. For **Description**, type a description\. When you are done adding rules, choose **Save**\.
+1. For each IP address, choose **Add Rule**\. For **Source**, enter the IP address or IP address range\. For **Description**, enter a description\. When you are done adding rules, choose **Save**\.
 
 ## Associate an IP Access Control Group with a Directory<a name="associate-ip-access-control-group"></a>
 
@@ -56,7 +56,7 @@ You can use an existing IP access control group as a base for creating a new IP 
 
 1. Select the group and choose **Actions**, **Copy to New**\.
 
-1. In the **Copy IP Group** dialog box, type a name and description for the new group and choose **Copy Group**\.
+1. In the **Copy IP Group** dialog box, enter a name and description for the new group and choose **Copy Group**\.
 
 1. \(Optional\) To modify the rules copied from the original group, select the new group and choose **Edit**\. Add, update, or remove rules as needed\. Choose **Save**\.
 
@@ -72,7 +72,7 @@ Before you can delete an IP access control group, you must disassociate it from 
 
 1. In the navigation pane, choose **Directories**\.
 
-1. For each directory that is associated with the IP access control group, select the directory and choose **Actions**, **Update Details**\. Expand **IP Access Control Groups**, clear the checkbox for the IP access control group, and choose **Update and Exit**\.
+1. For each directory that is associated with the IP access control group, select the directory and choose **Actions**, **Update Details**\. Expand **IP Access Control Groups**, clear the check box for the IP access control group, and choose **Update and Exit**\.
 
 1. In the navigation pane, choose **IP Access Controls**\.
 

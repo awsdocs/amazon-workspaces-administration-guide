@@ -69,7 +69,7 @@ The following policy statement grants an IAM user permission to perform WorkSpac
       "Effect": "Allow",
       "Action": [
         "workspaces:*",
-        "ds:*"
+        "ds:*",
         "iam:PutRolePolicy"
       ],
       "Resource": "*"
@@ -131,7 +131,7 @@ arn:aws:workspaces:region:account_id:workspace/workspace_identifier
 ```
 
 *region*  
-The region that the WorkSpace is in \(for example, `us-east-2`\)\.
+The Region that the WorkSpace is in \(for example, `us-east-2`\)\.
 
 *account\_id*  
 The ID of the AWS account, with no hyphens \(for example, `123456789012`\)\.
@@ -145,7 +145,7 @@ The following is the format of the `Resource` element of a policy statement that
 "Resource": "arn:aws:workspaces:region:account_id:workspace/workspace_identifier"
 ```
 
-You can use the \* wildcard to specify all WorkSpaces that belong to a specific account in a specific region\.
+You can use the \* wildcard to specify all WorkSpaces that belong to a specific account in a specific Region\.
 
 ### Bundle ARN<a name="bundle_arn_syntax"></a>
 
@@ -156,7 +156,7 @@ arn:aws:workspaces:region:account_id:workspacebundle/bundle_identifier
 ```
 
 *region*  
-The region that the WorkSpace is in \(for example, `us-east-2`\)\.
+The Region that the WorkSpace is in \(for example, `us-east-2`\)\.
 
 *account\_id*  
 The ID of the AWS account, with no hyphens \(for example, `123456789012`\)\.
@@ -170,7 +170,7 @@ The following is the format of the `Resource` element of a policy statement that
 "Resource": "arn:aws:workspaces:region:account_id:workspacebundle/bundle_identifier"
 ```
 
-You can use the \* wildcard to specify all bundles that belong to a specific account in a specific region\.
+You can use the \* wildcard to specify all bundles that belong to a specific account in a specific Region\.
 
 ### IP Group ARN<a name="ipgroup_arn_syntax"></a>
 
@@ -181,7 +181,7 @@ arn:aws:workspaces:region:account_id:workspaceipgroup/ipgroup_identifier
 ```
 
 *region*  
-The region that the WorkSpace is in \(for example, `us-east-2`\)\.
+The Region that the WorkSpace is in \(for example, `us-east-2`\)\.
 
 *account\_id*  
 The ID of the AWS account, with no hyphens \(for example, `123456789012`\)\.
@@ -195,7 +195,7 @@ The following is the format of the `Resource` element of a policy statement that
 "Resource": "arn:aws:workspaces:region:account_id:workspaceipgroup/ipgroup_identifier"
 ```
 
-You can use the \* wildcard to specify all IP groups that belong to a specific account in a specific region\.
+You can use the \* wildcard to specify all IP groups that belong to a specific account in a specific Region\.
 
 ### Directory ARN<a name="directory_arn_syntax"></a>
 
@@ -206,7 +206,7 @@ arn:aws:workspaces:region:account_id:directory/directory_identifier
 ```
 
 *region*  
-The region that the WorkSpace is in \(for example, `us-east-2`\)\.
+The Region that the WorkSpace is in \(for example, `us-east-2`\)\.
 
 *account\_id*  
 The ID of the AWS account, with no hyphens \(for example, `123456789012`\)\.
@@ -220,7 +220,7 @@ The following is the format of the `Resource` element of a policy statement that
 "Resource": "arn:aws:workspaces:region:account_id:directory/directory_identifier"
 ```
 
-You can use the \* wildcard to specify all directories that belong to a specific account in a specific region\.
+You can use the \* wildcard to specify all directories that belong to a specific account in a specific Region\.
 
 ### API Actions with No Support for Resource\-Level Permissions<a name="no-resource-level-permissions"></a>
 

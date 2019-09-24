@@ -4,7 +4,19 @@ The following information can help you troubleshoot issues with your WorkSpaces\
 
 ## Enabling Advanced Logging<a name="advanced-logging"></a>
 
-You can enable advanced logging on any WorkSpaces client to help troubleshoot issues that your users may experience when they use the client\. To enable advanced logging, open the WorkSpaces client, choose the gear icon in the upper right corner of the client application, choose **Advanced Settings**, select the **Enable Advanced Logging** check box, and then choose **Save**\. Advanced logging is enabled for every subsequent client session until you disable it\.
+You can enable advanced logging on any WorkSpaces client to help troubleshoot issues that your users may experience when they use the client\. To enable advanced logging: 
+
+1. Open the WorkSpaces client\.
+
+1. Choose the gear icon in the upper right corner of the client application\.
+
+1. Choose **Advanced Settings**\.
+
+1. Select the **Enable Advanced Logging** check box\.
+
+1. Choose **Save**\.
+
+Advanced logging is enabled for every subsequent client session until you disable it\.
 
 Advanced logging generates log files that contain diagnostic information and debugging\-level details, including verbose performance data\. These files are automatically uploaded to a database in AWS\. 
 
@@ -17,10 +29,13 @@ The following information can help you troubleshoot specific issues with your Wo
 
 **Topics**
 + [I can't create an Amazon Linux WorkSpace because there are invalid characters in the user name](#linux_workspace_provision_fail_username)
++ [I changed the shell for my Amazon Linux WorkSpace and now I can't provision a PCoIP session](#linux_workspace_provision_fail_shell_override)
 + [Launching WorkSpaces in my connected directory often fails](#provision_fail)
 + [Launching WorkSpaces fails with an internal error](#launch-failure-ipv6)
 + [My users can't connect to a Windows WorkSpace with an interactive logon banner](#logon_banner)
 + [My users are having issues when they try to log on to BYOL WorkSpaces from WorkSpaces Web Access](#byol_logon_issues)
++ [My users aren’t receiving invitation emails or password reset emails](#welcome_emails)
++ [I receive the message "The system administrator has set policies to prevent this installation" when I try to install applications on a Windows WorkSpace](#msi_wont_install)
 + [No WorkSpaces in my directory can connect to the internet](#no_internet)
 + [I receive a "DNS unavailable" error when I try to connect to my on\-premises directory](#dns_unavailable)
 + [I receive a "Connectivity issues detected" error when I try to connect to my on\-premises directory](#connectivity_issues_detected)
@@ -38,6 +53,10 @@ Additionally, you can't use a dash symbol \(\-\) as the first character of the u
 
 **Note**  
 These limitations do not apply to Windows WorkSpaces\. Windows WorkSpaces support the @ and \- symbols for all characters in the user name\.
+
+### I changed the shell for my Amazon Linux WorkSpace and now I can't provision a PCoIP session<a name="linux_workspace_provision_fail_shell_override"></a>
+
+To override the default shell for Linux WorkSpaces, see [Override the Default Shell for Amazon Linux WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/manage_linux_workspace.html#linux_shell)\. 
 
 ### Launching WorkSpaces in my connected directory often fails<a name="provision_fail"></a>
 
@@ -59,7 +78,7 @@ BYOL WorkSpaces rely on a specific logon screen configuration to enable users to
 
 In most cases, when a user attempts to log on to a WorkSpace, the user name field is prepopulated with the name of that user\. However, if an administrator establishes an RDP connection to the WorkSpace to perform maintenance tasks, the user name field is populated with the name of the administrator instead\. To resolve this issue, disable the **Hide entry points for Fast User Switching** Group Policy setting\. When you do so, the WorkSpaces logon agent can use the **Switch User** button to populate the user name field with the correct name\.
 
-1. Open Local Group Policy Editor by opening the command prompt as an administrator, typing `gpedit.msc`, and then pressing ENTER\. 
+1. Open Local Group Policy Editor by opening the command prompt as an administrator, entering `gpedit.msc`, and then pressing **Enter**\. 
 
 1. In the console tree, choose **Local Computer Policy**, **Computer Configuration**, **Administrative Templates**, **System**, and **Logon**\.
 
@@ -71,7 +90,7 @@ In most cases, when a user attempts to log on to a WorkSpace, the user name fiel
 
 By default, the list of last logged on users displays, rather than the **Switch User** button\. Depending on the configuration of the WorkSpace, the list may not display the **Other User** tile\. When this occurs, if the prepopulated user name isn't correct, the WorkSpaces logon agent can't populate the field with the correct name\. To resolve this issue, enable the **Interactive logon: Don't display last signed\-in** Local Security Policy setting\.
 
-1. Open Local Security Policy Editor by opening the command prompt as an administrator, typing `secpol.msc`, and then pressing ENTER\. 
+1. Open Local Security Policy Editor by opening the command prompt as an administrator, entering `secpol.msc`, and then pressing **Enter**\. 
 
 1. In the console tree, choose **Security Settings**, **Local Policies**, and **Security Options**\.
 
@@ -81,13 +100,43 @@ By default, the list of last logged on users displays, rather than the **Switch 
 
 1. In the **Properties** dialog box for the setting, choose **Enabled**, and then choose **OK**\.
 
+### My users aren’t receiving invitation emails or password reset emails<a name="welcome_emails"></a>
+
+Users might not receive welcome or password reset emails for WorkSpaces that were created using AD Connector\.
+
+To manually send welcome emails to these users, see [ Send an Invitation Email](https://docs.aws.amazon.com/workspaces/latest/adminguide/manage-workspaces-users.html#send-invitation)\.
+
+To assist users with resetting their passwords, see your documentation for Microsoft Active Directory\.
+
+### I receive the message "The system administrator has set policies to prevent this installation" when I try to install applications on a Windows WorkSpace<a name="msi_wont_install"></a>
+
+You can address this issue by modifying the Windows Installer Group Policy setting\. To deploy this policy to multiple WorkSpaces in your directory, apply this setting to a Group Policy object that is linked to the WorkSpaces organizational unit \(OU\) from a domain\-joined EC2 instance\. If you are using AD Connector, you can make these changes from a domain controller\. For more information about using the Active Directory administration tools to work with Group Policy objects, see [Installing the Active Directory Administration Tools](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_install_ad_tools.html) in the *AWS Directory Service Administration Guide*\.
+
+The following procedure shows how to configure the Windows Installer setting for the Amazon WorkSpaces Group Policy object\.
+
+1. Make sure that the most recent [Amazon WorkSpaces Group Policy administrative template](group_policy.md#gp_install_template) is installed in your domain\.
+
+1. Open the Group Policy Management tool on your Windows WorkSpace client and navigate to and select the WorkSpaces Group Policy object for your WorkSpaces machine accounts\. Choose **Action**, **Edit** in the main menu\.
+
+1. In the Group Policy Management Editor, choose **Computer Configuration**, **Policies**, **Administrative Templates**, **Classic Administrative Templates**, **Windows Components**, **Windows Installer**\.
+
+1. Open the **Turn Off Windows Installer** setting\.
+
+1. In the **Turn Off Windows Installer** dialog box, change **Not Configured** to **Enabled**, and then set **Disable Windows Installer** to **Never**\.
+
+1. Choose **OK**\.
+
+1. To apply the group policy changes, do one of the following:
+   + Reboot the WorkSpace \(in the Amazon WorkSpaces console, select the WorkSpace, then choose **Actions**, **Reboot WorkSpaces**\)\.
+   + From an administrative command prompt, enter gpupdate /force\.
+
 ### No WorkSpaces in my directory can connect to the internet<a name="no_internet"></a>
 
 WorkSpaces cannot communicate with the internet by default\. You must explicitly provide internet access\. For more information, see [Provide Internet Access from Your WorkSpace](amazon-workspaces-internet-access.md)\.
 
 ### I receive a "DNS unavailable" error when I try to connect to my on\-premises directory<a name="dns_unavailable"></a>
 
-You receive an error message similar to the following when connecting to your on\-premises directory:
+You receive an error message similar to the following when connecting to your on\-premises directory\.
 
 ```
 DNS unavailable (TCP port 53) for IP: dns-ip-address
@@ -97,7 +146,7 @@ AD Connector must be able to communicate with your on\-premises DNS servers via 
 
 ### I receive a "Connectivity issues detected" error when I try to connect to my on\-premises directory<a name="connectivity_issues_detected"></a>
 
-You receive an error message similar to the following when connecting to your on\-premises directory:
+You receive an error message similar to the following when connecting to your on\-premises directory\.
 
 ```
 Connectivity issues detected: LDAP unavailable (TCP port 389) for IP: ip-address
@@ -111,7 +160,7 @@ AD Connector must be able to communicate with your on\-premises domain controlle
 
 ### I receive an "SRV record" error when I try to connect to my on\-premises directory<a name="srv_record_not_found"></a>
 
-You receive an error message similar to one or more of the following when connecting to your on\-premises directory:
+You receive an error message similar to one or more of the following when connecting to your on\-premises directory\.
 
 ```
 SRV record for LDAP does not exist for IP: dns-ip-address
@@ -119,7 +168,7 @@ SRV record for LDAP does not exist for IP: dns-ip-address
 SRV record for Kerberos does not exist for IP: dns-ip-address
 ```
 
-AD Connector needs to obtain the `_ldap._tcp.dns-domain-name` and `_kerberos._tcp.dns-domain-name` SRV records when connecting to your directory\. You will get this error if the service cannot obtain these records from the DNS servers that you specified when connecting to your directory\. Make sure that your DNS servers contains these SRV records\. For more information, see [SRV Resource Records](http://technet.microsoft.com/en-us/library/cc961719.aspx) on Microsoft TechNet\.
+AD Connector needs to obtain the `_ldap._tcp.dns-domain-name` and `_kerberos._tcp.dns-domain-name` SRV records when connecting to your directory\. You get this error if the service cannot obtain these records from the DNS servers that you specified when connecting to your directory\. Make sure that your DNS servers contain these SRV records\. For more information, see [SRV Resource Records](http://technet.microsoft.com/en-us/library/cc961719.aspx) on Microsoft TechNet\.
 
 ### My Windows WorkSpace goes to sleep when it's left idle<a name="windows_workspace_sleeps_when_idle"></a>
 
@@ -150,7 +199,7 @@ If the preceding steps do not solve the issue, do the following:
 ### One of my WorkSpaces has a state of "Unhealthy"<a name="unhealthy"></a>
 
 The Amazon WorkSpaces service periodically sends status requests to a WorkSpace\. A WorkSpace is marked `Unhealthy` when it fails to respond to these requests\. Common causes for this problem are:
-+ An application on the WorkSpace is blocking network ports which prevents the WorkSpace from responding to the status request\.
++ An application on the WorkSpace is blocking network ports, which prevents the WorkSpace from responding to the status request\.
 + High CPU utilization is preventing the WorkSpace from responding to the status request in a timely manner\.
 + The computer name of the WorkSpace has been changed\. This prevents a secure channel from being established between Amazon WorkSpaces and the WorkSpace\.
 

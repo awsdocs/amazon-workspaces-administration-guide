@@ -5,7 +5,7 @@ In this tutorial, you'll learn how to provision a virtual, cloud\-based Microsof
 This tutorial uses the Quick Setup option to launch your WorkSpace\. This option is available only if you have never launched a WorkSpace\. Alternatively, see [Launch a Virtual Desktop Using Amazon WorkSpaces](launch-workspaces-tutorials.md)\.
 
 **Note**  
-Quick Setup is only supported in the following AWS Regions:   
+Quick Setup is supported only in the following AWS Regions:   
 US East \(N\. Virginia\)
 US West \(Oregon\)
 EU \(Ireland\)
@@ -22,8 +22,8 @@ Asia Pacific \(Tokyo\)
 ## Before You Begin<a name="quick-setup-prereqs"></a>
 + You must have an AWS account to create or administer a WorkSpace\. Users do not need an AWS account to connect to and use their WorkSpaces\.
 + When you launch a WorkSpace, you must select a WorkSpace bundle\. For more information, see [Amazon WorkSpaces Bundles](https://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles)\.
-+ When you launch a WorkSpace, you must specify profile information for the user, including a username and email address\. Users complete their profiles by specifying a password\. Information about WorkSpaces and users is stored in a directory\.
-+ Amazon WorkSpaces is not available in every region\. Verify the supported regions and select a region for your WorkSpaces\. For more information about the supported regions, see [Amazon WorkSpaces Pricing by AWS Region](https://aws.amazon.com/workspaces/pricing/#Amazon_WorkSpaces_Pricing_by_AWS_Region)\.
++ When you launch a WorkSpace, you must specify profile information for the user, including a user name and email address\. Users complete their profiles by specifying a password\. Information about WorkSpaces and users is stored in a directory\.
++ Amazon WorkSpaces is not available in every Region\. Verify the supported Regions and select a Region for your WorkSpaces\. For more information about the supported Regions, see [Amazon WorkSpaces Pricing by AWS Region](https://aws.amazon.com/workspaces/pricing/#Amazon_WorkSpaces_Pricing_by_AWS_Region)\.
 
 ## Step 1: Launch the WorkSpace<a name="quick-setup-launch-workspace"></a>
 
@@ -33,7 +33,7 @@ Using Quick Setup, you can launch your first WorkSpace in minutes\.
 
 1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
-1. Choose **Get Started Now**\.
+1. Choose **Get Started Now**\. If you don't see this button, either you have already launched a WorkSpace in this Region, or you aren't using one of the [Regions that support Quick Setup](#quick-setup-regions)\.
 
 1. On the **Get Started with Amazon WorkSpaces** page, next to **Quick Setup**, choose **Launch**\.  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/images/get-started-options.png)
@@ -55,15 +55,18 @@ Quick Setup completes the following tasks on your behalf:
 + Creates a virtual private cloud \(VPC\)\.
 + Sets up a Simple AD directory in the VPC that is used to store user and WorkSpace information\. The directory has an administrator account and it is enabled for Amazon WorkDocs\.
 + Creates the specified user accounts and adds them to the directory\.
-+ Creates WorkSpace instances\. Each WorkSpace receives a public IP address to provide Internet access\. The running mode is AlwaysOn\. For more information, see [Manage the WorkSpace Running Mode](running-mode.md)\.
++ Creates WorkSpace instances\. Each WorkSpace receives a public IP address to provide internet access\. The running mode is AlwaysOn\. For more information, see [Manage the WorkSpace Running Mode](running-mode.md)\.
 + Sends invitation emails to the specified users\.
+
+**Note**  
+The first user account created by Quick Setup is your Admin user account\. You can't update this user account from the Amazon WorkSpaces Console\. Don't share the information for this Admin account with anyone else\. If you want to invite other users to use this WorkSpace, create new user accounts for them\.
 
 ## Step 2: Connect to the WorkSpace<a name="quick-setup-connect-workspace"></a>
 
 After you receive the invitation email, you can connect to the WorkSpace using the client of your choice\. After you sign in, the client displays the WorkSpace desktop\.
 
 **Note**  
-When you are connected to your WorkSpace from a Windows or MacOS client, you can toggle the fullscreen display by using following command shortcuts:  
+When you are connected to your WorkSpace from a Windows or MacOS client, you can toggle the full screen display by using following command shortcuts:  
 Windows client: Ctrl\+Alt\+Enter
 MacOS client: Control\+Option\+Return
 
@@ -81,7 +84,7 @@ MacOS client: Control\+Option\+Return
 1. Start the client, enter the registration code from the invitation email, and choose **Register**\.  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/images/get-started-register.png)
 
-1. When prompted to sign in, type the username and password, and then choose **Sign In**\.  
+1. When prompted to sign in, enter the user name and password, and then choose **Sign In**\.  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/images/get-started-sign-in.png)
 
 1. \(Optional\) When prompted to save your credentials, choose **Yes**\.

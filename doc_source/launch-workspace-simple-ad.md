@@ -14,8 +14,8 @@ In this tutorial, we launch a WorkSpace that uses Simple AD\. For tutorials that
 + [Next Steps](#next-steps-simple-ad)
 
 ## Before You Begin<a name="prereqs-simple-ad"></a>
-+ Simple AD is not available in every region\. Verify the supported regions and select a region for your Simple AD directory\. For more information about the supported regions, see the **Simple AD** table under [AWS Directory Service](https://docs.aws.amazon.com/general/latest/gr/rande.html#ds_region)\.
-+ Amazon WorkSpaces is not available in every region\. Verify the supported regions and select a region for your WorkSpaces\. For more information about the supported regions, see [Amazon WorkSpaces Pricing by AWS Region](https://aws.amazon.com/workspaces/pricing/)\.
++ Simple AD is not available in every Region\. Verify the supported Regions and select a Region for your Simple AD directory\. For more information about the supported Regions, see the **Simple AD** table under [AWS Directory Service](https://docs.aws.amazon.com/general/latest/gr/rande.html#ds_region)\.
++ Amazon WorkSpaces is not available in every Region\. Verify the supported Regions and select a Region for your WorkSpaces\. For more information about the supported Regions, see [Amazon WorkSpaces Pricing by AWS Region](https://aws.amazon.com/workspaces/pricing/)\.
 + When you launch a WorkSpace, you must select a WorkSpace bundle\. A bundle is a combination of an operating system, and storage, compute, and software resources\. For more information, see [Amazon WorkSpaces Bundles](https://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles)\.
 + When you create a directory using AWS Directory Service or launch a WorkSpace, you must create or select a virtual private cloud configured with a public subnet and two private subnets\. For more information, see [Configure a VPC for Amazon WorkSpaces](amazon-workspaces-vpc.md)\.
 
@@ -80,7 +80,7 @@ Now you are ready to launch the WorkSpace\.
 
    1. For **Enable Amazon WorkDocs**, choose **Yes**\.
 **Note**  
-This option is available only if Amazon WorkDocs is available in the selected region\.
+This option is available only if Amazon WorkDocs is available in the selected Region\.
 
    1. Choose **Next**\. Amazon WorkSpaces registers your Simple AD directory\.
 

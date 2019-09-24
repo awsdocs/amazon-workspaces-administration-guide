@@ -33,20 +33,20 @@ The following table describes important additions to the Amazon WorkSpaces servi
 | [Hourly WorkSpaces ](running-mode.html) | You can configure your WorkSpaces so that users are billed by the hour\.  | August 18, 2016 | 
 | [Windows 10 BYOL](byol-windows-images.html) | You can bring your Windows 10 Desktop License to Amazon WorkSpaces \(BYOL\)\. | July 21, 2016 | 
 | [Tagging support ](tag-workspaces.html) | You can use tags to manage and track your WorkSpaces\.  | May 17, 2016 | 
-| [Saved registrations ](amazon-workspaces.html) | Every time you enter a new registration code, the WorkSpaces client stores it\. This makes it easier to switch between WorkSpaces in different directories or regions\. | January 28, 2016 | 
+| [Saved registrations ](amazon-workspaces.html) | Every time you enter a new registration code, the WorkSpaces client stores it\. This makes it easier to switch between WorkSpaces in different directories or Regions\. | January 28, 2016 | 
 | [Windows 7 BYOL, Chromebook client, WorkSpace encryption](amazon-workspaces.html) | You can bring your Windows 7 Desktop License to Amazon WorkSpaces \(BYOL\), use the Chromebook client, and use WorkSpace encryption\. | October 1, 2015 | 
 | [CloudWatch monitoring ](amazon-workspaces-monitoring.html) | Added information about CloudWatch monitoring\. | April 28, 2015 | 
 | [Automatic session reconnect](amazon-workspaces.html) | Added information about the auto session reconnect feature in the WorkSpaces desktop client applications\. | March 31, 2015 | 
 | [Public IP addresses](update-directory-details.html) | You can automatically assign a public IP address to your WorkSpaces\. | January 23, 2015 | 
-| [Amazon WorkSpaces launched in Asia Pacific \(Singapore\)](amazon-workspaces.html) | Amazon WorkSpaces is available in the Asia Pacific \(Singapore\) region\. | January 15, 2015 | 
+| [Amazon WorkSpaces launched in Asia Pacific \(Singapore\)](amazon-workspaces.html) | Amazon WorkSpaces is available in the Asia Pacific \(Singapore\) Region\. | January 15, 2015 | 
 | [Value bundle added, Standard bundle updates, Office 2013 added](amazon-workspaces-bundles.html) | The Value bundle is available, the Standard bundle hardware has been upgraded, and Microsoft Office 2013 is available in Plus packages\.  |  November 6, 2014 | 
 | [Image and bundle support](amazon-workspaces-bundles.html) | You can create an image from a WorkSpace that you’ve customized and a custom WorkSpace bundle from the image\. | October 28, 2014 | 
 | [PCoIP zero client support](amazon-workspaces.html) | You can access Amazon WorkSpaces PCoIP zero client devices\. | October 15, 2014 | 
-| [ Amazon WorkSpaces launched in Asia Pacific \(Tokyo\)](amazon-workspaces.html) | Amazon WorkSpaces is available in the Asia Pacific \(Tokyo\) region\. | August 26, 2014 | 
+| [ Amazon WorkSpaces launched in Asia Pacific \(Tokyo\)](amazon-workspaces.html) | Amazon WorkSpaces is available in the Asia Pacific \(Tokyo\) Region\. | August 26, 2014 | 
 | [ Local printer support](group_policy.html) | You can enable local printer support for your WorkSpaces\. | August 26, 2014 | 
 | [Multi\-factor authentication ](update-directory-details.html) | You can use multi\-factor authentication in connected directories\. | August 11, 2014 | 
 | [Default OU support and target domain support](update-directory-details.html) | You can select a default Organizational Unit \(OU\) where your WorkSpace machine accounts are placed, and a separate domain where your WorkSpace machine accounts are created\. |  July 7, 2014 | 
 | [Add security groups](amazon-workspaces-security-groups.html) | You can add a security group to your WorkSpaces\. | July 7, 2014 | 
-| [ Amazon WorkSpaces launched in Asia Pacific \(Sydney\)](amazon-workspaces.html) | Amazon WorkSpaces is available in the Asia Pacific \(Sydney\) region\. | May 15, 2014 | 
-| [ Amazon WorkSpaces launched in EU \(Ireland\)](amazon-workspaces.html) | Amazon WorkSpaces is available in the EU \(Ireland\) region\. | May 5, 2014 | 
+| [ Amazon WorkSpaces launched in Asia Pacific \(Sydney\)](amazon-workspaces.html) | Amazon WorkSpaces is available in the Asia Pacific \(Sydney\) Region\. | May 15, 2014 | 
+| [ Amazon WorkSpaces launched in EU \(Ireland\)](amazon-workspaces.html) | Amazon WorkSpaces is available in the EU \(Ireland\) Region\. | May 5, 2014 | 
 | [Public beta ](amazon-workspaces.html) | Amazon WorkSpaces is available as a public beta\. | March 25, 2014 | 

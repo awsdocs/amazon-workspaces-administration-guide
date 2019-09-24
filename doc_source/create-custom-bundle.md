@@ -6,9 +6,10 @@ After you've launched a Windows or Amazon Linux WorkSpace and customized it, you
 If you plan to create an image from a Windows 10 WorkSpace, do so from one that hasn't been upgraded\. Image creation is not supported on Windows 10 systems that have been upgraded from one version of Windows 10 to a newer version of Windows 10\. 
 
 **Requirements to create Windows custom images**
-+ All applications to be included in the image must be installed on the `C:\` drive, or the user profile in `D:\Users\`*username*\. They must also be compatible with Microsoft Sysprep\.
-**Note**  
-If you are preparing a bring your own Microsoft Windows License \(BYOL\) Windows 10 image, place the user profile in C:\\Users\\Default\.
++ All applications and user profiles on WorkSpaces images must be compatible with Microsoft Sysprep\.
++ All applications to be included in the image must be installed on the `C:` drive\.
++ Customized Windows user profiles for Windows 7 bring your own Windows License \(BYOL\) or Windows Server 2008 R2 custom images must be placed in `D:\Users\username` before you run **Create Image** on the WorkSpace\.
++ Customized Windows user profiles for Windows 10 BYOL or Windows Server 2016 custom images must be placed in `C:\Users\Default` before you run **Create Image** on the WorkSpace\.
 + The user profile must exist and its total size \(files and data\) must be less than 10 GB\.
 + The `C:\` drive must have enough available space for the contents of the user profile, plus an additional 2 GB\.
 + All application services running on the WorkSpace must use a local system account instead of domain user credentials\. For example, you cannot have a Microsoft SQL Server Express installation running with a domain user's credentials\.
@@ -51,17 +52,17 @@ Before you create an image from a WorkSpace, do the following:
 
 1. A message displays prompting you to restart your WorkSpace before continuing, to update your WorkSpaces software to the latest version necessary\. 
 
-   Restart your WorkSpace if needed by closing the message and following the steps in [Restart a WorkSpace](reboot-workspaces.md)\. When you're done, repeat the previous step, and choose **Next** when this message appears\.
+   Restart your WorkSpace if needed by closing the message and following the steps in [Restart a WorkSpace](reboot-workspaces.md)\. When you're done, repeat the previous step, and choose **Next** when this message appears\. To create an image, the status of the WorkSpace must be **Available** and its modification state must be **None**\.
 
-1. Type an image name and a description that will help you identify the image, and then choose **Create Image**\. While the image is being created, the status of the WorkSpace is **Suspended** and the WorkSpace is unavailable\.
+1. Enter an image name and a description that will help you identify the image, and then choose **Create Image**\. While the image is being created, the status of the WorkSpace is **Suspended** and the WorkSpace is unavailable\.
 
 1. In the navigation pane, choose **Images**\. The image is complete when the status changes to **Available**\.
 
 1. Select the image and choose **Actions**, **Create Bundle**\.
 
-1. Type a bundle name and a description, and then do the following: 
+1. Enter a bundle name and a description, and then do the following: 
    + For **Bundle Type**, choose the hardware from which your WorkSpace is launched\. 
-   + For **Root Volume Size**, leave the default value or type a new value that is equal or greater than the current size\. Then, type a value for **User Volume Size**\.
+   + For **Root Volume Size**, leave the default value or enter a new value that is equal or greater than the current size\. Then, enter a value for **User Volume Size**\.
 
       The available sizes for the root volume \(for Microsoft Windows, the C: drive, for Linux, /\) and the user volume \(for Windows, the D: drive; for Linux, /home\) are as follows: 
      + Root: 80 GB, User: 10 GB, 50 GB, or 100 GB
@@ -73,7 +74,7 @@ Before you create an image from a WorkSpace, do the following:
 
 **Image Creation for Windows WorkSpaces**
 
-When you create an image from a Windows WorkSpace, the entire contents of the `C:\` drive are included\. The entire contents of the user profile in `D:\Users\`*username* are included except for the following:
+When you create an image from a Windows WorkSpace, the entire contents of the `C:\` drive are included\. The entire contents of the user profile in `D:\Users\username` are included except for the following:
 + Contacts
 + Downloads
 + Music

@@ -7,7 +7,7 @@ As an administrator for Amazon WorkSpaces, you can use the Amazon WorkSpaces con
 You can use the Amazon WorkSpaces console to edit the user information for a WorkSpace\.
 
 **Note**  
-This feature is available only if you use Microsoft AD or Simple AD\. If you use Microsoft Active Directory through AD Connector or a trust relationship, you can manage users and groups using [Active Directory Users and Computers](https://technet.microsoft.com/en-us/library/cc754217.aspx)\.
+This feature is available only if you use Microsoft AD or Simple AD\. If you use Microsoft Active Directory through AD Connector or a trust relationship, you can manage users and groups by using [ Active Directory](https://docs.microsoft.com/powershell/module/addsadministration/?view=win10-ps)\.
 
 **To edit user information**
 
@@ -20,6 +20,9 @@ This feature is available only if you use Microsoft AD or Simple AD\. If you use
 1. Update **First Name**, **Last Name**, and **Email** as needed\.
 
 1. Choose **Update**\.
+
+**Note**  
+ To delete or otherwise manage users, you need to do this through your directory\. If you're using AWS Managed Microsoft AD, see [ Manage Users and Groups in AWS Managed Microsoft AD](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_manage_users_groups.html) in the *AWS Directory Service Administration Guide*\. If you're using Simple AD, see [ Manage Users and Groups in Simple AD](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/simple_ad_manage_users_groups.html) in the *AWS Directory Service Administration Guide*\. If you use Microsoft Active Directory through AD Connector or a trust relationship, you can manage users and groups by using [ Active Directory](https://docs.microsoft.com/powershell/module/addsadministration/?view=win10-ps)\. 
 
 ## Send an Invitation Email<a name="send-invitation"></a>
 

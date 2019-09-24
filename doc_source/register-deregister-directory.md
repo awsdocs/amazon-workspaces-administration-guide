@@ -18,7 +18,7 @@ To allow Amazon WorkSpaces to use an existing AWS Directory Service directory, y
 
 1. For **Enable Amazon WorkDocs**, choose **Yes** to register the directory for use with Amazon WorkDocs or **No** otherwise\.
 **Note**  
-This option is only displayed if Amazon WorkDocs is available in the region\.
+This option is only displayed if Amazon WorkDocs is available in the Region\.
 
 1. Choose **Register**\. Initially the value of **Registered** is `REGISTERING`\. After registration is complete, the value is `Yes`\.
 

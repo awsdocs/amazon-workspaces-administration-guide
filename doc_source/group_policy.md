@@ -14,17 +14,17 @@ Group Policy settings can affect a WorkSpace user's experience as follows:
 
 **Topics**
 + [Install the Group Policy Administrative Template](#gp_install_template)
-+ [Enable or Disable Local Printer Support for Windows WorkSpaces](#gp_local_printers)
++ [Configure Printer Support for Windows WorkSpaces](#gp_local_printers)
 + [Enable or Disable Clipboard Redirection for Windows WorkSpaces](#gp_clipboard)
 + [Set the Session Resume Timeout for Windows WorkSpaces](#gp_auto_resume)
 
 ## Install the Group Policy Administrative Template<a name="gp_install_template"></a>
 
-To use the Group Policy settings that are specific to Amazon WorkSpaces, you need to install the Group Policy administrative template\. Perform the following procedure on a directory administration WorkSpace or Amazon EC2 instance that is joined to your directory\.
+To use the Group Policy settings that are specific to Amazon WorkSpaces, you must install the Group Policy administrative template\. Perform the following procedure on a directory administration WorkSpace or Amazon EC2 instance that is joined to your directory\.
 
 **To install the Group Policy administrative template**
 
-1. From a running Windows WorkSpace, make a copy of the `pcoip.adm` file in the `C:\Program Files (x86)\Teradici\PCoIP Agent\configuration` directory\.
+1. From a running Windows WorkSpace client, make a copy of the `pcoip.adm` file in the `C:\Program Files (x86)\Teradici\PCoIP Agent\configuration` directory\.
 
 1. Open the Group Policy Management tool and navigate to the organizational unit in your domain that contains your WorkSpaces machine accounts\.
 
@@ -40,28 +40,36 @@ To use the Group Policy settings that are specific to Amazon WorkSpaces, you nee
 
 1. Close the Group Policy Management Editor\. You can now use this Group Policy object to modify the Group Policy settings that are specific to Amazon WorkSpaces\.
 
-## Enable or Disable Local Printer Support for Windows WorkSpaces<a name="gp_local_printers"></a>
+## Configure Printer Support for Windows WorkSpaces<a name="gp_local_printers"></a>
 
-By default, Amazon WorkSpaces disables local printer redirection\. For Windows WorkSpaces, you can use Group Policy settings to enable this feature if needed\.
+By default, Amazon WorkSpaces enables Basic remote printing, which offers limited printing capabilities because it uses a generic printer driver on the host side to ensure compatible printing\.
 
-**Note**  
-Local printer support is not available for Amazon Linux Workspaces\. 
+Advanced remote printing for Windows clients lets you use specific features of your printer, such as double\-sided printing, but it requires installation of the matching printer driver on the host side\.
 
-The Group Policy setting change takes effect after the WorkSpace's next Group Policy settings update and the session is restarted\.
+Remote printing is implemented as a virtual channel\. If virtual channels are disabled, remote printing does not function\.
 
-**To enable or disable local printer support**
+For Windows WorkSpaces, you can use Group Policy settings to configure printer support as needed\. The Group Policy setting change takes effect after the WorkSpace's next Group Policy settings update and the session is restarted\.
+
+**To configure printer support**
 
 1. Make sure that the most recent [Amazon WorkSpaces Group Policy administrative template](#gp_install_template) is installed in your domain\.
 
-1. Open the Group Policy Management tool and navigate to and select the WorkSpaces Group Policy object for your WorkSpaces machine accounts\. Choose **Action**, **Edit** in the main menu\.
+1. Open the Group Policy Management tool on your Windows WorkSpace client and navigate to and select the WorkSpaces Group Policy object for your WorkSpaces machine accounts\. Choose **Action**, **Edit** in the main menu\.
 
 1. In the Group Policy Management Editor, choose **Computer Configuration**, **Policies**, **Administrative Templates**, **Classic Administrative Templates**, **PCoIP Session Variables**, and **Overridable Administration Defaults**\.
 
 1. Open the **Configure remote printing** setting\.
 
-1. In the **Configure remote printing** dialog box, choose **Enabled** or **Disabled**, and then choose one of the following settings:
+1. In the **Configure remote printing** dialog box, do one of the following:
+   + To enable Advanced remote printing, choose **Enabled**, and then under **Options,** **Configure remote printing**, choose **Basic and Advanced printing for Windows clients**\. To automatically use the client computer's current default printer, select **Automatically set default printer**\.
+   + To disable printing, choose **Enabled**, and then under **Options,** **Configure remote printing**, choose **Printing disabled**\.
+
+1. Choose **OK**\.
 
 By default, local printer auto\-redirection is disabled\. You can use Group Policy settings to enable this feature so that your local printer is set as the default printer every time you connect to your WorkSpace\.
+
+**Note**  
+Local printer redirection is not available for Amazon Linux WorkSpaces\. 
 
 **To enable local printer auto\-redirection**
 
@@ -73,13 +81,13 @@ By default, local printer auto\-redirection is disabled\. You can use Group Poli
 
 1. Open the **Configure remote printing** setting\.
 
-1. In the **Configure remote printing** dialog box, choose **Enabled**, set or clear **Automatically set default printer**, and then choose **OK**\.
+1. Choose **Enabled**, and then under **Options**, **Configure remote printing**, choose either **Basic and Advanced printing for Windows clients** or choose **Basic printing**, select **Automatically set default printer**, and then choose **OK**\.
 
 ## Enable or Disable Clipboard Redirection for Windows WorkSpaces<a name="gp_clipboard"></a>
 
-By default, Amazon WorkSpaces supports clipboard redirection\. You can use Group Policy settings to disable this feature if needed for Windows WorkSpaces\. 
+By default, Amazon WorkSpaces supports clipboard redirection\. If needed for Windows WorkSpaces, you can use Group Policy settings to disable this feature\. 
 
-The Group Policy setting change takes effect after the WorkSpace's next Group Policy settings update and the session is restarted\.
+The Group Policy setting change takes effect after the WorkSpace's next Group Policy settings update and the client session is restarted\.
 
 **To enable or disable clipboard redirection for Windows WorkSpaces**
 
@@ -98,11 +106,11 @@ The Group Policy setting change takes effect after the WorkSpace's next Group Po
    + Enabled in both directions 
 
 **Known Limitation**  
-With clipboard redirection enabled on the WorkSpace, if you copy content that is larger than 890KB from a Microsoft Office application, the application might become slow or unresponsive for up to 5 seconds\.
+With clipboard redirection enabled on the WorkSpace, if you copy content that is larger than 890 KB from a Microsoft Office application, the application might become slow or unresponsive for up to 5 seconds\.
 
 ## Set the Session Resume Timeout for Windows WorkSpaces<a name="gp_auto_resume"></a>
 
-When using the Amazon WorkSpaces client applications, an interruption of network connectivity causes an active session to be disconnected\. This can be caused by events such as closing the laptop lid, or the loss of your wireless network connection\. The Amazon WorkSpaces client applications for Windows and MacOS X attempt to reconnect the session automatically if network connectivity is regained within a certain amount of time\. The default session resume timeout is 20 minutes, but you can modify that value for WorkSpaces that are controlled by your domain's Group Policy settings\.
+When using the Amazon WorkSpaces client applications, an interruption of network connectivity causes an active session to be disconnected\. This can be caused by events such as closing the laptop lid, or the loss of your wireless network connection\. The Amazon WorkSpaces client applications for Windows and macOS X attempt to reconnect the session automatically if network connectivity is regained within a certain amount of time\. The default session resume timeout is 20 minutes, but you can modify that value for WorkSpaces that are controlled by your domain's Group Policy settings\.
 
 The Group Policy setting change takes effect after the WorkSpace's next Group Policy settings update and the session is restarted\.
 

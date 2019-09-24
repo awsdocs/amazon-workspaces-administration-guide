@@ -5,7 +5,7 @@ Amazon WorkSpaces enables you to provision virtual, cloud\-based Microsoft Windo
 For more information, see [Amazon WorkSpaces](https://aws.amazon.com/workspaces/)\.
 
 ## Features<a name="features"></a>
-+ Choose your operating system \(Windows or Amazon Linux\) and select from a range of hardware configurations, software configurations, and AWS regions\. For more information, see [Amazon WorkSpaces Bundles](https://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles)\.
++ Choose your operating system \(Windows or Amazon Linux\) and select from a range of hardware configurations, software configurations, and AWS Regions\. For more information, see [Amazon WorkSpaces Bundles](https://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles)\.
 + Connect to your WorkSpace and pick up from right where you left off\. Amazon WorkSpaces provides a persistent desktop experience\.
 + Amazon WorkSpaces provides the flexibility of either monthly or hourly billing for WorkSpaces\. For more information, see [Amazon WorkSpaces Pricing](https://aws.amazon.com/workspaces/pricing/)\.
 + Deploy and manage applications for your WorkSpaces by using Amazon WorkSpaces Application Manager \(Amazon WAM\)\.

@@ -68,12 +68,12 @@ The steps in this procedure for enabling BYOL for your account need to be perfor
 1. Under **Bring Your Own License \(BYOL\)**, in the **Management network interface IP address range** area, choose an IP address range, and then choose **Display available CIDR blocks**\.
 
    Amazon WorkSpaces searches for and displays available IP address ranges as IPv4 CIDR blocks, within the range that you specify\. If you require a specific IP address range, you can edit the search range\.
-**Note**  
-Specify an IP address range that is outside your internal range\.
+**Important**  
+After you specify an IP address range, you cannot modify it\. Make sure to specify an IP address range that doesn't conflict with the ranges used by your internal network\.
 
 1. Choose the CIDR block that you want from the list of results, and then choose **Enable BYOL**\.
-**Note**  
-This process may take several hours\. While Amazon WorkSpaces is enabling your account for BYOL, proceed to the next step\. 
+
+   This process may take several hours\. While Amazon WorkSpaces is enabling your account for BYOL, proceed to the next step\. 
 
 ## Step 2: Run the BYOL Checker PowerShell Script on a Windows VM<a name="windows_images_run_byol_checker_script"></a>
 
@@ -108,19 +108,19 @@ Perform these steps to run the BYOL Checker script\.
 
 1. From the Windows desktop, open Windows PowerShell\. Choose the Windows **Start** button, right\-click **Windows PowerShell**, and choose **Run as administrator**\. If you are prompted by User Account Control to choose whether you want PowerShell to make changes to your device, choose **Yes**\. 
 
-1. At the PowerShell command prompt, type the commands required to change to the directory where the BYOL Checker script is located\. For example, if the script is located in the BYOL directory, type the following commands\. After each command, press **Enter**:
+1. At the PowerShell command prompt, enter the commands required to change to the directory where the BYOL Checker script is located\. For example, if the script is located in the BYOL directory, enter the following commands\. After each command, press **Enter**:
 
    cd/
 
    cd C:\\Windows\\Temp\\byol
 
-1. Type the following command to update the PowerShell execution policy on the computer\. Doing so allows the BYOL Checker script to run: 
+1. Enter the following command to update the PowerShell execution policy on the computer\. Doing so allows the BYOL Checker script to run: 
 
    Set\-ExecutionPolicy Unrestricted
 
-1. When prompted to confirm whether to change the PowerShell execution policy, type A to specify Yes for all\.
+1. When prompted to confirm whether to change the PowerShell execution policy, enter A to specify Yes for all\.
 
-1. Type the following command to run the BYOL Checker script:
+1. Enter the following command to run the BYOL Checker script:
 
    \.\\BYOLChecker\.ps1
 
@@ -151,8 +151,8 @@ To create an image for BYOL, you must first export the VM from your virtualizati
 After you export your VM, review the requirements for importing Windows operating systems from a VM\. Take action as needed\. For more information, see [VM Import/Export Requirements](https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html)\.
 
 Import your VM into Amazon EC2 as an Amazon Machine Image \(AMI\)\. Use one of the following methods:
-+ Use the import\-workspace\-image command with the AWS Command Line Interface \(AWS CLI\)\. For more information, see [import\-workspace\-image](https://docs.aws.amazon.com/cli/latest/reference/workspaces/import-workspace-image.html) in the *AWS CLI Command Reference*\.
-+ Use the ImportWorkspaceImage API operation\. For more information, see [ImportWorkspaceImage](https://docs.aws.amazon.com/workspaces/latest/api/API_ImportWorkspaceImage.html) in the *Amazon WorkSpaces API Reference*\.
++ Use the import\-image command with the AWS Command Line Interface \(AWS CLI\)\. For more information, see [import\-image](https://docs.aws.amazon.com/cli/latest/reference/ec2/import-image.html) in the *AWS CLI Command Reference*\.
++ Use the ImportImage API operation\. For more information, see [ImportImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportImage.html) in the *Amazon EC2 API Reference*\.
 
 For more information, see [Importing a VM as an Image](https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html) in the *VM Import/Export User Guide*\.
 
@@ -165,7 +165,8 @@ To perform this procedure, verify that you have permissions to:
 Call Amazon WorkSpaces **ImportWorkspaceImage**\.
 Call EC2 **DescribeImages** on the EC2 image that you want to use to create the BYOL image\.
 Call EC2 **ModifyImageAttribute** on the EC2 image that you want to use to create the BYOL image\.
-For more information, see [Changing Permissions for an IAM User ](https://docs.aws.amazon.com/IAM/latest/UserGuide//id_users_change-permissions.html) in the *IAM User Guide*\.
+For more information, see [Changing Permissions for an IAM User ](https://docs.aws.amazon.com/IAM/latest/UserGuide//id_users_change-permissions.html) in the *IAM User Guide*\.  
+To create a Graphics or GraphicsPro bundle from your image, [contact AWS Support](https://aws.amazon.com/contact-us/) to get your account added to the allow list\. After your account is on the allow list, you can use the AWS CLI import\-workspace\-image command to ingest the Graphics or GraphicsPro image\. For more information, see [import\-workspace\-image](https://docs.aws.amazon.com/cli/latest/reference/workspaces/import-workspace-image.html) in the *AWS CLI Command Reference*\.
 
 **To create an image from the Windows VM**
 
@@ -177,8 +178,8 @@ For more information, see [Changing Permissions for an IAM User ](https://docs.a
 
 1. In the **Create BYOL Image** dialog box, do the following: 
    + For **AMI ID**, click the **EC2 Console** link, and choose the EC2 image that you imported as described in the previous section \(Step 4: Import the VM as an Image into EC2\)\. The image name must begin with `ami-` and be followed by the identifier for the AMI \(for example, `ami-5731123e`\)\.
-   + For **BYOL image name**, type a unique name for the image\.
-   + For **Image description**, type a description to help you quickly identify the image\.
+   + For **BYOL image name**, enter a unique name for the image\.
+   + For **Image description**, enter a description to help you quickly identify the image\.
 
 1. Choose **Create**\.
 

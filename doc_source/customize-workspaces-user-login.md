@@ -13,14 +13,17 @@ You can configure URI access to WorkSpaces for client applications on the follow
 
 To use URIs to access their WorkSpaces, users must first install the client application for their device by opening [https://clients\.amazonworkspaces\.com](https://clients.amazonworkspaces.com/) and following the directions\.
 
-URI access is also supported on the Firefox and Chrome browsers on Windows and macOS computers, and on Windows computers, the Internet Explorer and Microsoft Edge browsers\. For more information about WorkSpaces clients, see [Amazon WorkSpaces Clients](https://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-clients.html) in the *Amazon WorkSpaces User Guide*\.
+URI access is supported on the Firefox and Chrome browsers on Windows and macOS computers, and on Windows computers, the Internet Explorer and Microsoft Edge browsers\. For more information about WorkSpaces clients, see [Amazon WorkSpaces Clients](https://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-clients.html) in the *Amazon WorkSpaces User Guide*\.
+
+**Note**  
+On Android devices, URI access works only with the Firefox browser, not with the Google Chrome browser\.
 
 To configure URI access to WorkSpaces, use any of the URI formats described in the following table\.
 
 **Note**  
-If the data component of your URI includes any of the following reserved characters, we recommend that you use percent encoding in the data component to avoid ambiguity:   
+If the data component of your URI includes any of the following reserved characters, we recommend that you use percent\-encoding in the data component to avoid ambiguity:   
 `@ : / ? & =`  
-For example, if you have user names that include any of these characters, you should percent encode those user names in your URI\. For more information, see [Uniform Resource Identifier \(URI\): Generic Syntax](http://www.rfc-editor.org/rfc/rfc3986.txt)\.
+For example, if you have user names that include any of these characters, you should percent\-encode those user names in your URI\. For more information, see [Uniform Resource Identifier \(URI\): Generic Syntax](http://www.rfc-editor.org/rfc/rfc3986.txt)\.
 
 
 | Supported Syntax | Description | 
@@ -28,8 +31,8 @@ For example, if you have user names that include any of these characters, you sh
 | workspaces:// | Opens the WorkSpaces client application\. | 
 | workspaces://@registrationcode | Registers a user by using their WorkSpaces registration code\. Also displays the client login page\. | 
 | workspaces://username@registrationcode | Registers a user by using their WorkSpaces registration code\. Also automatically enters the user name in the username field on the client login page\. | 
-| workspaces://username@registrationcode?mfacode=mfa | Registers a user by using their WorkSpaces registration code\. Also automatically enters the user name in the username field and the multifactor authentication \(MFA\) code in the MFA code field on the client login page\. | 
-| workspaces://@registrationcode?mfacode=mfa | Registers a user by using their WorkSpaces registration code\. Also automatically enters the multifactor authentication \(MFA\) code in the MFA code field on the client login page\. | 
+| workspaces://username@registrationcode?MFACode=mfa | Registers a user by using their WorkSpaces registration code\. Also automatically enters the user name in the username field and the multifactor authentication \(MFA\) code in the MFA code field on the client login page\. | 
+| workspaces://@registrationcode?MFACode=mfa | Registers a user by using their WorkSpaces registration code\. Also automatically enters the multifactor authentication \(MFA\) code in the MFA code field on the client login page\. | 
 
 **Note**  
 If users open a URI link when they are already connected to a WorkSpace from a Windows client, a new WorkSpaces session opens and their original WorkSpaces session remains open\. If users open a URI link when they are connected to a WorkSpace from a macOS, iPad, or Android client, no new session opens; only their original WorkSpaces session remains open\.

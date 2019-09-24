@@ -26,6 +26,9 @@ You can switch between running modes at any time\.
 
 When your AutoStop WorkSpaces are not in use, they are automatically stopped after a specified period of inactivity, and hourly metering is suspended\. To further optimize costs, you can suspend the hourly charges associated with AutoStop WorkSpaces\. The WorkSpace is stopped and all apps and data saved for the next time a user logs in to the WorkSpace\.
 
+**Note**  
+Amazon WorkSpaces can detect inactivity only when users are using Amazon WorkSpaces clients\. If users are using third\-party clients, Amazon WorkSpaces might not be able to detect inactivity, and therefore the WorkSpace might not automatically stop and metering might not be suspended\.
+
 When a user reconnects to a stopped WorkSpace, it resumes from where it left off, typically in under 90 seconds\.
 
 You can restart AutoStop WorkSpaces that are available or in an error state\.

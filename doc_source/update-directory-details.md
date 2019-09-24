@@ -48,13 +48,9 @@ After you select a new OU, the machine accounts for all WorkSpaces that are crea
 
 ## Configure Automatic IP Addresses<a name="automatic-assignment"></a>
 
-After you enable automatic assignment of public IP addresses, each WorkSpace that you launch is assigned a public IP address\. This allows the WorkSpaces to access the Internet\. WorkSpaces that exist at the time you enable automatic assignment do not receive a public IP address until you rebuild them\.
+After you enable automatic assignment of public IP addresses, each WorkSpace that you launch is assigned a public IP address\. This allows WorkSpaces in public subnets to access the internet\. WorkSpaces that exist at the time that you enable automatic assignment do not receive a public IP address until you rebuild them\.
 
-Note that you do not need to enable automatic assignment of public IP access if you configured your VPC with a NAT gateway\. For more information, see [Configure a VPC for Amazon WorkSpaces](amazon-workspaces-vpc.md)\.
-
-**Prerequisites**
-+ Your VPC must have an attached Internet gateway\. For more information, see [Attaching an Internet Gateway](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html#Add_IGW_Attach_Gateway) in the *Amazon VPC User Guide*\.
-+ The route table for the WorkSpaces subnets must have one route for local traffic and another route that sends all other traffic to the Internet gateway\.
+Note that you do not need to enable automatic assignment of public IP addresses if your WorkSpaces are in private subnets and you configured a NAT gateway for the virtual private cloud \(VPC\), or if your WorkSpaces are in public subnets and you manually assigned Elastic IP addresses\. For more information, see [Configure a VPC for Amazon WorkSpaces](amazon-workspaces-vpc.md)\.
 
 **To configure public IP addresses**
 

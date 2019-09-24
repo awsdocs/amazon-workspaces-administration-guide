@@ -5,7 +5,9 @@ You can increase the size of the root and user volumes for a WorkSpace, up to 20
 **Note**  
 When you expand a volume for a WorkSpace, Amazon WorkSpaces automatically extends the volume's partition within Windows\. However, for this change to take effect, you must restart the WorkSpace\.
 
-You can switch a WorkSpace between the Value, Standard, Performance, Power, and PowerPro bundles\. When you request a bundle change, Amazon WorkSpaces restarts the WorkSpace using the new bundle\. Amazon WorkSpaces preserves the operating system, applications, data, and storage settings for the WorkSpace\. You can request a larger bundle once in a 6\-hour period or a smaller bundle once in 30 days\. For a newly launched WorkSpace, you must wait 6 hours before requesting a larger bundle\.
+You can switch a WorkSpace between the Value, Standard, Performance, Power, and PowerPro bundles\. When you request a bundle change, Amazon WorkSpaces restarts the WorkSpace using the new bundle\. Amazon WorkSpaces preserves the operating system, applications, data, and storage settings for the WorkSpace\. You can request a larger bundle once in a 6\-hour period or a smaller bundle once every 30 days\. For a newly launched WorkSpace, you must wait 6 hours before requesting a larger bundle\.
+
+The current modification state of a WorkSpace is displayed in the **State** setting in the Amazon WorkSpaces console\. The possible values for **State** are **Modifying Compute**, **Modifying Storage,** and **None**\.
 
 **To modify the configuration of a WorkSpace**
 
@@ -15,7 +17,7 @@ You can switch a WorkSpace between the Value, Standard, Performance, Power, and 
 
 1. Select the WorkSpace and choose **Actions**, **Modify WorkSpace**\.
 
-1. To increase the size of the root volume or user volume, choose **Modify Volume Sizes** and type the new values\.
+1. To increase the size of the root volume or user volume, choose **Modify Volume Sizes** and enter the new values\.
 **Note**  
 You can only resize SSD volumes\.
 
