@@ -118,7 +118,7 @@ You can update the AD Connector account that is used to read users and groups an
 
 1. Expand **Update AD Connector Account**\.
 
-1. Type the username and password for the new account\.
+1. Type the user name and password for the new account\.
 
 1. Choose **Update and Exit**\.
 
