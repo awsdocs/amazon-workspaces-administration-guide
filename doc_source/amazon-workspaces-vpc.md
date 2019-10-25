@@ -219,6 +219,8 @@ In the previous step, you created a VPC with one public subnet\. Use the followi
 
 You can assign Elastic IP addresses to your WorkSpaces automatically or manually\. To use automatic assignment, see [Configure Automatic IP Addresses](update-directory-details.md#automatic-assignment)\. To assign Elastic IP addresses manually, use the following procedure\.
 
+For a video tutorial about how to assign an Elastic IP address to a WorkSpace, see [ How do I associate an Elastic IP Address with a WorkSpace?](https://aws.amazon.com/premiumsupport/knowledge-center/associate-elastic-ip-workspace/) on the AWS Knowledge Center\.
+
 **To assign an Elastic IP address to a WorkSpace manually**
 
 1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.

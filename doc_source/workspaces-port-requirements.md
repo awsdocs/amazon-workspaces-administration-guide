@@ -26,7 +26,7 @@ Port 53 \(UDP\)
 This port is used to access DNS servers\. It must be open to your DNS server IP addresses so that the client can resolve public domain names\. This port requirement is optional if you are not using DNS servers for domain name resolution\.
 
 Port 80 \(UDP and TCP\)  
-This port is used for initial connections to `http://clients.amazonworkspaces.com`, which then switch to HTTPS\. It must be open to all IP address ranges in the `EC2` subset in the Region that the WorkSpace is in\. 
+This port is used for initial connections to `https://clients.amazonworkspaces.com`, which then switch to HTTPS\. It must be open to all IP address ranges in the `EC2` subset in the Region that the WorkSpace is in\. 
 
 Port 443 \(UDP and TCP\)  
 This port is used for registration and authentication using HTTPS\. It must be open to all IP address ranges in the `EC2` subset in the Region that the WorkSpace is in\.

@@ -7,7 +7,6 @@ If needed, you can restore a WorkSpace to its last known healthy state\. This re
 Restoring a WorkSpace causes the following to occur:
 + The system is restored to the most recent snapshot of the root volume\. Any applications that were installed, or system settings that were changed after the most recent snapshot was created are lost\.
 + The user volume \(for Microsoft Windows, the D: drive; for Linux, /home\) is recreated from the most recent snapshot\. The current contents of the user volume are overwritten\.
-+ The primary elastic network interface \(ENI\) is recreated\. The WorkSpace receives a new private IP address\.
 
 **To restore a WorkSpace**
 

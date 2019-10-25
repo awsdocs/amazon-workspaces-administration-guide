@@ -1,9 +1,9 @@
 # Create a Custom WorkSpaces Bundle<a name="create-custom-bundle"></a>
 
-After you've launched a Windows or Amazon Linux WorkSpace and customized it, you can create an image from the WorkSpace and then create a custom bundle from the image\. You can specify this bundle when you launch new WorkSpaces to ensure that they have the same configuration and software as the WorkSpace you used to create the bundle\.
+After you've launched a Windows or Amazon Linux WorkSpace and customized it, you can create an image from the WorkSpace and then create a custom bundle from the image\. You can specify this bundle when you launch new WorkSpaces to ensure that they have the same configuration and software as the WorkSpace you used to create the bundle\.<a name="important_note"></a>
 
 **Important**  
-If you plan to create an image from a Windows 10 WorkSpace, do so from one that hasn't been upgraded\. Image creation is not supported on Windows 10 systems that have been upgraded from one version of Windows 10 to a newer version of Windows 10\. 
+If you plan to create an image from a Windows 10 WorkSpace, note that image creation is not supported on Windows 10 systems that have been upgraded from one version of Windows 10 to a newer version of Windows 10 \(a Windows feature/version upgrade\)\. However, Windows cumulative or security updates are supported by the WorkSpaces image\-creation process\.
 
 **Requirements to create Windows custom images**
 + All applications and user profiles on WorkSpaces images must be compatible with Microsoft Sysprep\.
@@ -35,7 +35,7 @@ If you plan to create an image from a Windows 10 WorkSpace, do so from one that 
 **Best Practices**
 
 Before you create an image from a WorkSpace, do the following:
-+ Install all operating system and application updates on the WorkSpace\.
++ Install all operating system updates \(except Windows feature/version updates\) and all application updates on the WorkSpace\. For more information, see the [Important note](#important_note) at the start of this topic\.
 + Delete cached data from the WorkSpace that shouldn't be included in the bundle \(for example, browser history, cached files, and browser cookies\)\.
 + Delete configuration settings from the WorkSpace that shouldn't be included in the bundle \(for example, email profiles\)\.
 + Switch to Dynamic IP Address settings using DHCP\.

@@ -42,6 +42,7 @@ The following information can help you troubleshoot specific issues with your Wo
 + [I receive an "SRV record" error when I try to connect to my on\-premises directory](#srv_record_not_found)
 + [My Windows WorkSpace goes to sleep when it's left idle](#windows_workspace_sleeps_when_idle)
 + [One of my WorkSpaces has a state of "Unhealthy"](#unhealthy)
++ [I receive ThrottlingException errors to some of my API calls](#throttled-api-calls)
 
 ### I can't create an Amazon Linux WorkSpace because there are invalid characters in the user name<a name="linux_workspace_provision_fail_username"></a>
 
@@ -56,7 +57,7 @@ These limitations do not apply to Windows WorkSpaces\. Windows WorkSpaces suppor
 
 ### I changed the shell for my Amazon Linux WorkSpace and now I can't provision a PCoIP session<a name="linux_workspace_provision_fail_shell_override"></a>
 
-To override the default shell for Linux WorkSpaces, see [Override the Default Shell for Amazon Linux WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/manage_linux_workspace.html#linux_shell)\. 
+To override the default shell for Linux WorkSpaces, see [Override the Default Shell for Amazon Linux WorkSpaces](manage_linux_workspace.md#linux_shell)\. 
 
 ### Launching WorkSpaces in my connected directory often fails<a name="provision_fail"></a>
 
@@ -104,7 +105,7 @@ By default, the list of last logged on users displays, rather than the **Switch 
 
 Users might not receive welcome or password reset emails for WorkSpaces that were created using AD Connector\.
 
-To manually send welcome emails to these users, see [ Send an Invitation Email](https://docs.aws.amazon.com/workspaces/latest/adminguide/manage-workspaces-users.html#send-invitation)\.
+To manually send welcome emails to these users, see [Send an Invitation Email](manage-workspaces-users.md#send-invitation)\.
 
 To assist users with resetting their passwords, see your documentation for Microsoft Active Directory\.
 
@@ -168,7 +169,7 @@ SRV record for LDAP does not exist for IP: dns-ip-address
 SRV record for Kerberos does not exist for IP: dns-ip-address
 ```
 
-AD Connector needs to obtain the `_ldap._tcp.dns-domain-name` and `_kerberos._tcp.dns-domain-name` SRV records when connecting to your directory\. You get this error if the service cannot obtain these records from the DNS servers that you specified when connecting to your directory\. Make sure that your DNS servers contain these SRV records\. For more information, see [SRV Resource Records](http://technet.microsoft.com/en-us/library/cc961719.aspx) on Microsoft TechNet\.
+AD Connector needs to obtain the `_ldap._tcp.dns-domain-name` and `_kerberos._tcp.dns-domain-name` SRV records when connecting to your directory\. You get this error if the service cannot obtain these records from the DNS servers that you specified when connecting to your directory\. Make sure that your DNS servers contain these SRV records\. For more information, see [SRV Resource Records](https://technet.microsoft.com/en-us/library/cc961719.aspx) on Microsoft TechNet\.
 
 ### My Windows WorkSpace goes to sleep when it's left idle<a name="windows_workspace_sleeps_when_idle"></a>
 
@@ -213,3 +214,20 @@ You can attempt to correct the situation using the following methods:
 
   1. On the unhealthy WorkSpace, confirm that the minimum port requirements are met\.
 + Rebuild the WorkSpace from the Amazon WorkSpaces console\. Because rebuilding a WorkSpace can potentially cause a loss of data, this option should only be used if all other attempts to correct the problem have been unsuccessful\.
+
+### I receive ThrottlingException errors to some of my API calls<a name="throttled-api-calls"></a>
+
+The default allowed rate for Amazon WorkSpaces API calls is a constant rate of two API calls per second, with a maximum allowed "burst" rate of five API calls per second\. The following table shows how the burst rate limit works for API requests\.
+
+
+| Second | Number of Requests Sent | Net Requests Allowed | Details | 
+| --- | --- | --- | --- | 
+|  1  |  0  |  5  |  During the first second \(second 1\), five requests are allowed, up to the burst rate maximum of five calls per second\.  | 
+|  2  |  2  |  5  |  Because two or fewer calls were issued in second 1, the full burst capacity of five calls is still available\.  | 
+|  3  |  5  |  5  |  Because only two calls were issued in second 2, the full burst capacity of five calls is still available\.  | 
+|  4  |  2  |  2  |  Because the full burst capacity was used in second 3, only the constant rate of two calls per second is available\.  | 
+|  5  |  3  |  2  |  Because there is no remaining burst capacity, only two calls are allowed at this time\. This means that one of the three API calls is throttled\. The one throttled call will respond after a short delay\.  | 
+|  6  |  0  |  1  |  Because one of the calls from second 5 is being retried in second 6, there is capacity for only one additional call in second 6 because of the constant rate limit of two calls per second\.  | 
+|  7  |  0  |  3  |  Now that there are no longer throttled API calls in the queue, the rate limit will continue to increase, up to the burst rate limit of five calls\.  | 
+|  8  |  0  |  5  |  Because no calls were issued in second 7, the maximum number of requests is allowed\.  | 
+|  9  |  0  |  5  |  Even though no calls were issued in second 8, the rate limit does not increase above five\.  | 

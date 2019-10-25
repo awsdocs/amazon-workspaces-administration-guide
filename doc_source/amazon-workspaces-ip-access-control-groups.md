@@ -6,7 +6,7 @@ There is a default IP access control group associated with each directory\. The 
 
 To specify the public IP addresses and ranges of IP addresses for your trusted networks, add rules to your IP access control groups\. If your users access their WorkSpaces through a NAT gateway or VPN, you must create rules that allow traffic from the public IP addresses for the NAT gateway or VPN\.
 
-You can use this feature with Web Access and the client applications for macOS X, iPad, Windows, Android, and Chromebook\. To use this feature with a PCoIP zero client, you cannot use PCoIP Connection Manager\.
+You can use this feature with Web Access and the client applications for macOS X, iPad, Windows, Chromebook, and Android\. To use this feature with a PCoIP zero client, you cannot use PCoIP Connection Manager\.
 
 ## Create an IP Access Control Group<a name="create-ip-access-control-group"></a>
 

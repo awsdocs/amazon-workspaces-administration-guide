@@ -13,7 +13,7 @@ To enable SSH connections, you create a new security group or update an existing
 ## Prerequisites for SSH Connections to Amazon Linux WorkSpaces<a name="before-you-begin-enable-ssh-linux-workspaces"></a>
 + Enabling inbound SSH traffic to a WorkSpace — To add a rule to allow inbound SSH traffic to one or more Amazon Linux WorkSpaces, make sure that you have the public or private IP addresses of the devices that require SSH connections to your WorkSpaces\. For example, you can specify the public IP addresses of devices outside your virtual private cloud \(VPC\) or the private IP address of another EC2 instance in the same VPC as your WorkSpace\. 
 
-  If you plan to connect to a WorkSpace from your local device, you can use the search phrase "what is my IP address" in an internet browser or use the following service: [Check IP](http://checkip.amazonaws.com/)\. 
+  If you plan to connect to a WorkSpace from your local device, you can use the search phrase "what is my IP address" in an internet browser or use the following service: [Check IP](https://checkip.amazonaws.com/)\. 
 + Connecting to a WorkSpace — The following information is required to initiate an SSH connection from a device to an Amazon Linux WorkSpace\.
   + The NetBIOS name of the Active Directory domain that you are connected to\.
   + Your WorkSpace user name\.

@@ -11,7 +11,7 @@ You can configure URI access to WorkSpaces for client applications on the follow
 + iPads
 + Android tablets
 
-To use URIs to access their WorkSpaces, users must first install the client application for their device by opening [https://clients\.amazonworkspaces\.com](https://clients.amazonworkspaces.com/) and following the directions\.
+To use URIs to access their WorkSpaces, users must first install the client application for their device by opening [http://clients\.amazonworkspaces\.com/](http://clients.amazonworkspaces.com/) and following the directions\.
 
 URI access is supported on the Firefox and Chrome browsers on Windows and macOS computers, and on Windows computers, the Internet Explorer and Microsoft Edge browsers\. For more information about WorkSpaces clients, see [Amazon WorkSpaces Clients](https://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-clients.html) in the *Amazon WorkSpaces User Guide*\.
 
@@ -23,7 +23,7 @@ To configure URI access to WorkSpaces, use any of the URI formats described in t
 **Note**  
 If the data component of your URI includes any of the following reserved characters, we recommend that you use percent\-encoding in the data component to avoid ambiguity:   
 `@ : / ? & =`  
-For example, if you have user names that include any of these characters, you should percent\-encode those user names in your URI\. For more information, see [Uniform Resource Identifier \(URI\): Generic Syntax](http://www.rfc-editor.org/rfc/rfc3986.txt)\.
+For example, if you have user names that include any of these characters, you should percent\-encode those user names in your URI\. For more information, see [Uniform Resource Identifier \(URI\): Generic Syntax](https://www.rfc-editor.org/rfc/rfc3986.txt)\.
 
 
 | Supported Syntax | Description | 

@@ -8,7 +8,7 @@ Image creation is not supported on Windows 10 systems that have been upgraded fr
 To get started, open the Amazon WorkSpaces console and choose **Account Settings** to enable your account for BYOL\.
 
 **Topics**
-+ [Requirements](#windows_images_prerequisties)
++ [Requirements](#windows_images_prerequisites)
 + [Windows Versions That Are Supported for BYOL](#windows_images_supported_versions)
 + [Step 1: Enable BYOL for Your Account by Using the Amazon WorkSpaces Console](#windows_images_enable_byol)
 + [Step 2: Run the BYOL Checker PowerShell Script on a Windows VM](#windows_images_run_byol_checker_script)
@@ -19,7 +19,7 @@ To get started, open the Amazon WorkSpaces console and choose **Account Settings
 + [Step 7: Register a Directory for Dedicated WorkSpaces](#windows_images_dedicate_directory_for_byol)
 + [Step 8: Launch Your BYOL WorkSpaces](#windows_images_launch_byol_workspaces)
 
-## Requirements<a name="windows_images_prerequisties"></a>
+## Requirements<a name="windows_images_prerequisites"></a>
 
 Before you begin, verify the following:
 + Your Microsoft licensing agreement allows Windows to be run in a virtual hosted environment\.
@@ -49,8 +49,9 @@ Your VM must run one of the following Windows versions:
 + Windows 10 Version 1709 \(Fall Creators Update\) 
 + Windows 10 Version 1803 \(April 2018 Update\) 
 + Windows 10 Version 1809 \(October 2018 Update\) 
++ Windows 10 Version 1903 \(May 2019 Update\)
 **Note**  
-Graphics and GraphicsPro bundles currently do not support Windows 10 Version 1809 \(October 2018 Update\) with BYOL\.
+Graphics and GraphicsPro bundles currently do not support Windows 10 Version 1809 \(October 2018 Update\) or Windows 10 Version 1903 \(May 2019 Update\) with BYOL\.
 
 ## Step 1: Enable BYOL for Your Account by Using the Amazon WorkSpaces Console<a name="windows_images_enable_byol"></a>
 
@@ -136,7 +137,7 @@ Perform these steps to run the BYOL Checker script\.
 **Tip**  
 Do not delete these files\. If an issue occurs, they may be helpful in troubleshooting\.
 
-1. After your VM passes all test, you get a **Validation Successful** message\. Review the VM locale settings displayed in the tool\. To update the locale settings, follow [these instructions](https://docs.microsoft.com/en-us/previous-versions/windows/hardware/previsioning-framework/dn965674(v=vs.85)) in the Microsoft documentation and run the BYOL Checker script again\.
+1. After your VM passes all test, you get a **Validation Successful** message\. Review the VM locale settings displayed in the tool\. To update the locale settings, follow [these instructions](https://docs.microsoft.com/previous-versions/windows/hardware/previsioning-framework/dn965674(v=vs.85)) in the Microsoft documentation and run the BYOL Checker script again\.
 
 1. Choose **Run Sysprep**\. If Sysprep is successful, your VM shuts down\. Otherwise, review the Sysprep logs, resolve the reported issues, and run the BYOL Checker script again\.
 
@@ -166,7 +167,7 @@ Call Amazon WorkSpaces **ImportWorkspaceImage**\.
 Call EC2 **DescribeImages** on the EC2 image that you want to use to create the BYOL image\.
 Call EC2 **ModifyImageAttribute** on the EC2 image that you want to use to create the BYOL image\.
 For more information, see [Changing Permissions for an IAM User ](https://docs.aws.amazon.com/IAM/latest/UserGuide//id_users_change-permissions.html) in the *IAM User Guide*\.  
-To create a Graphics or GraphicsPro bundle from your image, [contact AWS Support](https://aws.amazon.com/contact-us/) to get your account added to the allow list\. After your account is on the allow list, you can use the AWS CLI import\-workspace\-image command to ingest the Graphics or GraphicsPro image\. For more information, see [import\-workspace\-image](https://docs.aws.amazon.com/cli/latest/reference/workspaces/import-workspace-image.html) in the *AWS CLI Command Reference*\.
+To create a Graphics or GraphicsPro bundle from your image, contact the [AWS Support Center](https://console.aws.amazon.com/support/home#/) to get your account added to the allow list\. After your account is on the allow list, you can use the AWS CLI import\-workspace\-image command to ingest the Graphics or GraphicsPro image\. For more information, see [import\-workspace\-image](https://docs.aws.amazon.com/cli/latest/reference/workspaces/import-workspace-image.html) in the *AWS CLI Command Reference*\.
 
 **To create an image from the Windows VM**
 

@@ -79,7 +79,7 @@ MacOS client: Control\+Option\+Return
 
 1. When prompted, download one of the client applications or launch Web Access\. For more information about the requirements for each client, see [Amazon WorkSpaces Clients](https://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-clients.html) in the *Amazon WorkSpaces User Guide*\.
 
-   If you aren't prompted and you haven't installed a client application already, open [https://clients\.amazonworkspaces\.com](https://clients.amazonworkspaces.com/) and follow the directions\.
+   If you aren't prompted and you haven't installed a client application already, open [http://clients\.amazonworkspaces\.com/](http://clients.amazonworkspaces.com/) and follow the directions\.
 
 1. Start the client, enter the registration code from the invitation email, and choose **Register**\.  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/images/get-started-register.png)

@@ -1,12 +1,11 @@
-# Networking, Access, and Security for Amazon WorkSpaces<a name="amazon-workspaces-networking"></a>
+# Networking and Access for Amazon WorkSpaces<a name="amazon-workspaces-networking"></a>
 
-As a WorkSpace administrator, you must understand the following about Amazon WorkSpaces networking and security\.
+As a WorkSpace administrator, you must understand the following about Amazon WorkSpaces networking and access\.
 
 **Topics**
 + [Configure a VPC for Amazon WorkSpaces](amazon-workspaces-vpc.md)
 + [IP Address and Port Requirements for Amazon WorkSpaces](workspaces-port-requirements.md)
 + [Amazon WorkSpaces Client Network Requirements](workspaces-network-requirements.md)
-+ [Control Access to Amazon WorkSpaces Resources](workspaces-access-control.md)
 + [Restrict WorkSpaces Access to Trusted Devices](trusted-devices.md)
 + [Provide Internet Access from Your WorkSpace](amazon-workspaces-internet-access.md)
 + [Security Groups for Your WorkSpaces](amazon-workspaces-security-groups.md)

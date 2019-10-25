@@ -19,7 +19,7 @@ To use the **FIPS 140\-2 Validated Mode** setting, the WorkSpaces directory must
 
 **To use FIPS endpoint encryption**
 
-1. Open the Amazon WorkSpaces console at [https://console.aws.amazon.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **Directories**\.
 
