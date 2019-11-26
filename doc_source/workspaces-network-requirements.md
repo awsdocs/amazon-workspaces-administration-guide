@@ -11,7 +11,7 @@ To provide your users with a good experience with their WorkSpaces, verify that 
 + The round trip time \(RTT\) from the client's network to the Region that the WorkSpaces are in should be less than 100ms\. If the RTT is between 100ms and 250ms, the user can access the WorkSpace but performance is degraded\.
 + If users will access their WorkSpaces through a virtual private network \(VPN\), the connection must support a maximum transmission unit \(MTU\) of at least 1200 bytes\.
 + The clients require HTTPS access to Amazon WorkSpaces resources hosted by the service and Amazon Simple Storage Service \(Amazon S3\)\. The clients do not support proxy redirection at the application level\. HTTPS access is required so that users can successfully complete registration and access their WorkSpaces\.
-+ To allow access from PCoIP zero client devices, you must launch and configure an EC2 instance with PCoIP Connection Manager for Amazon WorkSpaces\. For more information, see *Deploying the PCoIP Connection Manager for Amazon WorkSpaces* in the [PCoIP Connection Manager User Guide](http://www.teradici.com/web-help/Connecting_ZC_AWS_HTML5/TER1408002_Connecting_ZC_AWS.htm)\.
++ To allow access from PCoIP zero client devices, you must launch and configure an EC2 instance with PCoIP Connection Manager for Amazon WorkSpaces\. For more information, see *Deploying the PCoIP Connection Manager for Amazon WorkSpaces* in the [PCoIP Connection Manager User Guide](https://www.teradici.com/web-help/Connecting_ZC_AWS_HTML5/TER1408002_Connecting_ZC_AWS.htm)\.
 
 You can verify that a client device meets the networking requirements as follows\.
 

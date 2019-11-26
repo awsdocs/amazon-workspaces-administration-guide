@@ -63,24 +63,19 @@ Note that you must ensure that GPO settings are replicated across domains before
 
 After you receive the invitation email, you can connect to your WorkSpace\. Users can enter their user names as *username*, *corp*\\*username*, or *corp\.example\.com*\\*username*\)\.
 
-**Note**  
-When you are connected to your WorkSpace from a Windows or MacOS client, you can toggle the fullscreen display by using following command shortcuts:  
-Windows client: Ctrl\+Alt\+Enter
-MacOS client: Control\+Option\+Return
-
 **To connect to the WorkSpace**
 
-1. Open the link in the invitation email\. When prompted, type a password and activate the user\. Remember this password as you will need it to sign in to your WorkSpace\.
+1. Open the link in the invitation email\. When prompted, enter a password and activate the user\. Remember this password as you will need it to sign in to your WorkSpace\.
 **Note**  
 Passwords are case\-sensitive and must be between 8 and 64 characters in length, inclusive\. Passwords must contain at least one character from three of the following categories: lowercase letters \(a\-z\), uppercase letters \(A\-Z\), numbers \(0\-9\), and \~\!@\#$%^&\*\_\-\+=`\|\\\(\)\{\}\[\]:;"'<>,\.?/\.
 
 1. When prompted, download one of the client applications or launch Web Access\.
 
-   If you aren't prompted and you haven't installed a client application already, open [http://clients\.amazonworkspaces\.com/](http://clients.amazonworkspaces.com/) and follow the directions\.
+   If you aren't prompted and you haven't installed a client application already, open [https://clients\.amazonworkspaces\.com/](https://clients.amazonworkspaces.com/) and follow the directions\.
 
 1. Start the client, enter the registration code from the invitation email, and choose **Register**\.
 
-1. When prompted to sign in, type the username and password for the user, and then choose **Sign In**\.
+1. When prompted to sign in, enter the user name and password for the user, and then choose **Sign In**\.
 
 1. \(Optional\) When prompted to save your credentials, choose **Yes**\.
 

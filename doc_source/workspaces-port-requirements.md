@@ -4,7 +4,7 @@ To connect to your WorkSpaces, the network that your Amazon WorkSpaces clients a
 
 ## Ports for Client Applications<a name="client-application-ports"></a>
 
-The Amazon WorkSpaces client application requires outbound access on the following ports:
+The Amazon WorkSpaces client application requires inbound and outbound access on the following ports:
 
 Port 443 \(TCP\)  
 This port is used for client application updates, registration, and authentication\. The desktop client applications support the use of a proxy server for port 443 \(HTTPS\) traffic\. To enable the use of a proxy server, open the client application, choose **Advanced Settings**, select **Use Proxy Server**, specify the address and port of the proxy server, and choose **Save**\.  
@@ -31,10 +31,9 @@ This port is used for initial connections to `https://clients.amazonworkspaces.c
 Port 443 \(UDP and TCP\)  
 This port is used for registration and authentication using HTTPS\. It must be open to all IP address ranges in the `EC2` subset in the Region that the WorkSpace is in\.
 
-Typically, the web browser randomly selects a source port in the high range to use for streaming traffic\. Amazon WorkSpaces Web Access does not have control over the port the browser selects\. You must ensure that return traffic to this port is allowed\.
+Typically, the web browser randomly selects a source port in the high range to use for streaming traffic\. Amazon WorkSpaces Web Access does not have control over the port that the browser selects\. You must ensure that return traffic to this port is allowed\.
 
-Amazon WorkSpaces Web Access prefers UDP over TCP for desktop streams, but falls back to TCP if UDP is not available as follows:
-+ Amazon WorkSpaces Web Access will work on Chrome and Firefox even if all UDP ports are blocked except 53, 80, and 443, using TCP connections\.
+Amazon WorkSpaces Web Access prefers UDP over TCP for desktop streams, but falls back to TCP if UDP is not available\. If all UDP ports are blocked except 53, 80, and 443, Web Access will work on Chrome and Firefox using TCP connections\.
 
 ## Whitelisted Domains and Ports<a name="whitelisted_ports"></a>
 
@@ -47,8 +46,9 @@ For the Amazon WorkSpaces client application to be able to access the Amazon Wor
 | --- | --- | 
 | CAPTCHA | https://opfcaptcha\-prod\.s3\.amazonaws\.com/ | 
 | Client Auto\-update |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
-| Connectivity Check | https://connectivity\.amazonworkspaces\.com/  | 
-| Device Metrics  | https://device\-metrics\-us\-2\.amazon\.com/ | 
+| Connectivity Check |  https://connectivity\.amazonworkspaces\.com/  | 
+| Device Metrics \(for 1\.0\+ and 2\.0\+ WorkSpaces client applications\) | https://device\-metrics\-us\-2\.amazon\.com/ | 
+| Client Metrics \(for 3\.0\+ WorkSpaces client applications\) |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 | Directory Settings |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 | Forrester Log Service  | https://fls\-na\.amazon\.com/ | 
 | PCoIP Health Check \(DRP\) | [PCoIP Health Check Servers](#health_check) | 
@@ -62,7 +62,7 @@ For the Amazon WorkSpaces client application to be able to access the Amazon Wor
 
 ## PCoIP Health Check Servers<a name="health_check"></a>
 
-The Amazon WorkSpaces client application performs PCoIP health checks over port 4172\. This validates whether TCP or UDP traffic streams from the Amazon WorkSpaces servers to the client applications\. To do this successfully, your firewall policies must take into account the following Regional PCoIP health check servers\.
+The Amazon WorkSpaces client applications perform PCoIP health checks over port 4172\. These checks validate whether TCP or UDP traffic streams from the Amazon WorkSpaces servers to the client applications\. For these checks to finish successfully, your firewall policies must take into account the following Regional PCoIP health check servers\.
 
 
 | Region | Health check server | 
@@ -103,10 +103,10 @@ Amazon WorkSpaces uses PCoIP to stream the desktop session to clients over port 
 ## Network Interfaces<a name="network-interfaces"></a>
 
 Each WorkSpace has the following network interfaces:
-+ The primary network interface provides connectivity to the resources within your VPC as well as the internet, and is used to join the WorkSpace to the directory\.
++ The primary network interface provides connectivity to the resources within your VPC and on the internet, and is used to join the WorkSpace to the directory\.
 + The management network interface is connected to a secure Amazon WorkSpaces management network\. It is used for interactive streaming of the WorkSpace desktop to Amazon WorkSpaces clients, and to allow Amazon WorkSpaces to manage the WorkSpace\.
 
-Amazon WorkSpaces selects the IP address for the management network interface from various address ranges, depending on the Region the WorkSpaces are created in\. When a directory is registered, Amazon WorkSpaces tests the VPC CIDR and the route tables in your VPC to determine if these address ranges create a conflict\. If a conflict is found in all available address ranges in the Region, an error message is displayed and the directory is not registered\. If you change the route tables in your VPC after the directory is registered, you might cause a conflict\.
+Amazon WorkSpaces selects the IP address for the management network interface from various address ranges, depending on the Region that the WorkSpaces are created in\. When a directory is registered, Amazon WorkSpaces tests the VPC CIDR and the route tables in your VPC to determine if these address ranges create a conflict\. If a conflict is found in all available address ranges in the Region, an error message is displayed and the directory is not registered\. If you change the route tables in your VPC after the directory is registered, you might cause a conflict\.
 
 Do not modify or delete any of the network interfaces attached to a WorkSpace\. Doing so might cause the WorkSpace to become unreachable\.
 
@@ -117,7 +117,7 @@ The following table lists the IP address ranges used for the management network 
 
 | Region | IP Address Range | 
 | --- | --- | 
-| US East \(N\. Virginia\) | 172\.31\.0\.0/16, 192\.168\.0\.0/16, and 198\.19\.0\.0/16 | 
+| US East \(N\. Virginia\) | 192\.168\.0\.0/16 and 198\.19\.0\.0/16 | 
 | US West \(Oregon\) | 172\.31\.0\.0/16, 192\.168\.0\.0/16, and 198\.19\.0\.0/16 | 
 | Asia Pacific \(Seoul\) | 198\.19\.0\.0/16 | 
 | Asia Pacific \(Singapore\) | 198\.19\.0\.0/16 | 
@@ -151,7 +151,7 @@ No matter which type of directory you have, the following ports must be open on 
 + For internet connectivity, the following ports must be open outbound to all destinations and inbound from the WorkSpaces VPC\. You need to add these manually to the security group for your WorkSpaces if you want them to have internet access\.
   + TCP 80 \(HTTP\)
   + TCP 443 \(HTTPS\)
-+ To communicate with the directory controllers, the following ports must be open between your WorkSpaces VPC and your directory controllers\. For a Simple AD directory, the security group created by AWS Directory Service will have these ports configured correctly\. For an AD Connector directory, you may need to adjust the default security group for the VPC to open these ports\.
++ To communicate with the directory controllers, the following ports must be open between your WorkSpaces VPC and your directory controllers\. For a Simple AD directory, the security group created by AWS Directory Service will have these ports configured correctly\. For an AD Connector directory, you might need to adjust the default security group for the VPC to open these ports\.
   + TCP/UDP 53 \- DNS
   + TCP/UDP 88 \- Kerberos authentication
   + UDP 123 \- NTP

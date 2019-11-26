@@ -1,6 +1,6 @@
 # Monitor Your WorkSpaces Using CloudWatch Metrics<a name="cloudwatch-metrics"></a>
 
-Amazon WorkSpaces and Amazon CloudWatch are integrated, so you can gather and analyze performance metrics\. You can monitor these metrics using the CloudWatch console, the CloudWatch command\-line interface, or programmatically using the CloudWatch API\. CloudWatch also allows you to set alarms when you reach a specified threshold for a metric\.
+Amazon WorkSpaces and Amazon CloudWatch are integrated, so you can gather and analyze performance metrics\. You can monitor these metrics using the CloudWatch console, the CloudWatch command line interface, or programmatically using the CloudWatch API\. CloudWatch also allows you to set alarms when you reach a specified threshold for a metric\.
 
 For more information about using CloudWatch and alarms, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/)\.
 

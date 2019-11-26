@@ -21,7 +21,7 @@ In this tutorial, we launch a WorkSpace that uses AD Connector\. For tutorials t
 
 ## Step 1: Create an AD Connector<a name="create-ad-connector"></a>
 
-**To create an AD connector**
+**To create an AD Connector**
 
 1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
@@ -29,19 +29,19 @@ In this tutorial, we launch a WorkSpace that uses AD Connector\. For tutorials t
 
 1. Choose **Set up Directory**, **Create AD Connector**\.
 
-1. For **Organization name**, type a unique organization name for your directory \(for example, my\-example\-directory\)\. This name must be at least four characters in length, consist of only alphanumeric characters and hyphens \(\-\), and begin or end with a character other than a hyphen\.
+1. For **Organization name**, enter a unique organization name for your directory \(for example, my\-example\-directory\)\. This name must be at least four characters in length, consist of only alphanumeric characters and hyphens \(\-\), and begin or end with a character other than a hyphen\.
 
-1. For **Connected directory DNS**, type the fully\-qualified name of your on\-premises directory \(for example, example\.com\)\.
+1. For **Connected directory DNS**, enter the fully\-qualified name of your on\-premises directory \(for example, example\.com\)\.
 
-1. For **Connected directory NetBIOS name**, type the short name of your on\-premises directory \(for example, example\)\.
+1. For **Connected directory NetBIOS name**, enter the short name of your on\-premises directory \(for example, example\)\.
 
-1. For **Connector account username**, type the user name of a user in your on\-premises directory\. The user must have permissions to read users and groups, create computer objects, and join computers to the domain\.
+1. For **Connector account username**, enter the user name of a user in your on\-premises directory\. The user must have permissions to read users and groups, create computer objects, and join computers to the domain\.
 
-1. For **Connector account password** and **Confirm password**, type the password for the on\-premises user account\.
+1. For **Connector account password** and **Confirm password**, enter the password for the on\-premises user account\.
 
-1. For **DNS address**, type the IP address of at least one DNS server in your on\-premises directory\.
+1. For **DNS address**, enter the IP address of at least one DNS server in your on\-premises directory\.
 
-1. \(Optional\) For **Description**, type a description for the directory\.
+1. \(Optional\) For **Description**, enter a description for the directory\.
 
 1. Keep **Size** as **Small**\.
 
@@ -73,7 +73,7 @@ Now you are ready to launch WorkSpaces for one or more users in your on\-premise
 
 1. Select one or more existing users from your on\-premises directory\. Do not add new users to an on\-premises directory through the Amazon WorkSpaces console\.
 
-   To find users to select, you can type all or part of the user's name and choose **Search** or choose **Show All Users**\. Note that you cannot select a user that does not have an email address\.
+   To find users to select, you can enter all or part of the user's name and choose **Search** or choose **Show All Users**\. Note that you cannot select a user that does not have an email address\.
 
    After you select the users, choose **Add Selected** and then choose **Next Step**\.
 
@@ -89,22 +89,17 @@ Now you are ready to launch WorkSpaces for one or more users in your on\-premise
 
 You can connect to your WorkSpace using the client of your choice\. After you sign in, the client displays the WorkSpace desktop\.
 
-**Note**  
-When you are connected to your WorkSpace from a Windows or MacOS client, you can toggle the fullscreen display by using following command shortcuts:  
-Windows client: Ctrl\+Alt\+Enter
-MacOS client: Control\+Option\+Return
-
 **To connect to the WorkSpace**
 
 1. Open the link in the invitation email\.
 
 1. When prompted, download one of the client applications or launch Web Access\.
 
-   If you aren't prompted and you haven't installed a client application already, open [http://clients\.amazonworkspaces\.com/](http://clients.amazonworkspaces.com/) and follow the directions\.
+   If you aren't prompted and you haven't installed a client application already, open [https://clients\.amazonworkspaces\.com/](https://clients.amazonworkspaces.com/) and follow the directions\.
 
 1. Start the client, enter the registration code from the invitation email, and choose **Register**\.
 
-1. When prompted to sign in, type the username and password for the user, and then choose **Sign In**\.
+1. When prompted to sign in, enter the user name and password for the user, and then choose **Sign In**\.
 
 1. \(Optional\) When prompted to save your credentials, choose **Yes**\.
 

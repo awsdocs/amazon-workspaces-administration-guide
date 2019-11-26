@@ -1,6 +1,10 @@
 # Monitor Your WorkSpaces Using CloudWatch Events<a name="cloudwatch-events"></a>
 
-You can use events from Amazon CloudWatch Events to view, search, download, archive, analyze, and respond to successful logins to your WorkSpaces\. These WorkSpaces login events can be stored or archived as logs for future reference, analyzed to look for patterns, and actions can be taken on those patterns\. With more visibility into where users are logged in from using the WAN IP address, you can use policies to only allow access to files or data from WorkSpaces meeting access criteria found in the CloudWatch Event type of ‘WorkSpaces Access’\. You can also analyze this data, which is available in near real\-time, and perform automated actions using AWS Lambda and have policy controls to block access to files and applications from unauthorized IP addresses with policy controls\.
+You can use events from Amazon CloudWatch Events to view, search, download, archive, analyze, and respond to successful logins to your WorkSpaces\. For example, you can use events for the following purposes:
++ Store or archive WorkSpaces login events as logs for future reference, analyze the logs to look for patterns, and take action based on those patterns\.
++ Use the WAN IP address to determine where users are logged in from, and then use policies to allow users access only to files or data from WorkSpaces that meet the access criteria found in the CloudWatch Event type of `WorkSpaces Access`\.
++ Analyze login data, which is available in near real\-time, and perform automated actions by using AWS Lambda\. 
++ Use policy controls to block access to files and applications from unauthorized IP addresses\.
 
 For more information about events, see the [Amazon CloudWatch Events User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/)\.
 
@@ -39,7 +43,7 @@ The WAN IP address of the client application\. For PCoIP zero clients, this is t
 This value is always `successfulLogin`\.
 
 `workspacesClientProductName`  
-+ `WorkSpaces Desktop client` — Windows and Mac OS X clients
++ `WorkSpaces Desktop client` — Windows, macOS, and Linux clients
 + `Amazon WorkSpaces Mobile client` — iOS client
 + `WorkSpaces Mobile client` — Android clients
 + `WorkSpaces Chrome client` — Chromebook client
@@ -53,6 +57,7 @@ The time at which the user logged in to the WorkSpace\.
 + `Android`
 + `Chrome`
 + `iOS`
++ `Linux`
 + `OSX`
 + `Windows`
 + `Teradici PCoIP Zero Client and Tera2`
@@ -86,6 +91,6 @@ Use the following procedure to create a CloudWatch Events rule to handle the Wor
 
 1. For **Targets**, choose **Add target**, and then choose the service that is to act when a WorkSpaces event is detected\. Provide any information required by this service\.
 
-1. Choose **Configure details**\. For **Rule definition**, type a name and description\.
+1. Choose **Configure details**\. For **Rule definition**, enter a name and description\.
 
 1. Choose **Create rule**\.

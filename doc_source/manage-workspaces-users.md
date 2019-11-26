@@ -22,7 +22,7 @@ This feature is available only if you use Microsoft AD or Simple AD\. If you use
 1. Choose **Update**\.
 
 **Note**  
- To delete or otherwise manage users, you need to do this through your directory\. If you're using AWS Managed Microsoft AD, see [ Manage Users and Groups in AWS Managed Microsoft AD](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_manage_users_groups.html) in the *AWS Directory Service Administration Guide*\. If you're using Simple AD, see [ Manage Users and Groups in Simple AD](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/simple_ad_manage_users_groups.html) in the *AWS Directory Service Administration Guide*\. If you use Microsoft Active Directory through AD Connector or a trust relationship, you can manage users and groups by using [ Active Directory](https://docs.microsoft.com/powershell/module/addsadministration/?view=win10-ps)\. 
+ To delete or otherwise manage users, you must do this through your directory\. If you're using AWS Managed Microsoft AD, see [ Manage Users and Groups in AWS Managed Microsoft AD](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_manage_users_groups.html) in the *AWS Directory Service Administration Guide*\. If you're using Simple AD, see [ Manage Users and Groups in Simple AD](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/simple_ad_manage_users_groups.html) in the *AWS Directory Service Administration Guide*\. If you use Microsoft Active Directory through AD Connector or a trust relationship, you can manage users and groups by using [ Active Directory](https://docs.microsoft.com/powershell/module/addsadministration/?view=win10-ps)\. 
 
 ## Send an Invitation Email<a name="send-invitation"></a>
 

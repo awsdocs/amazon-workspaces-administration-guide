@@ -17,6 +17,7 @@ Group Policy settings can affect a WorkSpace user's experience as follows:
 + [Configure Printer Support for Windows WorkSpaces](#gp_local_printers)
 + [Enable or Disable Clipboard Redirection for Windows WorkSpaces](#gp_clipboard)
 + [Set the Session Resume Timeout for Windows WorkSpaces](#gp_auto_resume)
++ [Set the Maximum Lifetime for a Kerberos Ticket](#gp_kerberos_ticket)
 
 ## Install the Group Policy Administrative Template<a name="gp_install_template"></a>
 
@@ -56,7 +57,7 @@ For Windows WorkSpaces, you can use Group Policy settings to configure printer s
 
 1. Open the Group Policy Management tool on your Windows WorkSpace client and navigate to and select the WorkSpaces Group Policy object for your WorkSpaces machine accounts\. Choose **Action**, **Edit** in the main menu\.
 
-1. In the Group Policy Management Editor, choose **Computer Configuration**, **Policies**, **Administrative Templates**, **Classic Administrative Templates**, **PCoIP Session Variables**, and **Overridable Administration Defaults**\.
+1. In the Group Policy Management Editor, choose **Computer Configuration**, **Policies**, **Administrative Templates**, **Classic Administrative Templates**, **PCoIP Session Variables**, and **Overridable Administrator Defaults**\.
 
 1. Open the **Configure remote printing** setting\.
 
@@ -77,7 +78,7 @@ Local printer redirection is not available for Amazon Linux WorkSpaces\.
 
 1. Open the Group Policy Management tool and navigate to and select the WorkSpaces Group Policy object for your WorkSpaces machine accounts\. Choose **Action**, **Edit** in the main menu\.
 
-1. In the Group Policy Management Editor, choose **Computer Configuration**, **Policies**, **Administrative Templates**, **Classic Administrative Templates**, **PCoIP Session Variables**, and **Overridable Administration Defaults**\.
+1. In the Group Policy Management Editor, choose **Computer Configuration**, **Policies**, **Administrative Templates**, **Classic Administrative Templates**, **PCoIP Session Variables**, and **Overridable Administrator Defaults**\.
 
 1. Open the **Configure remote printing** setting\.
 
@@ -95,7 +96,7 @@ The Group Policy setting change takes effect after the WorkSpace's next Group Po
 
 1. Open the Group Policy Management tool and navigate to and select the WorkSpaces Group Policy object for your WorkSpaces machine accounts\. Choose **Action**, **Edit** in the main menu\.
 
-1. In the Group Policy Management Editor, choose **Computer Configuration**, **Policies**, **Administrative Templates**,**Classic Administrative Templates**, **PCoIP Session Variables**, and **Overridable Administration Defaults**\.
+1. In the Group Policy Management Editor, choose **Computer Configuration**, **Policies**, **Administrative Templates**,**Classic Administrative Templates**, **PCoIP Session Variables**, and **Overridable Administrator Defaults**\.
 
 1. Open the **Configure clipboard redirection** setting\.
 
@@ -110,7 +111,7 @@ With clipboard redirection enabled on the WorkSpace, if you copy content that is
 
 ## Set the Session Resume Timeout for Windows WorkSpaces<a name="gp_auto_resume"></a>
 
-When using the Amazon WorkSpaces client applications, an interruption of network connectivity causes an active session to be disconnected\. This can be caused by events such as closing the laptop lid, or the loss of your wireless network connection\. The Amazon WorkSpaces client applications for Windows and macOS X attempt to reconnect the session automatically if network connectivity is regained within a certain amount of time\. The default session resume timeout is 20 minutes, but you can modify that value for WorkSpaces that are controlled by your domain's Group Policy settings\.
+When using the Amazon WorkSpaces client applications, an interruption of network connectivity causes an active session to be disconnected\. This can be caused by events such as closing the laptop lid, or the loss of your wireless network connection\. The Amazon WorkSpaces client applications for Windows and macOS attempt to reconnect the session automatically if network connectivity is regained within a certain amount of time\. The default session resume timeout is 20 minutes, but you can modify that value for WorkSpaces that are controlled by your domain's Group Policy settings\.
 
 The Group Policy setting change takes effect after the WorkSpace's next Group Policy settings update and the session is restarted\.
 
@@ -122,8 +123,16 @@ The Group Policy setting change takes effect after the WorkSpace's next Group Po
 
 1. In the Group Policy Management Editor, choose **Computer Configuration**, **Policies**, **Administrative Templates**, **Classic Administrative Templates**, and **PCoIP Session Variables**\.
 
-   To allow the user to override your setting, choose **Overridable Administration Defaults**; otherwise, choose **Not Overridable Administration Defaults**\.
+   To allow the user to override your setting, choose **Overridable Administrator Defaults**; otherwise, choose **Not Overridable Administrator Defaults**\.
 
 1. Open the **Configure Session Automatic Reconnection Policy** setting\.
 
 1. In the **Configure Session Automatic Reconnection Policy** dialog box, choose **Enabled**, set the **Configure Session Automatic Reconnection Policy** option to the desired timeout, in minutes, and choose **OK**\. 
+
+## Set the Maximum Lifetime for a Kerberos Ticket<a name="gp_kerberos_ticket"></a>
+
+If you have not disabled the **Remember Me** feature of your Windows WorkSpaces, your WorkSpace users can use the **Remember Me** check box in their WorkSpaces client application to save their credentials\. This feature allows users to easily connect to their WorkSpaces while the client application remains running\. Their credentials are securely cached up to the maximum lifetime of their Kerberos tickets\.
+
+If your WorkSpace uses an AD Connector directory, you can modify the maximum lifetime of the Kerberos tickets for your WorkSpaces users through Group Policy by following the steps in [ Maximum Lifetime for a User Ticket](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/maximum-lifetime-for-user-ticket) in the Microsoft Windows documentation\.
+
+To enable or disable the **Remember Me** feature, see [Enable Self\-Service WorkSpace Management Capabilities for Your Users](enable-user-self-service-workspace-management.md)\.

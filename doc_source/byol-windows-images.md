@@ -1,6 +1,6 @@
 # Bring Your Own Windows Desktop Images<a name="byol-windows-images"></a>
 
-If your licensing agreement with Microsoft allows it, you can use your Windows 7, Windows 10 Enterprise, or Windows 10 Pro desktop images for your WorkSpaces\. To do this, you must bring your own Windows License \(BYOL\) and provide a Windows 7 or Windows 10 image that meets the following requirements\. To stay compliant with Microsoft licensing terms, run your Amazon WorkSpaces on hardware that is dedicated to you in the AWS Cloud\. By bringing your own license, you can provide a consistent experience for your users\. For more information, see [Amazon WorkSpaces Pricing](https://aws.amazon.com/workspaces/pricing/)\.
+If your licensing agreement with Microsoft allows it, you can use your Windows 7, Windows 10 Enterprise, or Windows 10 Pro desktop images for your WorkSpaces\. To do this, you must Bring Your Own License \(BYOL\) and provide a Windows 7 or Windows 10 image that meets the following requirements\. To stay compliant with Microsoft licensing terms, run your Amazon WorkSpaces on hardware that is dedicated to you in the AWS Cloud\. By bringing your own license, you can provide a consistent experience for your users\. For more information, see [Amazon WorkSpaces Pricing](https://aws.amazon.com/workspaces/pricing/)\.
 
 **Important**  
 Image creation is not supported on Windows 10 systems that have been upgraded from one version of Windows 10 to a newer version of Windows 10\.
@@ -50,8 +50,6 @@ Your VM must run one of the following Windows versions:
 + Windows 10 Version 1803 \(April 2018 Update\) 
 + Windows 10 Version 1809 \(October 2018 Update\) 
 + Windows 10 Version 1903 \(May 2019 Update\)
-**Note**  
-Graphics and GraphicsPro bundles currently do not support Windows 10 Version 1809 \(October 2018 Update\) or Windows 10 Version 1903 \(May 2019 Update\) with BYOL\.
 
 ## Step 1: Enable BYOL for Your Account by Using the Amazon WorkSpaces Console<a name="windows_images_enable_byol"></a>
 

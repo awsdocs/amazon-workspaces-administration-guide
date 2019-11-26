@@ -8,7 +8,7 @@ If you plan to create an image from a Windows 10 WorkSpace, note that image crea
 **Requirements to create Windows custom images**
 + All applications and user profiles on WorkSpaces images must be compatible with Microsoft Sysprep\.
 + All applications to be included in the image must be installed on the `C:` drive\.
-+ Customized Windows user profiles for Windows 7 bring your own Windows License \(BYOL\) or Windows Server 2008 R2 custom images must be placed in `D:\Users\username` before you run **Create Image** on the WorkSpace\.
++ Customized Windows user profiles for Windows 7 Bring Your Own Windows License \(BYOL\) or Windows Server 2008 R2 custom images must be placed in `D:\Users\username` before you run **Create Image** on the WorkSpace\.
 + Customized Windows user profiles for Windows 10 BYOL or Windows Server 2016 custom images must be placed in `C:\Users\Default` before you run **Create Image** on the WorkSpace\.
 + The user profile must exist and its total size \(files and data\) must be less than 10 GB\.
 + The `C:\` drive must have enough available space for the contents of the user profile, plus an additional 2 GB\.

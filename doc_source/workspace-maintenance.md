@@ -36,12 +36,14 @@ You can disable the maintenance window for your AutoStop WorkSpaces as follows\.
 
 If you prefer, you can maintain your WorkSpaces on your own schedule\. When you perform maintenance tasks, we recommend that you change the state of the WorkSpace to `ADMIN_MAINTENANCE`\. When you are finished, change the state of the WorkSpace to `AVAILABLE`\.
 
-When a WorkSpace is in the `ADMIN_MAINTENANCE` mode, the following occur:
+When a WorkSpace is in `ADMIN_MAINTENANCE` mode, the following behaviors occur\.
 + The WorkSpace does not respond to requests to reboot, stop, start, or rebuild\.
-+ Users cannot log into the WorkSpace
-+ An AutoStop WorkSpace is not hibernated
++ Users cannot log in to the WorkSpace\.
++ An AutoStop WorkSpace is not hibernated\.
 
 **To change the state of the WorkSpace using the console**
+**Note**  
+To change the state of a WorkSpace, the WorkSpace must have a status of `AVAILABLE`\. The **Modify State** setting is not available when a WorkSpace has a status of `STOPPED`\.
 
 1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 

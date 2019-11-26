@@ -1,6 +1,6 @@
 # Upgrade Windows 10 BYOL WorkSpaces<a name="upgrade-windows-10-byol-workspaces"></a>
 
-On your Windows 10 bring your own license \(BYOL\) WorkSpaces, you can upgrade to a newer version of Windows 10 by using the in\-place upgrade process\. Follow the instructions in this topic to do so\.
+On your Windows 10 Bring Your Own License \(BYOL\) WorkSpaces, you can upgrade to a newer version of Windows 10 by using the in\-place upgrade process\. Follow the instructions in this topic to do so\.
 
 The in\-place upgrade process applies only to Windows 10 BYOL WorkSpaces\.
 

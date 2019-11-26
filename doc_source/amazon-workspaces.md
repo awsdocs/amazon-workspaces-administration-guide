@@ -8,7 +8,7 @@ For more information, see [Amazon WorkSpaces](https://aws.amazon.com/workspaces/
 + Choose your operating system \(Windows or Amazon Linux\) and select from a range of hardware configurations, software configurations, and AWS Regions\. For more information, see [Amazon WorkSpaces Bundles](https://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles)\.
 + Connect to your WorkSpace and pick up from right where you left off\. Amazon WorkSpaces provides a persistent desktop experience\.
 + Amazon WorkSpaces provides the flexibility of either monthly or hourly billing for WorkSpaces\. For more information, see [Amazon WorkSpaces Pricing](https://aws.amazon.com/workspaces/pricing/)\.
-+ Deploy and manage applications for your WorkSpaces by using Amazon WorkSpaces Application Manager \(Amazon WAM\)\.
++ Deploy and manage applications for your Windows WorkSpaces by using Amazon WorkSpaces Application Manager \(Amazon WAM\)\.
 + For Windows desktops, you can bring your own licenses and applications, or purchase them from the AWS Marketplace for Desktop Apps\.
 + Create a standalone managed directory for your users, or connect your WorkSpaces to your on\-premises directory so that your users can use their existing credentials to obtain seamless access to corporate resources\.
 + Use the same tools to manage WorkSpaces that you use to manage on\-premises desktops\.
@@ -22,9 +22,9 @@ For both Windows and Amazon Linux WorkSpaces, each WorkSpace is associated with 
 
 Amazon WorkSpaces uses a directory, either AWS Directory Service or AWS Managed Microsoft AD, to authenticate users\. Users access their WorkSpaces by using a client application from a supported device or, for Windows WorkSpaces, a web browser, and they log in by using their directory credentials\. The login information is sent to an authentication gateway, which forwards the traffic to the directory for the WorkSpace\. After the user is authenticated, streaming traffic is initiated through the streaming gateway\.
 
-Client applications use HTTPS over port 443 for all authentication and session\-related information\. Client applications uses port 4172 for pixel streaming to the WorkSpace and for network health checks\. For more information, see [Ports for Client Applications](workspaces-port-requirements.md#client-application-ports)\.
+Client applications use HTTPS over port 443 for all authentication and session\-related information\. Client applications use port 4172 for pixel streaming to the WorkSpace and for network health checks\. For more information, see [Ports for Client Applications](workspaces-port-requirements.md#client-application-ports)\.
 
-Each WorkSpace has two elastic network interfaces \(ENI\) associated with it: an ENI for management and streaming \(eth0\) and a primary ENI \(eth1\)\. The primary ENI has an IP address provided by your VPC, from the same subnets used by the directory\. This ensures that traffic from your WorkSpace can easily reach the directory\. Access to resources in the VPC is controlled by the security groups assigned to the primary ENI\. For more information, see [Network Interfaces](workspaces-port-requirements.md#network-interfaces)\.
+Each WorkSpace has two elastic network interfaces associated with it: a network interface for management and streaming \(eth0\) and a primary network interface \(eth1\)\. The primary network interface has an IP address provided by your VPC, from the same subnets used by the directory\. This ensures that traffic from your WorkSpace can easily reach the directory\. Access to resources in the VPC is controlled by the security groups assigned to the primary network interface\. For more information, see [Network Interfaces](workspaces-port-requirements.md#network-interfaces)\.
 
 The following diagram shows the architecture of Amazon WorkSpaces\.
 
@@ -39,7 +39,8 @@ You cannot use a web browser to connect to Amazon Linux WorkSpaces\.
 
 There are client applications for the following devices:
 + Windows computers
-+ Mac computers
++ macOS computers
++ Ubuntu Linux 18\.04 computers
 + Chromebooks
 + iPads
 + Android tablets
@@ -47,7 +48,7 @@ There are client applications for the following devices:
 + Zero client devices
 
 On Windows, macOS, and Linux PCs, you can use the following web browsers to connect to Windows WorkSpaces:
-+ Chrome 53 and later
++ Chrome 53 and later \(Windows and macOS only\)
 + Firefox 49 and later
 
 For more information, see [Amazon WorkSpaces Clients](https://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-clients.html) in the *Amazon WorkSpaces User Guide*\.

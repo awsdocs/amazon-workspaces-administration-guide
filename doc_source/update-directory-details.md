@@ -48,11 +48,11 @@ After you select a new OU, the machine accounts for all WorkSpaces that are crea
 
 ## Configure Automatic IP Addresses<a name="automatic-assignment"></a>
 
-After you enable automatic assignment of public IP addresses, each WorkSpace that you launch is assigned a public IP address\. This allows WorkSpaces in public subnets to access the internet\. WorkSpaces that exist at the time that you enable automatic assignment do not receive a public IP address until you rebuild them\.
+After you enable automatic assignment of Elastic public IP addresses, each WorkSpace that you launch is assigned an Elastic public IP address\. This allows WorkSpaces in public subnets to access the internet\. WorkSpaces that exist at the time that you enable automatic assignment do not receive an Elastic public IP address until you rebuild them\.
 
-Note that you do not need to enable automatic assignment of public IP addresses if your WorkSpaces are in private subnets and you configured a NAT gateway for the virtual private cloud \(VPC\), or if your WorkSpaces are in public subnets and you manually assigned Elastic IP addresses\. For more information, see [Configure a VPC for Amazon WorkSpaces](amazon-workspaces-vpc.md)\.
+Note that you do not need to enable automatic assignment of Elastic public IP addresses if your WorkSpaces are in private subnets and you configured a NAT gateway for the virtual private cloud \(VPC\), or if your WorkSpaces are in public subnets and you manually assigned Elastic IP addresses\. For more information, see [Configure a VPC for Amazon WorkSpaces](amazon-workspaces-vpc.md)\.
 
-**To configure public IP addresses**
+**To configure Elastic public IP addresses**
 
 1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
@@ -78,7 +78,7 @@ You can specify the types of devices that have access to WorkSpaces\. In additio
 
 1. Select the directory and then choose **Actions**, **Update Details**\.
 
-1. Expand **Access Control Options** and find the **Other Platforms** section\. By default, WorkSpaces Web Access is disabled and users can access their WorkSpaces from their iOS devices, Android devices, Chromebooks, and PCoIP zero client devices\.
+1. Expand **Access Control Options** and find the **Other Platforms** section\. By default, WorkSpaces Web Access and Linux clients are disabled, and users can access their WorkSpaces from their iOS devices, Android devices, Chromebooks, and PCoIP zero client devices\.
 
 1. Select the device types to enable and clear the device types to disable\. To block access from all selected device types, choose **Block**\.
 
