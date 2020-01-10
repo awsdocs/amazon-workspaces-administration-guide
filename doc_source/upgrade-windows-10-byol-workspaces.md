@@ -10,7 +10,7 @@ Do not run Sysprep on an upgraded WorkSpace\. If you do so, an error that preven
 **Prerequisites**
 + If you have deferred or paused Windows 10 upgrades by using Group Policy or System Center Configuration Manager \(SCCM\), enable operating system upgrades for your Windows 10 WorkSpaces\.
 + If the WorkSpace is an AutoStop WorkSpace, change it to an AlwaysOn WorkSpace before the in\-place upgrade process so that it won't be stopped automatically while updates are being applied\. For more information, see [Modify the Running Mode](running-mode.md#modify-running-mode)\. To keep the WorkSpace set to AutoStop, change the AutoStop time to three hours or more while the upgrade takes place\.
-+ The in\-place upgrade process re\-creates the user profile by making a copy of a special profile named Default User \(`C:\Users\Default`\)\. To preserve custom Windows preferences and application settings stored in the Windows registry, modify `C:\Users\Default\NTUSER.DAT` on the WorkSpace before you perform the in\-place upgrade\.
++ The in\-place upgrade process recreates the user profile by making a copy of a special profile named Default User \(`C:\Users\Default`\)\. To preserve custom Windows preferences and application settings stored in the Windows registry, modify `C:\Users\Default\NTUSER.DAT` on the WorkSpace before you perform the in\-place upgrade\.
 
 **To perform an in\-place upgrade of Windows 10**
 
@@ -60,14 +60,14 @@ After in\-place upgrades, the `NTUSER.DAT` file of the user is regenerated and p
 + `D:\Users\%USERNAME%\Pictures`
 + `D:\Users\%USERNAME%\Videos`
 + `D:\Users\%USERNAME%\Documents`
-+ `D:\Users%USERNAME%\AppData\Roaming\Microsoft\Windows\Network Shortcuts`
-+ `D:\Users%USERNAME%\AppData\Roaming\Microsoft\Windows\Printer Shortcuts`
-+ `D:\Users%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs`
-+ `D:\Users%USERNAME%\AppData\Roaming\Microsoft\Windows\Recent`
-+ `D:\Users%USERNAME%\AppData\Roaming\Microsoft\Windows\SendTo`
-+ `D:\Users%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu`
-+ `D:\Users%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup`
-+ `D:\Users%USERNAME%\AppData\Roaming\Microsoft\Windows\Templates`
++ `D:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Network Shortcuts`
++ `D:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Printer Shortcuts`
++ `D:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs`
++ `D:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Recent`
++ `D:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\SendTo`
++ `D:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu`
++ `D:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup`
++ `D:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Templates`
 
 If you redirect the shell folders to other locations on your WorkSpaces, perform the necessary operations on the WorkSpaces after the in\-place upgrades\.
 

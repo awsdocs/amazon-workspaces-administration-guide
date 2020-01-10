@@ -1,7 +1,7 @@
 # Amazon WorkSpaces Administration Guide
 
 -----
-*****Copyright &copy; 2019 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
+*****Copyright &copy; 2020 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
 Amazon's trademarks and trade dress may not be used in 
@@ -55,6 +55,7 @@ Amazon's trademarks and trade dress may not be used in
    + [Rebuild a WorkSpace](rebuild-workspace.md)
    + [Restore a WorkSpace](restore-workspace.md)
    + [Upgrade Windows 10 BYOL WorkSpaces](upgrade-windows-10-byol-workspaces.md)
+   + [Migrate a WorkSpace](migrate-workspaces.md)
    + [Delete a WorkSpace](delete-workspaces.md)
 + [WorkSpace Bundles and Images](amazon-workspaces-bundles.md)
    + [Create a Custom WorkSpaces Bundle](create-custom-bundle.md)
@@ -73,5 +74,5 @@ Amazon's trademarks and trade dress may not be used in
    + [Infrastructure Security in Amazon WorkSpaces](infrastructure-security.md)
    + [Update Management in Amazon WorkSpaces](update-management.md)
 + [Troubleshooting Amazon WorkSpaces Issues](amazon-workspaces-troubleshooting.md)
-+ [Amazon WorkSpaces Limits](workspaces-limits.md)
++ [Amazon WorkSpaces Quotas](workspaces-limits.md)
 + [Document History](workspaces-document-history.md)

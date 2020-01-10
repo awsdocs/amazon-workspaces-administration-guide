@@ -2,7 +2,7 @@
 
 You can copy a custom WorkSpaces image within or across AWS Regions\. Copying an image results in an identical image with its own unique identifier\.
 
-There are no additional charges for copying an image across Regions\. The limit for the number of images in the destination Region applies\.
+There are no additional charges for copying an image across Regions\. The quota for the number of images in the destination Region applies\.
 
 **To copy an image**
 

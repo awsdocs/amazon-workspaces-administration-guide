@@ -10,7 +10,8 @@ We recommend that you create an organizational unit for your WorkSpaces Computer
 Group Policy settings can affect a WorkSpace user's experience as follows:
 + Some Group Policy settings force a user to log off when they are disconnected from a session\. Any applications that a user has open on the WorkSpace are closed\.
 + Implementing an interactive logon message to display a logon banner prevents users from being able to access their WorkSpace\. The interactive logon message Group Policy setting is not currently supported by Amazon WorkSpaces\.
-+ Group Policy can be used to restrict drive access\. If you configure Group Policy to restrict access to Drive C or to Drive D, users can't access their WorkSpace\. To prevent this issue from occurring, make sure that your users can access Drive C and Drive D\. 
++ Disabling removable storage through Group Policy settings will cause a login failure that results in users being logged in to a temporary profile with no access to drive D\.
++ Group Policy settings can be used to restrict drive access\. If you configure Group Policy settings to restrict access to drive C or to drive D, users can't access their WorkSpace\. To prevent this issue from occurring, make sure that your users can access drive C and drive D\. 
 
 **Topics**
 + [Install the Group Policy Administrative Template](#gp_install_template)

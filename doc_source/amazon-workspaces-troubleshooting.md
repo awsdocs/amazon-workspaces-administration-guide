@@ -27,7 +27,11 @@ The Windows client logs are stored in the following location\.
 
 1. Launch the WorkSpaces client with the `-l3` flag\.
 
-   `cd "C:\Program Files (x86)\Amazon Web Services, Inc\Amazon WorkSpaces\workspaces.exe -l3"`
+   `c:`
+
+   `cd "C:\Program Files (x86)\Amazon Web Services, Inc\Amazon WorkSpaces"`
+
+   `workspaces.exe -l3`
 
 **Topics**
 
@@ -83,9 +87,11 @@ The following information can help you troubleshoot specific issues with your Wo
 + [Launching WorkSpaces in my connected directory often fails](#provision_fail)
 + [Launching WorkSpaces fails with an internal error](#launch-failure-ipv6)
 + [My users can't connect to a Windows WorkSpace with an interactive logon banner](#logon_banner)
++ [My users can't connect to a Windows WorkSpace](#gpo_security_user_rights)
 + [My users are having issues when they try to log on to BYOL WorkSpaces from WorkSpaces Web Access](#byol_logon_issues)
 + [The WorkSpaces client gives my users a network error, but they are able to use other network\-enabled apps on their devices](#network_error)
 + [My WorkSpace users see the following error message: "Device can't connect to the registration service\. Check your network settings\."](#registration_service_failure)
++ [My PCoIP zero client users are receiving the error "The supplied certificate is invalid due to timestamp"](#pcoip_zero_client_ntp)
 + [My users aren’t receiving invitation emails or password reset emails](#welcome_emails)
 + [I receive the message "The system administrator has set policies to prevent this installation" when I try to install applications on a Windows WorkSpace](#msi_wont_install)
 + [No WorkSpaces in my directory can connect to the internet](#no_internet)
@@ -122,6 +128,37 @@ Check whether your subnets are configured to automatically assign IPv6 addresses
 ### My users can't connect to a Windows WorkSpace with an interactive logon banner<a name="logon_banner"></a>
 
 If an interactive logon message has been implemented to display a logon banner, this prevents users from being able to access their Windows WorkSpaces\. The interactive logon message Group Policy setting is not currently supported by Amazon WorkSpaces\.
+
+### My users can't connect to a Windows WorkSpace<a name="gpo_security_user_rights"></a>
+
+My users receive the following error when they try to connect to their Windows WorkSpaces:
+
+```
+"An error occurred while launching your WorkSpace. Please try again."
+```
+
+If the following group policy is incorrectly configured, it prevents users from being able to access their Windows WorkSpaces:
+
+**Computer Configuration\\Windows Settings\\Security Settings\\Local Policies\\User Rights Assignment**
++ **Incorrect policy:**
+
+  Policy: **Access this computer from the network**
+
+  Setting: *Domain name*\\Domain Computers
+
+  Winning GPO: Allow File Access
++ **Correct policy:**
+
+  Policy: **Access this computer from the network**
+
+  Setting: *Domain name*\\Domain Users
+
+  Winning GPO: Allow File Access
+
+**Note**  
+This policy setting should be applied to **Domain Users** instead of **Domain Computers**\.
+
+For more information, see [ Access this computer from the network \- security policy setting](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/access-this-computer-from-the-network) and [ Configure security policy settings](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/how-to-configure-security-policy-settings) in the Microsoft Windows documentation\.
 
 ### My users are having issues when they try to log on to BYOL WorkSpaces from WorkSpaces Web Access<a name="byol_logon_issues"></a>
 
@@ -226,6 +263,10 @@ Add the Starfield certificate \(2b071c59a0a0ae76b0eadb2bad23bad4580b69c3601b630c
 When a registration service failure occurs, your WorkSpace users might see the following error message on the **Connection Health Check** page: "Your device is not able to connect to the WorkSpaces Registration service\. You will not be able to register your device with WorkSpaces\. Please check your network settings\."
 
 This error occurs when the WorkSpaces client application can't reach the registration service\. Typically, this happens when the WorkSpaces directory has been deleted\. To resolve this error, make sure that the registration code is valid and corresponds to a running directory in the AWS Cloud\.
+
+### My PCoIP zero client users are receiving the error "The supplied certificate is invalid due to timestamp"<a name="pcoip_zero_client_ntp"></a>
+
+If Network Time Protocol \(NTP\) isn't enabled in Teradici, your PCoIP zero client users might receive certificate failure errors\. To set up NTP, see [Set Up PCoIP Zero Client for WorkSpaces](set-up-pcoip-zero-client.md)\.
 
 ### My users aren’t receiving invitation emails or password reset emails<a name="welcome_emails"></a>
 

@@ -4,6 +4,7 @@ After you've launched a Windows or Amazon Linux WorkSpace and customized it, you
 
 **Important**  
 If you plan to create an image from a Windows 10 WorkSpace, note that image creation is not supported on Windows 10 systems that have been upgraded from one version of Windows 10 to a newer version of Windows 10 \(a Windows feature/version upgrade\)\. However, Windows cumulative or security updates are supported by the WorkSpaces image\-creation process\.
+After January 14, 2020, images cannot be created from public Windows 7 bundles\. You might want to consider migrating your Windows 7 WorkSpaces to Windows 10\. For more information, see [Migrate a WorkSpace](migrate-workspaces.md)\.
 
 **Requirements to create Windows custom images**
 + All applications and user profiles on WorkSpaces images must be compatible with Microsoft Sysprep\.

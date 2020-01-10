@@ -149,6 +149,9 @@ To create an image for BYOL, you must first export the VM from your virtualizati
 
 After you export your VM, review the requirements for importing Windows operating systems from a VM\. Take action as needed\. For more information, see [VM Import/Export Requirements](https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html)\.
 
+**Note**  
+Importing a VM with an encrypted disk is not supported\.
+
 Import your VM into Amazon EC2 as an Amazon Machine Image \(AMI\)\. Use one of the following methods:
 + Use the import\-image command with the AWS Command Line Interface \(AWS CLI\)\. For more information, see [import\-image](https://docs.aws.amazon.com/cli/latest/reference/ec2/import-image.html) in the *AWS CLI Command Reference*\.
 + Use the ImportImage API operation\. For more information, see [ImportImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportImage.html) in the *Amazon EC2 API Reference*\.

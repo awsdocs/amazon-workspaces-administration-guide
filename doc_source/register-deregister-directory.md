@@ -13,6 +13,8 @@ To allow Amazon WorkSpaces to use an existing AWS Directory Service directory, y
 1. Choose **Actions**, **Register**\.
 
 1. Select two subnets that are not from the same Availability Zone\.
+**Note**  
+When you register an AD Connector with WorkSpaces, WorkSpaces checks whether the AD Connector subnets are in supported Availability Zones\. If the directory subnets are in supported Availability Zones, WorkSpaces uses those subnets\. Otherwise, WorkSpaces uses other subnets \(which are in the supported Availability Zones\) from the virtual private cloud \(VPC\) and then proceeds with registration\.
 
 1. For **Enable Self Service Permissions**, choose **Yes** to enable your users to rebuild their WorkSpaces, change volume size, compute type and running mode\. Enabling may impact how much you pay for Amazon WorkSpaces\. Choose **No** otherwise\.
 

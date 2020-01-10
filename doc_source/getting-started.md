@@ -8,7 +8,7 @@ This tutorial uses the Quick Setup option to launch your WorkSpace\. This option
 Quick Setup is supported only in the following AWS Regions:   
 US East \(N\. Virginia\)
 US West \(Oregon\)
-EU \(Ireland\)
+Europe \(Ireland\)
 Asia Pacific \(Singapore\)
 Asia Pacific \(Sydney\)
 Asia Pacific \(Tokyo\)

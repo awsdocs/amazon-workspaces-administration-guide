@@ -34,6 +34,8 @@ You can send an invitation email to a user manually if needed\.
 
 1. In the navigation pane, choose **WorkSpaces**\.
 
-1. Select the user to send the invitation to and choose **Actions**, **Invite User**\.
+1. On the **WorkSpaces** page, use the search box to search for the user you want to send an invitation to, and then select the corresponding WorkSpace from the search results\. You can select only one WorkSpace at a time\.
+
+1. Choose **Actions**, **Invite User**\.
 
 1. Copy the email body text and paste it into an email to the user using your own email application\. You can modify the body text if desired\. When the invitation email is ready, send it to the user\.
