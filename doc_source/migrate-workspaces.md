@@ -67,7 +67,7 @@ Any tags assigned to the original WorkSpace are carried over during migration, a
 ## Best Practices<a name="migration-best-practices"></a>
 
 Before you migrate a WorkSpace, do the following:
-+ Back up any important data on drive C\. All data on drive C is erased during migration\.
++ Back up any important data on drive C to another location\. All data on drive C is erased during migration\.
 + Make sure that the WorkSpace being migrated is at least 12 hours old, to ensure that a snapshot of the user volume has been created\. On the **Migrate WorkSpaces** page in the Amazon WorkSpaces console, you can see the time of the last snapshot\. Any data created after the last snapshot is lost during migration\.
 + To avoid potential data loss, make sure that your users log out of their WorkSpaces and don't log back in until after the migration process is finished\. Note that WorkSpaces cannot be migrated when they are in `ADMIN_MAINTENANCE` mode\.
 + Make sure that the WorkSpaces you want to migrate have a status of `AVAILABLE`, `STOPPED`, or `ERROR`\.
@@ -88,7 +88,7 @@ If you are migrating a WorkSpace to a different bundle type \(for example, from 
 
 ## Migrating a WorkSpace<a name="migration-workspaces"></a>
 
-You can migrate WorkSpaces through the Amazon WorkSpaces console or the Amazon WorkSpaces API\.
+You can migrate WorkSpaces through the Amazon WorkSpaces console, the AWS command line interface \(CLI\), or the Amazon WorkSpaces API\.
 
 **To migrate a WorkSpace**
 
@@ -110,4 +110,4 @@ For each WorkSpace, take note of the listed snapshot time\. Any changes made to 
 
 1. \(Optional\) To delete any custom bundles and images that you no longer need, see [Delete a Custom WorkSpaces Bundle](delete_bundle.md)\.
 
-You can also migrate WorkSpaces through the Amazon WorkSpaces API\. For more information, see [MigrateWorkSpace](https://docs.aws.amazon.com/workspaces/latest/api/API_MigrateWorkspace.html) in the *Amazon WorkSpaces API Reference*\.
+To migrate WorkSpaces through the AWS CLI, use the [migrate\-workspace](https://docs.aws.amazon.com/cli/latest/reference/workspaces/migrate-workspace.html) command\. To migrate WorkSpaces through the Amazon WorkSpaces API, see [MigrateWorkSpace](https://docs.aws.amazon.com/workspaces/latest/api/API_MigrateWorkspace.html) in the *Amazon WorkSpaces API Reference*\.

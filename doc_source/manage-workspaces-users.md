@@ -1,6 +1,6 @@
 # Manage WorkSpaces Users<a name="manage-workspaces-users"></a>
 
-As an administrator for Amazon WorkSpaces, you can use the Amazon WorkSpaces console to perform the following tasks to manage WorkSpaces users\.
+As an administrator for Amazon WorkSpaces, you can perform the following tasks to manage WorkSpaces users\.
 
 ## Edit User Information<a name="edit-user"></a>
 
@@ -21,8 +21,15 @@ This feature is available only if you use Microsoft AD or Simple AD\. If you use
 
 1. Choose **Update**\.
 
-**Note**  
- To delete or otherwise manage users, you must do this through your directory\. If you're using AWS Managed Microsoft AD, see [ Manage Users and Groups in AWS Managed Microsoft AD](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_manage_users_groups.html) in the *AWS Directory Service Administration Guide*\. If you're using Simple AD, see [ Manage Users and Groups in Simple AD](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/simple_ad_manage_users_groups.html) in the *AWS Directory Service Administration Guide*\. If you use Microsoft Active Directory through AD Connector or a trust relationship, you can manage users and groups by using [ Active Directory](https://docs.microsoft.com/powershell/module/addsadministration/?view=win10-ps)\. 
+## Add or Delete Users<a name="add-delete-user"></a>
+
+You can create new users from the Amazon WorkSpaces console only during the process of launching a WorkSpace, and you cannot delete users through the Amazon WorkSpaces console\. Most user management tasks, including managing user groups, must be performed through your directory\.
+
+**To add or delete users and groups**  
+To add, delete, or otherwise manage users and groups, you must do this through your directory\. The process you use for these tasks depends on which type of directory you're using\.
++ If you're using AWS Managed Microsoft AD, see [ Manage Users and Groups in AWS Managed Microsoft AD](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_manage_users_groups.html) in the *AWS Directory Service Administration Guide*\.
++ If you're using Simple AD, see [ Manage Users and Groups in Simple AD](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/simple_ad_manage_users_groups.html) in the *AWS Directory Service Administration Guide*\. 
++ If you use Microsoft Active Directory through AD Connector or a trust relationship, you can manage users and groups by using [ Active Directory](https://docs.microsoft.com/powershell/module/addsadministration/?view=win10-ps)\. 
 
 ## Send an Invitation Email<a name="send-invitation"></a>
 

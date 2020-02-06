@@ -14,6 +14,9 @@ If you use AWS Directory Service to create an AWS Managed Microsoft or a Simple 
 
 ![\[Configure your WorkSpaces VPC\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/images/vpc-configuration-new.png)
 
+**Prerequisites**  
+If you aren't already familiar with working with VPCs and subnets, we recommend reading [ VPC and Subnet Sizing for IPv4](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-sizing-ipv4) in the *Amazon VPC User Guide* before performing the following tasks\.
+
 **Topics**
 + [Step 1: Allocate an Elastic IP Address](#allocate-eip)
 + [Step 2: Create a VPC](#create-vpc)
@@ -60,7 +63,7 @@ Create a VPC with one public subnet and two private subnets as follows\.
 
 1. Configure the public subnet as follows:
 
-   1. For **IPv4 CIDR block**, enter the CIDR block for the subnet\.
+   1. For **IPv4 CIDR block**, enter the CIDR block for the subnet\. For more information, see [VPC and Subnet Sizing for IPv4](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-sizing-ipv4) in the *Amazon VPC User Guide*\.
 
    1. For **Availability Zone**, keep **No Preference**\.
 
@@ -138,6 +141,9 @@ You can verify and name the route tables for each subnet\.
 
 If you prefer, you can create a VPC with two public subnets\. To provide internet access to WorkSpaces in public subnets, configure the directory to assign Elastic IP addresses automatically or manually assign an Elastic IP address to each WorkSpace\.
 
+**Prerequisites**  
+If you aren't already familiar with working with VPCs and subnets, we recommend reading [ VPC and Subnet Sizing for IPv4](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-sizing-ipv4) in the *Amazon VPC User Guide* before performing the following tasks\.
+
 **Topics**
 + [Step 1: Create a VPC](#create-vpc-public-subnet)
 + [Step 2: Add a Second Public Subnet](#add-second-public-subnet)
@@ -163,7 +169,7 @@ Create a VPC with one public subnet as follows\.
 
 1. For **VPC name**, enter a name for the VPC\.
 
-1. For **Public subnet's IPv4 CIDR**, enter the CIDR block for the subnet\.
+1. For **Public subnet's IPv4 CIDR**, enter the CIDR block for the subnet\. For more information, see [VPC and Subnet Sizing for IPv4](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-sizing-ipv4) in the *Amazon VPC User Guide*\.
 
 1. For **Availability Zone**, choose the first one in the list\.
 
@@ -213,7 +219,7 @@ In the previous step, you created a VPC with one public subnet\. Use the followi
 
    1. On the **Subnet Associations** tab, choose **Edit subnet associations**\.
 
-   1. Select the check box for the second subnet and choose **Save**\.
+   1. Select the check box for the second subnet \(the public subnet you just created\) and choose **Save**\.
 
 ### Step 3: Assign the Elastic IP Address<a name="assign-eip"></a>
 

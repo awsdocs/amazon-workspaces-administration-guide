@@ -53,7 +53,7 @@ For the Amazon WorkSpaces client application to be able to access the Amazon Wor
 | Forrester Log Service  | https://fls\-na\.amazon\.com/ | 
 | PCoIP Health Check \(DRP\) | [PCoIP Health Check Servers](#health_check) | 
 | PCoIP Session Gateway \(PSG\) | [PCoIP Gateway](#gateway_IP) | 
-| Registration Dependency | https://s3\.amazonaws\.com | 
+| Registration Dependency \(for Web Access and Teradici Zero Clients\) | https://s3\.amazonaws\.com | 
 | Session Broker \(PCM\) |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 | User Login Pages | https://<directory id>\.awsapps\.com/ \(where <directory id> is the customer's domain\) | 
 | Web Access TURN Servers |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 

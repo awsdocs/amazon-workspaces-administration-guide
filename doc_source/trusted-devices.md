@@ -54,4 +54,12 @@ After you have deployed the client certificates on the trusted devices, you can 
 
    1. Choose **Import**\.
 
+1. \(Optional\) Specify whether other types of devices have access to WorkSpaces\.
+
+   1. Scroll down to the **Other Platforms** section\. By default, WorkSpaces Web Access and Linux clients are disabled, and users can access their WorkSpaces from their iOS devices, Android devices, Chromebooks, and PCoIP zero client devices\.
+
+   1. Select the device types to enable and clear the device types to disable\.
+
+   1. To block access from all selected device types, choose **Block**\.
+
 1. Choose **Update and Exit**\.

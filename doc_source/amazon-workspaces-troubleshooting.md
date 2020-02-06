@@ -88,7 +88,10 @@ The following information can help you troubleshoot specific issues with your Wo
 + [Launching WorkSpaces fails with an internal error](#launch-failure-ipv6)
 + [My users can't connect to a Windows WorkSpace with an interactive logon banner](#logon_banner)
 + [My users can't connect to a Windows WorkSpace](#gpo_security_user_rights)
-+ [My users are having issues when they try to log on to BYOL WorkSpaces from WorkSpaces Web Access](#byol_logon_issues)
++ [My users are having issues when they try to log on to WorkSpaces from WorkSpaces Web Access](#byol_logon_issues)
++ [The Amazon WorkSpaces client displays a gray "Loading\.\.\." screen for a while before returning to the login screen\. No other error message appears\.](#loading_screen)
++ [My users receive the message "WorkSpace Status: Unhealthy\. We were unable to connect you to your WorkSpace\. Please try again in a few minutes\."](#unhealthy_cant_connect)
++ [My users receive the message "This device is not authorized to access the WorkSpace\. Please contact your administrator for assistance\."](#device_not_authorized)
 + [The WorkSpaces client gives my users a network error, but they are able to use other network\-enabled apps on their devices](#network_error)
 + [My WorkSpace users see the following error message: "Device can't connect to the registration service\. Check your network settings\."](#registration_service_failure)
 + [My PCoIP zero client users are receiving the error "The supplied certificate is invalid due to timestamp"](#pcoip_zero_client_ntp)
@@ -100,6 +103,7 @@ The following information can help you troubleshoot specific issues with your Wo
 + [I receive an "SRV record" error when I try to connect to my on\-premises directory](#srv_record_not_found)
 + [My Windows WorkSpace goes to sleep when it's left idle](#windows_workspace_sleeps_when_idle)
 + [One of my WorkSpaces has a state of "Unhealthy"](#unhealthy)
++ [My WorkSpace is unexpectedly crashing or rebooting](#crash_web_access)
 + [I receive ThrottlingException errors to some of my API calls](#throttled-api-calls)
 
 ### I can't create an Amazon Linux WorkSpace because there are non\-valid characters in the user name<a name="linux_workspace_provision_fail_username"></a>
@@ -127,7 +131,7 @@ Check whether your subnets are configured to automatically assign IPv6 addresses
 
 ### My users can't connect to a Windows WorkSpace with an interactive logon banner<a name="logon_banner"></a>
 
-If an interactive logon message has been implemented to display a logon banner, this prevents users from being able to access their Windows WorkSpaces\. The interactive logon message Group Policy setting is not currently supported by Amazon WorkSpaces\.
+If an interactive logon message has been implemented to display a logon banner, this prevents users from being able to access their Windows WorkSpaces\. The interactive logon message Group Policy setting is not currently supported by Amazon WorkSpaces\. Move the WorkSpaces to an organizational unit \(OU\) where the Interactive logon: Message text for users attempting to log on Group Policy isn’t applied\.
 
 ### My users can't connect to a Windows WorkSpace<a name="gpo_security_user_rights"></a>
 
@@ -137,7 +141,12 @@ My users receive the following error when they try to connect to their Windows W
 "An error occurred while launching your WorkSpace. Please try again."
 ```
 
-If the following group policy is incorrectly configured, it prevents users from being able to access their Windows WorkSpaces:
+This error often occurs when the WorkSpace can't load the Windows desktop using PCoIP\. Check the following:
++ This message appears if the PCoIP Standard Agent for Windows service is not running\. [Connect using RDP](https://aws.amazon.com/premiumsupport/knowledge-center/connect-workspace-rdp/) to verify that the service is running, that it's set to start automatically, and that it can communicate over the management interface \(eth0\)\.
++ If the PCoIP agent was uninstalled, reboot the WorkSpace through the Amazon WorkSpaces console to reinstall it automatically\.
++ You might also receive this error on the Amazon WorkSpaces client after a long delay if the [WorkSpaces security group](amazon-workspaces-security-groups.md) was modified to restrict outbound traffic\. Restricting outbound traffic prevents Windows from communicating with your directory controllers for login\. Verify that your security groups allow your WorkSpaces to communicate with your directory controllers on all [required ports](workspaces-port-requirements.md) over the primary network interface\.
+
+Another cause of this error is related to the User Rights Assignment Group Policy\. If the following group policy is incorrectly configured, it prevents users from being able to access their Windows WorkSpaces:
 
 **Computer Configuration\\Windows Settings\\Security Settings\\Local Policies\\User Rights Assignment**
 + **Incorrect policy:**
@@ -160,35 +169,38 @@ This policy setting should be applied to **Domain Users** instead of **Domain Co
 
 For more information, see [ Access this computer from the network \- security policy setting](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/access-this-computer-from-the-network) and [ Configure security policy settings](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/how-to-configure-security-policy-settings) in the Microsoft Windows documentation\.
 
-### My users are having issues when they try to log on to BYOL WorkSpaces from WorkSpaces Web Access<a name="byol_logon_issues"></a>
+### My users are having issues when they try to log on to WorkSpaces from WorkSpaces Web Access<a name="byol_logon_issues"></a>
 
-BYOL WorkSpaces rely on a specific logon screen configuration to enable users to successfully log on from their Web Access client\. To enable Web Access users to log on to their BYOL WorkSpaces, you must configure a Group Policy setting and a Local Security Policy setting\. If these two settings are not correctly configured, users may experience long logon times or black screens when they try to log on to their BYOL WorkSpaces\. To configure the settings, follow these steps\. 
+Amazon WorkSpaces relies on a specific logon screen configuration to enable users to successfully log on from their Web Access client\.
 
-**To enable the WorkSpaces logon agent to switch users**
+To enable Web Access users to log on to their WorkSpaces, you must configure a Group Policy setting and three Security Policy settings\. If these settings are not correctly configured, users might experience long logon times or black screens when they try to log on to their WorkSpaces\. To configure these settings, see [Enable and Configure Amazon WorkSpaces Web Access](web-access.md)\.
 
-In most cases, when a user attempts to log on to a WorkSpace, the user name field is prepopulated with the name of that user\. However, if an administrator establishes an RDP connection to the WorkSpace to perform maintenance tasks, the user name field is populated with the name of the administrator instead\. To resolve this issue, disable the **Hide entry points for Fast User Switching** Group Policy setting\. When you do so, the WorkSpaces logon agent can use the **Switch User** button to populate the user name field with the correct name\.
+### The Amazon WorkSpaces client displays a gray "Loading\.\.\." screen for a while before returning to the login screen\. No other error message appears\.<a name="loading_screen"></a>
 
-1. Open Local Group Policy Editor by opening the command prompt as an administrator, entering `gpedit.msc`, and then pressing **Enter**\. 
+This behavior usually indicates that the WorkSpaces client can authenticate over port 443, but can't establish a streaming connection over port 4172\. This situation can occur when [network prerequisites](workspaces-port-requirements.md) aren't met\. Issues on the client side often cause the network check in the bottom\-right corner of the client to fail\. To see which health checks are failing, choose the network check icon \(typically a red triangle with an exclamation point\)\.
 
-1. In the console tree, choose **Local Computer Policy**, **Computer Configuration**, **Administrative Templates**, **System**, and **Logon**\.
+**Note**  
+The most common cause of this problem is a client\-side firewall or proxy preventing access over port 4172 \(TCP and UDP\)\. If this health check fails, check your local firewall settings\.
 
-1. Open the **Hide entry points for Fast User Switching** setting\.
+If the network check passes, there might be a problem with the network configuration of the WorkSpace\. For example, a Windows Firewall rule might block port UDP 4172 on the management interface\. [ Connect to the WorkSpace using a Remote Desktop Protocol \(RDP\) client](https://aws.amazon.com/premiumsupport/knowledge-center/connect-workspace-rdp/) to verify that the WorkSpace meets the necessary [ port requirements](workspaces-port-requirements.md)\.
 
-1. In the **Hide entry points for Fast User Switching** dialog box, choose **Disabled**, and then choose **OK**\.
+### My users receive the message "WorkSpace Status: Unhealthy\. We were unable to connect you to your WorkSpace\. Please try again in a few minutes\."<a name="unhealthy_cant_connect"></a>
 
-**To configure Local Security Policy Editor to hide the last logged on user name**
+This error usually indicates the SkyLightWorkSpacesConfigService service isn't responding to health checks\.
 
-By default, the list of last logged on users displays, rather than the **Switch User** button\. Depending on the configuration of the WorkSpace, the list may not display the **Other User** tile\. When this occurs, if the prepopulated user name isn't correct, the WorkSpaces logon agent can't populate the field with the correct name\. To resolve this issue, enable the **Interactive logon: Don't display last signed\-in** Local Security Policy setting\.
+If you just rebooted or started your WorkSpace, wait a few minutes, and then try again\.
 
-1. Open Local Security Policy Editor by opening the command prompt as an administrator, entering `secpol.msc`, and then pressing **Enter**\. 
+If the WorkSpace has been running for some time and you still see this error, [connect using RDP](https://aws.amazon.com/premiumsupport/knowledge-center/connect-workspace-rdp/) to verify that the SkyLightWorkSpacesConfigService service:
++ Is running\.
++ Is set to start automatically\.
++ Can communicate over the management interface \(eth0\)\.
++ Isn't blocked by any third\-party antivirus software\.
 
-1. In the console tree, choose **Security Settings**, **Local Policies**, and **Security Options**\.
+### My users receive the message "This device is not authorized to access the WorkSpace\. Please contact your administrator for assistance\."<a name="device_not_authorized"></a>
 
-1. Open one of the following settings:
-   + For Windows 7 — **Interactive logon: Do not display last user name**
-   + For Windows 10 — **Interactive logon: Don't display last signed\-in**
+This error indicates that [ IP access control groups](amazon-workspaces-ip-access-control-groups.md) are configured on the WorkSpace directory, but the client IP address isn't whitelisted\.
 
-1. In the **Properties** dialog box for the setting, choose **Enabled**, and then choose **OK**\.
+Check the settings on your directory\. Confirm that the public IP address the user is connecting from allows access to the WorkSpace\.
 
 ### The WorkSpaces client gives my users a network error, but they are able to use other network\-enabled apps on their devices<a name="network_error"></a>
 
@@ -256,7 +268,7 @@ To connect directly to a WorkSpace using firmware version 6\.0 or later, downloa
 Add the Starfield certificate \(2b071c59a0a0ae76b0eadb2bad23bad4580b69c3601b630c2eaf0613afa83f92\) from [Amazon Trust Services](https://www.amazontrust.com/repository/)\. For more information about how to add a Root CA, see the following documentation:
 + Android: [Add & remove certificates](https://support.google.com/nexus/answer/2844832)
 + Chrome OS: [Manage client certificates on Chrome devices](https://support.google.com/chrome/a/answer/6080885)
-+ macOS and iOS: [Installing a CA's Root Certificate on Your Test Device](https://developer.apple.com/library/content/qa/qa1948/_index.html#//apple_ref/doc/uid/DTS40017603-CH1-SECINSTALLING)
++ macOS and iOS: [Installing a CA's Root Certificate on Your Test Device](https://developer.apple.com/library/content/qa/qa1948/_index.html#/apple_ref/doc/uid/DTS40017603-CH1-SECINSTALLING)
 
 ### My WorkSpace users see the following error message: "Device can't connect to the registration service\. Check your network settings\."<a name="registration_service_failure"></a>
 
@@ -381,6 +393,70 @@ You can attempt to correct the situation using the following methods:
 
   1. On the unhealthy WorkSpace, confirm that the minimum port requirements are met\.
 + Rebuild the WorkSpace from the Amazon WorkSpaces console\. Because rebuilding a WorkSpace can potentially cause a loss of data, this option should only be used if all other attempts to correct the problem have been unsuccessful\.
+
+### My WorkSpace is unexpectedly crashing or rebooting<a name="crash_web_access"></a>
+
+If your WorkSpace is repeatedly crashing or rebooting and your error logs or crash dumps are pointing to problems with `spacedeskHookKmode.sys` or `spacedeskHookUmode.dll`, or if you're receiving the following error messages, you might need to disable Web Access to the WorkSpace:
+
+```
+The kernel power manager has initiated a shutdown transition.
+Shutdown reason: Kernel API
+```
+
+```
+The computer has rebooted from a bugcheck.
+```
+
+**Note**  
+You should disable Web Access only if you aren't allowing your users to use Web Access\.
+
+To disable Web Access to the WorkSpace, you must set a group policy and modify two registry settings\. For information about using the Active Directory administration tools to work with Group Policy Objects, see [ Installing the Active Directory Administration Tools](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_install_ad_tools.html) in the *AWS Directory Service Administration Guide*\.
+
+**Step 1: Set a Group Policy to disable Web Access at the directory level**
+
+You can make these changes either from the machine that you use to administer the domain, or from a domain controller\.
+
+1. Open the Group Policy Management Editor \(**gpmc\.msc**\) and locate the Group Policy Object \(GPO\) policy at the domain controller level of your directory\.
+
+1. Choose **Action**, **Edit**\.
+
+1. Navigate to the following setting:
+
+   **Computer Configuration\\Windows Settings\\Security Settings\\System Services\\STXHD Hosted Application Service**
+
+1. In the **STXHD Hosted Application Service Properties** dialog box, on the **Security Policy Setting** tab, select the **Define this policy setting** check box\.
+
+1. Under **Select Service Startup Mode**, select **Disabled**\.
+
+1. Choose **OK**\.
+
+1. Prevent the machine from rebooting until you have finished editing the registry \(Step 2\)\.
+
+**Step 2: Edit the Registry to disable Web Access**
+
+We recommend that you push out these registry changes through GPO\.
+
+1. Set the following registry key value to 1 \(enabled\):
+
+   KeyPath = **HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Amazon\\WorkSpacesConfig\\update\-webaccess\.ps1**
+
+   KeyName = **RebootCount**
+
+   KeyType = **DWORD**
+
+   KeyValue = **1**
+
+1. Set the following registry key value to 4 \(disabled\):
+
+   KeyPath = **HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\spacedeskHookKmode**
+
+   KeyName = **Start**
+
+   KeyType = **DWORD**
+
+   KeyValue = **4**
+
+1. Reboot the machine\.
 
 ### I receive ThrottlingException errors to some of my API calls<a name="throttled-api-calls"></a>
 

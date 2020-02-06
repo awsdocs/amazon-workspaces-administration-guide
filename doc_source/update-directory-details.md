@@ -68,7 +68,7 @@ Note that you do not need to enable automatic assignment of Elastic public IP ad
 
 ## Control Device Access<a name="control-device-access"></a>
 
-You can specify the types of devices that have access to WorkSpaces\. In addition, you restrict access to WorkSpaces to trusted devices \(also known as managed devices\)\.
+You can specify the types of devices that have access to WorkSpaces\. In addition, you can restrict access to WorkSpaces to trusted devices \(also known as managed devices\)\.
 
 **To control device access to WorkSpaces**
 
@@ -82,7 +82,7 @@ You can specify the types of devices that have access to WorkSpaces\. In additio
 
 1. Select the device types to enable and clear the device types to disable\. To block access from all selected device types, choose **Block**\.
 
-1. \(Optional\) You can restrict access to trusted devices\. For more information, see [Restrict WorkSpaces Access to Trusted Devices](trusted-devices.md)\.
+1. \(Optional\) You can also restrict access to trusted devices only\. For more information, see [Restrict WorkSpaces Access to Trusted Devices](trusted-devices.md)\.
 
 1. Choose **Update and Exit**\.
 

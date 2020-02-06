@@ -18,8 +18,7 @@ After January 14, 2020, images cannot be created from public Windows 7 bundles\.
   + PowerShell
   + Remote Desktop Services
   + AWS PV drivers
-  + EC2Config or EC2Launch \(Windows Server 2016\)
-  + \[EC2Launch 1\.2\.0 or earlier\] Windows Remote Management \(WinRM\)
+  + Windows Remote Management \(WinRM\)
   + Teradici PCoIP agents and drivers
   + STXHD agents and drivers
   + AWS and WorkSpaces certificates
@@ -108,6 +107,7 @@ When you create an image from a Windows WorkSpace, the entire contents of the `C
 + appdata\\locallow\\microsoft\\internet explorer\\domstore\\
 + appdata\\locallow\\microsoft\\internet explorer\\imagestore\\
 + appdata\\local\\microsoft\\internet explorer\\recovery\\
++ appdata\\local\\microsoft\\teams\\
 + appdata\\local\\mozilla\\firefox\\profiles\\
 
 **Image Creation for Amazon Linux WorkSpaces**

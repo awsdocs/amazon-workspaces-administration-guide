@@ -6,6 +6,9 @@ There is a default IP access control group associated with each directory\. The 
 
 To specify the public IP addresses and ranges of IP addresses for your trusted networks, add rules to your IP access control groups\. If your users access their WorkSpaces through a NAT gateway or VPN, you must create rules that allow traffic from the public IP addresses for the NAT gateway or VPN\.
 
+**Note**  
+IP access control groups do not allow the use of dynamic IP addresses for NATs\. If you're using a NAT, configure it to use a static IP address instead of a dynamic IP address\. Make sure the NAT routes all the UDP traffic through the same static IP address for the duration of the WorkSpaces session\.
+
 You can use this feature with Web Access and the client applications for macOS, iPad, Windows, Chromebook, and Android\. To use this feature with a PCoIP zero client, you cannot use PCoIP Connection Manager\.
 
 ## Create an IP Access Control Group<a name="create-ip-access-control-group"></a>

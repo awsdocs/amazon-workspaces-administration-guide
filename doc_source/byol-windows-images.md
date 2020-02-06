@@ -1,6 +1,6 @@
 # Bring Your Own Windows Desktop Images<a name="byol-windows-images"></a>
 
-If your licensing agreement with Microsoft allows it, you can use your Windows 7, Windows 10 Enterprise, or Windows 10 Pro desktop images for your WorkSpaces\. To do this, you must Bring Your Own License \(BYOL\) and provide a Windows 7 or Windows 10 image that meets the following requirements\. To stay compliant with Microsoft licensing terms, run your Amazon WorkSpaces on hardware that is dedicated to you in the AWS Cloud\. By bringing your own license, you can provide a consistent experience for your users\. For more information, see [Amazon WorkSpaces Pricing](https://aws.amazon.com/workspaces/pricing/)\.
+If your licensing agreement with Microsoft allows it, you can use your Windows 7, Windows 10 Enterprise, or Windows 10 Pro desktop licenses for your WorkSpaces\. To do this, you must Bring Your Own License \(BYOL\) and provide a Windows 7 or Windows 10 image that meets the following requirements\. To stay compliant with Microsoft licensing terms, run your Amazon WorkSpaces on hardware that is dedicated to you in the AWS Cloud\. By bringing your own license, you can provide a consistent experience for your users\. For more information, see [Amazon WorkSpaces Pricing](https://aws.amazon.com/workspaces/pricing/)\.
 
 **Important**  
 Image creation is not supported on Windows 10 systems that have been upgraded from one version of Windows 10 to a newer version of Windows 10\.
@@ -39,6 +39,7 @@ Before you begin, verify the following:
   + If the VM is running Windows 10, the user profile must be placed in C:\\Users\\Default\.
   + We recommend that you create a **WorkSpaces\_BYOL** account with local administrator access before you share the image\. The password for this account may be required later\.
 + Your VM must also run PowerShell version 4 or later\.
++ Make sure that you have installed the latest Microsoft Windows patches before running the BYOL Checker PowerShell script in [Step 2](#windows_images_run_byol_checker_script) later in this topic\.
 
 ## Windows Versions That Are Supported for BYOL<a name="windows_images_supported_versions"></a>
 
@@ -50,6 +51,9 @@ Your VM must run one of the following Windows versions:
 + Windows 10 Version 1803 \(April 2018 Update\) 
 + Windows 10 Version 1809 \(October 2018 Update\) 
 + Windows 10 Version 1903 \(May 2019 Update\)
++ Windows 10 Version 1909 \(November 2019 Update\)
+
+All supported OS versions support all the compute types available in the AWS Region where you're using WorkSpaces\.
 
 ## Step 1: Enable BYOL for Your Account by Using the Amazon WorkSpaces Console<a name="windows_images_enable_byol"></a>
 
@@ -167,7 +171,7 @@ To perform this procedure, verify that you have permissions to:
 Call Amazon WorkSpaces **ImportWorkspaceImage**\.
 Call EC2 **DescribeImages** on the EC2 image that you want to use to create the BYOL image\.
 Call EC2 **ModifyImageAttribute** on the EC2 image that you want to use to create the BYOL image\.
-For more information, see [Changing Permissions for an IAM User ](https://docs.aws.amazon.com/IAM/latest/UserGuide//id_users_change-permissions.html) in the *IAM User Guide*\.  
+For more information, see [Changing Permissions for an IAM User ](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html) in the *IAM User Guide*\.  
 To create a Graphics or GraphicsPro bundle from your image, contact the [AWS Support Center](https://console.aws.amazon.com/support/home#/) to get your account added to the allow list\. After your account is on the allow list, you can use the AWS CLI import\-workspace\-image command to ingest the Graphics or GraphicsPro image\. For more information, see [import\-workspace\-image](https://docs.aws.amazon.com/cli/latest/reference/workspaces/import-workspace-image.html) in the *AWS CLI Command Reference*\.
 
 **To create an image from the Windows VM**

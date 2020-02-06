@@ -4,6 +4,8 @@ Automatic snapshots for use when rebuilding a WorkSpace are scheduled every 12 h
 
 If needed, you can rebuild a WorkSpace\. This recreates both the root volume and the user volume\.
 
+You cannot rebuild a WorkSpace unless its state is `AVAILABLE`, `ERROR`, `UNHEALTHY`, or `STOPPED`\.
+
 **Note**  
 After January 14, 2020, WorkSpaces created from a public Windows 7 bundle can no longer be rebuilt\. You might want to consider migrating your Windows 7 WorkSpaces to Windows 10\. For more information, see [Migrate a WorkSpace](migrate-workspaces.md)\.
 
@@ -21,3 +23,12 @@ Rebuilding a WorkSpace causes the following to occur:
 1. Select the WorkSpace to be rebuilt and choose **Actions**, **Rebuild / Restore WorkSpace**\.
 
 1. When prompted for confirmation, choose **Rebuild WorkSpace**\.
+
+**Note**  
+If you rebuild a WorkSpace after changing the user's **sAMAccountName** user naming attribute in Active Directory, you might receive the following error message:  
+
+```
+"ErrorCode": "InvalidUserConfiguration.Workspace"
+"ErrorMessage": "The user was either not found or is misconfigured."
+```
+To work around this issue, either revert to the original user naming attribute and then reinitiate the rebuild, or create a new WorkSpace for that user\.

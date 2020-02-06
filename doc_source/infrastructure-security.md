@@ -24,9 +24,12 @@ With Amazon WorkSpaces, directories are managed through the AWS Directory Servic
 
 To further control access to your WorkSpaces, use multi\-factor authentication\. For more information, see [How to Enable Multi\-Factor Authentication for AWS Services](http://aws.amazon.com/blogs/security/how-to-enable-multi-factor-authentication-for-amazon-workspaces-and-amazon-quicksight-by-using-microsoft-ad-and-on-premises-credentials/)\.
 
-## Connect to Amazon WorkSpaces Through a VPC Interface Endpoint<a name="interface-vpc-endpoint"></a>
+## Make Amazon WorkSpaces API Requests Through a VPC Interface Endpoint<a name="interface-vpc-endpoint"></a>
 
-You can connect directly to Amazon WorkSpaces API endpoints through an [interface endpoint](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpce-interface.html) in your Virtual Private Cloud \(VPC\) instead of connecting over the internet\. When you use a VPC interface endpoint, communication between your VPC and the Amazon WorkSpaces API endpoint is conducted entirely and securely within the AWS network\. 
+You can connect directly to Amazon WorkSpaces API endpoints through an [interface endpoint](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpce-interface.html) in your virtual private cloud \(VPC\) instead of connecting over the internet\. When you use a VPC interface endpoint, communication between your VPC and the Amazon WorkSpaces API endpoint is conducted entirely and securely within the AWS network\. 
+
+**Note**  
+This feature can be used only for connecting to WorkSpaces API endpoints\. To connect to WorkSpaces using the WorkSpaces clients, internet connectivity is required, as described in [IP Address and Port Requirements for Amazon WorkSpaces](workspaces-port-requirements.md)\.
 
 The Amazon WorkSpaces API endpoints support [Amazon Virtual Private Cloud](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Introduction.html) \(Amazon VPC\) interface endpoints that are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink/)\. Each VPC endpoint is represented by one or more [network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html) \(also known as elastic network interfaces, or ENIs\) with private IP addresses in your VPC subnets\.
 
@@ -37,15 +40,15 @@ You can create an interface endpoint to connect to Amazon WorkSpaces with either
 *After you have created a VPC endpoint*, you can use the following example CLI commands that use the `endpoint-url` parameter to specify interface endpoints to the Amazon WorkSpaces API endpoint:
 
 ```
-         aws workspaces copy-workspace-image --endpoint-url VPC_Endpoint_ID.workspaces.Region.vpce.amazonaws.com
+aws workspaces copy-workspace-image --endpoint-url VPC_Endpoint_ID.workspaces.Region.vpce.amazonaws.com
 
-         aws workspaces delete-workspace-image --endpoint-url VPC_Endpoint_ID.api.workspaces.Region.vpce.amazonaws.com
+aws workspaces delete-workspace-image --endpoint-url VPC_Endpoint_ID.api.workspaces.Region.vpce.amazonaws.com
 
-         aws workspaces describe-workspace-bundles --endpoint-url VPC_Endpoint_ID.workspaces.Region.vpce.amazonaws.com  \
-            --endpoint-name Endpoint_Name \
-            --body "Endpoint_Body" \
-            --content-type "Content_Type" \
-               Output_File
+aws workspaces describe-workspace-bundles --endpoint-url VPC_Endpoint_ID.workspaces.Region.vpce.amazonaws.com  \
+   --endpoint-name Endpoint_Name \
+   --body "Endpoint_Body" \
+   --content-type "Content_Type" \
+       Output_File
 ```
 
 If you enable private DNS hostnames for your VPC endpoint, you don't need to specify the endpoint URL\. The Amazon WorkSpaces API DNS hostname that the CLI and Amazon WorkSpaces SDK use by default \(https://api\.workspaces\.*Region*\.amazonaws\.com\) resolves to your VPC endpoint\.
@@ -74,16 +77,16 @@ VPC endpoint policies aren't supported for Federal Information Processing Standa
 The following example VPC endpoint policy specifies that all users who have access to the VPC interface endpoint are allowed to invoke the Amazon WorkSpaces hosted endpoint named `ws-f9abcdefg`\.
 
 ```
+{
+     "Statement": [
          {
-             "Statement": [
-                 {
-                     "Action": "workspaces:*",
-                     "Effect": "Allow",
-                     "Resource": "arn:aws:workspaces:us-west-2:1234567891011:workspace/ws-f9abcdefg",
-                     "Principal": "*"
-                 }
-             ]
+             "Action": "workspaces:*",
+             "Effect": "Allow",
+             "Resource": "arn:aws:workspaces:us-west-2:1234567891011:workspace/ws-f9abcdefg",
+             "Principal": "*"
          }
+     ]
+}
 ```
 
 In this example, the following actions are denied:

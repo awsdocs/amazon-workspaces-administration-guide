@@ -93,32 +93,42 @@ If you encounter any issues with the update, you can check the following items t
 You can use the following sample PowerShell script to update the registry on your WorkSpaces to enable in\-place upgrades\. Follow the steps in the previous section, but use this script to update the registry on each WorkSpace\.
 
 ```
-# AWS WorkSpaces 2.13.18
+# AWS WorkSpaces 1.28.20
 # Enable In-Place Update Sample Scripts
-# These registry keys and values will enable scripts to execute on next reboot of the WorkSpace.
+# These registry keys and values will enable scripts to execute on the next reboot of the WorkSpace.
  
 $scriptlist = ("update-pvdrivers.ps1","enable-inplace-upgrade.ps1")
 $wsConfigRegistryRoot="HKLM:\Software\Amazon\WorkSpacesConfig"
 $Enabled = 1
+$script:ErrorActionPreference = "Stop"
  
 foreach ($scriptName in $scriptlist)
 {
     $scriptRegKey = "$wsConfigRegistryRoot\$scriptName"
-    if (-not(Test-Path $scriptRegKey))
+    
+    try
     {
-        Write-Host "Registry key not found. Creating registry key '$scriptRegKey' with 'Update' enabled."        
-        New-Item -Path $wsConfigRegistryRoot -Name $scriptName -ErrorAction SilentlyContinue | Out-Null
-        New-ItemProperty -Path $scriptRegKey -Name Enabled -PropertyType DWord -Value $Enabled | Out-Null
-        Write-Host "Value created. '$scriptRegKey' Enabled='$((Get-ItemProperty -Path $scriptRegKey).Enabled)'"
-    }
-    else
-    {
-        Write-Host "Registry key is already present with value '$scriptRegKey' Enabled='$((Get-ItemProperty -Path $scriptRegKey).Enabled)'"
-        if((Get-ItemProperty -Path $scriptRegKey).Enabled -ne $Enabled)
-        {
-            Set-ItemProperty -Path $scriptRegKey -Name Enabled -Value $Enabled
-            Write-Host "Value updated. '$scriptRegKey' Enabled='$((Get-ItemProperty -Path $scriptRegKey).Enabled)'"
+        if (-not(Test-Path $scriptRegKey))
+        {        
+            Write-Host "Registry key not found. Creating registry key '$scriptRegKey' with 'Update' enabled."
+            New-Item -Path $wsConfigRegistryRoot -Name $scriptName | Out-Null
+            New-ItemProperty -Path $scriptRegKey -Name Enabled -PropertyType DWord -Value $Enabled | Out-Null
+            Write-Host "Value created. '$scriptRegKey' Enabled='$((Get-ItemProperty -Path $scriptRegKey).Enabled)'"
         }
+        else
+        {
+            Write-Host "Registry key is already present with value '$scriptRegKey' Enabled='$((Get-ItemProperty -Path $scriptRegKey).Enabled)'"
+            if((Get-ItemProperty -Path $scriptRegKey).Enabled -ne $Enabled)
+            {
+                Set-ItemProperty -Path $scriptRegKey -Name Enabled -Value $Enabled
+                Write-Host "Value updated. '$scriptRegKey' Enabled='$((Get-ItemProperty -Path $scriptRegKey).Enabled)'"
+            }
+        }
+    }
+    catch
+    {
+        write-host "Stopping script, the following error was encountered:" `r`n$_ -ForegroundColor Red
+        break
     }
 }
 ```

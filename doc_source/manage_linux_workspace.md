@@ -4,7 +4,7 @@ As with Windows WorkSpaces, Amazon Linux WorkSpaces are domain joined, so you ca
 + Administer your Amazon Linux WorkSpaces
 + Provide access to those WorkSpaces for users
 
-Because Linux instances do not adhere to Group Policy, we recommend that you use a configuration management solution to distribute and enforce policy\. For example, you can use [AWS Opsworks for Chef Automate](https://aws.amazon.com/opsworks/chefautomate/), [AWS OpsWorks for Puppet Enterprise](https://aws.amazon.com/opsworks/puppetenterprise/), or [Ansible](https://www.ansible.com//)\.
+Because Linux instances do not adhere to Group Policy, we recommend that you use a configuration management solution to distribute and enforce policy\. For example, you can use [AWS Opsworks for Chef Automate](https://aws.amazon.com/opsworks/chefautomate/), [AWS OpsWorks for Puppet Enterprise](https://aws.amazon.com/opsworks/puppetenterprise/), or [Ansible](https://www.ansible.com/)\.
 
 ## Control PCoIP Agent Behavior on Amazon Linux WorkSpaces<a name="pcoip_agent_linux"></a>
 
