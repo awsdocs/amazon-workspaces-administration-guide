@@ -29,7 +29,7 @@ To use the Group Policy settings that are specific to Amazon WorkSpaces, you mus
 
 **To install the Group Policy administrative template**
 
-1. From a running Windows WorkSpace client, make a copy of the `pcoip.adm` file in the `C:\Program Files (x86)\Teradici\PCoIP Agent\configuration` directory\.
+1. From a running Windows WorkSpace client, make a copy of the `pcoip.adm` file in the `C:\Program Files (x86)\Teradici\PCoIP Agent\configuration` directory in a running WorkSpace\.
 
 1. Open the Group Policy Management tool \(gpmc\.msc\) and navigate to the organizational unit in your domain that contains your WorkSpaces machine accounts\.
 
