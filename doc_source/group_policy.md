@@ -29,7 +29,7 @@ To use the Group Policy settings that are specific to Amazon WorkSpaces, you mus
 
 **To install the Group Policy administrative template**
 
-1. From a running Windows WorkSpace client, make a copy of the `pcoip.adm` file in the `C:\Program Files (x86)\Teradici\PCoIP Agent\configuration` directory in a running WorkSpace\.
+1. From a running Windows WorkSpace, make a copy of the `pcoip.adm` file in the `C:\Program Files (x86)\Teradici\PCoIP Agent\configuration` directory\.
 
 1. Open the Group Policy Management tool \(gpmc\.msc\) and navigate to the organizational unit in your domain that contains your WorkSpaces machine accounts\.
 
@@ -59,7 +59,7 @@ For Windows WorkSpaces, you can use Group Policy settings to configure printer s
 
 1. Make sure that the most recent [Amazon WorkSpaces Group Policy administrative template](#gp_install_template) is installed in your domain\.
 
-1. Open the Group Policy Management tool \(gpmc\.msc\) on your Windows WorkSpace client and navigate to and select the WorkSpaces GPO for your WorkSpaces machine accounts\. Choose **Action**, **Edit** in the main menu\.
+1. Open the Group Policy Management tool \(gpmc\.msc\) and navigate to and select the WorkSpaces GPO for your WorkSpaces machine accounts\. Choose **Action**, **Edit** in the main menu\.
 
 1. In the Group Policy Management Editor, choose **Computer Configuration**, **Policies**, **Administrative Templates**, **Classic Administrative Templates**, **PCoIP Session Variables**, and **Overridable Administrator Defaults**\.
 
