@@ -71,7 +71,7 @@ Before you migrate a WorkSpace, do the following:
 + Make sure that the WorkSpace being migrated is at least 12 hours old, to ensure that a snapshot of the user volume has been created\. On the **Migrate WorkSpaces** page in the Amazon WorkSpaces console, you can see the time of the last snapshot\. Any data created after the last snapshot is lost during migration\.
 + To avoid potential data loss, make sure that your users log out of their WorkSpaces and don't log back in until after the migration process is finished\. Note that WorkSpaces cannot be migrated when they are in `ADMIN_MAINTENANCE` mode\.
 + Make sure that the WorkSpaces you want to migrate have a status of `AVAILABLE`, `STOPPED`, or `ERROR`\.
-+ Make sure that you have enough IP addresses for the WorkSpaces you are migrating\. During migration, new IP addresses will be allocated for the Workspaces\.
++ Make sure that you have enough IP addresses for the WorkSpaces you are migrating\. During migration, new IP addresses will be allocated for the WorkSpaces\.
 + If you are using scripts to migrate WorkSpaces, migrate them in batches of no more than 25 WorkSpaces at a time\.
 
 ## Troubleshooting<a name="migration_troubleshooting"></a>

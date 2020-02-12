@@ -24,7 +24,7 @@ This option is displayed only if Amazon WorkDocs is available in the Region and 
 
 1. Choose **Register**\. Initially the value of **Registered** is `REGISTERING`\. After registration is complete, the value is `Yes`\.
 
-When you are finished using the directory with Amazon WorkSpaces, you can deregister it\. Note that you must deregister a directory before you can delete it\. If you have any Amazon WAM applications assigned to your users, you must remove those assignments before you can delete a directory\. For more information, see [ Removing Application Assignments](http://docs.aws.amazon.com/wam/latest/adminguide/remove_all_assignments.html) in the *Amazon WAM Administration Guide*\.
+When you are finished using the directory with Amazon WorkSpaces, you can deregister it\. Note that you must deregister a directory before you can delete it\. If you want to deregister and delete a directory, you must first find and remove all the applications and services that are registered to the directory\. For more information, see [Delete Your Directory](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_delete.html) in the *AWS Directory Service Administration Guide*\. 
 
 **To deregister a directory**
 

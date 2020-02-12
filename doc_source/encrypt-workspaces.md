@@ -1,14 +1,14 @@
 # Encrypted WorkSpaces<a name="encrypt-workspaces"></a>
 
-Amazon WorkSpaces is integrated with the AWS Key Management Service \(AWS KMS\)\. This enables you to encrypt storage volumes of WorkSpaces using customer master keys \(CMK\)\. When you launch a WorkSpace, you can encrypt the root volume \(for Microsoft Windows, the drive C, for Linux, /\) and the user volume \(for Windows, the drive D; for Linux, /home\)\. Doing so ensures that the data stored at rest, disk I/O to the volume, and snapshots created from the volumes are all encrypted\.
+Amazon WorkSpaces is integrated with the AWS Key Management Service \(AWS KMS\)\. This enables you to encrypt storage volumes of WorkSpaces using customer master keys \(CMK\)\. When you launch a WorkSpace, you can encrypt the root volume \(for Microsoft Windows, the C drive; for Linux, /\) and the user volume \(for Windows, the D drive; for Linux, /home\)\. Doing so ensures that the data stored at rest, disk I/O to the volume, and snapshots created from the volumes are all encrypted\.
 
 ## Prerequisites<a name="encryption_prerequisites"></a>
 
 You need an AWS KMS CMK before you can begin the encryption process\.
 
-The first time you launch a WorkSpace from the Amazon WorkSpaces console in a Region, an AWS managed CMK is created for you automatically\. You can select this AWS managed CMK to encrypt the user and root volumes of your WorkSpace\.
+The first time you launch a WorkSpace from the Amazon WorkSpaces console in a Region, an AWS managed CMK is created for you automatically\. You can select this AWS managed CMK to encrypt the user and root volumes of your WorkSpace\. AWS managed keys, including the one that Amazon WorkSpaces supports, are rotated every three years\. For details, see [Rotating Keys](https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) in the *AWS Key Management Service Developer Guide*\.
 
-Alternately, you can select a CMK that you created using AWS KMS\. For more information about creating CMKs, see [Creating Keys](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) in the *AWS Key Management Service Developer Guide*\. For more information about creating CMKs using the AWS KMS API, see [Working With Keys](https://docs.aws.amazon.com/kms/latest/developerguide/programming-keys.html) in the *AWS Key Management Service Developer Guide*\.
+Alternatively, you can select a CMK that you created using AWS KMS\. For more information about creating CMKs, see [Creating Keys](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) in the *AWS Key Management Service Developer Guide*\. For more information about creating CMKs using the AWS KMS API, see [Working With Keys](https://docs.aws.amazon.com/kms/latest/developerguide/programming-keys.html) in the *AWS Key Management Service Developer Guide*\.
 
 You must meet the following requirements to use an AWS KMS CMK to encrypt your WorkSpaces:
 + The CMK must be symmetric\. Amazon WorkSpaces does not support asymmetric CMKs\. For information about distinguishing between symmetric and asymmetric CMKs, see [ Identifying Symmetric and Asymmetric CMKs](https://docs.aws.amazon.com/kms/latest/developerguide/find-symm-asymm.html) in the *AWS Key Management Service Developer Guide*\.

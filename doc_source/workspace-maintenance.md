@@ -1,22 +1,25 @@
 # WorkSpace Maintenance<a name="workspace-maintenance"></a>
 
-We recommend that you maintain your WorkSpaces on a regular basis\. Amazon WorkSpaces schedules maintenance windows for your WorkSpaces by default\. During the maintenance window, the WorkSpace installs important updates and reboots as necessary\. During maintenance, your WorkSpaces might be unavailable\.
+We recommend that you maintain your WorkSpaces on a regular basis\. Amazon WorkSpaces schedules maintenance windows for your WorkSpaces by default\. During the maintenance window, the WorkSpace installs important updates from Amazon WorkSpaces and reboots as necessary\. If available, operating system updates are also installed from the OS update server that the WorkSpace is configured to use\. During maintenance, your WorkSpaces might be unavailable\.
 
-## Maintenance Windows for AlwaysOn Workspaces<a name="alwayson-maintenance"></a>
+**Note**  
+By default, your Windows WorkSpaces are configured to receive updates from Windows Update\. To configure your own automatic update mechanisms for Windows, see the documentation for [ Windows Server Update Services \(WSUS\)](https://docs.microsoft.com/windows-server/administration/windows-server-update-services/deploy/deploy-windows-server-update-services) and [Configuration Manager](https://docs.microsoft.com/configmgr/sum/deploy-use/deploy-software-updates)\.
+
+## Maintenance Windows for AlwaysOn WorkSpaces<a name="alwayson-maintenance"></a>
 
 For AlwaysOn WorkSpaces, the maintenance window is determined by operating system settings\. The default is a four\-hour period from 00h00 to 04h00, in the time zone of the WorkSpace, each Sunday morning\. By default, the time zone of an AlwaysOn WorkSpace is the time zone of the AWS Region for the WorkSpace\. However, if you connect from another Region and time zone redirection is enabled and then disconnect, the time zone of the WorkSpace is updated to the time zone of the Region that you connected from\.
 
-For Windows WorkSpaces, you can configure the maintenance window using Group Policy; see [Configure Group Policy Settings for Automatic Updates](https://docs.microsoft.com/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates)\.
+You can [disable time zone redirection for Windows WorkSpaces](group_policy.md#gp_time_zone) using Group Policy\. You cannot disable time zone redirection for Linux WorkSpaces\.
 
-You cannot configure the maintenance window for Linux WorkSpaces\.
+For Windows WorkSpaces, you can configure the maintenance window using Group Policy; see [Configure Group Policy Settings for Automatic Updates](https://docs.microsoft.com/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates)\. You cannot configure the maintenance window for Linux WorkSpaces\.
 
-## Maintenance Windows for AutoStop Workspaces<a name="autostop-maintenance"></a>
+## Maintenance Windows for AutoStop WorkSpaces<a name="autostop-maintenance"></a>
 
 AutoStop WorkSpaces are started automatically once a month in order to install important updates\. Starting on the third Monday of the month, and for up to two weeks, the maintenance window is open each day from about 00h00 to 05h00, in the time zone of the AWS Region for the WorkSpace\. The WorkSpace can be maintained on any one day in the maintenance window\.
 
-During the maintenance window, the state of the WorkSpace is set to `MAINTENANCE`\.
+During the time period when the WorkSpace is undergoing maintenance, the state of the WorkSpace is set to `MAINTENANCE`\.
 
-You can disable the maintenance window for your AutoStop WorkSpaces as follows\. If you disable maintenance mode, your WorkSpaces are not rebooted and do not enter the `MAINTENANCE` state\.
+Although you cannot modify the time zone used for maintaining AutoStop WorkSpaces, you can disable the maintenance window for your AutoStop WorkSpaces as follows\. If you disable maintenance mode, your WorkSpaces are not rebooted and do not enter the `MAINTENANCE` state\.
 
 **To disable maintenance mode**
 
