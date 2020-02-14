@@ -8,7 +8,7 @@ Amazon WorkSpaces uses a directory to store and manage information for your Work
 
 For tutorials that demonstrate how to set up these directories and launch WorkSpaces, see [Launch a Virtual Desktop Using Amazon WorkSpaces](launch-workspaces-tutorials.md)\.
 
-After you create a directory, you'll perform most directory administration tasks using tools such as the Active Directory Administration Tools\. You can perform some directory administration tasks using the Amazon WorkSpaces console and other tasks using Group Policy\.
+After you create a directory, you'll perform most directory administration tasks using tools such as the Active Directory Administration Tools\. You can perform some directory administration tasks using the Amazon WorkSpaces console and other tasks using Group Policy\. For more information about managing users and groups, see [Manage WorkSpaces Users](manage-workspaces-users.md) and [Set Up Active Directory Administration Tools for Amazon WorkSpaces](directory_administration.md)\.
 
 **Note**  
 Shared directories are not currently supported with WorkSpaces\.

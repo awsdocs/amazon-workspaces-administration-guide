@@ -25,6 +25,7 @@ Amazon's trademarks and trade dress may not be used in
    + [Security Groups for Your WorkSpaces](amazon-workspaces-security-groups.md)
    + [IP Access Control Groups for Your WorkSpaces](amazon-workspaces-ip-access-control-groups.md)
    + [Set Up PCoIP Zero Client for WorkSpaces](set-up-pcoip-zero-client.md)
+   + [Set Up Android for Chromebooks](set-up-android-chromebook.md)
    + [Enable and Configure Amazon WorkSpaces Web Access](web-access.md)
    + [Set Up Amazon WorkSpaces for FedRAMP Authorization or DoD SRG Compliance](fips-encryption.md)
    + [Enable SSH Connections for Your Linux WorkSpaces](connect-to-linux-workspaces-with-ssh.md)

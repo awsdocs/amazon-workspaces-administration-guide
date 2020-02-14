@@ -43,7 +43,7 @@ There are client applications for the following devices:
 + Ubuntu Linux 18\.04 computers
 + Chromebooks
 + iPads
-+ Android tablets
++ Android devices
 + Fire tablets
 + Zero client devices
 

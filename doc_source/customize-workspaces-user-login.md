@@ -10,7 +10,7 @@ You can configure URI access to WorkSpaces for client applications on the follow
 + macOS computers
 + Ubuntu Linux 18\.04 computers
 + iPads
-+ Android tablets
++ Android devices
 
 To use URIs to access their WorkSpaces, users must first install the client application for their device by opening [https://clients\.amazonworkspaces\.com/](https://clients.amazonworkspaces.com/) and following the directions\.
 

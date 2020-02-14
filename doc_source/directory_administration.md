@@ -10,7 +10,7 @@ If you create a directory with Microsoft AD or Simple AD that includes five or m
 
    You can join an Amazon EC2 Windows instance to your directory domain when you launch the instance\. For more information, see [Joining a Windows Instance to an AWS Directory Service Domain](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-join-aws-domain.html) in the *Amazon EC2 User Guide for Windows Instances*\.
 
-   Alternatively, you can join the instance to your directory manually\. For more information, see [Manually Add a Windows Instance \(Simple AD and Microsoft AD\)](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/join_a_directory.html) in the *AWS Directory Service Administration Guide*\.
+   Alternatively, you can join the instance to your directory manually\. For more information, see [Manually Add a Windows Instance \(Simple AD and Microsoft AD\)](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/join_windows_instance.html) in the *AWS Directory Service Administration Guide*\.
 
 1. Install the Active Directory Administration Tools on the instance\. For more information, see [Installing the Active Directory Administration Tools](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/install_ad_tools.html) in the *AWS Directory Service Administration Guide*\.
 
