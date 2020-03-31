@@ -105,7 +105,7 @@ You cannot use a web browser to connect to Amazon Linux WorkSpaces\.
 ## Next Steps<a name="next-steps-microsoft-ad"></a>
 
 You can continue to customize the WorkSpace that you just created\. For example, you can install software and then create a custom bundle from your WorkSpace\. If you are finished with your WorkSpace, you can delete it\. For more information, see the following documentation\.
-+ [Create a Custom WorkSpaces Bundle](create-custom-bundle.md)
++ [Create a Custom WorkSpaces Image and Bundle](create-custom-bundle.md)
 + [Administer Your WorkSpaces](administer-workspaces.md)
 + [Manage Directories for Amazon WorkSpaces](manage-workspaces-directory.md)
 + [Delete a WorkSpace](delete-workspaces.md)

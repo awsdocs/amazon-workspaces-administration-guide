@@ -1,6 +1,6 @@
 # Delete a Custom WorkSpaces Bundle<a name="delete_bundle"></a>
 
-You can delete unused custom bundles as needed\. If you delete a bundle that is being used by a WorkSpace, the bundle is placed in a delete queue and will be deleted after all WorkSpaces based on the bundle have been deleted\.
+You can delete unused custom bundles as needed\. If you delete a bundle that is being used by a WorkSpace, the bundle is placed in a delete queue and will be deleted after all WorkSpaces that are based on the bundle have been deleted\.
 
 **To delete a bundle**
 
@@ -12,7 +12,7 @@ You can delete unused custom bundles as needed\. If you delete a bundle that is 
 
 1. When prompted for confirmation, choose **Delete Bundle**\.
 
-After you delete a custom bundle, you can delete the image you used to create or update the bundle\.
+After you delete a custom bundle, you can delete the image that you used to create or update the bundle\.
 
 **To delete an image**
 

@@ -1,12 +1,14 @@
 # Update a Custom WorkSpaces Bundle<a name="update-custom-bundle"></a>
 
-You can update an existing custom WorkSpaces bundle by modifying a WorkSpace based on the bundle, creating an image from the WorkSpace, and updating the bundle with the new image\. You can launch new WorkSpaces using the updated bundle\. To update existing WorkSpaces that are based on the bundle, rebuild the WorkSpace\.
+You can update an existing custom WorkSpaces bundle by modifying a WorkSpace that is based on the bundle, creating an image from the WorkSpace, and updating the bundle with the new image\. You can then launch new WorkSpaces using the updated bundle\. To update existing WorkSpaces that are based on the bundle, rebuild the WorkSpaces\.
 
 **To update a bundle**
 
-1. Connect to a WorkSpace that is based on the bundle and make any changes\. For example, you can apply the latest operating system and application patches and install additional applications\.
+1. Connect to a WorkSpace that is based on the bundle and make the changes that you want\. For example, you can apply the latest operating system and application patches and install additional applications\.
 
-   Alternatively, you can create a WorkSpace with the same base software package \(Plus or Standard\) as the image used to create the bundle and make changes\.
+   Alternatively, you can create a new WorkSpace with the same base software package \(Plus or Standard\) as the image used to create the bundle, and make changes\.
+
+1. If you are still connected to the WorkSpace, disconnect\.
 
 1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
@@ -22,4 +24,4 @@ You can update an existing custom WorkSpaces bundle by modifying a WorkSpace bas
 
 1. For **Update WorkSpace Bundle**, select the image that you created and choose **Update Bundle**\.
 
-1. \(Optional\) Rebuild the existing WorkSpaces based on the bundle\. For more information, see [Rebuild a WorkSpace](rebuild-workspace.md)\.
+1. \(Optional\) Rebuild the existing WorkSpaces based on the updated bundle\. For more information, see [Rebuild a WorkSpace](rebuild-workspace.md)\.

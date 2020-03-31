@@ -12,7 +12,10 @@ After January 14, 2020, WorkSpaces created from a public Windows 7 bundle can no
 Rebuilding a WorkSpace causes the following to occur:
 + The system is refreshed with the most recent image of the bundle that the WorkSpace was created from\. Any applications that were installed, or system settings that were changed after the WorkSpace was created are lost\.
 + The user volume \(for Microsoft Windows, the D: drive; for Linux, /home\) is recreated from the most recent snapshot\. The current contents of the user volume are overwritten\.
-+ The primary elastic network interface \(ENI\) is recreated\. The WorkSpace receives a new private IP address\.
++ The primary elastic network interface is recreated\. The WorkSpace receives a new private IP address\.
+
+**Warning**  
+To rebuild an encrypted WorkSpace, first make sure that the AWS KMS CMK is enabled; otherwise, the WorkSpace becomes unusable\. To determine whether a CMK is enabled, see [ Displaying CMK Details](https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys-console.html#viewing-console-details) in the *AWS Key Management Service Developer Guide*\.
 
 **To rebuild a WorkSpace**
 

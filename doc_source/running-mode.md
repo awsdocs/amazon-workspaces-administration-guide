@@ -18,7 +18,7 @@ You can switch between running modes at any time\.
 
 1. In the navigation pane, choose **WorkSpaces**\.
 
-1. Select the WorkSpaces to modify and choose **Actions**, **Modify Running Mode Properties**\.
+1. Select the WorkSpace to modify and choose **Actions**, **Modify Running Mode Properties**\.
 
 1. Select the new running mode, **AlwaysOn** or **AutoStop**, and then choose **Modify**\.
 
@@ -39,7 +39,7 @@ You can restart AutoStop WorkSpaces that are available or in an error state\.
 
 1. In the navigation pane, choose **WorkSpaces**\.
 
-1. Select the WorkSpaces to be stopped and choose **Actions**, **Stop WorkSpaces**\.
+1. Select the WorkSpace to be stopped and choose **Actions**, **Stop WorkSpaces**\.
 
 1. When prompted for confirmation, choose **Stop**\.
 

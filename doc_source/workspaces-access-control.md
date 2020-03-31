@@ -141,7 +141,7 @@ Before you can register a directory using the API, you must create the workspace
 
 1. On the **Attach permissions policies** page, select the AWS managed policies **AmazonWorkSpacesServiceAccess** and **AmazonWorkSpacesSelfServiceAccess**\.
 
-1. Under **Set permissions boundary**, do not use a permissions boundary\.
+1. Under **Set permissions boundary**, we recommend that you not use a permissions boundary because of the potential for conflicts with the policies attached to the workspaces\_DefaultRole role\. Such conflicts could block certain necessary permissions for the role\.
 
 1. Choose **Next: Tags**\.
 

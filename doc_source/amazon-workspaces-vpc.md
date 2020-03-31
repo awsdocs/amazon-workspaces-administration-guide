@@ -25,7 +25,7 @@ If you aren't already familiar with working with VPCs and subnets, we recommend 
 
 ### Step 1: Allocate an Elastic IP Address<a name="allocate-eip"></a>
 
-Allocate an Elastic IP address for your NAT gateway as follows\. Note that if you are using an alternative method of providing internet access, you can skip this step\.
+Allocate an [ Elastic IP address](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html) for your NAT gateway as follows\. Note that if you are using an alternative method of providing internet access, you can skip this step\.
 
 **To allocate an Elastic IP address**
 
@@ -223,9 +223,13 @@ In the previous step, you created a VPC with one public subnet\. Use the followi
 
 ### Step 3: Assign the Elastic IP Address<a name="assign-eip"></a>
 
-You can assign Elastic IP addresses to your WorkSpaces automatically or manually\. To use automatic assignment, see [Configure Automatic IP Addresses](update-directory-details.md#automatic-assignment)\. To assign Elastic IP addresses manually, use the following procedure\.
+You can assign [ Elastic IP addresses](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html) \(static public IP addresses\) to your WorkSpaces automatically or manually\. To use automatic assignment, see [Configure Automatic IP Addresses](update-directory-details.md#automatic-assignment)\. To assign Elastic IP addresses manually, use the following procedure\.
 
 For a video tutorial about how to assign an Elastic IP address to a WorkSpace, see [ How do I associate an Elastic IP Address with a WorkSpace?](https://aws.amazon.com/premiumsupport/knowledge-center/associate-elastic-ip-workspace/) on the AWS Knowledge Center\.
+
+**Warning**  
+We recommend that you not modify the elastic network interface of the WorkSpace after it is launched\. If you have enabled automatic assignment of Elastic IP addresses at the directory level, an Elastic IP address \(from the Amazon\-provided pool\) is assigned to your WorkSpace when it is launched\. However, if you associate an Elastic IP address that you own to a WorkSpace, and then you later disassociate that Elastic IP address from the WorkSpace, the WorkSpace loses its public IP address, and it doesn't automatically get a new one from the Amazon\-provided pool\.  
+To associate a new public IP address from the Amazon\-provided pool with the WorkSpace, you must [rebuild the WorkSpace](rebuild-workspace.md)\. If you don't want to rebuild the WorkSpace, you must associate another Elastic IP address that you own to the WorkSpace\.
 
 **To assign an Elastic IP address to a WorkSpace manually**
 

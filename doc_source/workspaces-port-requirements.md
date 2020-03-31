@@ -16,7 +16,7 @@ This port must be open to the following IP address ranges:
 + The `S3` subset in the `us-west-2` Region\.
 
 Port 4172 \(UDP and TCP\)  
-This port is used for streaming the WorkSpace desktop and health checks\. It must be open to the PCoIP Gateway IP address ranges and health check servers in the Region that the WorkSpace is in\. For more information, see [PCoIP Health Check Servers](#health_check) and [PCoIP Gateway](#gateway_IP)\.
+This port is used for streaming the WorkSpace desktop and health checks\. The desktop client applications do not support the use of a proxy server for port 4172 traffic; they require a direct connection to port 4172\. This port must be open to the PCoIP Gateway IP address ranges and health check servers in the Region that the WorkSpace is in\. For more information, see [PCoIP Health Check Servers](#health_check) and [PCoIP Gateway](#gateway_IP)\.
 
 ## Ports for Web Access<a name="web-access-ports"></a>
 
@@ -53,7 +53,7 @@ For the Amazon WorkSpaces client application to be able to access the Amazon Wor
 | Forrester Log Service  | https://fls\-na\.amazon\.com/ | 
 | PCoIP Health Check \(DRP\) | [PCoIP Health Check Servers](#health_check) | 
 | PCoIP Session Gateway \(PSG\) | [PCoIP Gateway](#gateway_IP) | 
-| Registration Dependency \(for Web Access and Teradici Zero Clients\) | https://s3\.amazonaws\.com | 
+| Registration Dependency \(for Web Access and Teradici PCoIP Zero Clients\) | https://s3\.amazonaws\.com | 
 | Session Broker \(PCM\) |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 | User Login Pages | https://<directory id>\.awsapps\.com/ \(where <directory id> is the customer's domain\) | 
 | Web Access TURN Servers |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
@@ -62,23 +62,23 @@ For the Amazon WorkSpaces client application to be able to access the Amazon Wor
 
 ## PCoIP Health Check Servers<a name="health_check"></a>
 
-The Amazon WorkSpaces client applications perform PCoIP health checks over port 4172\. These checks validate whether TCP or UDP traffic streams from the Amazon WorkSpaces servers to the client applications\. For these checks to finish successfully, your firewall policies must take into account the following Regional PCoIP health check servers\.
+The Amazon WorkSpaces client applications perform PCoIP health checks over port 4172\. These checks validate whether TCP or UDP traffic streams from the Amazon WorkSpaces servers to the client applications\. For these checks to finish successfully, your firewall policies must allow outbound traffic to the IP addresses of the following Regional PCoIP health check servers\.
 
 
-| Region | Health check server | 
-| --- | --- | 
-| US East \(N\. Virginia\) | drp\-iad\.amazonworkspaces\.com | 
-| US West \(Oregon\) | drp\-pdx\.amazonworkspaces\.com | 
-| Asia Pacific \(Seoul\) | drp\-icn\.amazonworkspaces\.com | 
-| Asia Pacific \(Singapore\) | drp\-sin\.amazonworkspaces\.com | 
-| Asia Pacific \(Sydney\) | drp\-syd\.amazonworkspaces\.com | 
-| Asia Pacific \(Tokyo\) | drp\-nrt\.amazonworkspaces\.com | 
-| Canada \(Central\) | drp\-yul\.amazonworkspaces\.com | 
-| Europe \(Frankfurt\) | drp\-fra\.amazonworkspaces\.com | 
-| Europe \(Ireland\) | drp\-dub\.amazonworkspaces\.com | 
-| Europe \(London\) | drp\-lhr\.amazonworkspaces\.com | 
-| South America \(São Paulo\) | drp\-gru\.amazonworkspaces\.com | 
-| AWS GovCloud \(US\-West\) | drp\-pdt\.amazonworkspaces\.com | 
+| Region | Health check hostname | IP addresses | 
+| --- | --- | --- | 
+| US East \(N\. Virginia\) | drp\-iad\.amazonworkspaces\.com |  3\.209\.215\.252 3\.212\.50\.30 3\.225\.55\.35 3\.226\.24\.234 34\.200\.29\.95 52\.200\.219\.150  | 
+| US West \(Oregon\) | drp\-pdx\.amazonworkspaces\.com |  34\.217\.248\.177 52\.34\.160\.80 54\.68\.150\.54 54\.185\.4\.125 54\.188\.171\.18 54\.244\.158\.140  | 
+| Asia Pacific \(Seoul\) | drp\-icn\.amazonworkspaces\.com |  13\.124\.44\.166 13\.124\.203\.105 52\.78\.44\.253 52\.79\.54\.102  | 
+| Asia Pacific \(Singapore\) | drp\-sin\.amazonworkspaces\.com |  3\.0\.212\.144 18\.138\.99\.116 18\.140\.252\.123 52\.74\.175\.118  | 
+| Asia Pacific \(Sydney\) | drp\-syd\.amazonworkspaces\.com |  3\.24\.11\.127 13\.237\.232\.125  | 
+| Asia Pacific \(Tokyo\) | drp\-nrt\.amazonworkspaces\.com |  18\.178\.102\.247 54\.64\.174\.128  | 
+| Canada \(Central\) | drp\-yul\.amazonworkspaces\.com |  52\.60\.69\.16 52\.60\.80\.237 52\.60\.173\.117 52\.60\.201\.0  | 
+| Europe \(Frankfurt\) | drp\-fra\.amazonworkspaces\.com |  52\.59\.191\.224 52\.59\.191\.225 52\.59\.191\.226 52\.59\.191\.227  | 
+| Europe \(Ireland\) | drp\-dub\.amazonworkspaces\.com |  18\.200\.177\.86 52\.48\.86\.38 54\.76\.137\.224  | 
+| Europe \(London\) | drp\-lhr\.amazonworkspaces\.com |  35\.176\.62\.54 35\.177\.255\.44 52\.56\.46\.102 52\.56\.111\.36  | 
+| South America \(São Paulo\) | drp\-gru\.amazonworkspaces\.com |  18\.231\.0\.105 52\.67\.55\.29 54\.233\.156\.245 54\.233\.216\.234  | 
+| AWS GovCloud \(US\-West\) | drp\-pdt\.amazonworkspaces\.com |  52\.61\.60\.65 52\.61\.65\.14 52\.61\.88\.170 52\.61\.137\.87 52\.61\.155\.110 52\.222\.20\.88  | 
 
 ## PCoIP Gateway<a name="gateway_IP"></a>
 
@@ -103,12 +103,14 @@ Amazon WorkSpaces uses PCoIP to stream the desktop session to clients over port 
 ## Network Interfaces<a name="network-interfaces"></a>
 
 Each WorkSpace has the following network interfaces:
-+ The primary network interface provides connectivity to the resources within your VPC and on the internet, and is used to join the WorkSpace to the directory\.
-+ The management network interface is connected to a secure Amazon WorkSpaces management network\. It is used for interactive streaming of the WorkSpace desktop to Amazon WorkSpaces clients, and to allow Amazon WorkSpaces to manage the WorkSpace\.
++ The primary network interface \(eth1\) provides connectivity to the resources within your VPC and on the internet, and is used to join the WorkSpace to the directory\.
++ The management network interface \(eth0\) is connected to a secure Amazon WorkSpaces management network\. It is used for interactive streaming of the WorkSpace desktop to Amazon WorkSpaces clients, and to allow Amazon WorkSpaces to manage the WorkSpace\.
 
 Amazon WorkSpaces selects the IP address for the management network interface from various address ranges, depending on the Region that the WorkSpaces are created in\. When a directory is registered, Amazon WorkSpaces tests the VPC CIDR and the route tables in your VPC to determine if these address ranges create a conflict\. If a conflict is found in all available address ranges in the Region, an error message is displayed and the directory is not registered\. If you change the route tables in your VPC after the directory is registered, you might cause a conflict\.
 
-Do not modify or delete any of the network interfaces attached to a WorkSpace\. Doing so might cause the WorkSpace to become unreachable\.
+**Warning**  
+Do not modify or delete any of the network interfaces that are attached to a WorkSpace\. Doing so might cause the WorkSpace to become unreachable or lose internet access\. For example, if you have [enabled automatic assignment of Elastic IP addresses](update-directory-details.md#automatic-assignment) at the directory level, an [ Elastic IP address](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html) \(from the Amazon\-provided pool\) is assigned to your WorkSpace when it is launched\. However, if you associate an Elastic IP address that you own to a WorkSpace, and then you later disassociate that Elastic IP address from the WorkSpace, the WorkSpace loses its public IP address, and it doesn't automatically get a new one from the Amazon\-provided pool\.  
+To associate a new public IP address from the Amazon\-provided pool with the WorkSpace, you must [rebuild the WorkSpace](rebuild-workspace.md)\. If you don't want to rebuild the WorkSpace, you must associate another Elastic IP address that you own to the WorkSpace\.
 
 ### Management Interface IP Ranges<a name="management-ip-ranges"></a>
 

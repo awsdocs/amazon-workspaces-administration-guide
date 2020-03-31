@@ -6,7 +6,7 @@ The following are the quotas \(also referred to as limits\) for Amazon WorkSpace
 + WorkSpaces per Region: 1
 + Graphics WorkSpaces per Region: 0
 + GraphicsPro WorkSpaces per Region: 0
-+ Images per Region: 5
++ Images per Region: 20
 
 **IP Access Control Quotas**
 + IP access control groups per Region: 100
