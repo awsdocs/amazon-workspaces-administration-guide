@@ -6,9 +6,9 @@ Amazon WorkSpaces is integrated with the AWS Key Management Service \(AWS KMS\)\
 
 You need an AWS KMS CMK before you can begin the encryption process\.
 
-The first time you launch an unencrypted WorkSpace from the Amazon WorkSpaces console in a Region, Amazon WorkSpaces automatically creates an AWS managed CMK \(aws/workspaces\) in your account\. You can select this AWS managed CMK to encrypt the user and root volumes of your WorkSpace\.
+The first time that you launch an unencrypted WorkSpace from the Amazon WorkSpaces console in a Region, Amazon WorkSpaces automatically creates an AWS managed CMK \(aws/workspaces\) in your account\. You can select this AWS managed CMK to encrypt the user and root volumes of your WorkSpace\.
 
-You can view this AWS managed CMK, including its policies and grants, and track its use in AWS CloudTrail logs, but you cannot use or manage this CMK\. Amazon WorkSpaces creates and manages this CMK\. Only Amazon WorkSpaces can use this CMK, and it can use it only to encrypt WorkSpaces resources in your account\. AWS managed CMKs, including the one that Amazon WorkSpaces supports, are rotated every three years\. For details, see [Rotating Keys](https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) in the *AWS Key Management Service Developer Guide*\.
+You can view this AWS managed CMK, including its policies and grants, and can track its use in AWS CloudTrail logs, but you cannot use or manage this CMK\. Amazon WorkSpaces creates and manages this CMK\. Only Amazon WorkSpaces can use this CMK, and it can use it only to encrypt WorkSpaces resources in your account\. AWS managed CMKs, including the one that Amazon WorkSpaces supports, are rotated every three years\. For details, see [Rotating Keys](https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) in the *AWS Key Management Service Developer Guide*\.
 
 Alternatively, you can select a symmetric customer managed CMK that you created using AWS KMS\. You can view, use, and manage this CMK, including setting its policies\. For more information about creating CMKs, see [Creating Keys](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) in the *AWS Key Management Service Developer Guide*\. For more information about creating CMKs using the AWS KMS API, see [Working with Keys](https://docs.aws.amazon.com/kms/latest/developerguide/programming-keys.html) in the *AWS Key Management Service Developer Guide*\.
 
@@ -26,7 +26,7 @@ If you are trying to launch encrypted WorkSpaces and you receive the error messa
 + Creating a custom image from an encrypted WorkSpace is not supported\.
 + Disabling encryption for an encrypted WorkSpace is not currently supported\.
 + WorkSpaces launched with root volume encryption enabled might take up to an hour to provision\.
-+ To reboot or rebuild an encrypted WorkSpace, first make sure that the AWS KMS CMK is enabled; otherwise, the WorkSpace becomes unusable\.
++ To reboot or rebuild an encrypted WorkSpace, first make sure that the AWS KMS CMK is enabled; otherwise, the WorkSpace becomes unusable\. To determine whether a CMK is enabled, see [ Displaying CMK Details](https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys-console.html#viewing-console-details) in the *AWS Key Management Service Developer Guide*\.
 
 ## Encrypting WorkSpaces<a name="encrypt_workspace"></a>
 
@@ -40,7 +40,7 @@ If you are trying to launch encrypted WorkSpaces and you receive the error messa
 
    1. Select the volumes to encrypt: **Root Volume**, **User Volume**, or both volumes\.
 
-   1. For **Encryption Key**, select an AWS KMS CMK, either the AWS managed CMK created by Amazon WorkSpaces or a CMK that you created\. The CMK you select must be symmetric\. Amazon WorkSpaces does not support asymmetric CMKs\.
+   1. For **Encryption Key**, select an AWS KMS CMK, either the AWS managed CMK created by Amazon WorkSpaces or a CMK that you created\. The CMK that you select must be symmetric\. Amazon WorkSpaces does not support asymmetric CMKs\.
 
    1. Choose **Next Step**\.
 

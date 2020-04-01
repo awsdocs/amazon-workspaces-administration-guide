@@ -23,6 +23,7 @@ The migration process takes up to one hour per WorkSpace\. When you initiate the
 + Migrating Linux WorkSpaces is not currently supported\.
 + In AWS Regions that support more than one language, you can migrate WorkSpaces between language bundles\.
 + The source and target bundles must be different\. \(However, in Regions that support more than one language, you can migrate to the same Windows 10 bundle as long as the languages differ\.\) If you want to refresh your WorkSpace using the same bundle, [rebuild the WorkSpace](rebuild-workspace.md) instead\.
++ You cannot migrate WorkSpaces across Regions\.
 + In some cases, if migration is unable to finish successfully, you might not receive an error message, and it might appear that the migration process did not start\. If the WorkSpace bundle remains the same one hour after attempting migration, the migration is unsuccessful\. Contact the [AWS Support Center](https://console.aws.amazon.com/support/home#/) for assistance\.
 
 ## Available Migration Scenarios<a name="migration-scenarios"></a>
