@@ -6,7 +6,7 @@ Your Amazon WorkSpaces users can connect to their WorkSpaces by using the client
 A web browser cannot be used to connect to Amazon Linux WorkSpaces\.
 
 To provide your users with a good experience with their WorkSpaces, verify that their client devices meet the following network requirements:
-+ The client device must have a broadband internet connection\.
++ The client device must have a broadband internet connection\. We recommend planning for a minimum of 1 Mbps per simultaneous user watching a 480p video window\. Depending on your user\-quality requirements for video resolution, more bandwidth might be required\.
 + The network that the client device is connected to, and any firewall on the client device, must have certain ports open to the IP address ranges for various AWS services\. For more information, see [IP Address and Port Requirements for Amazon WorkSpaces](workspaces-port-requirements.md)\.
 + The round trip time \(RTT\) from the client's network to the Region that the WorkSpaces are in should be less than 100ms\. If the RTT is between 100ms and 250ms, the user can access the WorkSpace but performance is degraded\.
 + If users will access their WorkSpaces through a virtual private network \(VPN\), the connection must support a maximum transmission unit \(MTU\) of at least 1200 bytes\.

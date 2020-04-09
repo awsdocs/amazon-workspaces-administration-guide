@@ -86,7 +86,7 @@ The VM must pass all tests before you can use it for BYOL\.
 
 Before you download and run the BYOL Checker script, verify that the latest Windows security updates are installed on your VM\. While this script runs, it disables the Windows Update service\. 
 
-1. Download the BYOL Checker script \.zip file from [https://d2zdcak60k1ljz\.cloudfront\.net/BYOLChecker\.zip](https://d2zdcak60k1ljz.cloudfront.net/BYOLChecker.zip) to your `Downloads` folder\.
+1. Download the BYOL Checker script \.zip file from [https://tools\.amazonworkspaces\.com/BYOLChecker\.zip](https://tools.amazonworkspaces.com/BYOLChecker.zip) to your `Downloads` folder\.
 
 1. In your `Downloads` folder, create a `BYOL` folder\.
 

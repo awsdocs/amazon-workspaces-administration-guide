@@ -84,6 +84,9 @@ The Amazon WorkSpaces client applications perform PCoIP health checks over port 
 
 Amazon WorkSpaces uses PCoIP to stream the desktop session to clients over port 4172\. Amazon WorkSpaces uses a small range of Amazon EC2 public IP addresses for its PCoIP gateway servers\. This enables you to set more finely grained firewall policies for devices that access Amazon WorkSpaces\.
 
+**Note**  
+We are regularly updating our IP address ranges in the [ AWS IP Address Ranges](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html) `ip-ranges.json` file\. To ingest the most up\-to\-date IP address ranges for Amazon WorkSpaces, look for entries in the `ip-ranges.json` file where `service: "WORKSPACES_GATEWAYS"`\.
+
 
 | Region | Public IP Address Range | 
 | --- | --- | 

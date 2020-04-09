@@ -77,6 +77,14 @@ The Linux client logs are stored in the following location:
 
 1. Choose **Save**\.
 
+The Windows client logs are stored in the following location:
+
+`%LOCALAPPDATA%\Amazon Web Services\Amazon WorkSpaces\1.0\Logs`
+
+The macOS client logs are stored in the following location:
+
+`~/Library/Logs/Amazon Web Services/Amazon WorkSpaces/1.0`
+
 ## Troubleshooting for Specific Issues<a name="troubleshooting-specific-issues"></a>
 
 The following information can help you troubleshoot specific issues with your WorkSpaces\.
@@ -285,7 +293,9 @@ If Network Time Protocol \(NTP\) isn't enabled in Teradici, your PCoIP zero clie
 
 ### My users are unable to install the Android client application on their Chromebooks<a name="install_android_chromebook"></a>
 
-Version 2\.4\.13 is the final release of the Amazon WorkSpaces Chromebook client application\. For [ Chromebooks that support installing Android applications](https://sites.google.com/a/chromium.org/dev/chromium-os/chrome-os-systems-supporting-android-apps), we recommend using the [ Amazon WorkSpaces Android client application](https://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-android-client.html) instead\.
+Version 2\.4\.13 is the final release of the Amazon WorkSpaces Chromebook client application\. Because [ Google is phasing out support for Chrome Apps](https://blog.chromium.org/2020/01/moving-forward-from-chrome-apps.html), there will be no further updates to the WorkSpaces Chromebook client application, and its use is unsupported\.
+
+For [ Chromebooks that support installing Android applications](https://sites.google.com/a/chromium.org/dev/chromium-os/chrome-os-systems-supporting-android-apps), we recommend using the [ Amazon WorkSpaces Android client application](https://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-android-client.html) instead\.
 
 In some cases, you might need to enable your users' Chromebooks to install Android applications\. For more information, see [Set Up Android for Chromebooks](set-up-android-chromebook.md)\.
 
@@ -477,7 +487,7 @@ We recommend that you push out these registry changes through GPO\.
 
 ### I'm having trouble using Docker with Amazon WorkSpaces<a name="docker_support"></a>
 
-Nested virtualization \(including the use of Docker\) is not supported on Amazon WorkSpaces\.
+Nested virtualization \(including the use of Docker\) is not supported on Amazon WorkSpaces for Windows or Linux\.
 
 ### I receive ThrottlingException errors to some of my API calls<a name="throttled-api-calls"></a>
 

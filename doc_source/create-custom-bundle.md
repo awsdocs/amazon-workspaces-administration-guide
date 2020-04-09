@@ -27,6 +27,7 @@ After January 14, 2020, images cannot be created from public Windows 7 bundles\.
 + The user profile must exist, must be located at `D:\Users\username`, and for Windows 7 WorkSpaces, its total size \(files and data\) must be less than 10 GB\.
 + The `C` drive must have at least 12 GB of available space\.
 + All application services running on the WorkSpace must use a local system account instead of domain user credentials\. For example, you cannot have a Microsoft SQL Server Express installation running with a domain user's credentials\.
++ The WorkSpace must not be encrypted\. Image creation from an encrypted WorkSpace is not currently supported\.
 + The following components are required in an image\. Without these components, the WorkSpaces that you launch from the image will not function correctly:
   + Windows PowerShell version 3\.0 or later
   + Remote Desktop Services
@@ -40,6 +41,7 @@ After January 14, 2020, images cannot be created from public Windows 7 bundles\.
 ## Requirements to Create Amazon Linux Custom Images<a name="linux_custom_image_requirements"></a>
 + All applications to be included in the image must be installed outside of the user volume \(the `/home` directory\)\.
 + The root volume \(/\) should be less than 97% full\.
++ The WorkSpace must not be encrypted\. Image creation from an encrypted WorkSpace is not currently supported\.
 + The following components are required in an image\. Without these components, the WorkSpaces that you launch from the image will not function correctly:
   + Cloud\-init
   + Teradici PCoIP agents and drivers
@@ -76,7 +78,7 @@ Before you run the Image Checker, verify that the latest Windows security and cu
 
 To get the Image Checker, do one of the following:
 + Reboot your WorkSpace\. The Image Checker is downloaded automatically during the reboot and installed at `C:\Program Files\Amazon\ImageChecker.exe`\.
-+ Download the Amazon WorkSpaces Image Checker from [https://d2zdcak60k1ljz\.cloudfront\.net/ImageChecker\.zip](https://d2zdcak60k1ljz.cloudfront.net/ImageChecker.zip) and extract the `ImageChecker.exe` file\. Copy this file to `C:\Program Files\Amazon\`\.
++ Download the Amazon WorkSpaces Image Checker from [https://tools\.amazonworkspaces\.com/ImageChecker\.zip](https://tools.amazonworkspaces.com/ImageChecker.zip) and extract the `ImageChecker.exe` file\. Copy this file to `C:\Program Files\Amazon\`\.
 
 **To run the Image Checker**
 
