@@ -109,6 +109,6 @@ For each WorkSpace, take note of the listed snapshot time\. Any changes made to 
 
    A new WorkSpace with a status of `PENDING` appears in the Amazon WorkSpaces console\. When the migration is finished, the original WorkSpace is terminated, and the status of the new WorkSpace is set to `AVAILABLE`\.
 
-1. \(Optional\) To delete any custom bundles and images that you no longer need, see [Delete a Custom WorkSpaces Bundle](delete_bundle.md)\.
+1. \(Optional\) To delete any custom bundles and images that you no longer need, see [Delete a Custom WorkSpaces Bundle or Image](delete_bundle.md)\.
 
 To migrate WorkSpaces through the AWS CLI, use the [migrate\-workspace](https://docs.aws.amazon.com/cli/latest/reference/workspaces/migrate-workspace.html) command\. To migrate WorkSpaces through the Amazon WorkSpaces API, see [MigrateWorkSpace](https://docs.aws.amazon.com/workspaces/latest/api/API_MigrateWorkspace.html) in the *Amazon WorkSpaces API Reference*\.

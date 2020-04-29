@@ -1,4 +1,4 @@
-# Delete a Custom WorkSpaces Bundle<a name="delete_bundle"></a>
+# Delete a Custom WorkSpaces Bundle or Image<a name="delete_bundle"></a>
 
 You can delete unused custom bundles as needed\. If you delete a bundle that is being used by a WorkSpace, the bundle is placed in a delete queue and will be deleted after all WorkSpaces that are based on the bundle have been deleted\.
 
@@ -15,6 +15,8 @@ You can delete unused custom bundles as needed\. If you delete a bundle that is 
 After you delete a custom bundle, you can delete the image that you used to create or update the bundle\.
 
 **To delete an image**
+**Note**  
+To delete an image, you must first delete any bundles that are associated with the image and unshare the image if it is shared with other accounts\. The image also can't be in the `PENDING` state\.
 
 1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 

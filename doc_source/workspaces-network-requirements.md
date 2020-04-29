@@ -18,10 +18,21 @@ You cannot access WorkSpaces through a VPN connected to your virtual private clo
 
 You can verify that a client device meets the networking requirements as follows\.
 
-**To verify client networking requirements**
+## To verify networking requirements for 3\.0\+ clients<a name="verify-requirements-new-clients"></a>
 
-1. Open the Amazon WorkSpaces client\. If this is the first time you have opened the client, you are prompted to enter the registration code that you received in the invitation email\.
+1. Open your Amazon WorkSpaces client\. If this is the first time you have opened the client, you are prompted to enter the registration code that you received in the invitation email\.
 
-1. Choose **Network** in the lower right corner of the client application\. The client application tests the network connection, ports, and round trip time and reports the results of these tests\.
+1. Depending on which client you're using, do one of the following\.    
+[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-network-requirements.html)
+
+   The client application tests the network connection, ports, and round\-trip time, and reports the results of these tests\.
+
+1. Close the **Network** dialog box to return to the sign\-in page\.
+
+## To verify networking requirements for 1\.0\+ and 2\.0\+ clients<a name="verify-requirements-legacy-clients"></a>
+
+1. Open your Amazon WorkSpaces client\. If this is the first time you have opened the client, you are prompted to enter the registration code that you received in the invitation email\.
+
+1. Choose **Network** in the lower\-right corner of the client application\. The client application tests the network connection, ports, and round\-trip time, and reports the results of these tests\.
 
 1. Choose **Dismiss** to return to the sign\-in page\.

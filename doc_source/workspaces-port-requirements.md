@@ -82,7 +82,7 @@ The Amazon WorkSpaces client applications perform PCoIP health checks over port 
 
 ## PCoIP Gateway<a name="gateway_IP"></a>
 
-Amazon WorkSpaces uses PCoIP to stream the desktop session to clients over port 4172\. Amazon WorkSpaces uses a small range of Amazon EC2 public IP addresses for its PCoIP gateway servers\. This enables you to set more finely grained firewall policies for devices that access Amazon WorkSpaces\.
+Amazon WorkSpaces uses PCoIP to stream the desktop session to clients over port 4172\. For its PCoIP gateway servers, Amazon WorkSpaces uses a small range of Amazon EC2 public IPv4 addresses\. This enables you to set more finely grained firewall policies for devices that access Amazon WorkSpaces\. Note that the Amazon WorkSpaces clients do not support IPv6 addresses as a connectivity option at this time\.
 
 **Note**  
 We are regularly updating our IP address ranges in the [ AWS IP Address Ranges](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html) `ip-ranges.json` file\. To ingest the most up\-to\-date IP address ranges for Amazon WorkSpaces, look for entries in the `ip-ranges.json` file where `service: "WORKSPACES_GATEWAYS"`\.
@@ -90,18 +90,18 @@ We are regularly updating our IP address ranges in the [ AWS IP Address Ranges](
 
 | Region | Public IP Address Range | 
 | --- | --- | 
-| US East \(N\. Virginia\) | 52\.23\.61\.0 \- 52\.23\.62\.255, 3\.217\.228\.0 \- 3\.217\.231\.255 | 
-| US West \(Oregon\) | 54\.244\.46\.0 \- 54\.244\.47\.255 | 
-| Asia Pacific \(Seoul\) | 13\.124\.247\.0 \- 13\.124\.247\.255 | 
-| Asia Pacific \(Singapore\) | 52\.76\.127\.0 \- 52\.76\.127\.255 | 
-| Asia Pacific \(Sydney\) | 54\.153\.254\.0 \- 54\.153\.254\.255 | 
-| Asia Pacific \(Tokyo\) | 54\.250\.251\.0 \- 54\.250\.251\.255 | 
-| Canada \(Central\) | 35\.183\.255\.0 \- 35\.183\.255\.255 | 
-| Europe \(Frankfurt\) | 52\.59\.127\.0 \- 52\.59\.127\.255 | 
-| Europe \(Ireland\) | 52\.19\.124\.0 \- 52\.19\.125\.255 | 
-| Europe \(London\) | 35\.176\.32\.0 \- 35\.176\.32\.255 | 
-| South America \(São Paulo\) | 54\.233\.204\.0 \- 54\.233\.204\.255 | 
-| AWS GovCloud \(US\-West\) | 52\.61\.193\.0 \- 52\.61\.193\.255 | 
+| US East \(N\. Virginia\) |  3\.217\.228\.0 \- 3\.217\.231\.255 3\.235\.112\.0 \- 3\.235\.119\.255 52\.23\.61\.0 \- 52\.23\.62\.255  | 
+| US West \(Oregon\) |  44\.234\.54\.0 \- 44\.234\.55\.255  | 
+| Asia Pacific \(Seoul\) |  13\.124\.247\.0 \- 13\.124\.247\.255  | 
+| Asia Pacific \(Singapore\) |  52\.76\.127\.0 \- 52\.76\.127\.255  | 
+| Asia Pacific \(Sydney\) |  54\.153\.254\.0 \- 54\.153\.254\.255  | 
+| Asia Pacific \(Tokyo\) |  18\.180\.178\.0 \- 18\.180\.178\.255 18\.180\.180\.0 \- 18\.180\.181\.255 54\.250\.251\.0 \- 54\.250\.251\.255  | 
+| Canada \(Central\) |  35\.183\.255\.0 \- 35\.183\.255\.255  | 
+| Europe \(Frankfurt\) |  52\.59\.127\.0 \- 52\.59\.127\.255  | 
+| Europe \(Ireland\) |  52\.19\.124\.0 \- 52\.19\.125\.255  | 
+| Europe \(London\) |  35\.176\.32\.0 \- 35\.176\.32\.255  | 
+| South America \(São Paulo\) |  54\.233\.204\.0 \- 54\.233\.204\.255  | 
+| AWS GovCloud \(US\-West\) |  52\.61\.193\.0 \- 52\.61\.193\.255  | 
 
 ## Network Interfaces<a name="network-interfaces"></a>
 

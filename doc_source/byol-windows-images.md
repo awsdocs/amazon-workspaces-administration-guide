@@ -177,6 +177,7 @@ To create a Graphics or GraphicsPro bundle from your image, contact the [AWS Sup
    + For **AMI ID**, click the **EC2 Console** link, and choose the EC2 image that you imported as described in the previous section \(Step 4: Import the VM as an Image into EC2\)\. The image name must begin with `ami-` and be followed by the identifier for the AMI \(for example, `ami-5731123e`\)\.
    + For **BYOL image name**, enter a unique name for the image\.
    + For **Image description**, enter a description to help you quickly identify the image\.
+   + For **Ingestion process**, choose the appropriate bundle type \(either **Regular**, **Graphics**, or **GraphicsPro**\)\. For non\-GPU\-enabled bundles \(bundles other than Graphics or GraphicsPro\), choose **Regular**\.
 
 1. Choose **Create**\.
 

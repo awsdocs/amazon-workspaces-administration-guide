@@ -26,6 +26,7 @@ When you expand a volume for a WorkSpace, Amazon WorkSpaces automatically extend
 To ensure that your data is preserved, you cannot decrease the size of the root or user volumes after you launch a WorkSpace\. Instead, make sure that you specify the minimum sizes for these volumes when launching a WorkSpace\. You can launch a Value, Standard, Performance, Power, or PowerPro WorkSpace with a minimum of 80 GB for the root volume and 10 GB for the user volume\. You can launch a Graphics or GraphicsPro WorkSpace with a minimum of 100 GB for the root volume and 100 GB for the user volume\.
 
 **Limitations for Increasing Volumes**
++ When you launch a WorkSpace, you must wait 6 hours before you can modify the sizes of its volumes\.
 + You cannot increase the size of the root and user volumes at the same time\. To increase the root volume, you must first change the user volume to 100 GB\. After that change is made, you can then update the root volume to any value between 175 and 2000 GB\. After the root volume has been changed to any value between 175 and 2000 GB, you can then update the user volume further, to any value between 100 and 2000 GB\.
 **Note**  
 If you want to increase both volumes, you must wait 20\-30 minutes for the first operation to finish before you can start the second operation\.

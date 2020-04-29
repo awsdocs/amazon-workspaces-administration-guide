@@ -15,7 +15,7 @@ This is a permanent action and cannot be undone\. The WorkSpace user's data does
 
 1. When prompted for confirmation, choose **Remove WorkSpaces**\. The status of the WorkSpace is set to `TERMINATING`\. When the termination is complete, the status is set to `TERMINATED`\.
 
-1. \(Optional\) To delete any custom bundles and images that you are finished with, see [Delete a Custom WorkSpaces Bundle](delete_bundle.md)\.
+1. \(Optional\) To delete any custom bundles and images that you are finished with, see [Delete a Custom WorkSpaces Bundle or Image](delete_bundle.md)\.
 
 1. \(Optional\) After you delete all WorkSpaces in a directory, you can delete the directory\. For more information, see [Delete the Directory for Your WorkSpaces](delete-workspaces-directory.md)\.
 
