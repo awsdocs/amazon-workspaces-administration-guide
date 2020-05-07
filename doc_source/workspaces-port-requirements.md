@@ -91,7 +91,7 @@ We are regularly updating our IP address ranges in the [ AWS IP Address Ranges](
 | Region | Public IP Address Range | 
 | --- | --- | 
 | US East \(N\. Virginia\) |  3\.217\.228\.0 \- 3\.217\.231\.255 3\.235\.112\.0 \- 3\.235\.119\.255 52\.23\.61\.0 \- 52\.23\.62\.255  | 
-| US West \(Oregon\) |  44\.234\.54\.0 \- 44\.234\.55\.255  | 
+| US West \(Oregon\) |  44\.234\.54\.0 \- 44\.234\.55\.255 54\.244\.46\.0 \- 54\.244\.47\.255  | 
 | Asia Pacific \(Seoul\) |  13\.124\.247\.0 \- 13\.124\.247\.255  | 
 | Asia Pacific \(Singapore\) |  52\.76\.127\.0 \- 52\.76\.127\.255  | 
 | Asia Pacific \(Sydney\) |  54\.153\.254\.0 \- 54\.153\.254\.255  | 
