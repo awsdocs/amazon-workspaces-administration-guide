@@ -45,4 +45,8 @@ To add a security group to an existing WorkSpace without rebuilding it, you assi
 
    1. Select the new security group, and choose **Save**\.
 
+<<<<<<< HEAD
    1. Repeat this process as needed for any other WorkSpaces\. 
+=======
+   1. Repeat this process as needed for any other WorkSpaces\. 
+>>>>>>> 7a6aeb38cb855bda0642416ed0327c9f2531b823
