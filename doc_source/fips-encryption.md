@@ -12,6 +12,7 @@ To use the **FIPS 140\-2 Validated Mode** setting, the WorkSpaces directory must
 + Users must access their WorkSpaces from one of the following WorkSpaces client applications:
   + Windows: 2\.4\.3 or later
   + macOS: 2\.4\.3 or later
+  + Linux: 3\.0\.0 or later
   + iOS: 2\.4\.1 or later
   + Android: 2\.4\.1 or later
   + Fire Tablet: 2\.4\.1 or later

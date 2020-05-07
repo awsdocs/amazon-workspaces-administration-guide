@@ -24,7 +24,7 @@ After January 14, 2020, images cannot be created from public Windows 7 bundles\.
 ## Requirements to Create Windows Custom Images<a name="windows_custom_image_requirements"></a>
 + All applications and user profiles on WorkSpaces images must be compatible with Microsoft Sysprep\.
 + All applications to be included in the image must be installed on the `C` drive\.
-+ The user profile must exist, must be located at `D:\Users\username`, and for Windows 7 WorkSpaces, its total size \(files and data\) must be less than 10 GB\.
++ The user profile must exist, must be located at `D:\Users\username`, and its total size \(files and data\) must be less than 10 GB\.
 + The `C` drive must have at least 12 GB of available space\.
 + All application services running on the WorkSpace must use a local system account instead of domain user credentials\. For example, you cannot have a Microsoft SQL Server Express installation running with a domain user's credentials\.
 + The WorkSpace must not be encrypted\. Image creation from an encrypted WorkSpace is not currently supported\.

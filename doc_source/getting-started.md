@@ -18,6 +18,7 @@ Asia Pacific \(Tokyo\)
 + [Step 1: Launch the WorkSpace](#quick-setup-launch-workspace)
 + [Step 2: Connect to the WorkSpace](#quick-setup-connect-workspace)
 + [Step 3: Clean Up \(Optional\)](#quick-setup-clean-up)
++ [Next Steps](#quick-setup-next-steps)
 
 ## Before You Begin<a name="quick-setup-prereqs"></a>
 + You must have an AWS account to create or administer a WorkSpace\. Users do not need an AWS account to connect to and use their WorkSpaces\.
@@ -104,3 +105,7 @@ If you are finished with the WorkSpace that you created for this tutorial, you c
    1. Select your directory again and choose **Actions**, **Delete**\.
 
    1. When prompted for confirmation, choose **Delete**\.
+
+## Next Steps<a name="quick-setup-next-steps"></a>
+
+To create additional WorkSpaces, see [Launch a Virtual Desktop Using Amazon WorkSpaces](launch-workspaces-tutorials.md)\.
