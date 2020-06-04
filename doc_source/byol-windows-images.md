@@ -26,12 +26,14 @@ Before you begin, verify the following:
 + If you will be using non\-GPU\-enabled bundles \(bundles other than Graphics and GraphicsPro\), verify that you will use a minimum of 200 Amazon WorkSpaces\. These 200 WorkSpaces can be any mix of AlwaysOn and AutoStop WorkSpaces\. Using a minimum of 200 WorkSpaces is a requirement for running your Amazon WorkSpaces on dedicated hardware\. Running your Amazon WorkSpaces on dedicated hardware is necessary to comply with Microsoft licensing requirements\. The dedicated hardware is provisioned on the AWS side, so your VPC can stay on default tenancy\.
 
   If you plan to use GPU\-enabled \(Graphics and GraphicsPro\) bundles, verify that you will run a minimum of 4 AlwaysOn or 20 AutoStop GPU\-enabled WorkSpaces in a Region per month on dedicated hardware\.
-+ Amazon WorkSpaces can use a management interface in the /16 IP address range\. The management interface is connected to a secure Amazon WorkSpaces management network used for interactive streaming\. This allows Amazon WorkSpaces to manage your WorkSpaces\. For more information, see [Network Interfaces](workspaces-port-requirements.md#network-interfaces)\. At least one of the following IP address ranges must be available for this purpose:
++ Amazon WorkSpaces can use a management interface in the /16 IP address range\. The management interface is connected to a secure Amazon WorkSpaces management network used for interactive streaming\. This allows Amazon WorkSpaces to manage your WorkSpaces\. For more information, see [Network Interfaces](workspaces-port-requirements.md#network-interfaces)\. You must reserve a /16 netmask from at least one of the following IP address ranges for this purpose:
   + 10\.0\.0\.0/8
   + 100\.64\.0\.0/10
   + 172\.16\.0\.0/12
   + 192\.168\.0\.0/16
   + 198\.18\.0\.0/15
+**Note**  
+As you adopt the WorkSpaces service, the available management interface IP address ranges frequently change\. To determine which ranges are currently available, run the [ list\-available\-management\-cidr\-ranges](https://docs.aws.amazon.com/cli/latest/reference/workspaces/list-available-management-cidr-ranges.html) CLI command\.
 + You have a virtual machine \(VM\) that runs a supported 64\-bit version of Windows\. For a list of supported versions, see the next section in this topic, [Windows Versions That Are Supported for BYOL](#windows_images_supported_versions)\. The VM must also meet these requirements: 
   + The Windows operating system must be activated against your key management servers\.
   + The Windows operating system must have **English \(United States\)** as the primary language\.
@@ -116,11 +118,11 @@ Perform these steps to run the BYOL Checker script\.
 
 1. If a security notification appears, press the **R** key to Run Once\.
 
-1. In the **Amazon WorkSpaces Image Validation** dialog box, choose **Begin Tests**\.
+1. <a name="step_begin_tests"></a>In the **Amazon WorkSpaces Image Validation** dialog box, choose **Begin Tests**\.
 
-1. After each test is completed, you can view the status of the test\. For any test with a status of **FAILED**, choose **Info** to display information about how to resolve the issue that caused the failure\. If any tests display a status of **WARNING**, choose the **Fix All Warnings** button\.
+1. <a name="step_resolve_issues"></a>After each test is completed, you can view the status of the test\. For any test with a status of **FAILED**, choose **Info** to display information about how to resolve the issue that caused the failure\. If any tests display a status of **WARNING**, choose the **Fix All Warnings** button\.
 
-1. If applicable, resolve any issues that cause test failures and warnings, and repeat steps 7 and 8 until the VM passes all tests\. All failures and warnings must be resolved before you export the VM\.
+1. If applicable, resolve any issues that cause test failures and warnings, and repeat [Step 7](#step_begin_tests) and [Step 8](#step_resolve_issues) until the VM passes all tests\. All failures and warnings must be resolved before you export the VM\.
 
 1. The BYOL script checker generates two log files, `BYOLPrevalidationlogYYYY-MM-DD_HHmmss.txt` and `ImageInfo.text`\. These files are located in the directory that contains the BYOL Checker script files\.
 **Tip**  
@@ -128,9 +130,9 @@ Do not delete these files\. If an issue occurs, they might be helpful in trouble
 
 1. After your VM passes all tests, you get a **Validation Successful** message\. Review the VM locale settings displayed in the tool\. To update the locale settings, follow [these instructions](https://docs.microsoft.com/previous-versions/windows/hardware/previsioning-framework/dn965674(v=vs.85)) in the Microsoft documentation and run the BYOL Checker script again\.
 
-1. Shut down the VM and create a snapshot of it\.
+1. <a name="step_create_VM_snapshot"></a>Shut down the VM and create a snapshot of it\.
 
-1. Choose **Run Sysprep**\. If Sysprep is successful, your VM that you exported after step 12 can be imported into EC2\. Otherwise, review the Sysprep logs, roll back to the snapshot taken at step 12, resolve the reported issues, take a new snapshot, and run the BYOL Checker script again\.
+1. Choose **Run Sysprep**\. If Sysprep is successful, your VM that you exported after [Step 12](#step_create_VM_snapshot) can be imported into EC2\. Otherwise, review the Sysprep logs, roll back to the snapshot taken at [Step 12](#step_create_VM_snapshot), resolve the reported issues, take a new snapshot, and run the BYOL Checker script again\.
 
    The most common reason that Sysprep fails is that the Modern AppX Packages are not installed for all users\. Use the Remove\-AppxPackage PowerShell cmdlet to remove the AppX Packages\.
 

@@ -104,7 +104,8 @@ The following information can help you troubleshoot specific issues with your Wo
 + [My WorkSpace users see the following error message: "Device can't connect to the registration service\. Check your network settings\."](#registration_service_failure)
 + [My PCoIP zero client users are receiving the error "The supplied certificate is invalid due to timestamp"](#pcoip_zero_client_ntp)
 + [My users are unable to install the Android client application on their Chromebooks](#install_android_chromebook)
-+ [My users aren’t receiving invitation emails or password reset emails](#welcome_emails)
++ [My users aren't receiving invitation emails or password reset emails](#welcome_emails)
++ [My users don't see the Forgot password? option on the client login screen](#forgot_password)
 + [I receive the message "The system administrator has set policies to prevent this installation" when I try to install applications on a Windows WorkSpace](#msi_wont_install)
 + [No WorkSpaces in my directory can connect to the internet](#no_internet)
 + [My WorkSpace has lost its internet access](#lost_internet_access)
@@ -299,13 +300,17 @@ For [ Chromebooks that support installing Android applications](https://sites.go
 
 In some cases, you might need to enable your users' Chromebooks to install Android applications\. For more information, see [Set Up Android for Chromebooks](set-up-android-chromebook.md)\.
 
-### My users aren’t receiving invitation emails or password reset emails<a name="welcome_emails"></a>
+### My users aren't receiving invitation emails or password reset emails<a name="welcome_emails"></a>
 
-Users might not receive welcome or password reset emails for WorkSpaces that were created using AD Connector\.
+Users do not automatically receive welcome or password reset emails for WorkSpaces that were created using AD Connector\.
 
 To manually send welcome emails to these users, see [Send an Invitation Email](manage-workspaces-users.md#send-invitation)\.
 
-To assist users with resetting their passwords, see your documentation for Microsoft Active Directory\.
+To reset user passwords, see [Set Up Active Directory Administration Tools for Amazon WorkSpaces](directory_administration.md)\.
+
+### My users don't see the Forgot password? option on the client login screen<a name="forgot_password"></a>
+
+If you're using AD Connector, your users won't be able to reset their own passwords\. \(The **Forgot password?** option on the WorkSpaces client application login screen won't be available\.\) For information about how to reset user passwords, see [Set Up Active Directory Administration Tools for Amazon WorkSpaces](directory_administration.md)\.
 
 ### I receive the message "The system administrator has set policies to prevent this installation" when I try to install applications on a Windows WorkSpace<a name="msi_wont_install"></a>
 

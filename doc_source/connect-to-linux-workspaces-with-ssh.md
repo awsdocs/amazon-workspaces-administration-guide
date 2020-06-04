@@ -4,6 +4,8 @@ If you or your users want to connect to your Amazon Linux WorkSpaces by using th
 
 To enable SSH connections, you create a new security group or update an existing security group and add a rule to allow inbound traffic for this purpose\. Security groups act as a firewall for associated instances, controlling both inbound and outbound traffic at the instance level\. After you create or update your security group, your users and others can use PuTTY or other terminals to connect from their devices to your Amazon Linux WorkSpaces\.
 
+For a video tutorial, see [ How can I connect to my Linux Amazon WorkSpaces using SSH?](https://aws.amazon.com/premiumsupport/knowledge-center/linux-workspace-ssh/) on the AWS Knowledge Center\.
+
 **Topics**
 + [Prerequisites for SSH Connections to Amazon Linux WorkSpaces](#before-you-begin-enable-ssh-linux-workspaces)
 + [Enable SSH Connections to All Amazon Linux WorkSpaces in a Directory](#enable-ssh-directory-level-access-linux-workspaces)

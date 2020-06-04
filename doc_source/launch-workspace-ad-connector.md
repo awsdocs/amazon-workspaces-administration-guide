@@ -83,7 +83,7 @@ Now you are ready to launch WorkSpaces for one or more users in your on\-premise
 
 1. Choose **Launch WorkSpaces**\. The initial status of the WorkSpace is `PENDING`\. When the launch is complete, the status is `AVAILABLE`\.
 
-1. Send invitations to the email address for each user\. For more information, see [Send an Invitation Email](manage-workspaces-users.md#send-invitation)\.
+1. Send invitations to the email address for each user\. \(These invitations aren't sent automatically if you're using AD Connector\.\) For more information, see [Send an Invitation Email](manage-workspaces-users.md#send-invitation)\.
 
 ## Step 3: Connect to the WorkSpace<a name="connect-workspace-ad-connector"></a>
 
@@ -102,6 +102,9 @@ You can connect to your WorkSpace using the client of your choice\. After you si
 1. When prompted to sign in, enter the user name and password for the user, and then choose **Sign In**\.
 
 1. \(Optional\) When prompted to save your credentials, choose **Yes**\.
+
+**Note**  
+Because you're using AD Connector, your users won't be able to reset their own passwords\. \(The **Forgot password?** option on the WorkSpaces client application login screen won't be available\.\) For information about how to reset user passwords, see [Set Up Active Directory Administration Tools for Amazon WorkSpaces](directory_administration.md)\.
 
 ## Next Steps<a name="next-steps-ad-connector"></a>
 

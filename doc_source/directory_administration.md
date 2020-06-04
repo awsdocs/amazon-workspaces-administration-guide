@@ -25,6 +25,8 @@ If you create a directory with Microsoft AD or Simple AD that includes five or m
 You can now perform directory administration tasks using the Active Directory tools that you are familiar with\. For example, you can use the Active Directory Users and Computers Tool to add users, remove users, promote a user to directory administrator, or reset a user password\. Note that you must be logged into your Windows instance as a user that has permissions to manage users in the directory\.
 
 **To promote a user to a directory administrator**
+**Note**  
+This procedure applies only to directories created with Simple AD, not AWS Managed AD\. For directories created with AWS Managed AD, see [ Manage Users and Groups in AWS Managed Microsoft AD](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_manage_users_groups.html) in the *AWS Directory Service Administration Guide*\.
 
 1. Open the Active Directory Users and Computers tool\.
 
@@ -42,7 +44,15 @@ You can now perform directory administration tasks using the Active Directory to
    + Schema Admins
 
 **To add or remove users**  
-You can use whichever Active Directory tools you are familiar with to manage user objects\. Note that before you can remove a user, you must delete the WorkSpace assigned to that user\. For more information, see [Delete a WorkSpace](delete-workspaces.md)\.
+Before you can remove a user, you must delete the WorkSpace assigned to that user\. For more information, see [Delete a WorkSpace](delete-workspaces.md)\.
+
+The process you use for managing users and groups depends on which type of directory you're using\.
++ If you're using AWS Managed Microsoft AD, see [ Manage Users and Groups in AWS Managed Microsoft AD](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_manage_users_groups.html) in the *AWS Directory Service Administration Guide*\.
++ If you're using Simple AD, see [ Manage Users and Groups in Simple AD](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/simple_ad_manage_users_groups.html) in the *AWS Directory Service Administration Guide*\. 
++ If you use Microsoft Active Directory through AD Connector or a trust relationship, you can manage users and groups by using [ Active Directory](https://docs.microsoft.com/powershell/module/addsadministration/?view=win10-ps)\. 
 
 **To reset a user password**  
 When you reset the password for an existing user, do not set **User must change password at next logon**\. Otherwise, the users cannot connect to their WorkSpaces\. Instead, assign a secure temporary password to each user and then ask the users to manually change their passwords from within the WorkSpace the next time they log on\.
+
+**Note**  
+If you're using AD Connector, your users won't be able to reset their own passwords\. \(The **Forgot password?** option on the WorkSpaces client application login screen won't be available\.\)

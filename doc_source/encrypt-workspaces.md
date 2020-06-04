@@ -6,7 +6,7 @@ Amazon WorkSpaces is integrated with the AWS Key Management Service \(AWS KMS\)\
 
 You need an AWS KMS CMK before you can begin the encryption process\.
 
-The first time that you launch an unencrypted WorkSpace from the Amazon WorkSpaces console in a Region, Amazon WorkSpaces automatically creates an AWS managed CMK \(aws/workspaces\) in your account\. You can select this AWS managed CMK to encrypt the user and root volumes of your WorkSpace\.
+The first time that you launch an unencrypted WorkSpace from the Amazon WorkSpaces console in a Region, Amazon WorkSpaces automatically creates an AWS managed CMK \(**aws/workspaces**\) in your account\. You can select this AWS managed CMK to encrypt the user and root volumes of your WorkSpace\. For details, see [How Amazon WorkSpaces uses AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/services-workspaces.html) in the *AWS Key Management Service Developer Guide*\.
 
 You can view this AWS managed CMK, including its policies and grants, and can track its use in AWS CloudTrail logs, but you cannot use or manage this CMK\. Amazon WorkSpaces creates and manages this CMK\. Only Amazon WorkSpaces can use this CMK, and it can use it only to encrypt WorkSpaces resources in your account\. AWS managed CMKs, including the one that Amazon WorkSpaces supports, are rotated every three years\. For details, see [Rotating Keys](https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) in the *AWS Key Management Service Developer Guide*\.
 
@@ -23,6 +23,7 @@ When you are encrypting WorkSpaces, create a CMK for every 500 WorkSpaces\. For 
 If you are trying to launch encrypted WorkSpaces and you receive the error message "The specified key is not available\. Please provide a valid key for encryption," the Grants per grantee principal quota for the existing CMK has been reached\.
 
 ## Limits<a name="encryption_limits"></a>
++ You can't encrypt an existing WorkSpace\. You must encrypt a WorkSpace when you launch it\.
 + Creating a custom image from an encrypted WorkSpace is not supported\.
 + Disabling encryption for an encrypted WorkSpace is not currently supported\.
 + WorkSpaces launched with root volume encryption enabled might take up to an hour to provision\.

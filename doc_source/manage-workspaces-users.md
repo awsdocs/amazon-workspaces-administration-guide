@@ -40,6 +40,9 @@ The process you use for managing users and groups depends on which type of direc
 
 You can send an invitation email to a user manually if needed\.
 
+**Note**  
+If you're using AD Connector, welcome emails aren't automatically sent to your users, so you must send them manually\.
+
 **To resend an invitation email**
 
 1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.

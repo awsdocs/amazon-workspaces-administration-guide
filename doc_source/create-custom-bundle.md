@@ -12,6 +12,8 @@ You can use the same custom image to create various custom bundles by selecting 
 If you plan to create an image from a Windows 10 WorkSpace, note that image creation is not supported on Windows 10 systems that have been upgraded from one version of Windows 10 to a newer version of Windows 10 \(a Windows feature/version upgrade\)\. However, Windows cumulative or security updates are supported by the WorkSpaces image\-creation process\.
 After January 14, 2020, images cannot be created from public Windows 7 bundles\. You might want to consider migrating your Windows 7 WorkSpaces to Windows 10\. For more information, see [Migrate a WorkSpace](migrate-workspaces.md)\.
 
+Custom bundles cost as same as the public bundles they are created from\. For more information about pricing, see [Amazon WorkSpaces Pricing](http://aws.amazon.com/workspaces/pricing/)\.
+
 **Topics**
 + [Requirements to Create Windows Custom Images](#windows_custom_image_requirements)
 + [Requirements to Create Amazon Linux Custom Images](#linux_custom_image_requirements)
@@ -64,6 +66,7 @@ Before you create an image from a WorkSpace, do the following:
 + If you have a firewall enabled on your WorkSpace, make sure that it isn't blocking any necessary ports\. For more information, see [IP Address and Port Requirements for Amazon WorkSpaces](workspaces-port-requirements.md)\.
 + For Windows WorkSpaces, don't configure any Group Policy Objects \(GPOs\) before image creation\.
 + For Windows WorkSpaces, do not customize the default user profile \(`C:\Users\Default`\) before creating an image\. We recommend making any customizations to the user profile through GPOs, and applying them after image creation\. GPOs can be easily modified or rolled back, and are therefore less prone to error than customizations made to the default user profile\.
++ For Linux WorkSpaces, see also the [ "Best Practices to Prepare Your Amazon WorkSpaces for Linux Images"](https://docs.aws.amazon.com/whitepapers/latest/workspaces-linux-best-practices/welcome.html) whitepaper\.
 
 ## Step 1: Run the Image Checker<a name="run_image_checker"></a>
 
@@ -400,11 +403,11 @@ After you have validated your WorkSpace image, you can proceed with creating you
 
 1. In the navigation pane, choose **WorkSpaces**\.
 
-1. Select the WorkSpace and choose **Actions**, **Create Image**\.
+1. <a name="step_create_image"></a>Select the WorkSpace and choose **Actions**, **Create Image**\.
 
 1. A message displays, prompting you to restart your WorkSpace before continuing\. Restarting your WorkSpace updates your Amazon WorkSpaces software to the latest version\.
 
-   Restart your WorkSpace by closing the message and following the steps in [Restart a WorkSpace](reboot-workspaces.md)\.When you're done, repeat Step 4 of this procedure, but this time choose **Next** when the restart message appears\. To create an image, the status of the WorkSpace must be **Available** and its modification state must be **None**\.
+   Restart your WorkSpace by closing the message and following the steps in [Restart a WorkSpace](reboot-workspaces.md)\. When you're done, repeat [Step 4](#step_create_image) of this procedure, but this time choose **Next** when the restart message appears\. To create an image, the status of the WorkSpace must be **Available** and its modification state must be **None**\.
 
 1. Enter an image name and a description that will help you identify the image, and then choose **Create Image**\. While the image is being created, the status of the WorkSpace is **Suspended** and the WorkSpace is unavailable\.
 

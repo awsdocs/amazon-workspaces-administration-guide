@@ -19,4 +19,4 @@ This is a permanent action and cannot be undone\. The WorkSpace user's data does
 
 1. \(Optional\) After you delete all WorkSpaces in a directory, you can delete the directory\. For more information, see [Delete the Directory for Your WorkSpaces](delete-workspaces-directory.md)\.
 
-1. \(Optional\) After you delete all resources in the virtual private cloud \(VPC\) for your directory, you can delete the VPC and release the Elastic IP address used for the NAT gateway\.
+1. \(Optional\) After you delete all resources in the virtual private cloud \(VPC\) for your directory, you can delete the VPC and release the Elastic IP address used for the NAT gateway\. For more information, see [ Deleting your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/working-with-vpcs.html#VPC_Deleting) and [ Working with Elastic IP addresses](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#WorkWithEIPs) in the *Amazon VPC User Guide*\.

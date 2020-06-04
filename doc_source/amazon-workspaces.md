@@ -30,6 +30,8 @@ The following diagram shows the architecture of Amazon WorkSpaces\.
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/images/architectural_diagram-new.png)
 
+For additional architecture diagrams, see the [ "Best Practices for Deploying Amazon WorkSpaces"](http://aws.amazon.com/workspaces/resources/) whitepaper\.
+
 ## Accessing Your WorkSpace<a name="devices"></a>
 
 You can connect to your WorkSpaces by using the client application for a supported device or, for Windows WorkSpaces, by using a supported web browser on a supported operating system\.

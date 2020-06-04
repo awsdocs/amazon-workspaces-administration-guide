@@ -82,7 +82,7 @@ Before you migrate a WorkSpace, do the following:
 
 ## How Billing Is Affected<a name="migration-billing"></a>
 
-During the month in which migration occurs, you are charged prorated amounts for both the new and the original WorkSpaces\.
+During the month in which migration occurs, you are charged prorated amounts for both the new and the original WorkSpaces\. For example, if you migrate WorkSpace A to WorkSpace B on May 10, you will be charged for WorkSpace A from May 1 to May 10, and you will be charged for WorkSpace B from May 11 to May 30\.
 
 **Note**  
 If you are migrating a WorkSpace to a different bundle type \(for example, from Performance to Power, or Value to Standard\), the size of the root volume \(drive C\) and the user volume \(drive D\) might increase during the migration process\. If necessary, the root volume increases to match the default root volume size for the new bundle\. However, if you had already specified a different size \(higher or lower\) for the user volume than the default for the original bundle, that same user volume size is retained during the migration process\. Otherwise, the migration process uses the larger of the source WorkSpace user volume size and the default user volume size for the new bundle\.

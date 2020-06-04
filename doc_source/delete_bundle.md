@@ -16,7 +16,7 @@ After you delete a custom bundle, you can delete the image that you used to crea
 
 **To delete an image**
 **Note**  
-To delete an image, you must first delete any bundles that are associated with the image and unshare the image if it is shared with other accounts\. The image also can't be in the `PENDING` state\.
+To delete an image, you must first delete any bundles that are associated with the image and unshare the image if it is shared with other accounts\. The image also can't be in the `PENDING` or `VALIDATING` state\.
 
 1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 

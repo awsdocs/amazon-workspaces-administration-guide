@@ -8,13 +8,11 @@ Because Linux instances do not adhere to Group Policy, we recommend that you use
 
 ## Control PCoIP Agent Behavior on Amazon Linux WorkSpaces<a name="pcoip_agent_linux"></a>
 
-The behavior of the PCoIP Agent is controlled by configuration settings in the pcoip\-agent\.conf file, which is located in the /etc/pcoip\-agent/ directory\. To deploy and enforce changes to the policy, use a configuration management solution that supports Amazon Linux\. Any changes take effect when the agent starts up\. Restarting the agent ends any open connections and restarts the window manager\. For a full listing of the available settings, run `man pcoip-agent.conf` from the terminal on any Amazon Linux WorkSpace\.
+The behavior of the PCoIP Agent is controlled by configuration settings in the `pcoip-agent.conf` file, which is located in the `/etc/pcoip-agent/` directory\. To deploy and enforce changes to the policy, use a configuration management solution that supports Amazon Linux\. Any changes take effect when the agent starts up\. Restarting the agent ends any open connections and restarts the window manager\. For a full listing of the available settings, run `man pcoip-agent.conf` from the terminal on any Amazon Linux WorkSpace\.
 
 ## Enable or Disable Clipboard Redirection for Amazon Linux WorkSpaces<a name="linux_clipboard"></a>
 
 By default, Amazon WorkSpaces supports clipboard redirection\. Use the PCoIP Agent conf to disable this feature, if needed\. 
-
-The Group Policy setting change takes effect after the WorkSpace's next Group Policy settings update and the session is restarted\.
 
 **To enable or disable clipboard redirection for Amazon Linux WorkSpaces**
 
@@ -76,13 +74,15 @@ After you create the dedicated administrators group, follow these steps to enabl
    +:(example\Linux_WorkSpaces_Admins):ALL 
    ```
 
+For more information about enabling SSH connections, see [Enable SSH Connections for Your Linux WorkSpaces](connect-to-linux-workspaces-with-ssh.md)\.
+
 ## Override the Default Shell for Amazon Linux WorkSpaces<a name="linux_shell"></a>
 
 To override the default shell for Linux WorkSpaces, we recommend that you edit the user's `~/.bashrc` file\. For example, to use `Z shell` instead of `Bash` shell, add the following lines to `/home/username/.bashrc`\.
 
 ```
-         export SHELL=$(which zsh)
-         [ -n "$SSH_TTY" ] && exec $SHELL
+export SHELL=$(which zsh)
+[ -n "$SSH_TTY" ] && exec $SHELL
 ```
 
 ## Protect Custom Repositories from Unauthorized Access<a name="password_protect_repos"></a>
