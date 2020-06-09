@@ -134,7 +134,7 @@ Do not delete these files\. If an issue occurs, they might be helpful in trouble
 
 1. Choose **Run Sysprep**\. If Sysprep is successful, your VM that you exported after [Step 12](#step_create_VM_snapshot) can be imported into EC2\. Otherwise, review the Sysprep logs, roll back to the snapshot taken at [Step 12](#step_create_VM_snapshot), resolve the reported issues, take a new snapshot, and run the BYOL Checker script again\.
 
-   The most common reason that Sysprep fails is that the Modern AppX Packages are not installed for all users\. Use the Remove\-AppxPackage PowerShell cmdlet to remove the AppX Packages\.
+   The most common reason that Sysprep fails is that the Modern AppX Packages are not uninstalled for all users\. Use the Remove\-AppxPackage PowerShell cmdlet to remove the AppX Packages\.
 
 1. After you have successfully created your image, you can remove the **WorkSpaces\_BYOL** account\.
 

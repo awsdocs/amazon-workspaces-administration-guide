@@ -1,6 +1,9 @@
 # Update a Custom WorkSpaces Bundle<a name="update-custom-bundle"></a>
 
-You can update an existing custom WorkSpaces bundle by modifying a WorkSpace that is based on the bundle, creating an image from the WorkSpace, and updating the bundle with the new image\. You can then launch new WorkSpaces using the updated bundle\. To update existing WorkSpaces that are based on the bundle, rebuild the WorkSpaces\.
+You can update an existing custom WorkSpaces bundle by modifying a WorkSpace that is based on the bundle, creating an image from the WorkSpace, and updating the bundle with the new image\. You can then launch new WorkSpaces using the updated bundle\.
+
+**Important**  
+Existing WorkSpaces aren't automatically updated when you update the bundle that they're based on\. To update existing WorkSpaces that are based on a bundle that you've updated, you must either rebuild the WorkSpaces or delete and recreate them\.
 
 **To update a bundle**
 
@@ -24,4 +27,4 @@ You can update an existing custom WorkSpaces bundle by modifying a WorkSpace tha
 
 1. For **Update WorkSpace Bundle**, select the image that you created and choose **Update Bundle**\.
 
-1. \(Optional\) Rebuild the existing WorkSpaces based on the updated bundle\. For more information, see [Rebuild a WorkSpace](rebuild-workspace.md)\.
+1. As needed, update any existing WorkSpaces that are based on the bundle by rebuilding the WorkSpaces or deleting and recreating them\. For more information, see [Rebuild a WorkSpace](rebuild-workspace.md)\.

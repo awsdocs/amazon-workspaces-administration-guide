@@ -5,13 +5,13 @@ When you register a directory with Amazon WorkSpaces, it creates two security gr
 **Warning**  
 Do not delete the **\_workspacesMembers** security group\. If you delete this security group, your WorkSpaces won't function correctly, and you won't be able to recreate this group and add it back\. 
 
-You can add additional security groups to a directory\. After a new security group is associated with a directory, new WorkSpaces that you launch or existing WorkSpaces that you rebuild will have the new security group\.
+You can add a default WorkSpaces security group to a directory\. After you associate a new security group with a WorkSpaces directory, new WorkSpaces that you launch or existing WorkSpaces that you rebuild will have the new security group\. You can also [add this new default security group to existing WorkSpaces without rebuilding them](#security_group_existing_workspace), as explained later in this topic\.
 
-When you associate multiple security groups with a directory, the rules from each security group are effectively aggregated to create one set of rules\. We recommend condensing your security group rules as much as possible\.
+When you associate multiple security groups with a WorkSpaces directory, the rules from each security group are effectively aggregated to create one set of rules\. We recommend condensing your security group rules as much as possible\.
 
 For more information about security groups, see [ Security Groups for Your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide*\.
 
-**To add a security group to a directory**
+**To add a security group to a WorkSpaces directory**
 
 1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
