@@ -4,6 +4,7 @@ As a WorkSpace administrator, you must understand the following about Amazon Wor
 
 **Topics**
 + [Configure a VPC for Amazon WorkSpaces](amazon-workspaces-vpc.md)
++ [Availability Zones for Amazon WorkSpaces](azs-workspaces.md)
 + [IP Address and Port Requirements for Amazon WorkSpaces](workspaces-port-requirements.md)
 + [Amazon WorkSpaces Client Network Requirements](workspaces-network-requirements.md)
 + [Restrict WorkSpaces Access to Trusted Devices](trusted-devices.md)

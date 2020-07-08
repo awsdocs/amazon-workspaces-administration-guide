@@ -127,7 +127,7 @@ The following table lists the IP address ranges used for the management network 
 
 | Region | IP Address Range | 
 | --- | --- | 
-| US East \(N\. Virginia\) | 192\.168\.0\.0/16 and 198\.19\.0\.0/16 | 
+| US East \(N\. Virginia\) | 172\.31\.0\.0/16, 192\.168\.0\.0/16, 198\.19\.0\.0/16 | 
 | US West \(Oregon\) | 172\.31\.0\.0/16, 192\.168\.0\.0/16, and 198\.19\.0\.0/16 | 
 | Asia Pacific \(Seoul\) | 198\.19\.0\.0/16 | 
 | Asia Pacific \(Singapore\) | 198\.19\.0\.0/16 | 

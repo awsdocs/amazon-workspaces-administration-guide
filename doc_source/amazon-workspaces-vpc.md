@@ -4,6 +4,12 @@ Amazon WorkSpaces launches your WorkSpaces in a virtual private cloud \(VPC\)\. 
 
 You can create a VPC with two private subnets for your WorkSpaces and a NAT gateway in a public subnet\. Alternatively, you can create a VPC with two public subnets for your WorkSpaces and associate an Elastic IP address with each WorkSpace\.
 
+**VPC Requirements**  
+Your VPC's subnets must reside in different Availability Zones in the Region where you're launching WorkSpaces\. Availability Zones are distinct locations that are engineered to be isolated from failures in other Availability Zones\. By launching instances in separate Availability Zones, you can protect your applications from the failure of a single location\. Each subnet must reside entirely within one Availability Zone and cannot span zones\.
+
+**Note**  
+Amazon WorkSpaces is available in a subset of the Availability Zones in each supported Region\. To determine which Availability Zones you can use for the subnets of the VPC that you're using for WorkSpaces, see [Availability Zones for Amazon WorkSpaces](azs-workspaces.md)\. 
+
 **Topics**
 + [Configure a VPC with Private Subnets and a NAT Gateway](#configure-vpc-nat-gateway)
 + [Configure a VPC with Public Subnets](#configure-vpc-public-subnets)
@@ -69,11 +75,11 @@ Create a VPC with one public subnet and two private subnets as follows\.
 
    1. For **Public subnet name**, enter a name for the subnet \(for example, `WorkSpaces Public Subnet`\)\.
 
-1. Configure the first private subnet as follows:
+1. <a name="step_private_first_az"></a>Configure the first private subnet as follows:
 
    1. For **Private subnet's IPv4 CIDR**, enter the CIDR block for the subnet\.
 
-   1. For **Availability Zone**, select the first one in the list \(for example, `us-west-2a`\)\.
+   1. To make an appropriate selection for **Availability Zone**, see [Availability Zones for Amazon WorkSpaces](azs-workspaces.md)\.
 
    1. For **Private subnet name**, enter a name for the subnet \(for example, `WorkSpaces Private Subnet 1`\)\.
 
@@ -107,7 +113,7 @@ In the previous step, you created a VPC with one public subnet and one private s
 
 1. For **VPC**, select the VPC that you created\.
 
-1. For **Availability Zone**, select the second one in the list \(for example, `us-west-2b`\)\.
+1. To make an appropriate selection for **Availability Zone**, see [Availability Zones for Amazon WorkSpaces](azs-workspaces.md)\. Make sure you select a different Availability Zone from the one you selected for [Step 7](#step_private_first_az) earlier\.
 
 1. For **IPv4 CIDR block**, enter the CIDR block for the subnet\.
 
@@ -171,7 +177,7 @@ Create a VPC with one public subnet as follows\.
 
 1. For **Public subnet's IPv4 CIDR**, enter the CIDR block for the subnet\. For more information, see [VPC and Subnet Sizing for IPv4](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-sizing-ipv4) in the *Amazon VPC User Guide*\.
 
-1. For **Availability Zone**, choose the first one in the list\.
+1. <a name="step_public_first_az"></a>To make an appropriate selection for **Availability Zone**, see [Availability Zones for Amazon WorkSpaces](azs-workspaces.md)\.
 
 1. \(Optional\) For **Subnet name**, enter a name for the subnet\.
 
@@ -203,7 +209,7 @@ In the previous step, you created a VPC with one public subnet\. Use the followi
 
 1. For **VPC**, select the VPC that you created\.
 
-1. For **Availability Zone**, choose the second one in the list\.
+1. To make an appropriate selection for **Availability Zone**, see [Availability Zones for Amazon WorkSpaces](azs-workspaces.md)\. Make sure you select a different Availability Zone from the one you selected for [Step 9](#step_public_first_az) earlier\.
 
 1. For **IPv4 CIDR block**, enter the CIDR block for the subnet\.
 

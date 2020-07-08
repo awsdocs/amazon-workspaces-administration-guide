@@ -44,6 +44,9 @@ This procedure applies only to directories created with Simple AD, not AWS Manag
    + Schema Admins
 
 **To add or remove users**  
+You can create new users from the Amazon WorkSpaces console only during the process of launching a WorkSpace, and you cannot delete users through the Amazon WorkSpaces console\. Most user management tasks, including managing user groups, must be performed through your directory\. 
+
+**Important**  
 Before you can remove a user, you must delete the WorkSpace assigned to that user\. For more information, see [Delete a WorkSpace](delete-workspaces.md)\.
 
 The process you use for managing users and groups depends on which type of directory you're using\.

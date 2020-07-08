@@ -7,13 +7,14 @@ Linux instances do not adhere to Group Policy\. For information about managing A
 
 We recommend that you create an organizational unit for your WorkSpaces Computer Objects and an organizational unit for your WorkSpaces User Objects\.
 
-Group Policy settings can affect a WorkSpace user's experience as follows:
-+ Some Group Policy settings force a user to log off when they are disconnected from a session\. Any applications that a user has open on the WorkSpace are closed\.
-+ Implementing an interactive logon message to display a logon banner prevents users from being able to access their WorkSpace\. The interactive logon message Group Policy setting is not currently supported by Amazon WorkSpaces\.
-+ Disabling removable storage through Group Policy settings will cause a login failure that results in users being logged in to a temporary profile with no access to drive D\.
-+ Group Policy settings can be used to restrict drive access\. If you configure Group Policy settings to restrict access to drive C or to drive D, users can't access their WorkSpace\. To prevent this issue from occurring, make sure that your users can access drive C and drive D\. 
+**Warning**  
+Group Policy settings can affect the experience of your WorkSpace users as follows:  
+Some Group Policy settings force users to log off when they are disconnected from a session\. Any applications that users have open on their WorkSpaces are closed\.
+**Implementing an interactive logon message to display a logon banner prevents users from being able to access their WorkSpaces\.** The interactive logon message Group Policy setting is not currently supported by Amazon WorkSpaces\.
+**Disabling removable storage through Group Policy settings causes a login failure** that results in users being logged in to temporary user profiles with no access to drive D\.
+Group Policy settings can be used to restrict drive access\. **If you configure Group Policy settings to restrict access to drive C or to drive D, users can't access their WorkSpaces\.** To prevent this issue from occurring, make sure that your users can access drive C and drive D\. 
 
-For information about using the Active Directory administration tools to work with GPOs, see [ Installing the Active Directory Administration Tools](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_install_ad_tools.html) in the *AWS Directory Service Administration Guide*\.
+For information about using the Active Directory administration tools to work with GPOs, see [Set Up Active Directory Administration Tools for Amazon WorkSpaces](directory_administration.md)\.
 
 **Topics**
 + [Install the Group Policy Administrative Template](#gp_install_template)
@@ -25,13 +26,13 @@ For information about using the Active Directory administration tools to work wi
 
 ## Install the Group Policy Administrative Template<a name="gp_install_template"></a>
 
-To use the Group Policy settings that are specific to Amazon WorkSpaces, you must install the Group Policy administrative template\. Perform the following procedure on a directory administration WorkSpace or Amazon EC2 instance that is joined to your directory\.
+To use the Group Policy settings that are specific to Amazon WorkSpaces, you must install the Group Policy administrative template\. Perform the following procedure on a directory administration WorkSpace or Amazon EC2 instance that is joined to your WorkSpaces directory\.
 
 **To install the Group Policy administrative template**
 
 1. From a running Windows WorkSpace, make a copy of the `pcoip.adm` file in the `C:\Program Files (x86)\Teradici\PCoIP Agent\configuration` directory\.
 
-1. Open the Group Policy Management tool \(gpmc\.msc\) and navigate to the organizational unit in your domain that contains your WorkSpaces machine accounts\.
+1. On a directory administration WorkSpace or Amazon EC2 instance that is joined to your WorkSpaces directory, open the Group Policy Management tool \(gpmc\.msc\) and navigate to the organizational unit in your domain that contains your WorkSpaces machine accounts\.
 
 1. Open the context \(right\-click\) menu for the machine account organizational unit and choose **Create a GPO in this domain, and link it here**\.
 
@@ -59,7 +60,7 @@ For Windows WorkSpaces, you can use Group Policy settings to configure printer s
 
 1. Make sure that the most recent [Amazon WorkSpaces Group Policy administrative template](#gp_install_template) is installed in your domain\.
 
-1. Open the Group Policy Management tool \(gpmc\.msc\) and navigate to and select the WorkSpaces GPO for your WorkSpaces machine accounts\. Choose **Action**, **Edit** in the main menu\.
+1. On a directory administration WorkSpace or Amazon EC2 instance that is joined to your WorkSpaces directory, open the Group Policy Management tool \(gpmc\.msc\) and navigate to and select the WorkSpaces GPO for your WorkSpaces machine accounts\. Choose **Action**, **Edit** in the main menu\.
 
 1. In the Group Policy Management Editor, choose **Computer Configuration**, **Policies**, **Administrative Templates**, **Classic Administrative Templates**, **PCoIP Session Variables**, and **Overridable Administrator Defaults**\.
 
@@ -84,7 +85,7 @@ Local printer redirection is not available for Amazon Linux WorkSpaces\.
 
 1. Make sure that the most recent [Amazon WorkSpaces Group Policy administrative template](#gp_install_template) is installed in your domain\.
 
-1. Open the Group Policy Management tool \(gpmc\.msc\) and navigate to and select the WorkSpaces GPO for your WorkSpaces machine accounts\. Choose **Action**, **Edit** in the main menu\.
+1. On a directory administration WorkSpace or Amazon EC2 instance that is joined to your WorkSpaces directory, open the Group Policy Management tool \(gpmc\.msc\) and navigate to and select the WorkSpaces GPO for your WorkSpaces machine accounts\. Choose **Action**, **Edit** in the main menu\.
 
 1. In the Group Policy Management Editor, choose **Computer Configuration**, **Policies**, **Administrative Templates**, **Classic Administrative Templates**, **PCoIP Session Variables**, and **Overridable Administrator Defaults**\.
 
@@ -104,7 +105,7 @@ By default, Amazon WorkSpaces supports clipboard redirection\. If needed for Win
 
 1. Make sure that the most recent [Amazon WorkSpaces Group Policy administrative template](#gp_install_template) is installed in your domain\.
 
-1. Open the Group Policy Management tool \(gpmc\.msc\) and navigate to and select the WorkSpaces GPO for your WorkSpaces machine accounts\. Choose **Action**, **Edit** in the main menu\.
+1. On a directory administration WorkSpace or Amazon EC2 instance that is joined to your WorkSpaces directory, open the Group Policy Management tool \(gpmc\.msc\) and navigate to and select the WorkSpaces GPO for your WorkSpaces machine accounts\. Choose **Action**, **Edit** in the main menu\.
 
 1. In the Group Policy Management Editor, choose **Computer Configuration**, **Policies**, **Administrative Templates**,**Classic Administrative Templates**, **PCoIP Session Variables**, and **Overridable Administrator Defaults**\.
 
@@ -131,7 +132,7 @@ When using the Amazon WorkSpaces client applications, an interruption of network
 
 1. Make sure that the most recent [Amazon WorkSpaces Group Policy administrative template](#gp_install_template) is installed in your domain\.
 
-1. Open the Group Policy Management tool \(gpmc\.msc\) and navigate to and select the WorkSpaces GPO for your WorkSpaces machine accounts\. Choose **Action**, **Edit** in the main menu\.
+1. On a directory administration WorkSpace or Amazon EC2 instance that is joined to your WorkSpaces directory, open the Group Policy Management tool \(gpmc\.msc\) and navigate to and select the WorkSpaces GPO for your WorkSpaces machine accounts\. Choose **Action**, **Edit** in the main menu\.
 
 1. In the Group Policy Management Editor, choose **Computer Configuration**, **Policies**, **Administrative Templates**, **Classic Administrative Templates**, and **PCoIP Session Variables**\.
 
@@ -156,7 +157,7 @@ If needed for Windows WorkSpaces, you can use Group Policy settings to disable t
 
 **To disable time zone redirection**
 
-1. Open the Group Policy Management tool \(gpmc\.msc\) and navigate to and select a GPO at the domain or domain controller level of the directory you use for your WorkSpaces\. \(If you have the [Amazon WorkSpaces Group Policy administrative template](#gp_install_template) installed in your domain, you can use the WorkSpaces GPO for your WorkSpaces machine accounts\.\)
+1. On a directory administration WorkSpace or Amazon EC2 instance that is joined to your WorkSpaces directory, open the Group Policy Management tool \(gpmc\.msc\) and navigate to and select a GPO at the domain or domain controller level of the directory you use for your WorkSpaces\. \(If you have the [Amazon WorkSpaces Group Policy administrative template](#gp_install_template) installed in your domain, you can use the WorkSpaces GPO for your WorkSpaces machine accounts\.\)
 
 1. Choose **Action**, **Edit** in the main menu\.
 
@@ -166,11 +167,11 @@ If needed for Windows WorkSpaces, you can use Group Policy settings to disable t
 
 1. In the **Allow time zone redirection** dialog box, choose **Disabled**, and choose **OK**\.
 
-1. Set the time zone for the WorkSpaces to the desired time zone\.
-
 1. The Group Policy setting change takes effect after the next Group Policy update for the WorkSpace and after the WorkSpace session is restarted\. To apply the Group Policy changes, do one of the following:
    + Reboot the WorkSpace \(in the Amazon WorkSpaces console, select the WorkSpace, then choose **Actions**, **Reboot WorkSpaces**\)\.
    + From an administrative command prompt, type gpupdate /force\.
+
+1. Set the time zone for the WorkSpaces to the desired time zone\.
 
 The time zone of the WorkSpaces is now static and no longer mirrors the time zone of the client machines\. 
 

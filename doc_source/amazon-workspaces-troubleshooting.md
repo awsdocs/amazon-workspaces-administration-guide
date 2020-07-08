@@ -103,6 +103,7 @@ The following information can help you troubleshoot specific issues with your Wo
 + [The WorkSpaces client gives my users a network error, but they are able to use other network\-enabled apps on their devices](#network_error)
 + [My WorkSpace users see the following error message: "Device can't connect to the registration service\. Check your network settings\."](#registration_service_failure)
 + [My PCoIP zero client users are receiving the error "The supplied certificate is invalid due to timestamp"](#pcoip_zero_client_ntp)
++ [My users skipped updating their Windows or macOS client applications and aren't getting prompted to install the latest version](#client_update_skipped)
 + [My users are unable to install the Android client application on their Chromebooks](#install_android_chromebook)
 + [My users aren't receiving invitation emails or password reset emails](#welcome_emails)
 + [My users don't see the Forgot password? option on the client login screen](#forgot_password)
@@ -115,6 +116,7 @@ The following information can help you troubleshoot specific issues with your Wo
 + [My Windows WorkSpace goes to sleep when it's left idle](#windows_workspace_sleeps_when_idle)
 + [One of my WorkSpaces has a state of "Unhealthy"](#unhealthy)
 + [My WorkSpace is unexpectedly crashing or rebooting](#crash_web_access)
++ [The same username has more than one WorkSpace, but the user can log in to only one of the WorkSpaces](#multiple_workspaces_same_username)
 + [I'm having trouble using Docker with Amazon WorkSpaces](#docker_support)
 + [I receive ThrottlingException errors to some of my API calls](#throttled-api-calls)
 
@@ -186,6 +188,9 @@ For more information, see [ Access this computer from the network \- security po
 Amazon WorkSpaces relies on a specific logon screen configuration to enable users to successfully log on from their Web Access client\.
 
 To enable Web Access users to log on to their WorkSpaces, you must configure a Group Policy setting and three Security Policy settings\. If these settings are not correctly configured, users might experience long logon times or black screens when they try to log on to their WorkSpaces\. To configure these settings, see [Enable and Configure Amazon WorkSpaces Web Access](web-access.md)\.
+
+**Important**  
+Beginning October 1, 2020, customers will no longer be able to use the Amazon WorkSpaces Web Access client to connect to Windows 7 custom WorkSpaces or to Windows 7 Bring Your Own License \(BYOL\) WorkSpaces\.
 
 ### The Amazon WorkSpaces client displays a gray "Loading\.\.\." screen for a while before returning to the login screen\. No other error message appears\.<a name="loading_screen"></a>
 
@@ -291,6 +296,16 @@ This error occurs when the WorkSpaces client application can't reach the registr
 ### My PCoIP zero client users are receiving the error "The supplied certificate is invalid due to timestamp"<a name="pcoip_zero_client_ntp"></a>
 
 If Network Time Protocol \(NTP\) isn't enabled in Teradici, your PCoIP zero client users might receive certificate failure errors\. To set up NTP, see [Set Up PCoIP Zero Client for WorkSpaces](set-up-pcoip-zero-client.md)\.
+
+### My users skipped updating their Windows or macOS client applications and aren't getting prompted to install the latest version<a name="client_update_skipped"></a>
+
+When users skip updates to the Amazon WorkSpaces Windows client application, the **SkipThisVersion** registry key gets set, and they are no longer prompted to update their clients when a new version of the client is released\. To update to the latest version, you can edit the registry as described in [ Update the WorkSpaces Windows Client Application to a Newer Version](https://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-windows-client.html#windows_setup) in the *Amazon WorkSpaces User Guide*\. You can also run the following PowerShell command: 
+
+```
+Remove-ItemProperty -Path "HKCU:\Software\Amazon Web Services. LLC\Amazon WorkSpaces\WinSparkle" -Name "SkipThisVersion"
+```
+
+When users skip updates to the Amazon WorkSpaces macOS client application, the `SUSkippedVersion` preference gets set, and they are no longer prompted to update their clients when a new version of the client is released\. To update to the latest version, you can reset this preference as described in [ Update the WorkSpaces macOS Client Application to a Newer Version](https://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-osx-client.html#osx_setup) in the *Amazon WorkSpaces User Guide*\.
 
 ### My users are unable to install the Android client application on their Chromebooks<a name="install_android_chromebook"></a>
 
@@ -490,9 +505,31 @@ We recommend that you push out these registry changes through GPO\.
 
 1. Reboot the machine\.
 
+### The same username has more than one WorkSpace, but the user can log in to only one of the WorkSpaces<a name="multiple_workspaces_same_username"></a>
+
+If you delete a user in Active Directory \(AD\) without first deleting their WorkSpace and then you add the user back to Active Directory and create a new WorkSpace for that user, the same username will now have two WorkSpaces in the same directory\. However, if the user tries to connect to their original WorkSpace, they will receive the following error:
+
+```
+"Unrecognized user. No WorkSpace found under your username. Contact your administrator to request one."
+```
+
+Additionally, searches for the username in the Amazon WorkSpaces console return only the new WorkSpace, even though both WorkSpaces still exist\. \(You can find the original WorkSpace by searching for the WorkSpace ID instead of the username\.\)
+
+This behavior can also occur if you rename a user in Active Directory without first deleting their WorkSpace\. If you then change their username back to the original username and create a new WorkSpace for the user, the same username will have two WorkSpaces in the directory\. 
+
+This problem occurs because Active Directory uses the user's security identifier \(SID\), rather than the username, to uniquely identify the user\. When a user is deleted and recreated in Active Directory, the user is assigned a new SID, even if their username remains the same\. During searches for a username, the Amazon WorkSpaces console uses the SID to search Active Directory for matches\. The Amazon WorkSpaces clients also use the SID to identify users when they are connecting to WorkSpaces\.
+
+To resolve this problem, do one of the following: 
++ If this problem occurred because the user was deleted and recreated in Active Directory, you might be able to restore the original deleted user object if you have enabled the [ Recycle Bin feature in Active Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/adac/introduction-to-active-directory-administrative-center-enhancements--level-100-)\. If you're able to restore the original user object, make sure the user can connect to their original WorkSpace\. If they can, you can [delete the new WorkSpace](delete-workspaces.md) after manually backing up and transferring any user data from the new WorkSpace to the original WorkSpace \(if needed\)\.
++ If you can't restore the original user object, [ delete the user's original WorkSpace](delete-workspaces.md)\. The user should be able to connect to and use their new WorkSpace instead\. Be sure to manually back up and transfer any user data from the original WorkSpace to the new WorkSpace\. 
+**Warning**  
+Deleting a WorkSpace is a permanent action and cannot be undone\. The WorkSpace user's data does not persist and is destroyed\. For help with backing up user data, contact AWS Support\. 
+
 ### I'm having trouble using Docker with Amazon WorkSpaces<a name="docker_support"></a>
 
-Nested virtualization \(including the use of Docker\) is not supported on Amazon WorkSpaces for Windows or Linux\.
+Nested virtualization \(including the use of Docker\) is not supported on Amazon WorkSpaces for Windows\.
+
+The use of Docker on Linux WorkSpaces is also not supported\. If you use Docker on Linux WorkSpaces, you might experience some issues\.
 
 ### I receive ThrottlingException errors to some of my API calls<a name="throttled-api-calls"></a>
 

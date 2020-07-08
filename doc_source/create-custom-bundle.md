@@ -24,6 +24,7 @@ Custom bundles cost as same as the public bundles they are created from\. For mo
 + [What's Included with Amazon Linux WorkSpace Custom Images](#image_creation_linux)
 
 ## Requirements to Create Windows Custom Images<a name="windows_custom_image_requirements"></a>
++ The status of the WorkSpace must be **Available** and its modification state must be **None**\.
 + All applications and user profiles on WorkSpaces images must be compatible with Microsoft Sysprep\.
 + All applications to be included in the image must be installed on the `C` drive\.
 + The user profile must exist, must be located at `D:\Users\username`, and its total size \(files and data\) must be less than 10 GB\.
@@ -41,6 +42,7 @@ Custom bundles cost as same as the public bundles they are created from\. For mo
   + Skylight agent
 
 ## Requirements to Create Amazon Linux Custom Images<a name="linux_custom_image_requirements"></a>
++ The status of the WorkSpace must be **Available** and its modification state must be **None**\.
 + All applications to be included in the image must be installed outside of the user volume \(the `/home` directory\)\.
 + The root volume \(/\) should be less than 97% full\.
 + The WorkSpace must not be encrypted\. Image creation from an encrypted WorkSpace is not currently supported\.

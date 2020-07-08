@@ -7,7 +7,7 @@ As an administrator for Amazon WorkSpaces, you can perform the following tasks t
 You can use the Amazon WorkSpaces console to edit the user information for a WorkSpace\.
 
 **Note**  
-This feature is available only if you use Microsoft AD or Simple AD\. If you use Microsoft Active Directory through AD Connector or a trust relationship, you can manage users and groups by using [ Active Directory](https://docs.microsoft.com/powershell/module/addsadministration/?view=win10-ps)\.
+This feature is available only if you use AWS Managed Microsoft AD or Simple AD\. If you use Microsoft Active Directory through AD Connector or a trust relationship, you can manage users and groups by using [ Active Directory](https://docs.microsoft.com/powershell/module/addsadministration/?view=win10-ps)\.
 
 **To edit user information**
 
@@ -28,7 +28,7 @@ You can create new users from the Amazon WorkSpaces console only during the proc
 **To add or delete users and groups**  
 To add, delete, or otherwise manage users and groups, you must do this through your directory\. You'll perform most administrative tasks for your WorkSpaces directory using directory management tools, such as the Active Directory Administration Tools\. For more information, see [Set Up Active Directory Administration Tools for Amazon WorkSpaces](directory_administration.md)\.
 
-**Note**  
+**Important**  
 Before you can remove a user, you must delete the WorkSpace assigned to that user\. For more information, see [Delete a WorkSpace](delete-workspaces.md)\.
 
 The process you use for managing users and groups depends on which type of directory you're using\.

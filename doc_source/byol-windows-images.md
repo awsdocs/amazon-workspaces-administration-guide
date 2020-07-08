@@ -13,7 +13,7 @@ To get started, open the Amazon WorkSpaces console and choose **Account Settings
 + [Step 1: Enable BYOL for Your Account by Using the Amazon WorkSpaces Console](#windows_images_enable_byol)
 + [Step 2: Run the BYOL Checker PowerShell Script on a Windows VM](#windows_images_run_byol_checker_script)
 + [Step 3: Export the VM from Your Virtualization Environment](#windows_images_create_image_byol)
-+ [Step 4: Import the VM as an Image into EC2](#windows_images_import_image_ec2_byol)
++ [Step 4: Import the VM as an Image into Amazon EC2](#windows_images_import_image_ec2_byol)
 + [Step 5: Create a BYOL Image by Using the Amazon WorkSpaces Console](#windows_images_create_byol_image_console)
 + [Step 6: Create a Custom Bundle from the BYOL Image](#windows_images_create_custom_bundle_byol)
 + [Step 7: Register a Directory for Dedicated WorkSpaces](#windows_images_dedicate_directory_for_byol)
@@ -33,7 +33,7 @@ Before you begin, verify the following:
   + 192\.168\.0\.0/16
   + 198\.18\.0\.0/15
 **Note**  
-As you adopt the WorkSpaces service, the available management interface IP address ranges frequently change\. To determine which ranges are currently available, run the [ list\-available\-management\-cidr\-ranges](https://docs.aws.amazon.com/cli/latest/reference/workspaces/list-available-management-cidr-ranges.html) CLI command\.
+As you adopt the WorkSpaces service, the available management interface IP address ranges frequently change\. To determine which ranges are currently available, run the [ list\-available\-management\-cidr\-ranges](https://docs.aws.amazon.com/cli/latest/reference/workspaces/list-available-management-cidr-ranges.html) AWS Command Line Interface \(AWS CLI\) command\.
 + You have a virtual machine \(VM\) that runs a supported 64\-bit version of Windows\. For a list of supported versions, see the next section in this topic, [Windows Versions That Are Supported for BYOL](#windows_images_supported_versions)\. The VM must also meet these requirements: 
   + The Windows operating system must be activated against your key management servers\.
   + The Windows operating system must have **English \(United States\)** as the primary language\.
@@ -69,7 +69,7 @@ The steps in this procedure for enabling BYOL for your account need to be perfor
 
 1. Under **Bring Your Own License \(BYOL\)**, in the **Management network interface IP address range** area, choose an IP address range, and then choose **Display available CIDR blocks**\.
 
-   Amazon WorkSpaces searches for and displays available IP address ranges as IPv4 CIDR blocks, within the range that you specify\. If you require a specific IP address range, you can edit the search range\.
+   Amazon WorkSpaces searches for and displays available IP address ranges as IPv4 Classless Inter\-Domain Routing \(CIDR\) blocks, within the range that you specify\. If you require a specific IP address range, you can edit the search range\.
 **Important**  
 After you specify an IP address range, you cannot modify it\. Make sure to specify an IP address range that doesn't conflict with the ranges used by your internal network\. If you have any question about which range to specify, contact your AWS account manager or sales representative, or contact the [AWS Support Center](https://console.aws.amazon.com/support/home#/) before proceeding\.
 
@@ -132,7 +132,7 @@ Do not delete these files\. If an issue occurs, they might be helpful in trouble
 
 1. <a name="step_create_VM_snapshot"></a>Shut down the VM and create a snapshot of it\.
 
-1. Choose **Run Sysprep**\. If Sysprep is successful, your VM that you exported after [Step 12](#step_create_VM_snapshot) can be imported into EC2\. Otherwise, review the Sysprep logs, roll back to the snapshot taken at [Step 12](#step_create_VM_snapshot), resolve the reported issues, take a new snapshot, and run the BYOL Checker script again\.
+1. Start the VM again\. Choose **Run Sysprep**\. If Sysprep is successful, your VM that you exported after [Step 12](#step_create_VM_snapshot) can be imported into Amazon Elastic Compute Cloud \(Amazon EC2\)\. Otherwise, review the Sysprep logs, roll back to the snapshot taken at [Step 12](#step_create_VM_snapshot), resolve the reported issues, take a new snapshot, and run the BYOL Checker script again\.
 
    The most common reason that Sysprep fails is that the Modern AppX Packages are not uninstalled for all users\. Use the Remove\-AppxPackage PowerShell cmdlet to remove the AppX Packages\.
 
@@ -142,7 +142,7 @@ Do not delete these files\. If an issue occurs, they might be helpful in trouble
 
 To create an image for BYOL, you must first export the VM from your virtualization environment\. The VM must be on a single volume with a maximum size of 70 GB and at least 10 GB of free space\. For more information, see the documentation for your virtualization environment and [Export Your VM from its Virtualization Environment](https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#export-vm-image) in the *VM Import/Export User Guide*\.
 
-## Step 4: Import the VM as an Image into EC2<a name="windows_images_import_image_ec2_byol"></a>
+## Step 4: Import the VM as an Image into Amazon EC2<a name="windows_images_import_image_ec2_byol"></a>
 
 After you export your VM, review the requirements for importing Windows operating systems from a VM\. Take action as needed\. For more information, see [VM Import/Export Requirements](https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html)\.
 
@@ -150,7 +150,7 @@ After you export your VM, review the requirements for importing Windows operatin
 Importing a VM with an encrypted disk is not supported\.
 
 Import your VM into Amazon EC2 as an Amazon Machine Image \(AMI\)\. Use one of the following methods:
-+ Use the import\-image command with the AWS Command Line Interface \(AWS CLI\)\. For more information, see [import\-image](https://docs.aws.amazon.com/cli/latest/reference/ec2/import-image.html) in the *AWS CLI Command Reference*\.
++ Use the import\-image command with the AWS CLI\. For more information, see [import\-image](https://docs.aws.amazon.com/cli/latest/reference/ec2/import-image.html) in the *AWS CLI Command Reference*\.
 + Use the ImportImage API operation\. For more information, see [ImportImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportImage.html) in the *Amazon EC2 API Reference*\.
 
 For more information, see [Importing a VM as an Image](https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html) in the *VM Import/Export User Guide*\.
@@ -160,10 +160,10 @@ For more information, see [Importing a VM as an Image](https://docs.aws.amazon.c
 Perform these steps to create an Amazon WorkSpaces BYOL image\. 
 
 **Note**  
-To perform this procedure, verify that you have permissions to:  
+To perform this procedure, verify that you have AWS Identity and Access Management \(IAM\) permissions to:  
 Call Amazon WorkSpaces **ImportWorkspaceImage**\.
-Call EC2 **DescribeImages** on the EC2 image that you want to use to create the BYOL image\.
-Call EC2 **ModifyImageAttribute** on the EC2 image that you want to use to create the BYOL image\.
+Call Amazon EC2 **DescribeImages** on the Amazon EC2 image that you want to use to create the BYOL image\.
+Call Amazon EC2 **ModifyImageAttribute** on the Amazon EC2 image that you want to use to create the BYOL image\.
 For more information, see [Changing Permissions for an IAM User ](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html) in the *IAM User Guide*\.  
 To create a Graphics or GraphicsPro bundle from your image, contact the [AWS Support Center](https://console.aws.amazon.com/support/home#/) to get your account added to the allow list\. After your account is on the allow list, you can use the AWS CLI import\-workspace\-image command to ingest the Graphics or GraphicsPro image\. For more information, see [import\-workspace\-image](https://docs.aws.amazon.com/cli/latest/reference/workspaces/import-workspace-image.html) in the *AWS CLI Command Reference*\.
 
@@ -176,7 +176,7 @@ To create a Graphics or GraphicsPro bundle from your image, contact the [AWS Sup
 1. Choose **Actions**, **Create BYOL Image**\. 
 
 1. In the **Create BYOL Image** dialog box, do the following: 
-   + For **AMI ID**, click the **EC2 Console** link, and choose the EC2 image that you imported as described in the previous section \(Step 4: Import the VM as an Image into EC2\)\. The image name must begin with `ami-` and be followed by the identifier for the AMI \(for example, `ami-5731123e`\)\.
+   + For **AMI ID**, click the **EC2 Console** link, and choose the Amazon EC2 image that you imported as described in the previous section \(Step 4: Import the VM as an Image into Amazon EC2\)\. The image name must begin with `ami-` and be followed by the identifier for the AMI \(for example, `ami-1234567e`\)\.
    + For **BYOL image name**, enter a unique name for the image\.
    + For **Image description**, enter a description to help you quickly identify the image\.
    + For **Ingestion process**, choose the appropriate bundle type \(either **Regular**, **Graphics**, or **GraphicsPro**\)\. For non\-GPU\-enabled bundles \(bundles other than Graphics or GraphicsPro\), choose **Regular**\.
