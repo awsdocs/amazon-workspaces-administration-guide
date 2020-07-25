@@ -12,6 +12,7 @@ Europe \(Ireland\)
 Asia Pacific \(Singapore\)
 Asia Pacific \(Sydney\)
 Asia Pacific \(Tokyo\)
+To change your Region, see [ Choosing a Region](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html#select-region)\.
 
 **Topics**
 + [Before You Begin](#quick-setup-prereqs)
@@ -24,7 +25,7 @@ Asia Pacific \(Tokyo\)
 + You must have an AWS account to create or administer a WorkSpace\. Users do not need an AWS account to connect to and use their WorkSpaces\.
 + When you launch a WorkSpace, you must select a WorkSpace bundle\. For more information, see [Amazon WorkSpaces Bundles](https://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles)\.
 + When you launch a WorkSpace, you must specify profile information for the user, including a user name and email address\. Users complete their profiles by specifying a password\. Information about WorkSpaces and users is stored in a directory\.
-+ Amazon WorkSpaces is not available in every Region\. Verify the supported Regions and select a Region for your WorkSpaces\. For more information about the supported Regions, see [Amazon WorkSpaces Pricing by AWS Region](https://aws.amazon.com/workspaces/pricing/#Amazon_WorkSpaces_Pricing_by_AWS_Region)\.
++ Amazon WorkSpaces is not available in every Region\. Verify the supported Regions and [ select a Region](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html#select-region) for your WorkSpaces\. For more information about the supported Regions, see [Amazon WorkSpaces Pricing by AWS Region](https://aws.amazon.com/workspaces/pricing/#Amazon_WorkSpaces_Pricing_by_AWS_Region)\.
 
 ## Step 1: Launch the WorkSpace<a name="quick-setup-launch-workspace"></a>
 
@@ -34,12 +35,12 @@ Using Quick Setup, you can launch your first WorkSpace in minutes\.
 
 1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
-1. Choose **Get Started Now**\. If you don't see this button, either you have already launched a WorkSpace in this Region, or you aren't using one of the [Regions that support Quick Setup](#quick-setup-regions)\.
+1. Choose **Get Started Now**\. If you don't see this button, either you have already launched a WorkSpace in this Region, or you aren't using one of the [Regions that support Quick Setup](#quick-setup-regions)\. In this case, see [Launch a Virtual Desktop Using Amazon WorkSpaces](launch-workspaces-tutorials.md)\. 
 
 1. On the **Get Started with Amazon WorkSpaces** page, next to **Quick Setup**, choose **Launch**\.  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/images/get-started-options.png)
 
-1. For **Bundles**, select a bundle for the user\.  
+1. For **Bundles**, select a bundle \(hardware and software\) for the user\. For more information about the various public bundles available for Amazon WorkSpaces, see [Amazon WorkSpaces Bundles](https://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles)\.  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/images/bundles-linux2-windows.png)
 
 1. For **Enter User Details**, complete **Username**, **First Name**, **Last Name**, and **Email**\.  
@@ -47,7 +48,9 @@ Using Quick Setup, you can launch your first WorkSpace in minutes\.
 
 1. Choose **Launch WorkSpaces**\.
 
-1. On the confirmation page, choose **View the WorkSpaces Console**\. The initial status of the WorkSpace is `PENDING`\. When the launch is complete, the status is `AVAILABLE` and an invitation is sent to the email address that you specified for the user\.
+1. On the confirmation page, choose **View the WorkSpaces Console**\. It takes approximately 20 minutes for your WorkSpace to be launched\. To monitor the progress, go to the left navigation pane and choose **Directories**\. You will see a directory being created with an initial status of `REQUESTED` and then `CREATING`\. 
+
+   After the directory has been created and has a status of `ACTIVE`, you can choose **WorkSpaces** in the left navigation pane to monitor the progress of the WorkSpace launch process\. The initial status of the WorkSpace is `PENDING`\. When the launch is complete, the status is `AVAILABLE` and an invitation is sent to the email address that you specified for the user\.
 
 **Quick Setup**
 
@@ -69,12 +72,14 @@ After you receive the invitation email, you can connect to the WorkSpace using t
 **To connect to the WorkSpace**
 
 1. If you haven't set up credentials for the user already, open the link in the invitation email and follow the directions\. Remember the password that you specify as you will need it to connect to your WorkSpace\.
+**Note**  
+Passwords are case\-sensitive and must be between 8 and 64 characters in length, inclusive\. Passwords must contain at least one character from three of the following categories: lowercase letters \(a\-z\), uppercase letters \(A\-Z\), numbers \(0\-9\), and the set \~\!@\#$%^&\*\_\-\+=`\|\\\(\)\{\}\[\]:;"'<>,\.?/\.
 
-   Note that passwords are case\-sensitive and must be between 8 and 64 characters in length, inclusive\. Passwords must contain at least one character from three of the following categories: lowercase letters \(a\-z\), uppercase letters \(A\-Z\), numbers \(0\-9\), and the set \~\!@\#$%^&\*\_\-\+=`\|\\\(\)\{\}\[\]:;"'<>,\.?/\.
-
-1. When prompted, download one of the client applications or launch Web Access\. For more information about the requirements for each client, see [Amazon WorkSpaces Clients](https://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-clients.html) in the *Amazon WorkSpaces User Guide*\.
-
-   If you aren't prompted and you haven't installed a client application already, open [https://clients\.amazonworkspaces\.com/](https://clients.amazonworkspaces.com/) and follow the directions\.
+1. Review [Amazon WorkSpaces Clients](https://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-clients.html) in the *Amazon WorkSpaces User Guide* for more information about the requirements for each client, and then do one of the following: 
+   + When prompted, download one of the client applications or launch Web Access\.
+   + If you aren't prompted and you haven't installed a client application already, open [https://clients\.amazonworkspaces\.com/](https://clients.amazonworkspaces.com/) and download one of the client applications or launch Web Access\.
+**Note**  
+You cannot use a web browser \(Web Access\) to connect to Amazon Linux WorkSpaces\.
 
 1. Start the client, enter the registration code from the invitation email, and choose **Register**\.
 

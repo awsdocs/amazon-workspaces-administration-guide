@@ -18,19 +18,20 @@ If antivirus software is installed on the WorkSpace, exclude the following locat
 + C:\\ProgramData\\Teradici
 
 On Amazon Linux WorkSpaces, the service components are installed in the following locations\. Do not delete, change, block, or quarantine these objects\. If you do so, the WorkSpace will not function correctly\.
-+ /var/lib/skylight
-+ /var/lib/pcoip\-agent
-+ /var/log/skylight
-+ /var/log/pcoip\-agent 
++ /etc/dhcp/dhclient\.conf
++ /etc/os\-release
 + /etc/pam\.d/pcoip
 + /etc/pam\.d/pcoip\-session
-+ /etc/X11/default\-display\-manager
-+ /etc/os\-release
 + /etc/profile\.d/system\-restart\-check\.sh
++ /etc/X11/default\-display\-manager
 + /etc/yum/pluginconf\.d/halt\_os\_update\_check\.conf
-+ /usr/lib/skylight
 + /usr/lib/pcoip\-agent
-+ /usr/lib/system\.d/system/pcoip\.service\.d/
-+ /usr/lib/system\.d/system/pcoip\.service
-+ /usr/lib/system\.d/system/skylight\-agent\.service
-+ /usr/lib/yum\-plugins/halt\_os\_update\_check\.p
++ /usr/lib/skylight
++ /usr/lib/systemd/system/pcoip\.service
++ /usr/lib/systemd/system/pcoip\.service\.d/
++ /usr/lib/systemd/system/skylight\-agent\.service
++ /usr/lib/yum\-plugins/halt\_os\_update\_check\.py
++ /var/lib/pcoip\-agent
++ /var/lib/skylight
++ /var/log/pcoip\-agent 
++ /var/log/skylight

@@ -70,9 +70,11 @@ After you receive the invitation email, you can connect to your WorkSpace\. User
 **Note**  
 Passwords are case\-sensitive and must be between 8 and 64 characters in length, inclusive\. Passwords must contain at least one character from three of the following categories: lowercase letters \(a\-z\), uppercase letters \(A\-Z\), numbers \(0\-9\), and \~\!@\#$%^&\*\_\-\+=`\|\\\(\)\{\}\[\]:;"'<>,\.?/\.
 
-1. When prompted, download one of the client applications or launch Web Access\.
-
-   If you aren't prompted and you haven't installed a client application already, open [https://clients\.amazonworkspaces\.com/](https://clients.amazonworkspaces.com/) and follow the directions\.
+1. Review [Amazon WorkSpaces Clients](https://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-clients.html) in the *Amazon WorkSpaces User Guide* for more information about the requirements for each client, and then do one of the following: 
+   + When prompted, download one of the client applications or launch Web Access\.
+   + If you aren't prompted and you haven't installed a client application already, open [https://clients\.amazonworkspaces\.com/](https://clients.amazonworkspaces.com/) and download one of the client applications or launch Web Access\.
+**Note**  
+You cannot use a web browser \(Web Access\) to connect to Amazon Linux WorkSpaces\.
 
 1. Start the client, enter the registration code from the invitation email, and choose **Register**\.
 

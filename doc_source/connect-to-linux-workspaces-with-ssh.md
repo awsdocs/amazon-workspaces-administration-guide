@@ -147,7 +147,7 @@ For instructions on how to obtain this information, see "Prerequisites for SSH C
    + For **Host Name \(or IP address\)**, enter the following command\. Replace the values with the NetBIOS name of the Active Directory domain that you are connected to, the user name that you use to connect to the WorkSpace, and the IP address of the WorkSpace that you want to connect to\.
 
      ```
-     "NetBIOS_NAME\Username"@WorkSpaceIP
+     NetBIOS_NAME\Username@WorkSpaceIP
      ```
    + For **Port**, enter **22**\.
    + For **Connection type**, choose **SSH**\.

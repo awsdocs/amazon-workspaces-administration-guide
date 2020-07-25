@@ -14,7 +14,7 @@ In this tutorial, we launch a WorkSpace that uses Simple AD\. For tutorials that
 + [Next Steps](#next-steps-simple-ad)
 
 ## Before You Begin<a name="prereqs-simple-ad"></a>
-+ Simple AD is not available in every Region\. Verify the supported Regions and select a Region for your Simple AD directory\. For more information about the supported Regions, see the **Simple AD** table under [AWS Directory Service](https://docs.aws.amazon.com/general/latest/gr/rande.html#ds_region)\.
++ Simple AD is not available in every Region\. Verify the supported Regions and [ select a Region](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html#select-region) for your Simple AD directory\. For more information about the supported Regions for Simple AD, see [ Region Availability for AWS Directory Service](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/regions.html)\.
 + Amazon WorkSpaces is not available in every Region\. Verify the supported Regions and select a Region for your WorkSpaces\. For more information about the supported Regions, see [Amazon WorkSpaces Pricing by AWS Region](https://aws.amazon.com/workspaces/pricing/)\.
 + When you launch a WorkSpace, you must select a WorkSpace bundle\. A bundle is a combination of an operating system, and storage, compute, and software resources\. For more information, see [Amazon WorkSpaces Bundles](https://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles)\.
 + When you create a directory using AWS Directory Service or launch a WorkSpace, you must create or select a virtual private cloud configured with a public subnet and two private subnets\. For more information, see [Configure a VPC for Amazon WorkSpaces](amazon-workspaces-vpc.md)\.
@@ -36,6 +36,8 @@ Create a Simple AD directory\. AWS Directory Service creates two directory serve
    1. For **Organization name**, enter a unique organization name for your directory \(for example, my\-example\-directory\)\. This name must be at least four characters in length, consist of only alphanumeric characters and hyphens \(\-\), and begin or end with a character other than a hyphen\.
 
    1. For **Directory DNS**, enter the fully\-qualified name for the directory \(for example, example\.com\)\.
+**Important**  
+If you need to update your DNS server after launching your WorkSpaces, follow the procedure in [Update DNS Servers for WorkSpaces](update-dns-server.md) to ensure that your WorkSpaces get properly updated\.
 
    1. For **NetBIOS name**, enter a short name for the directory \(for example, example\)\.
 
@@ -108,9 +110,11 @@ After you receive the invitation email, you can connect to your WorkSpace using 
 **Note**  
 Passwords are case\-sensitive and must be between 8 and 64 characters in length, inclusive\. Passwords must contain at least one character from four of the following categories: lowercase letters \(a\-z\), uppercase letters \(A\-Z\), numbers \(0\-9\), and \~\!@\#$%^&\*\_\-\+=`\|\\\(\)\{\}\[\]:;"'<>,\.?/\.
 
-1. When prompted, download one of the client applications or launch Web Access\.
-
-   If you aren't prompted and you haven't installed a client application already, open [https://clients\.amazonworkspaces\.com/](https://clients.amazonworkspaces.com/) and follow the directions\.
+1. Review [Amazon WorkSpaces Clients](https://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-clients.html) in the *Amazon WorkSpaces User Guide* for more information about the requirements for each client, and then do one of the following: 
+   + When prompted, download one of the client applications or launch Web Access\.
+   + If you aren't prompted and you haven't installed a client application already, open [https://clients\.amazonworkspaces\.com/](https://clients.amazonworkspaces.com/) and download one of the client applications or launch Web Access\.
+**Note**  
+You cannot use a web browser \(Web Access\) to connect to Amazon Linux WorkSpaces\.
 
 1. Start the client, enter the registration code from the invitation email, and choose **Register**\.
 

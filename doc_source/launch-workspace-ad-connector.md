@@ -40,6 +40,8 @@ In this tutorial, we launch a WorkSpace that uses AD Connector\. For tutorials t
 1. For **Connector account password** and **Confirm password**, enter the password for the on\-premises user account\.
 
 1. For **DNS address**, enter the IP address of at least one DNS server in your on\-premises directory\.
+**Important**  
+If you need to update your DNS server IP address after launching your WorkSpaces, follow the procedure in [Update DNS Servers for WorkSpaces](update-dns-server.md) to ensure that your WorkSpaces get properly updated\.
 
 1. \(Optional\) For **Description**, enter a description for the directory\.
 
@@ -93,9 +95,11 @@ You can connect to your WorkSpace using the client of your choice\. After you si
 
 1. Open the link in the invitation email\.
 
-1. When prompted, download one of the client applications or launch Web Access\.
-
-   If you aren't prompted and you haven't installed a client application already, open [https://clients\.amazonworkspaces\.com/](https://clients.amazonworkspaces.com/) and follow the directions\.
+1. Review [Amazon WorkSpaces Clients](https://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-clients.html) in the *Amazon WorkSpaces User Guide* for more information about the requirements for each client, and then do one of the following: 
+   + When prompted, download one of the client applications or launch Web Access\.
+   + If you aren't prompted and you haven't installed a client application already, open [https://clients\.amazonworkspaces\.com/](https://clients.amazonworkspaces.com/) and download one of the client applications or launch Web Access\.
+**Note**  
+You cannot use a web browser \(Web Access\) to connect to Amazon Linux WorkSpaces\.
 
 1. Start the client, enter the registration code from the invitation email, and choose **Register**\.
 

@@ -92,6 +92,7 @@ The following information can help you troubleshoot specific issues with your Wo
 **Topics**
 + [I can't create an Amazon Linux WorkSpace because there are non\-valid characters in the user name](#linux_workspace_provision_fail_username)
 + [I changed the shell for my Amazon Linux WorkSpace and now I can't provision a PCoIP session](#linux_workspace_provision_fail_shell_override)
++ [My Amazon Linux WorkSpaces won't start](#linux_workspace_provision_fail_pcoip_agent_upgrade)
 + [Launching WorkSpaces in my connected directory often fails](#provision_fail)
 + [Launching WorkSpaces fails with an internal error](#launch-failure-ipv6)
 + [My users can't connect to a Windows WorkSpace with an interactive logon banner](#logon_banner)
@@ -134,6 +135,58 @@ These limitations do not apply to Windows WorkSpaces\. Windows WorkSpaces suppor
 ### I changed the shell for my Amazon Linux WorkSpace and now I can't provision a PCoIP session<a name="linux_workspace_provision_fail_shell_override"></a>
 
 To override the default shell for Linux WorkSpaces, see [Override the Default Shell for Amazon Linux WorkSpaces](manage_linux_workspace.md#linux_shell)\. 
+
+### My Amazon Linux WorkSpaces won't start<a name="linux_workspace_provision_fail_pcoip_agent_upgrade"></a>
+
+Starting July 20, 2020, Amazon Linux WorkSpaces will be using new license certificates\. These new certificates are compatible only with versions 2\.14\.1\.1, 2\.14\.7, and 2\.14\.9 of the PCoIP agent\. 
+
+If you're using an unsupported version of the PCoIP agent, you must upgrade it to the latest version \(2\.14\.9\), which has the latest fixes and performance improvements that are compatible with the new certificates\. If you don't make these upgrades by July 20, session provisioning for your Linux WorkSpaces will fail and your end users won't be able to connect to their WorkSpaces\.
+
+**To upgrade your PCoIP agent to the latest version**
+
+1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+
+1. In the navigation pane, choose **WorkSpaces**\.
+
+1. Select your Linux WorkSpace, and reboot it by choosing **Actions**, **Reboot WorkSpaces**\. If the WorkSpace status is `STOPPED`, you must choose **Actions**, **Start WorkSpaces** first and wait until its status is `AVAILABLE` before you can reboot it\.
+
+1. <a name="step_maintenance_mode"></a>After your WorkSpace has rebooted and its status is `AVAILABLE`, we recommend that you change the status of the WorkSpace to `ADMIN_MAINTENANCE` while you are performing this upgrade\. When you are finished, change the status of the WorkSpace to `AVAILABLE`\. For more information about `ADMIN_MAINTENANCE` mode, see [ Manual Maintenance](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html#admin-maintenance)\.
+
+   To change the status of a WorkSpace to `ADMIN_MAINTENANCE`, do the following:
+
+   1. Select the WorkSpace and choose **Actions**, **Modify WorkSpace**\.
+
+   1. Choose **Modify State**\.
+
+   1. For **Intended State**, select **ADMIN\_MAINTENANCE**\.
+
+   1. Choose **Modify**\.
+
+1. Connect to your Linux WorkSpace through SSH\. For more information, see [Enable SSH Connections for Your Linux WorkSpaces](connect-to-linux-workspaces-with-ssh.md)\. 
+
+1. To update the PCoIP agent, run the following command:
+
+   ```
+   sudo yum --enablerepo=pcoip-stable install pcoip-agent-standard-2.14.9
+   ```
+
+1. To verify the agent version and to confirm that the update succeeded, run the following command:
+
+   ```
+   rpm -q pcoip-agent-standard
+   ```
+
+   The verification command should produce following result:
+
+   ```
+   pcoip-agent-standard-2.14.9-27877.el7.x86_64
+   ```
+
+1. Disconnect from the WorkSpace and reboot it again\. 
+
+1. If you set the status of the WorkSpace to `ADMIN_MAINTENANCE` in [Step 4](#step_maintenance_mode), repeat [Step 4](#step_maintenance_mode) and set **Intended State** to `AVAILABLE`\.
+
+If your Linux WorkSpace still fails to start after you upgrade the PCoIP agent, contact AWS Support\. 
 
 ### Launching WorkSpaces in my connected directory often fails<a name="provision_fail"></a>
 

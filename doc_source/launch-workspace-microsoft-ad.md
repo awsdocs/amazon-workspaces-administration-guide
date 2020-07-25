@@ -35,6 +35,8 @@ First, create an AWS Managed Microsoft AD directory\. AWS Directory Service crea
    1. For **Organization name**, enter a unique organization name for your directory \(for example, my\-demo\-directory\)\. This name must be at least four characters in length, consist of only alphanumeric characters and hyphens \(\-\), and begin or end with a character other than a hyphen\.
 
    1. For **Directory DNS**, enter the fully\-qualified name for the directory \(for example, workspaces\.demo\.com\)\.
+**Important**  
+If you need to update your DNS server after launching your WorkSpaces, follow the procedure in [Update DNS Servers for WorkSpaces](update-dns-server.md) to ensure that your WorkSpaces get properly updated\.
 
    1. For **NetBIOS name**, enter a short name for the directory \(for example, workspaces\)\.
 
@@ -90,11 +92,11 @@ After you receive the invitation email, you can connect to your WorkSpace using 
 **Note**  
 Passwords are case\-sensitive and must be between 8 and 64 characters in length, inclusive\. Passwords must contain at least one character from three of the following categories: lowercase letters \(a\-z\), uppercase letters \(A\-Z\), numbers \(0\-9\), and \~\!@\#$%^&\*\_\-\+=`\|\\\(\)\{\}\[\]:;"'<>,\.?/\.
 
-1. When prompted, download one of the client applications or, for Windows WorkSpaces, launch Web Access\. 
+1. Review [Amazon WorkSpaces Clients](https://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-clients.html) in the *Amazon WorkSpaces User Guide* for more information about the requirements for each client, and then do one of the following: 
+   + When prompted, download one of the client applications or launch Web Access\.
+   + If you aren't prompted and you haven't installed a client application already, open [https://clients\.amazonworkspaces\.com/](https://clients.amazonworkspaces.com/) and download one of the client applications or launch Web Access\.
 **Note**  
-You cannot use a web browser to connect to Amazon Linux WorkSpaces\.
-
-   If you aren't prompted and you haven't installed a client application already, open [https://clients\.amazonworkspaces\.com/](https://clients.amazonworkspaces.com/) and follow the directions\.
+You cannot use a web browser \(Web Access\) to connect to Amazon Linux WorkSpaces\.
 
 1. Start the client, enter the registration code from the invitation email, and choose **Register**\.
 

@@ -2,9 +2,10 @@
 
 If needed, you can rebuild a WorkSpace\. This recreates both the root volume and the user volume\.
 
-You cannot rebuild a WorkSpace unless its state is `AVAILABLE`, `ERROR`, `UNHEALTHY`, or `STOPPED`\.
+You cannot rebuild a WorkSpace unless its state is `AVAILABLE`, `ERROR`, `UNHEALTHY`, `STOPPED`, or `REBOOTING`\.
 
-**Note**  
+**Important**  
+To rebuild a WorkSpace in the `REBOOTING` state, you must use the [ RebuildWorkspaces](https://docs.aws.amazon.com/workspaces/latest/api/API_RebuildWorkspaces.html) API operation or the [ rebuild\-workspaces](https://docs.aws.amazon.com/cli/latest/reference/workspaces/rebuild-workspaces.html) AWS Command Line Interface \(CLI\) command\.
 After January 14, 2020, WorkSpaces created from a public Windows 7 bundle can no longer be rebuilt\. You might want to consider migrating your Windows 7 WorkSpaces to Windows 10\. For more information, see [Migrate a WorkSpace](migrate-workspaces.md)\.
 
 Rebuilding a WorkSpace causes the following to occur:
