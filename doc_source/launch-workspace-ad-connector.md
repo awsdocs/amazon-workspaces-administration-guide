@@ -41,7 +41,7 @@ In this tutorial, we launch a WorkSpace that uses AD Connector\. For tutorials t
 
 1. For **DNS address**, enter the IP address of at least one DNS server in your on\-premises directory\.
 **Important**  
-If you need to update your DNS server IP address after launching your WorkSpaces, follow the procedure in [Update DNS Servers for WorkSpaces](update-dns-server.md) to ensure that your WorkSpaces get properly updated\.
+If you need to update your DNS server IP address after launching your WorkSpaces, follow the procedure in [Update DNS Servers for Amazon WorkSpaces](update-dns-server.md) to ensure that your WorkSpaces get properly updated\.
 
 1. \(Optional\) For **Description**, enter a description for the directory\.
 

@@ -580,9 +580,7 @@ Deleting a WorkSpace is a permanent action and cannot be undone\. The WorkSpace 
 
 ### I'm having trouble using Docker with Amazon WorkSpaces<a name="docker_support"></a>
 
-Nested virtualization \(including the use of Docker\) is not supported on Amazon WorkSpaces for Windows\.
-
-The use of Docker on Linux WorkSpaces is also not supported\. If you use Docker on Linux WorkSpaces, you might experience some issues\.
+Nested virtualization \(including the use of Docker\) is not supported on Amazon WorkSpaces for Windows or Linux\. For more information, see the [Docker documentation](https://docs.docker.com/docker-for-windows/troubleshoot/#running-docker-desktop-in-nested-virtualization-scenarios)\.
 
 ### I receive ThrottlingException errors to some of my API calls<a name="throttled-api-calls"></a>
 

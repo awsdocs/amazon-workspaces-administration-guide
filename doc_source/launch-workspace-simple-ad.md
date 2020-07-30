@@ -37,7 +37,7 @@ Create a Simple AD directory\. AWS Directory Service creates two directory serve
 
    1. For **Directory DNS**, enter the fully\-qualified name for the directory \(for example, example\.com\)\.
 **Important**  
-If you need to update your DNS server after launching your WorkSpaces, follow the procedure in [Update DNS Servers for WorkSpaces](update-dns-server.md) to ensure that your WorkSpaces get properly updated\.
+If you need to update your DNS server after launching your WorkSpaces, follow the procedure in [Update DNS Servers for Amazon WorkSpaces](update-dns-server.md) to ensure that your WorkSpaces get properly updated\.
 
    1. For **NetBIOS name**, enter a short name for the directory \(for example, example\)\.
 
