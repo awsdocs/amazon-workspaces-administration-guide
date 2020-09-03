@@ -2,7 +2,7 @@
 
 The *running mode* of a WorkSpace determines its immediate availability and how you pay for it\. You can choose between the following running modes when you create the WorkSpace:
 + **AlwaysOn** — Use when paying a fixed monthly fee for unlimited usage of your WorkSpaces\. This mode is best for users who use their WorkSpace full time as their primary desktop\.
-+ **AutoStop** — Use when paying for your WorkSpaces by the hour\. With this mode, your WorkSpaces stop after a specified period of inactivity, and the state of apps and data is saved\. To set the automatic stop time, use **AutoStop Time \(hours\)**\.
++ **AutoStop** — Use when paying for your WorkSpaces by the hour\. With this mode, your WorkSpaces stop after a specified period of disconnection, and the state of apps and data is saved\. To set the automatic stop time, use **AutoStop Time \(hours\)**\.
 
   When possible, the state of the desktop is saved to the root volume of the WorkSpace\. The WorkSpace resumes when a user logs in, and all open documents and running programs return to their saved state\.
 
