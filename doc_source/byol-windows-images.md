@@ -10,6 +10,7 @@ To get started, open the Amazon WorkSpaces console and choose **Account Settings
 **Topics**
 + [Requirements](#windows_images_prerequisites)
 + [Windows Versions That Are Supported for BYOL](#windows_images_supported_versions)
++ [Adding Microsoft Office to Your BYOL Image](#windows_images_adding_office)
 + [Step 1: Enable BYOL for Your Account by Using the Amazon WorkSpaces Console](#windows_images_enable_byol)
 + [Step 2: Run the BYOL Checker PowerShell Script on a Windows VM](#windows_images_run_byol_checker_script)
 + [Step 3: Export the VM from Your Virtualization Environment](#windows_images_create_image_byol)
@@ -40,7 +41,7 @@ As you adopt the WorkSpaces service, the available management interface IP addre
   + No software beyond what is included with Windows can be installed on the VM\. You can add additional software, such as an antivirus solution, when you later create a custom image\.
   + Do not customize the default user profile \(`C:\Users\Default`\) or make other customizations before creating an image\. All customizations should be made after image creation\. We recommend making any customizations to the user profile through Group Policy Objects \(GPOs\) and applying them after image creation\. This is because customizations done through GPOs can be easily modified or rolled back and are less prone to error than customizations made to the default user profile\.
   + You must create a **WorkSpaces\_BYOL** account with local administrator access before you share the image\. The password for this account might be required later, so make note of it\.
-  + The VM must be on a single volume with a maximum size of 70 GB and at least 10 GB of free space\.
+  + The VM must be on a single volume with a maximum size of 70 GB and at least 10 GB of free space\. If you're also planning to subscribe to Microsoft Office for your BYOL image, the VM must be on a single volume with a maximum size of 70 GB and at least 20 GB of free space\.
   + Your VM must run Windows PowerShell version 4 or later\.
 + Make sure that you have installed the latest Microsoft Windows patches before running the BYOL Checker PowerShell script in [Step 2](#windows_images_run_byol_checker_script) later in this topic\.
 
@@ -51,8 +52,132 @@ Your VM must run one of the following Windows versions:
 + Windows 10 Version 1809 \(October 2018 Update\) 
 + Windows 10 Version 1903 \(May 2019 Update\)
 + Windows 10 Version 1909 \(November 2019 Update\)
++ Windows 10 Version 2004 \(May 2020 Update\)
 
 All supported OS versions support all of the compute types available in the AWS Region where you're using WorkSpaces\. Versions of Windows that are no longer supported by Microsoft are not guaranteed to work and are not supported by AWS Support\.
+
+## Adding Microsoft Office to Your BYOL Image<a name="windows_images_adding_office"></a>
+
+During the BYOL image ingestion process, if you are using Windows 10, you have the option to subscribe to Microsoft Office Professional 2016 \(32\-bit\) or 2019 \(64\-bit\) through AWS\. If you choose this option, Office is pre\-installed in your BYOL image and included on any WorkSpaces that you launch from this image\.
+
+If you choose to subscribe to Office through AWS, additional charges will apply\. For more information, see [Amazon WorkSpaces Pricing](https://aws.amazon.com/workspaces/pricing/)\.
+
+**Important**  
+If Microsoft Office is already installed on the VM that you are using to create your BYOL image, you must uninstall it from the VM if you want to subscribe to Office through AWS\.
+If you plan to subscribe to Office through AWS, make sure that your VM has at least 20 GB of free disk space\.
+
+If you choose to subscribe to Office, the BYOL image ingestion process takes a minimum of 3 hours\.
+
+For details about subscribing to Office during the BYOL ingestion process, see [Step 5: Create a BYOL Image by Using the Amazon WorkSpaces Console](#windows_images_create_byol_image_console)\.
+
+**Office Language Settings**  
+We choose the language used for your Office subscription based on the AWS Region where you're performing your BYOL image ingestion\. For example, if you're performing your BYOL image ingestion in the Asia Pacific \(Tokyo\) Region, your Office subscription has Japanese as its language\.
+
+By default, we install a number of frequently used Office language packs on your WorkSpaces\. If the language pack that you want isn't installed, you can download additional language packs from Microsoft\. For more information, see [ Language Accessory Pack for Office](https://support.microsoft.com/office/language-accessory-pack-for-office-82ee1236-0f9a-45ee-9c72-05b026ee809f) in the Microsoft documentation\.
+
+To change the language for Office, you have several options:
++ [Option 1: Allow individual users to customize their Office language settings on their WorkSpaces](#option1_office_languages)
++ [Option 2: Use GPO administrative templates \(\.admx/\.adml\) to enforce default Office language settings for all of your WorkSpaces users](#option2_office_languages)
++ [Option 3: Update the Office language registry settings on your WorkSpaces](#option3_office_languages)
+
+For more information about working with the language settings for Office, see [ Customize language setup and settings for Office](https://docs.microsoft.com/deployoffice/office2016/customize-language-setup-and-settings-for-office-2016) in the Microsoft documentation\. 
+
+**Option 1: Allow individual users to customize their Office language settings**  
+Individual users can adjust the Office language settings on their WorkSpaces\. For more information, see [ Add an editing or authoring language or set language preferences in Office](https://support.microsoft.com/office/add-an-editing-or-authoring-language-or-set-language-preferences-in-office-663d9d94-ca99-4a0d-973e-7c4a6b8a827d#ID0EAACAAA=Newer_versions) in the Microsoft documentation\.
+
+**Option 2: Use GPO administrative templates \(\.admx/\.adml\) to enforce default Office language settings for all of your WorkSpaces users**  
+You can use Group Policy Object \(GPO\) settings to enforce default Office language settings for your WorkSpaces users\.
+
+**Note**  
+Your WorkSpaces users will not be able to override language settings enforced through GPO\.
+
+For more information about using GPO to set the language for Office, see [ Customize language setup and settings for Office](https://docs.microsoft.com/deployoffice/office2016/customize-language-setup-and-settings-for-office-2016#customize-language-settings) in the Microsoft documentation\. Office 2016 and Office 2019 use the same GPO settings \(labeled with Office 2016\)\.
+
+To work with GPOs, you must install the Active Directory administration tools\. For information about using the Active Directory administration tools to work with GPOs, see [Set Up Active Directory Administration Tools for Amazon WorkSpaces](directory_administration.md)\.
+
+Before you can configure Office 2016 or Office 2019 policy settings, you must download the [ administrative template files \(\.admx/\.adml\) for Office](https://www.microsoft.com/download/details.aspx?id=49030) from the Microsoft Download Center\. After you download the administrative template files, you must add the `office16.admx` and `office16.adml` files to the Central Store of the domain controller for your WorkSpaces directory\. \(The `office16.admx` and `office16.adml` files apply to both Office 2016 and Office 2019\.\) For more information about working with `.admx` and `.adml` files, see [ How to create and manage the Central Store for Group Policy Administrative Templates in Windows](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra) in the Microsoft documentation\.
+
+The following procedure describes how to create the Central Store and add the administrative template files to it\. Perform the following procedure on a directory administration WorkSpace or Amazon EC2 instance that is joined to your WorkSpaces directory\.
+
+**To install the Group Policy administrative template files for Office**
+
+1. Download the [ administrative template files \(\.admx/\.adml\) for Office](https://www.microsoft.com/download/details.aspx?id=49030) from the Microsoft Download Center\.
+
+1. On a directory administration WorkSpace or Amazon EC2 instance that is joined to your WorkSpaces directory, navigate to the domain's shared network folder\. This folder will have your organization's fully qualified domain name \(FQDN\), such as `\\example.com`\. In the Windows File Explorer, go to **Network** > ***FQDN***\.
+
+1. Open the `SYSVOL` folder\.
+
+1. Open the folder with the `FQDN` name\.
+
+1. Open the `Policies` folder\. You should now be in `\\FQDN\SYSVOL\FQDN\Policies`\.
+
+1. If it doesn't already exist, create a folder named `PolicyDefinitions`\.
+
+1. Open the `PolicyDefinitions` folder\.
+
+1. Copy the `office16.admx` file into the `\\FQDN\SYSVOL\FQDN\Policies\PolicyDefinitions` folder\.
+
+1. Create a folder named `en-US` in the `PolicyDefinitions` folder\.
+
+1. Open the `en-US` folder\.
+
+1. Copy the `office16.adml` file into the `\\FQDN\SYSVOL\FQDN\Policies\PolicyDefinitions\en-US` folder\.
+
+**To configure the GPO language settings for Office**
+
+1. On your directory administration WorkSpace or Amazon EC2 instance that is joined to your WorkSpaces directory, open the Group Policy Management tool \(gpmc\.msc\)\.
+
+1. Expand the forest \(**Forest:*FQDN***\)\.
+
+1. Expand **Domains**\. 
+
+1. Expand your FQDN \(for example, `example.com`\)\.
+
+1. Select your FQDN, open the context \(right\-click\) menu or open the **Action** menu, and choose **Create a GPO in this domain, and Link it here**\.
+
+1. Name your GPO \(for example, **Office**\)\.
+
+1. Select your GPO, open the context \(right\-click\) menu or open the **Action** menu, and choose **Edit**\.
+
+1. In the Group Policy Management Editor, choose **User Configuration**, **Policies**, **Administrative Template Policy definitions \(ADMX files\) retrieved from the local computer**, **Microsoft Office 2016**, and **Language Preferences**\.
+**Note**  
+Office 2016 and Office 2019 use the same GPO settings \(labeled with Office 2016\)\. If you don't see **Administrative Template Policy definitions \(ADMX files\) retrieved from the local computer** under **User Configuration**, **Policies**, the `office16.admx` and `office16.adml` files aren't correctly installed on your domain controller\.
+
+1. Under **Language Preferences**, specify the language that you want for the following settings\. Be sure to set each setting to **Enabled**, and then under **Options**, select the language you want\. Choose **OK** to save each setting\.
+   + **Display Language** > **Display help in**
+   + **Display Language** > **Display menus and dialog boxes in**
+   + **Editing languages** > **Primary Editing Language**
+
+1. Close the Group Policy Management tool when you're finished\.
+
+1. Group Policy setting changes take effect after the next Group Policy update for the WorkSpace and after the WorkSpace session is restarted\. To apply the Group Policy changes, do one of the following:
+   + Reboot the WorkSpace \(in the Amazon WorkSpaces console, select the WorkSpace, then choose **Actions**, **Reboot WorkSpaces**\)\.
+   + From an administrative command prompt, enter gpupdate /force\.
+
+**Option 3: Update the Office language registry settings on your WorkSpaces**  
+To set the Office language settings through the registry, update the following registry settings:
++ **HKEY\_CURRENT\_USER\\SOFTWARE\\Microsoft\\Office\\16\.0\\Common\\LanguageResources\\UILanguage**
++ **HKEY\_CURRENT\_USER\\SOFTWARE\\Microsoft\\Office\\16\.0\\Common\\LanguageResources\\HelpLanguage**
+
+For these settings, add a DWORD key value with the appropriate Office locale ID \(LCID\)\. For example, the LCID for English \(US\) is 1033\. Because LCIDs are decimal values, you must set the **Base** option for the DWORD value to **Decimal**\. For a list of the Office LCIDs, see [Language identifiers and OptionState Id values in Office 2016](https://docs.microsoft.com/deployoffice/office2016/language-identifiers-and-optionstate-id-values-in-office-2016) in the Microsoft documentation\.
+
+You can apply these registry settings to your WorkSpaces through GPO settings or a logon script\.
+
+**Adding Office to Your Existing BYOL WorkSpaces**  
+You can also add a subscription to Office to your existing BYOL WorkSpaces\. After you have created a BYOL bundle with Office installed, you can use the WorkSpaces migration feature to migrate your existing BYOL WorkSpaces to the BYOL bundle that is subscribed to Office\. For more information, see [Migrate a WorkSpace](migrate-workspaces.md)\.
+
+**Migrating Between Versions of Microsoft Office**  
+To migrate from Office 2016 to Office 2019 or from Office 2019 to Office 2016, you must create a BYOL bundle that is subscribed to the version of Office that you want to migrate to\. Then, you use the WorkSpaces migration feature to migrate your existing BYOL WorkSpaces that are subscribed to Office to the BYOL bundle that is subscribed to the version of Office that you want to migrate to\.
+
+For example, to migrate from Office 2016 to Office 2019, create a BYOL bundle that is subscribed to Office 2019\. Then use the WorkSpaces migration feature to migrate your existing BYOL WorkSpaces that are subscribed to Office 2016 to the BYOL bundle that is subscribed to Office 2019\.
+
+For more information about the migration process, see [Migrate a WorkSpace](migrate-workspaces.md)\.
+
+**Unsubscribing from Office**  
+To unsubscribe from Office, you must create a BYOL bundle that is not subscribed to Office\. Then use the WorkSpaces migration feature to migrate your existing BYOL WorkSpaces to the BYOL bundle that is not subscribed to Office\. For more information, see [Migrate a WorkSpace](migrate-workspaces.md)\.
+
+**Office Updates**  
+If you have subscribed to Office through AWS, Office updates are included as part of your regular Windows updates\. To stay current on all security patches and updates, we recommend that you periodically update your BYOL base images\.
 
 ## Step 1: Enable BYOL for Your Account by Using the Amazon WorkSpaces Console<a name="windows_images_enable_byol"></a>
 
@@ -176,14 +301,17 @@ To create a Graphics or GraphicsPro bundle from your image, contact the [AWS Sup
 1. Choose **Actions**, **Create BYOL Image**\. 
 
 1. In the **Create BYOL Image** dialog box, do the following: 
-   + For **AMI ID**, click the **EC2 Console** link, and choose the Amazon EC2 image that you imported as described in the previous section \(Step 4: Import the VM as an Image into Amazon EC2\)\. The image name must begin with `ami-` and be followed by the identifier for the AMI \(for example, `ami-1234567e`\)\.
+   + For **AMI ID**, click the **EC2 Console** link, and choose the Amazon EC2 image that you imported as described in the previous section \([Step 4: Import the VM as an Image into Amazon EC2](#windows_images_import_image_ec2_byol)\)\. The image name must begin with `ami-` and be followed by the identifier for the AMI \(for example, `ami-1234567e`\)\.
    + For **BYOL image name**, enter a unique name for the image\.
    + For **Image description**, enter a description to help you quickly identify the image\.
    + For **Ingestion process**, choose the appropriate bundle type \(either **Regular**, **Graphics**, or **GraphicsPro**\)\. For non\-GPU\-enabled bundles \(bundles other than Graphics or GraphicsPro\), choose **Regular**\.
+   + \(Optional\) For **Applications**, choose which version of Microsoft Office you want to subscribe to\. For more information, see [Adding Microsoft Office to Your BYOL Image](#windows_images_adding_office)\.
 
 1. Choose **Create**\.
 
-   While your image is being created, the image status in the image registry of the console appears as **Pending**\. If the image validation does not succeed, the console displays an error code\. When the image creation is complete, the status changes to** Available**\.
+   While your image is being created, the image status in the image registry of the console appears as **Pending**\. The BYOL ingestion process takes a minimum of 90 minutes\. If you have subscribed to Office as well, expect the process to take a minimum of 3 hours\. 
+
+   If the image validation does not succeed, the console displays an error code\. When the image creation is complete, the status changes to** Available**\.
 
 ## Step 6: Create a Custom Bundle from the BYOL Image<a name="windows_images_create_custom_bundle_byol"></a>
 
@@ -205,7 +333,7 @@ To use BYOL images for WorkSpaces, you must register a directory for this purpos
 
 1. Choose **Register**\.
 
-If you have already registered AWS Directory Service for Microsoft Active Directory or an AD Connector directory for WorkSpaces that does not run on dedicated hardware, you can set up a new Microsoft Active Directory or AD Connector directory for this purpose\. You can also deregister the directory and then reregister it as a directory for dedicated WorkSpaces\. To do so, perform these steps\.
+If you have already registered an AWS Managed Microsoft AD directory or an AD Connector directory for WorkSpaces that does not run on dedicated hardware, you can set up a new AWS Managed Microsoft AD directory or AD Connector directory for this purpose\. You can also deregister the directory and then reregister it as a directory for dedicated WorkSpaces\. To do so, perform these steps\.
 
 **Note**  
 You can only perform this procedure if no WorkSpaces are associated with the directory\.

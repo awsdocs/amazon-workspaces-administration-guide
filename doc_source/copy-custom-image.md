@@ -6,7 +6,7 @@ You can copy a Bring Your Own License \(BYOL\) image to another Region as long a
 
 There are no additional charges for copying an image across Regions\. However, the quota for the number of images in the destination Region applies\.
 
-You can copy images one by one using the console\. To bulk copy images, use the CopyWorkspaces API operation or the copy\-workspace\-image command in the AWS command line interface \(CLI\)\. For more information, see [ CopyWorkspaceImage](https://docs.aws.amazon.com/workspaces/latest/api/API_CopyWorkspaceImage.html) in the *Amazon WorkSpaces API Reference* or see [ copy\-workspace\-image](https://docs.aws.amazon.com/cli/latest/reference/workspaces/copy-workspace-image.html) in the *AWS CLI Command Reference*\.
+You can copy images one by one using the console\. To bulk copy images, use the CopyWorkspaceImage API operation or the copy\-workspace\-image command in the AWS command line interface \(CLI\)\. For more information, see [ CopyWorkspaceImage](https://docs.aws.amazon.com/workspaces/latest/api/API_CopyWorkspaceImage.html) in the *Amazon WorkSpaces API Reference* or see [ copy\-workspace\-image](https://docs.aws.amazon.com/cli/latest/reference/workspaces/copy-workspace-image.html) in the *AWS CLI Command Reference*\.
 
 **To copy an image**
 

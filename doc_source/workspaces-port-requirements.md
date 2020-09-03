@@ -18,7 +18,7 @@ This port must be open to the following IP address ranges:
 + The `S3` subset in the `us-west-2` Region\.
 
 Port 4172 \(UDP and TCP\)  
-This port is used for streaming the WorkSpace desktop and health checks\. The desktop client applications do not support the use of a proxy server for port 4172 traffic; they require a direct connection to port 4172\. This port must be open to the PCoIP Gateway IP address ranges and health check servers in the Region that the WorkSpace is in\. For more information, see [PCoIP Health Check Servers](#health_check) and [PCoIP Gateway](#gateway_IP)\.
+This port is used for streaming the WorkSpace desktop and health checks\. The desktop client applications do not support the use of a proxy server for port 4172 traffic; they require a direct connection to port 4172\. This port must be open to the PCoIP Gateway IP address ranges and health check servers in the Region that the WorkSpace is in\. For more information, see [PCoIP Health Check Servers](#health_check) and [PCoIP Gateway Servers](#gateway_IP)\.
 
 **Note**  
 If your firewall uses stateful filtering, ephemeral \(also known as dynamic\) ports are automatically opened to allow return communication\. If your firewall uses stateless filtering, you must open ephemeral ports explicitly to allow return communication\. The required ephemeral port range that you must open will vary depending on your configuration\.
@@ -40,24 +40,25 @@ Typically, the web browser randomly selects a source port in the high range to u
 
 Amazon WorkSpaces Web Access prefers UDP over TCP for desktop streams, but falls back to TCP if UDP is not available\. If all UDP ports are blocked except 53, 80, and 443, Web Access will work on Chrome and Firefox using TCP connections\.
 
-## Whitelisted Domains and Ports<a name="whitelisted_ports"></a>
+## Domains and IP Addresses to Add to Your Allow List<a name="whitelisted_ports"></a>
 
-For the Amazon WorkSpaces client application to be able to access the Amazon WorkSpaces service, the following domains and ports must be whitelisted on the network from which the client is trying to access the service\.
+For the Amazon WorkSpaces client application to be able to access the Amazon WorkSpaces service, you must add the following domains and IP addresses to the allow list on the network from which the client is trying to access the service\.
 
 
-**Whitelisted domains and ports**  
+**Domains and IP addresses to add to your allow list**  
 
-| Category | Whitelisted | 
+| Category | Domain or IP address | 
 | --- | --- | 
 | CAPTCHA | https://opfcaptcha\-prod\.s3\.amazonaws\.com/ | 
 | Client Auto\-update |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 | Connectivity Check |  https://connectivity\.amazonworkspaces\.com/  | 
 | Device Metrics \(for 1\.0\+ and 2\.0\+ WorkSpaces client applications\) | https://device\-metrics\-us\-2\.amazon\.com/ | 
 | Client Metrics \(for 3\.0\+ WorkSpaces client applications\) |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
+| Dynamic Messaging Service \(for 3\.0\+ WorkSpaces client applications\) |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 | Directory Settings |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 | Forrester Log Service  | https://fls\-na\.amazon\.com/ | 
-| PCoIP Health Check \(DRP\) | [PCoIP Health Check Servers](#health_check) | 
-| PCoIP Session Gateway \(PSG\) | [PCoIP Gateway](#gateway_IP) | 
+| PCoIP Health Check \(DRP\) Servers | [PCoIP Health Check Servers](#health_check) | 
+| PCoIP Session Gateway \(PSG\) Servers | [PCoIP Gateway Servers](#gateway_IP) | 
 | Registration Dependency \(for Web Access and Teradici PCoIP Zero Clients\) | https://s3\.amazonaws\.com | 
 | Session Broker \(PCM\) |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 | User Login Pages | https://<directory id>\.awsapps\.com/ \(where <directory id> is the customer's domain\) | 
@@ -85,7 +86,7 @@ The Amazon WorkSpaces client applications perform PCoIP health checks over port 
 | South America \(São Paulo\) | drp\-gru\.amazonworkspaces\.com |  18\.231\.0\.105 52\.67\.55\.29 54\.233\.156\.245 54\.233\.216\.234  | 
 | AWS GovCloud \(US\-West\) | drp\-pdt\.amazonworkspaces\.com |  52\.61\.60\.65 52\.61\.65\.14 52\.61\.88\.170 52\.61\.137\.87 52\.61\.155\.110 52\.222\.20\.88  | 
 
-## PCoIP Gateway<a name="gateway_IP"></a>
+## PCoIP Gateway Servers<a name="gateway_IP"></a>
 
 Amazon WorkSpaces uses PCoIP to stream the desktop session to clients over port 4172\. For its PCoIP gateway servers, Amazon WorkSpaces uses a small range of Amazon EC2 public IPv4 addresses\. This enables you to set more finely grained firewall policies for devices that access Amazon WorkSpaces\. Note that the Amazon WorkSpaces clients do not support IPv6 addresses as a connectivity option at this time\.
 

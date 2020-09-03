@@ -62,7 +62,7 @@ Before you create an image from a WorkSpace, do the following:
 + Delete cached data from the WorkSpace that shouldn't be included in the bundle \(for example, browser history, cached files, and browser cookies\)\.
 + Delete configuration settings from the WorkSpace that shouldn't be included in the bundle \(for example, email profiles\)\.
 + Switch to dynamic IP address settings using DHCP\.
-+ Make sure that you haven't exceeded your quota for WorkSpace images allowed in a Region\. By default, you're allowed 20 WorkSpace images per Region\. If you've reached this quota, new attempts to create an image will fail\. To request a quota increase, use the [Amazon WorkSpaces Limits form](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=workspaces)\.
++ Make sure that you haven't exceeded your quota for WorkSpace images allowed in a Region\. By default, you're allowed 40 WorkSpace images per Region\. If you've reached this quota, new attempts to create an image will fail\. To request a quota increase, use the [Amazon WorkSpaces Limits form](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=workspaces)\.
 + Make sure that you aren't trying to create an image from an encrypted WorkSpace\. Image creation from an encrypted WorkSpace is not currently supported\.
 + If you're running any antivirus software on the WorkSpace, disable it while you're attempting to create an image\.
 + If you have a firewall enabled on your WorkSpace, make sure that it isn't blocking any necessary ports\. For more information, see [IP Address and Port Requirements for Amazon WorkSpaces](workspaces-port-requirements.md)\.
@@ -80,6 +80,7 @@ To confirm that your Windows WorkSpace meets the requirements for image creation
 **Important**  
 The WorkSpace must pass all of the tests run by the Image Checker before you can use it for image creation\. 
 Before you run the Image Checker, verify that the latest Windows security and cumulative updates are installed on your WorkSpace\.
+The Image Checker does not check the user profile size for Windows 10 WorkSpaces\. If you have a Windows 10 WorkSpace, make sure that the user profile size is less than 10 GB\.
 
 To get the Image Checker, do one of the following:
 + Reboot your WorkSpace\. The Image Checker is downloaded automatically during the reboot and installed at `C:\Program Files\Amazon\ImageChecker.exe`\.

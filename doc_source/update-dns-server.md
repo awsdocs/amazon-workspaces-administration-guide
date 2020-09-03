@@ -8,7 +8,7 @@ You can update your WorkSpaces with the new DNS settings in one of the following
 
 We recommend updating the DNS settings on the WorkSpaces before updating the DNS settings in Active Directory \(as explained in [Step 1](#update-registry-dns) of the following procedure\)\.
 
-If you want to rebuild the WorkSpaces instead, update one of the DNS server IP addresses in your Active Directory \([Step 2](#update-dns-active-directory)\), and then follow the procedure in [Rebuild a WorkSpace](rebuild-workspace.md) to rebuild your WorkSpaces\. After you have rebuilt your WorkSpaces, follow the procedure in [Step 3](#test-updated-dns-settings) to test your DNS server updates before updating the IP address of your second DNS server in Active Directory and rebuilding your WorkSpaces again\. As noted in the [Best Practices](#update-dns-best-practices) section, we recommend updating your DNS server IP addresses one at a time\. 
+If you want to rebuild the WorkSpaces instead, update one of the DNS server IP addresses in your Active Directory \([Step 2](#update-dns-active-directory)\), and then follow the procedure in [Rebuild a WorkSpace](rebuild-workspace.md) to rebuild your WorkSpaces\. After you've rebuilt your WorkSpaces, follow the procedure in [Step 3](#test-updated-dns-settings) to test your DNS server updates\. After completing that step, update the IP address of your second DNS server in Active Directory, and then rebuild your WorkSpaces again\. Be sure to follow the procedure in [Step 3](#test-updated-dns-settings) to test your second DNS server update\. As noted in the [ Best Practices](#update-dns-best-practices) section, we recommend updating your DNS server IP addresses one at a time\. 
 
 ## Best Practices<a name="update-dns-best-practices"></a>
 
@@ -58,13 +58,13 @@ The following procedure uses PowerShell commands to update your registry and res
 
 1. When asked "Do you want to allow this app to make changes to your device?", choose **Yes**\.
 
-1. In the PowerShell window, run the following command to retrieve the current DNS server IP addresses:
+1. In the PowerShell window, run the following command to retrieve the current DNS server IP addresses\.
 
    ```
    Get-ItemProperty -Path HKLM:\SOFTWARE\Amazon\SkyLight -Name DomainJoinDNS
    ```
 
-   You should receive the following output:
+   You should receive the following output\.
 
    ```
    DomainJoinDns : OldIP1,OldIP2
@@ -81,7 +81,7 @@ The following procedure uses PowerShell commands to update your registry and res
    Set-ItemProperty -Path HKLM:\SOFTWARE\Amazon\SkyLight -Name DomainJoinDNS -Value "NewIP1, OldIP2"
    ```
 
-1. Run the following command to restart the service SkyLightWorkspaceConfigService:
+1. Run the following command to restart the service SkyLightWorkspaceConfigService\.
 
    ```
    restart-service -Name SkyLightWorkspaceConfigService
@@ -97,13 +97,13 @@ If you have more than one Linux WorkSpace, we recommend that you use a configura
 
 1. On your Linux WorkSpace, open a Terminal window \(**Applications** > **System Tools** > **MATE Terminal**\)\.
 
-1. Use the following Linux command to edit the `/etc/dhcp/dhclient.conf` file\. You must have root user privileges to edit this file\. Either become root by using the `sudo -i` command or execute all commands with `sudo` as shown:
+1. Use the following Linux command to edit the `/etc/dhcp/dhclient.conf` file\. You must have root user privileges to edit this file\. Either become root by using the `sudo -i` command, or execute all commands with `sudo` as shown\.
 
    ```
    sudo vi /etc/dhcp/dhclient.conf
    ```
 
-   In the `/etc/dhcp/dhclient.conf` file, you will see the following `prepend` command, where `OldIP1` and `OldIP2` are the IP addresses of your DNS servers:
+   In the `/etc/dhcp/dhclient.conf` file, you will see the following `prepend` command, where `OldIP1` and `OldIP2` are the IP addresses of your DNS servers\.
 
    ```
    prepend domain-name-servers OldIP1, OldIP2; # skylight
@@ -119,7 +119,7 @@ If you have more than one Linux WorkSpace, we recommend that you use a configura
 
 ## Step 2: Update the DNS Server Settings for Active Directory<a name="update-dns-active-directory"></a>
 
-In this step, you'll update your DNS server settings for Active Directory\. As noted in the [Best Practices](#update-dns-best-practices) section, we recommend updating your DNS server IP addresses one at a time\.
+In this step, you update your DNS server settings for Active Directory\. As noted in the [Best Practices](#update-dns-best-practices) section, we recommend updating your DNS server IP addresses one at a time\.
 
 To update your DNS server settings for Active Directory, see the following documentation in the *AWS Directory Service Administration Guide*:
 + **AD Connector**: [ Update the DNS Address for Your AD Connector](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ad_connector_update_dns.html)
@@ -147,7 +147,7 @@ If this is the second time you're performing this procedure, replace `OldIP1` wi
 
 1. On the Windows **Start** menu, choose **Windows System**, then choose **Command Prompt**\.
 
-1. Run the following command, where `AD_Name` is the name of your Active Directory \(for example, `corp.example.com`\):
+1. Run the following command, where `AD_Name` is the name of your Active Directory \(for example, `corp.example.com`\)\.
 
    ```
    nslookup AD_Name
@@ -168,7 +168,7 @@ If this is the second time you're performing this procedure, replace `OldIP1` wi
 
 1. Wait for an hour and confirm that no user issues have been reported\. Verify that `NewIP1` is getting DNS queries and responding with answers\.
 
-1. After you've verified that the first DNS server is working properly, repeat [Step 1](#update-registry-dns) to update the second DNS server, this time replacing `OldIP2` with `NewIP2`\. Then repeat [Step 2](#update-dns-active-directory) and Step 3\. 
+1. After you've verified that the first DNS server is working properly, repeat [Step 1](#update-registry-dns) to update the second DNS server, this time replacing `OldIP2` with `NewIP2`\. Then repeat Step 2 and Step 3\. 
 
 ### Test the Updated DNS Server Settings for Linux WorkSpaces<a name="test-updated-dns-settings-linux"></a>
 
@@ -178,7 +178,7 @@ If this is the second time you're performing this procedure, replace `OldIP1` wi
 
 1. On your Linux WorkSpace, open a Terminal window \(**Applications** > **System Tools** > **MATE Terminal**\)\.
 
-1. The DNS server IP addresses returned in the DHCP response are written to the local `/etc/resolv.conf` file on the WorkSpace\. Run the following command to view the contents of the `/etc/resolv.conf `file:
+1. The DNS server IP addresses returned in the DHCP response are written to the local `/etc/resolv.conf` file on the WorkSpace\. Run the following command to view the contents of the `/etc/resolv.conf `file\.
 
    ```
    cat /etc/resolv.conf
@@ -201,7 +201,7 @@ If you make manual modifications to the `/etc/resolv.conf` file, those changes a
 
 1. If the output is not what you were expecting or if you receive any errors, repeat [Step 1](#update-registry-dns)\.
 
-1. The actual DNS server IP addresses are stored in the `/etc/dhcp/dhclient.conf` file\. To see the contents of this file, run the following command:
+1. The actual DNS server IP addresses are stored in the `/etc/dhcp/dhclient.conf` file\. To see the contents of this file, run the following command\.
 
    ```
    sudo cat /etc/dhcp/dhclient.conf
@@ -217,4 +217,4 @@ If you make manual modifications to the `/etc/resolv.conf` file, those changes a
 
 1. Wait for an hour and confirm that no user issues have been reported\. Verify that `NewIP1` is getting DNS queries and responding with answers\.
 
-1. After you've verified that the first DNS server is working properly, repeat [Step 1](#update-registry-dns) to update the second DNS server, this time replacing `OldIP2` with `NewIP2`\. Then repeat [Step 2](#update-dns-active-directory) and Step 3\. 
+1. After you've verified that the first DNS server is working properly, repeat [Step 1](#update-registry-dns) to update the second DNS server, this time replacing `OldIP2` with `NewIP2`\. Then repeat Step 2 and Step 3\. 
