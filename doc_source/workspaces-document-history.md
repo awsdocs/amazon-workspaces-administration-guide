@@ -6,6 +6,7 @@ For notification about these updates, you can subscribe to the Amazon WorkSpaces
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Cross\-Region Redirection](https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html) | You can now use cross\-Region redirection, a feature that works with your Domain Name System \(DNS\) routing policies to redirect your users to alternative WorkSpaces when their primary WorkSpaces aren't available\. | September 10, 2020 | 
 | [Subscribe to Microsoft Office 2016 or 2019 for BYOL WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html) | You can now subscribe to Microsoft Office Professional 2016 or 2019 provided by AWS on Bring Your Own Windows License \(BYOL\) WorkSpaces\. | September 3, 2020 | 
 | [BYOL Automation in China \(Ningxia\)](https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html) | You can use Bring Your Own License \(BYOL\) automation to simplify the process of using your Windows 10 desktop licenses for your WorkSpaces in China \(Ningxia\)\. | April 2, 2020 | 
 | [Image Checker](https://docs.aws.amazon.com/workspaces/latest/adminguide/create-custom-bundle.html) | The Image Checker tool helps you determine whether your Windows WorkSpace meets the requirements for image creation\. The Image Checker performs a series of tests on the WorkSpace that you want to use to create your image, and provides guidance on how to resolve any issues it finds\.  | March 30, 2020 | 

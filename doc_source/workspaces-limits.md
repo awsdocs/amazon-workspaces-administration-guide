@@ -7,6 +7,7 @@ The following are the quotas \(also referred to as limits\) for Amazon WorkSpace
 + Graphics WorkSpaces per Region: 0
 + GraphicsPro WorkSpaces per Region: 0
 + Images per Region: 40
++ Connection aliases per Region: 20 \(This quota cannot be increased\.\)
 
 **IP Access Control Group Quotas**
 **Important**  

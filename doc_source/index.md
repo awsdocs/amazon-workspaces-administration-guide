@@ -71,6 +71,8 @@ Amazon's trademarks and trade dress may not be used in
 + [Monitor Your WorkSpaces](amazon-workspaces-monitoring.md)
    + [Monitor Your WorkSpaces Using CloudWatch Metrics](cloudwatch-metrics.md)
    + [Monitor Your WorkSpaces Using CloudWatch Events](cloudwatch-events.md)
++ [Business Continuity for Amazon WorkSpaces](business-continuity.md)
+   + [Cross-Region Redirection for Amazon WorkSpaces](cross-region-redirection.md)
 + [Security in Amazon WorkSpaces](security.md)
    + [Data Protection in Amazon WorkSpaces](data-protection.md)
    + [Identity and Access Management for Amazon WorkSpaces](workspaces-access-control.md)

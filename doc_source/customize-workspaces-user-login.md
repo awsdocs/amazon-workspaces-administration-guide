@@ -5,6 +5,8 @@ Customize your users' access to WorkSpaces by using uniform resource identifiers
 + Their user names are automatically entered on their WorkSpaces client login page\.
 + If multi\-factor authentication \(MFA\) is used in your organization, their user names and MFA codes are automatically entered on their client login page\.
 
+URI access works with both Region\-based registration codes \(for example, `WSpdx+ABC12D`\) and fully qualified domain name \(FQDN\) based registration codes \(for example, `desktop.example.com`\)\. For more information about creating and using FQDN\-based registration codes, see [Cross\-Region Redirection for Amazon WorkSpaces](cross-region-redirection.md)\.
+
 You can configure URI access to WorkSpaces for client applications on the following supported devices: 
 + Windows computers
 + macOS computers

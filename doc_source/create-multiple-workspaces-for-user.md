@@ -1,10 +1,10 @@
 # Create Multiple WorkSpaces for a User<a name="create-multiple-workspaces-for-user"></a>
 
 By default, you can create only one WorkSpace per user per directory\. However, if needed, you can create more than one WorkSpace for a user, depending on your directory setup\. 
-+ If you have only one directory for your WorkSpaces, create multiple user names for the user\. For example, a user named Mary Major can have mmajor1, mmajor2, and so on as user names\. Each user name will be associated with a different WorkSpace in the same directory, but the WorkSpaces will have the same registration code\.
-+ If you have multiple directories for your WorkSpaces, create the WorkSpaces for the user in separate directories\. You can use the same user name in the directories, or you can use different user names in the directories\. The WorkSpaces will have different registration codes\.
++ If you have only one directory for your WorkSpaces, create multiple usernames for the user\. For example, a user named Mary Major can have mmajor1, mmajor2, and so on as usernames\. Each username will be associated with a different WorkSpace in the same directory, but the WorkSpaces will have the same registration code\. So that you can easily locate all the WorkSpaces that you've created for a user, you might want to use the same email address with each username\.
++ If you have multiple directories for your WorkSpaces, create the WorkSpaces for the user in separate directories\. You can use the same username in the directories, or you can use different usernames in the directories\. The WorkSpaces will have different registration codes\. So that you can easily locate all the WorkSpaces that you've created for a user, you might want to use the same email address with each username\.
 
-**Tip**  
-You might want to use the same email address with each user name so that you can easily locate all the WorkSpaces that you've created for a user\.
+**Important**  
+If you are setting up multiple WorkSpaces for use with cross\-Region redirection, you must set up the WorkSpaces in different directories in different AWS Regions, and you must use the same usernames in each directory\. For more information about cross\-Region redirection, see [Cross\-Region Redirection for Amazon WorkSpaces](cross-region-redirection.md)\. 
 
-To switch between the WorkSpaces, the user logs in with the user name and registration code associated with a particular Workspace\. If the user is using a 3\.0\+ version of the WorkSpaces client applications for Windows, macOS, or Linux, the user can assign different names to the WorkSpaces by going to **Settings**, **Manage Login Information** in the client application\.
+To switch between the WorkSpaces, the user logs in with the username and registration code associated with a particular Workspace\. If the user is using a 3\.0\+ version of the WorkSpaces client applications for Windows, macOS, or Linux, the user can assign different names to the WorkSpaces by going to **Settings**, **Manage Login Information** in the client application\.
