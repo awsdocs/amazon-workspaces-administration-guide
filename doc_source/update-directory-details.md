@@ -127,7 +127,11 @@ You can update the AD Connector account that is used to read users and groups an
 
 ## Multi\-factor Authentication \(AD Connector\)<a name="connect-mfa"></a>
 
-You can enable multi\-factor authentication for your AD Connector directory\.
+You can enable multi\-factor authentication \(MFA\) for your AD Connector directory\.
+
+**Note**  
+Your RADIUS server can either be hosted by AWS or it can be on\-premises\.
+The usernames must match between Active Directory and your RADIUS server\. 
 
 **To enable multi\-factor authentication**
 

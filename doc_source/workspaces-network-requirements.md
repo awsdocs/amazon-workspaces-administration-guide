@@ -11,7 +11,9 @@ Beginning October 1, 2020, customers will no longer be able to use the Amazon Wo
 To provide your users with a good experience with their WorkSpaces, verify that their client devices meet the following network requirements:
 + The client device must have a broadband internet connection\. We recommend planning for a minimum of 1 Mbps per simultaneous user watching a 480p video window\. Depending on your user\-quality requirements for video resolution, more bandwidth might be required\.
 + The network that the client device is connected to, and any firewall on the client device, must have certain ports open to the IP address ranges for various AWS services\. For more information, see [IP Address and Port Requirements for Amazon WorkSpaces](workspaces-port-requirements.md)\.
-+ The round trip time \(RTT\) from the client's network to the Region that the WorkSpaces are in should be less than 100ms\. If the RTT is between 100ms and 250ms, the user can access the WorkSpace but performance is degraded\.
++ For the best performance, the round trip time \(RTT\) from the client's network to the Region that the WorkSpaces are in should be less than 100ms\. If the RTT is between 100ms and 200ms, the user can access the WorkSpace, but performance is affected\. If the RTT is between 200ms and 375ms, the performance is degraded\. If the RTT exceeds 375ms, the WorkSpaces client connection is terminated\.
+
+  To check the RTT to the various AWS Regions from your location, use the [Amazon WorkSpaces Connection Health Check](https://clients.amazonworkspaces.com/Health.html)\.
 + If users will access their WorkSpaces through a virtual private network \(VPN\), the connection must support a maximum transmission unit \(MTU\) of at least 1200 bytes\.
 **Note**  
 You cannot access WorkSpaces through a VPN connected to your virtual private cloud \(VPC\)\. To access WorkSpaces using a VPN, internet connectivity \(through the VPN's public IP addresses\) is required, as described in [IP Address and Port Requirements for Amazon WorkSpaces](workspaces-port-requirements.md)\.

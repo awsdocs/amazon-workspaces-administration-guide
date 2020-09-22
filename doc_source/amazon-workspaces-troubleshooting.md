@@ -32,6 +32,11 @@ The Windows client logs are stored in the following location:
    `cd "C:\Program Files (x86)\Amazon Web Services, Inc\Amazon WorkSpaces"`
 
    `workspaces.exe -l3`
+**Note**  
+If WorkSpaces is installed for one user and not all users, use the following commands:  
+`c:`  
+`cd "%LocalAppData%\Programs\Amazon Web Services, Inc\Amazon WorkSpaces"`  
+`workspaces.exe -l3`
 
 **Topics**
 

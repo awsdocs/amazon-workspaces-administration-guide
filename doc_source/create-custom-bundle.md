@@ -342,7 +342,7 @@ One or more AppX packages are in a staged state\. This might cause a Sysprep err
 1. Run the Image Checker again\. If this test still fails, enter the following commands to remove all AppX packages, and press Enter after each one\.
 
    ```
-   Get-AppxProvisionedPackage -Online | Remove-AppxProvisionedPackage -ErrorAction SilentlyContinue
+   Get-AppxProvisionedPackage -Online | Remove-AppxProvisionedPackage -Online -ErrorAction SilentlyContinue
    ```
 
    ```
