@@ -28,7 +28,7 @@ In the following procedure, the current and new DNS server IP address values are
 
 ### Update the DNS Server Settings for Windows WorkSpaces<a name="update-registry-dns-windows"></a>
 
-If you have multiple WorkSpaces, you can deploy the following registry update to the WorkSpaces by applying a Group Policy Object \(GPO\) on the Active Directory OU for your WorkSpaces\. For more information about working with GPOs, see [Manage Your Windows WorkSpaces Using Group Policy](group_policy.md)\.
+If you have multiple WorkSpaces, you can deploy the following registry update to the WorkSpaces by applying a Group Policy Object \(GPO\) on the Active Directory OU for your WorkSpaces\. For more information about working with GPOs, see [Manage Your Windows WorkSpaces](group_policy.md)\.
 
 You can make these updates either by using the Registry Editor or by using Windows PowerShell\. Both procedures are described in this section\.
 

@@ -31,7 +31,7 @@ Amazon WorkSpaces can detect disconnection only when users are using Amazon Work
 
 When a user reconnects to a stopped WorkSpace, it resumes from where it left off, typically in under 90 seconds\.
 
-You can restart AutoStop WorkSpaces that are available or in an error state\.
+You can reboot \(restart\) AutoStop WorkSpaces that are available or in an error state\.
 
 **To stop an AutoStop WorkSpace**
 

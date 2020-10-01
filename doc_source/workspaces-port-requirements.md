@@ -17,8 +17,8 @@ This port must be open to the following IP address ranges:
 + The `AMAZON` subset in the `us-west-2` Region\.
 + The `S3` subset in the `us-west-2` Region\.
 
-Port 4172 \(UDP and TCP\)  
-This port is used for streaming the WorkSpace desktop and health checks\. The desktop client applications do not support the use of a proxy server for port 4172 traffic; they require a direct connection to port 4172\. This port must be open to the PCoIP Gateway IP address ranges and health check servers in the Region that the WorkSpace is in\. For more information, see [PCoIP Health Check Servers](#health_check) and [PCoIP Gateway Servers](#gateway_IP)\.
+Ports 4172 and 4195 \(UDP and TCP\)  
+These ports are used for streaming the WorkSpace desktop and health checks\. The desktop client applications do not support the use of a proxy server for port 4172 and 4195 traffic; they require a direct connection to ports 4172 and 4195\. These ports must be open to the PCoIP Gateway IP address ranges and health check servers in the Region that the WorkSpace is in\. For more information, see [PCoIP Health Check Servers](#health_check) and [PCoIP Gateway Servers](#gateway_IP)\.
 
 **Note**  
 If your firewall uses stateful filtering, ephemeral \(also known as dynamic\) ports are automatically opened to allow return communication\. If your firewall uses stateless filtering, you must open ephemeral ports explicitly to allow return communication\. The required ephemeral port range that you must open will vary depending on your configuration\.
@@ -68,7 +68,7 @@ For the Amazon WorkSpaces client application to be able to access the Amazon Wor
 
 ## PCoIP Health Check Servers<a name="health_check"></a>
 
-The Amazon WorkSpaces client applications perform PCoIP health checks over port 4172\. These checks validate whether TCP or UDP traffic streams from the Amazon WorkSpaces servers to the client applications\. For these checks to finish successfully, your firewall policies must allow outbound traffic to the IP addresses of the following Regional PCoIP health check servers\.
+The Amazon WorkSpaces client applications perform PCoIP health checks over ports 4172 and 4195\. These checks validate whether TCP or UDP traffic streams from the Amazon WorkSpaces servers to the client applications\. For these checks to finish successfully, your firewall policies must allow outbound traffic to the IP addresses of the following Regional PCoIP health check servers\.
 
 
 | Region | Health check hostname | IP addresses | 

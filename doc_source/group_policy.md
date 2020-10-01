@@ -1,4 +1,4 @@
-# Manage Your Windows WorkSpaces Using Group Policy<a name="group_policy"></a>
+# Manage Your Windows WorkSpaces<a name="group_policy"></a>
 
 You can use Group Policy Objects \(GPOs\) to apply settings to manage Windows WorkSpaces or users that are part of your Windows WorkSpaces directory\.
 
@@ -9,10 +9,11 @@ We recommend that you create an organizational unit for your WorkSpaces Computer
 
 **Warning**  
 Group Policy settings can affect the experience of your WorkSpace users as follows:  
-Some Group Policy settings force users to log off when they are disconnected from a session\. Any applications that users have open on their WorkSpaces are closed\.
 **Implementing an interactive logon message to display a logon banner prevents users from being able to access their WorkSpaces\.** The interactive logon message Group Policy setting is not currently supported by Amazon WorkSpaces\.
 **Disabling removable storage through Group Policy settings causes a login failure** that results in users being logged in to temporary user profiles with no access to drive D\.
+**Removing users from the Remote Desktop Users local group through Group Policy settings prevents those users from being able to authenticate** through the WorkSpaces client applications\.
 Group Policy settings can be used to restrict drive access\. **If you configure Group Policy settings to restrict access to drive C or to drive D, users can't access their WorkSpaces\.** To prevent this issue from occurring, make sure that your users can access drive C and drive D\. 
+Some Group Policy settings force users to log off when they are disconnected from a session\. Any applications that users have open on their WorkSpaces are closed\.
 
 For information about using the Active Directory administration tools to work with GPOs, see [Set Up Active Directory Administration Tools for Amazon WorkSpaces](directory_administration.md)\.
 

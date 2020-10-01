@@ -408,9 +408,9 @@ After you have validated your WorkSpace image, you can proceed with creating you
 
 1. <a name="step_create_image"></a>Select the WorkSpace and choose **Actions**, **Create Image**\.
 
-1. A message displays, prompting you to restart your WorkSpace before continuing\. Restarting your WorkSpace updates your Amazon WorkSpaces software to the latest version\.
+1. A message displays, prompting you to reboot \(restart\) your WorkSpace before continuing\. Rebooting your WorkSpace updates your Amazon WorkSpaces software to the latest version\.
 
-   Restart your WorkSpace by closing the message and following the steps in [Restart a WorkSpace](reboot-workspaces.md)\. When you're done, repeat [Step 4](#step_create_image) of this procedure, but this time choose **Next** when the restart message appears\. To create an image, the status of the WorkSpace must be **Available** and its modification state must be **None**\.
+   Reboot your WorkSpace by closing the message and following the steps in [Reboot a WorkSpace](reboot-workspaces.md)\. When you're done, repeat [Step 4](#step_create_image) of this procedure, but this time choose **Next** when the reboot message appears\. To create an image, the status of the WorkSpace must be **Available** and its modification state must be **None**\.
 
 1. Enter an image name and a description that will help you identify the image, and then choose **Create Image**\. While the image is being created, the status of the WorkSpace is **Suspended** and the WorkSpace is unavailable\.
 

@@ -31,7 +31,7 @@ When you expand a volume for a WorkSpace, Amazon WorkSpaces automatically extend
 
 To ensure that your data is preserved, you cannot decrease the size of the root or user volumes after you launch a WorkSpace\. Instead, make sure that you specify the minimum sizes for these volumes when launching a WorkSpace\. You can launch a Value, Standard, Performance, Power, or PowerPro WorkSpace with a minimum of 80 GB for the root volume and 10 GB for the user volume\. You can launch a Graphics or GraphicsPro WorkSpace with a minimum of 100 GB for the root volume and 100 GB for the user volume\.
 
-While a WorkSpace disk size increase is in progress, users can perform most tasks on their WorkSpace\. However, they can't change their WorkSpace compute type, switch the WorkSpace running mode, rebuild their WorkSpace, or restart their WorkSpace\.
+While a WorkSpace disk size increase is in progress, users can perform most tasks on their WorkSpace\. However, they can't change their WorkSpace compute type, switch the WorkSpace running mode, rebuild their WorkSpace, or reboot \(restart\) their WorkSpace\.
 
 The disk size increase process might take up to an hour\.
 
@@ -56,11 +56,11 @@ If you want to increase both volumes, you must wait 20\-30 minutes for the first
 
 1. Choose **Modify**\.
 
-1. When the disk size increase is finished, you must [ restart the WorkSpace](reboot-workspaces.md) for the changes to take effect\. To avoid data loss, make sure the user saves any open files before you restart the WorkSpace\.
+1. When the disk size increase is finished, you must [ reboot the WorkSpace](reboot-workspaces.md) for the changes to take effect\. To avoid data loss, make sure the user saves any open files before you reboot the WorkSpace\.
 
 ## Changing Bundle Types<a name="change_bundles"></a>
 
-You can switch a WorkSpace between the Value, Standard, Performance, Power, and PowerPro bundles\. When you request a bundle change, Amazon WorkSpaces restarts the WorkSpace using the new bundle\. Amazon WorkSpaces preserves the operating system, applications, data, and storage settings for the WorkSpace\.
+You can switch a WorkSpace between the Value, Standard, Performance, Power, and PowerPro bundles\. When you request a bundle change, Amazon WorkSpaces reboots the WorkSpace using the new bundle\. Amazon WorkSpaces preserves the operating system, applications, data, and storage settings for the WorkSpace\.
 
 You can request a larger bundle once in a 1\-hour period or a smaller bundle once every 30 days\. For a newly launched WorkSpace, you must wait 1 hour before requesting a larger bundle\.
 

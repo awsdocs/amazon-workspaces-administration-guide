@@ -20,6 +20,7 @@ Do not run Sysprep on an upgraded WorkSpace\. If you do so, an error that preven
 + If you have deferred or paused Windows 10 upgrades by using Group Policy or System Center Configuration Manager \(SCCM\), enable operating system upgrades for your Windows 10 WorkSpaces\.
 + If the WorkSpace is an AutoStop WorkSpace, change it to an AlwaysOn WorkSpace before the in\-place upgrade process so that it won't be stopped automatically while updates are being applied\. For more information, see [Modify the Running Mode](running-mode.md#modify-running-mode)\. If you prefer to keep the WorkSpace set to AutoStop, change the AutoStop time to three hours or more while the upgrade takes place\.
 + The in\-place upgrade process recreates the user profile by making a copy of a special profile named Default User \(`C:\Users\Default`\)\. Do not use this default user profile to make customizations\. We recommend making any customizations to the user profile through Group Policy Objects \(GPOs\) instead\. Customizations made through GPOs can be easily modified or rolled back and are less prone to error\.
++ The in\-place upgrade process can back up and recreate only one user profile\. If you have multiple user profiles on drive D, delete all the profiles except for the one that you need\.
 
 ## Important Considerations<a name="upgrade_byol_important_considerations"></a>
 

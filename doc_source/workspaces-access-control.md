@@ -7,7 +7,7 @@ Amazon WorkSpaces also creates an IAM role to allow the Amazon WorkSpaces servic
 **Note**  
 Amazon WorkSpaces doesn’t support the provisioning of IAM credentials into a WorkSpace \(such as with an instance profile\)\.
 
-For more information about IAM, see [Identity and Access Management \(IAM\)](https://aws.amazon.com/iam) and the [IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/)\. You can find the WorkSpaces\-specific resources, actions, and condition context keys for use in IAM permission policies at [Actions, Resources, and Condition Keys for Amazon WorkSpaces](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonworkspaces.html) in the *IAM User Guide*\.
+For more information about IAM, see [Identity and Access Management \(IAM\)](https://aws.amazon.com/iam) and the [https://docs.aws.amazon.com/IAM/latest/UserGuide/](https://docs.aws.amazon.com/IAM/latest/UserGuide/)\. You can find the WorkSpaces\-specific resources, actions, and condition context keys for use in IAM permission policies at [Actions, Resources, and Condition Keys for Amazon WorkSpaces](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonworkspaces.html) in the *IAM User Guide*\.
 
 For a tool that helps you create IAM policies, see the [ AWS Policy Generator](http://aws.amazon.com/blogs/aws/aws-policy-generator/)\. You can also use the [IAM Policy Simulator](https://docs.aws.amazon.com/IAM/latest/UsingPolicySimulatorGuide/) to test whether a policy would allow or deny a specific request to AWS\.
 
@@ -143,7 +143,7 @@ Before you can register a directory using the API, you must create the workspace
 
 1. On the **Attach permissions policies** page, select the AWS managed policies **AmazonWorkSpacesServiceAccess** and **AmazonWorkSpacesSelfServiceAccess**\.
 
-1. Under **Set permissions boundary**, we recommend that you not use a permissions boundary because of the potential for conflicts with the policies attached to the workspaces\_DefaultRole role\. Such conflicts could block certain necessary permissions for the role\.
+1. Under **Set permissions boundary**, we recommend that you not use a permissions boundary because of the potential for conflicts with the policies that are attached to the workspaces\_DefaultRole role\. Such conflicts could block certain necessary permissions for the role\.
 
 1. Choose **Next: Tags**\.
 
@@ -181,7 +181,7 @@ Before you can register a directory using the API, you must create the workspace
 
 ## Specifying Amazon WorkSpaces Resources in an IAM Policy<a name="wsp_iam_resource"></a>
 
-To specify an Amazon WorkSpaces resource in the `Resource` element of the policy statement, use the Amazon Resource Name \(ARN\) of the resource\. You control access to your Amazon WorkSpaces resources by either allowing or denying permissions to use the API actions specified in the `Action` element of your IAM policy statement\. Amazon WorkSpaces defines ARNs for WorkSpaces, bundles, IP groups, and directories\.
+To specify an Amazon WorkSpaces resource in the `Resource` element of the policy statement, use the Amazon Resource Name \(ARN\) of the resource\. You control access to your Amazon WorkSpaces resources by either allowing or denying permissions to use the API actions that are specified in the `Action` element of your IAM policy statement\. Amazon WorkSpaces defines ARNs for WorkSpaces, bundles, IP groups, and directories\.
 
 ### WorkSpace ARN<a name="wsp_arn_syntax"></a>
 
@@ -198,7 +198,7 @@ The Region that the WorkSpace is in \(for example, `us-east-2`\)\.
 The ID of the AWS account, with no hyphens \(for example, `123456789012`\)\.
 
 *workspace\_identifier*  
-The ID of the WorkSpace \(for example, `ws-0123456789`\)\.
+The ID of the WorkSpace \(for example, `ws-a1bcd2efg`\)\.
 
 The following is the format of the `Resource` element of a policy statement that identifies a specific WorkSpace\.
 
@@ -206,7 +206,32 @@ The following is the format of the `Resource` element of a policy statement that
 "Resource": "arn:aws:workspaces:region:account_id:workspace/workspace_identifier"
 ```
 
-You can use the \* wildcard to specify all WorkSpaces that belong to a specific account in a specific Region\.
+You can use the `*` wildcard to specify all WorkSpaces that belong to a specific account in a specific Region\.
+
+### Image ARN<a name="image_arn_syntax"></a>
+
+A WorkSpace image ARN has the syntax shown in the following example\.
+
+```
+arn:aws:workspaces:region:account_id:workspaceimage/image_identifier
+```
+
+*region*  
+The Region that the WorkSpace image is in \(for example, `us-east-2`\)\.
+
+*account\_id*  
+The ID of the AWS account, with no hyphens \(for example, `123456789012`\)\.
+
+*bundle\_identifier*  
+The ID of the WorkSpace image \(for example, `wsi-a1bcd2efg`\)\.
+
+The following is the format of the `Resource` element of a policy statement that identifies a specific image\.
+
+```
+"Resource": "arn:aws:workspaces:region:account_id:workspaceimage/image_identifier"
+```
+
+You can use the `*` wildcard to specify all images that belong to a specific account in a specific Region\.
 
 ### Bundle ARN<a name="bundle_arn_syntax"></a>
 
@@ -223,7 +248,7 @@ The Region that the WorkSpace is in \(for example, `us-east-2`\)\.
 The ID of the AWS account, with no hyphens \(for example, `123456789012`\)\.
 
 *bundle\_identifier*  
-The ID of the WorkSpace bundle \(for example, `wsb-0123456789`\)\.
+The ID of the WorkSpace bundle \(for example, `wsb-a1bcd2efg`\)\.
 
 The following is the format of the `Resource` element of a policy statement that identifies a specific bundle\.
 
@@ -231,7 +256,7 @@ The following is the format of the `Resource` element of a policy statement that
 "Resource": "arn:aws:workspaces:region:account_id:workspacebundle/bundle_identifier"
 ```
 
-You can use the \* wildcard to specify all bundles that belong to a specific account in a specific Region\.
+You can use the `*` wildcard to specify all bundles that belong to a specific account in a specific Region\.
 
 ### IP Group ARN<a name="ipgroup_arn_syntax"></a>
 
@@ -256,7 +281,7 @@ The following is the format of the `Resource` element of a policy statement that
 "Resource": "arn:aws:workspaces:region:account_id:workspaceipgroup/ipgroup_identifier"
 ```
 
-You can use the \* wildcard to specify all IP groups that belong to a specific account in a specific Region\.
+You can use the `*` wildcard to specify all IP groups that belong to a specific account in a specific Region\.
 
 ### Directory ARN<a name="directory_arn_syntax"></a>
 
@@ -281,7 +306,7 @@ The following is the format of the `Resource` element of a policy statement that
 "Resource": "arn:aws:workspaces:region:account_id:directory/directory_identifier"
 ```
 
-You can use the \* wildcard to specify all directories that belong to a specific account in a specific Region\.
+You can use the `*` wildcard to specify all directories that belong to a specific account in a specific Region\.
 
 ### API Actions with No Support for Resource\-Level Permissions<a name="no-resource-level-permissions"></a>
 

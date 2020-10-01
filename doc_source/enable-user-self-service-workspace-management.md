@@ -2,7 +2,7 @@
 
 In Amazon WorkSpaces, you can enable self\-service WorkSpace management capabilities for your users to provide them with more control over their experience\. It can also reduce your IT support staff workload for Amazon WorkSpaces\. When you enable self\-service capabilities, you can allow users to perform one or more of the following tasks directly from their Windows, macOS, or Linux client for Amazon WorkSpaces:
 + Cache their credentials on their client\. This lets them reconnect to their WorkSpace without re\-entering their credentials\.
-+ Restart their WorkSpace\.
++ Restart \(reboot\) their WorkSpace\.
 + Increase the size of the root and user volumes on their WorkSpace\. 
 + Change the compute type \(bundle\) for their WorkSpace\.
 + Switch the running mode of their WorkSpace\.
@@ -20,7 +20,7 @@ To enable one or more of these capabilities for your users, perform the followin
 
 1. Expand **User Self\-Service Permissions**\. Enable or disable the following options as required to determine the WorkSpace management tasks that users can perform from their client:
    + **Remember me** — Users can choose whether to cache their credentials on their client by selecting the **Remember Me** or **Keep me logged in** check box on the login screen\. The credentials are cached in RAM only\. When users choose to cache their credentials, they can reconnect to their WorkSpaces without re\-entering their credentials\. To control how long users can cache their credentials, see [Set the Maximum Lifetime for a Kerberos Ticket](group_policy.md#gp_kerberos_ticket)\.
-   + **Restart WorkSpace from client**— Users can restart their WorkSpace\. Restarting disconnects the user from their WorkSpace, shuts it down, and restarts it\. The user data, operating system, and system settings are not affected\.
+   + **Restart WorkSpace from client** — Users can restart \(reboot\) their WorkSpace\. Restarting disconnects the user from their WorkSpace, shuts it down, and reboots it\. The user data, operating system, and system settings are not affected\.
    + **Increase volume size** — Users can expand the root and user volumes on their WorkSpace to a specified size without contacting IT support\. Users can increase the size of the root volume \(for Windows, the C: drive; for Linux, /\) up to 175 GB, and the size of the user volume \(for Windows, the D: drive; for Linux, /home\) up to 100 GB\. WorkSpace root and user volumes come in set groups that can't be changed\. The available groups are \[Root\(GB\), User\(GB\)\]: \[80, 10\], \[80, 50\], \[80, 100\], \[175 to 2000, 100 to 2000\]\. For more information, see [Modify a WorkSpace](modify-workspaces.md)\.
 
      For a newly created WorkSpace, users must wait 6 hours before they can increase the size of these drives\. After that, they can do so only once in a 6\-hour period\. While a volume size increase is in progress, users can perform most tasks on their WorkSpace\. The tasks that they can't perform are: changing their WorkSpace compute type, switching their WorkSpace running mode, restarting their WorkSpace, or rebuilding their WorkSpace\. When the process is finished, the WorkSpace must be rebooted for the changes to take effect\. This process might take up to an hour\.

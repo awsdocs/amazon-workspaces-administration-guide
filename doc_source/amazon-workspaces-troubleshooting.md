@@ -375,7 +375,7 @@ In some cases, you might need to enable your users' Chromebooks to install Andro
 
 ### My users aren't receiving invitation emails or password reset emails<a name="welcome_emails"></a>
 
-Users do not automatically receive welcome or password reset emails for WorkSpaces that were created using AD Connector\.
+Users do not automatically receive welcome or password reset emails for WorkSpaces that were created using AD Connector or a trusted domain\.
 
 To manually send welcome emails to these users, see [Send an Invitation Email](manage-workspaces-users.md#send-invitation)\.
 
@@ -383,7 +383,7 @@ To reset user passwords, see [Set Up Active Directory Administration Tools for A
 
 ### My users don't see the Forgot password? option on the client login screen<a name="forgot_password"></a>
 
-If you're using AD Connector, your users won't be able to reset their own passwords\. \(The **Forgot password?** option on the WorkSpaces client application login screen won't be available\.\) For information about how to reset user passwords, see [Set Up Active Directory Administration Tools for Amazon WorkSpaces](directory_administration.md)\.
+If you're using AD Connector or a trusted domain, your users won't be able to reset their own passwords\. \(The **Forgot password?** option on the WorkSpaces client application login screen won't be available\.\) For information about how to reset user passwords, see [Set Up Active Directory Administration Tools for Amazon WorkSpaces](directory_administration.md)\.
 
 ### I receive the message "The system administrator has set policies to prevent this installation" when I try to install applications on a Windows WorkSpace<a name="msi_wont_install"></a>
 

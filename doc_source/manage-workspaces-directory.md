@@ -20,5 +20,5 @@ Shared directories are not currently supported with WorkSpaces\.
 + [Delete the Directory for Your WorkSpaces](delete-workspaces-directory.md)
 + [Enable Amazon WorkDocs for Microsoft Active Directory](enable-workdocs-active-directory.md)
 + [Set Up Active Directory Administration Tools for Amazon WorkSpaces](directory_administration.md)
-+ [Manage Your Windows WorkSpaces Using Group Policy](group_policy.md)
++ [Manage Your Windows WorkSpaces](group_policy.md)
 + [Manage Your Amazon Linux WorkSpaces](manage_linux_workspace.md)

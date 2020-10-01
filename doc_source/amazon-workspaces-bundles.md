@@ -14,5 +14,6 @@ If you need to perform software updates or to install additional software on you
 + [Create a Custom WorkSpaces Image and Bundle](create-custom-bundle.md)
 + [Update a Custom WorkSpaces Bundle](update-custom-bundle.md)
 + [Copy a Custom WorkSpaces Image](copy-custom-image.md)
++ [Share or Unshare a Custom WorkSpaces Image](share-custom-image.md)
 + [Delete a Custom WorkSpaces Bundle or Image](delete_bundle.md)
 + [Bring Your Own Windows Desktop Licenses](byol-windows-images.md)
