@@ -6,6 +6,9 @@ As with Windows WorkSpaces, Amazon Linux WorkSpaces are domain joined, so you ca
 
 Because Linux instances do not adhere to Group Policy, we recommend that you use a configuration management solution to distribute and enforce policy\. For example, you can use [AWS Opsworks for Chef Automate](https://aws.amazon.com/opsworks/chefautomate/), [AWS OpsWorks for Puppet Enterprise](https://aws.amazon.com/opsworks/puppetenterprise/), or [Ansible](https://www.ansible.com/)\.
 
+**Note**  
+Linux WorkSpaces support only the PCoIP protocol at this time\.
+
 ## Control PCoIP Agent Behavior on Amazon Linux WorkSpaces<a name="pcoip_agent_linux"></a>
 
 The behavior of the PCoIP Agent is controlled by configuration settings in the `pcoip-agent.conf` file, which is located in the `/etc/pcoip-agent/` directory\. To deploy and enforce changes to the policy, use a configuration management solution that supports Amazon Linux\. Any changes take effect when the agent starts up\. Restarting the agent ends any open connections and restarts the window manager\. For a full listing of the available settings, run `man pcoip-agent.conf` from the terminal on any Amazon Linux WorkSpace\.

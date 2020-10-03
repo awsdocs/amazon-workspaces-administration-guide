@@ -1,5 +1,7 @@
 # Set Up PCoIP Zero Client for WorkSpaces<a name="set-up-pcoip-zero-client"></a>
 
+PCoIP zero clients are compatible only with WorkSpaces bundles that are using the PCoIP protocol\.
+
 If your zero client device has firmware version 6\.0\.0 or later, your users can connect to their WorkSpaces directly\. Otherwise, if the firmware is between 4\.6\.0 and 6\.0\.0, you must set up Teradici PCoIP Connection Manager for Amazon WorkSpaces and provide your users with server URIs to connect to their WorkSpaces through Teradici PCoIP Connection Manager for Amazon WorkSpaces\.
 
 To set up PCoIP Connection Manager for Amazon WorkSpaces on an EC2 instance, go to [AWS Marketplace](https://aws.amazon.com/marketplace/pp/B00O9E9JZ0) and find an Amazon Machine Image \(AMI\) that you can use to launch an instance with PCoIP Connection Manager\. For more information, see *Deploying the PCoIP Connection Manager for Amazon WorkSpaces* in the [PCoIP Connection Manager User Guide](https://www.teradici.com/web-help/Connecting_ZC_AWS_HTML5/TER1408002_Connecting_ZC_AWS.htm)\.

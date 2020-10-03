@@ -1,11 +1,19 @@
 # What Is Amazon WorkSpaces?<a name="amazon-workspaces"></a>
 
+
+****  
+
+|  | 
+| --- |
+| Amazon WorkSpaces Streaming Protocol \(WSP\) WorkSpaces are available as a beta service and are subject to change\. WSP beta WorkSpaces should not be used for production workloads\. For more information about the WSP beta, see [Amazon WorkSpaces Streaming Protocol \(beta\)](http://aws.amazon.com/workspaces/wsp/)\. | 
+
 Amazon WorkSpaces enables you to provision virtual, cloud\-based Microsoft Windows or Amazon Linux desktops for your users, known as *WorkSpaces*\. Amazon WorkSpaces eliminates the need to procure and deploy hardware or install complex software\. You can quickly add or remove users as your needs change\. Users can access their virtual desktops from multiple devices or web browsers\.
 
 For more information, see [Amazon WorkSpaces](https://aws.amazon.com/workspaces/)\.
 
 ## Features<a name="features"></a>
 + Choose your operating system \(Windows or Amazon Linux\) and select from a range of hardware configurations, software configurations, and AWS Regions\. For more information, see [Amazon WorkSpaces Bundles](https://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles)\.
++ Choose your protocol: PCoIP or WorkSpaces Streaming Protocol \(WSP\) beta\. For more information, see [Protocols for Amazon WorkSpaces](amazon-workspaces-protocols.md)\.
 + Connect to your WorkSpace and pick up from right where you left off\. Amazon WorkSpaces provides a persistent desktop experience\.
 + Amazon WorkSpaces provides the flexibility of either monthly or hourly billing for WorkSpaces\. For more information, see [Amazon WorkSpaces Pricing](https://aws.amazon.com/workspaces/pricing/)\.
 + Deploy and manage applications for your Windows WorkSpaces by using Amazon WorkSpaces Application Manager \(Amazon WAM\)\.
@@ -22,7 +30,7 @@ For both Windows and Amazon Linux WorkSpaces, each WorkSpace is associated with 
 
 Amazon WorkSpaces uses a directory, either AWS Directory Service or AWS Managed Microsoft AD, to authenticate users\. Users access their WorkSpaces by using a client application from a supported device or, for Windows WorkSpaces, a web browser, and they log in by using their directory credentials\. The login information is sent to an authentication gateway, which forwards the traffic to the directory for the WorkSpace\. After the user is authenticated, streaming traffic is initiated through the streaming gateway\.
 
-Client applications use HTTPS over port 443 for all authentication and session\-related information\. Client applications use port 4172 for pixel streaming to the WorkSpace and ports 4172 and 4195 for network health checks\. For more information, see [Ports for Client Applications](workspaces-port-requirements.md#client-application-ports)\.
+Client applications use HTTPS over port 443 for all authentication and session\-related information\. Client applications use port 4172 \(PCoIP\) and port 4195 \(WSP beta\) for pixel streaming to the WorkSpace and ports 4172 and 4195 for network health checks\. For more information, see [Ports for Client Applications](workspaces-port-requirements.md#client-application-ports)\.
 
 Each WorkSpace has two elastic network interfaces associated with it: a network interface for management and streaming \(eth0\) and a primary network interface \(eth1\)\. The primary network interface has an IP address provided by your VPC, from the same subnets used by the directory\. This ensures that traffic from your WorkSpace can easily reach the directory\. Access to resources in the VPC is controlled by the security groups assigned to the primary network interface\. For more information, see [Network Interfaces](workspaces-port-requirements.md#network-interfaces)\.
 
@@ -47,7 +55,7 @@ There are client applications for the following devices:
 + iPads
 + Android devices
 + Fire tablets
-+ Zero client devices
++ Zero client devices \(Teradici zero client devices are supported only with PCoIP\.\)
 
 On Windows, macOS, and Linux PCs, you can use the following web browsers to connect to Windows WorkSpaces:
 + Chrome 53 and later \(Windows and macOS only\)

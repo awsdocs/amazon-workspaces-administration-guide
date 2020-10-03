@@ -17,6 +17,7 @@ Amazon's trademarks and trade dress may not be used in
 + [What Is Amazon WorkSpaces?](amazon-workspaces.md)
 + [Get Started with Amazon WorkSpaces Quick Setup](getting-started.md)
 + [Networking and Access for Amazon WorkSpaces](amazon-workspaces-networking.md)
+   + [Protocols for Amazon WorkSpaces](amazon-workspaces-protocols.md)
    + [Configure a VPC for Amazon WorkSpaces](amazon-workspaces-vpc.md)
    + [Availability Zones for Amazon WorkSpaces](azs-workspaces.md)
    + [IP Address and Port Requirements for Amazon WorkSpaces](workspaces-port-requirements.md)

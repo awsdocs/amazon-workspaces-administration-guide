@@ -106,6 +106,7 @@ The following information can help you troubleshoot specific issues with your Wo
 + [The Amazon WorkSpaces client displays a gray "Loading\.\.\." screen for a while before returning to the login screen\. No other error message appears\.](#loading_screen)
 + [My users receive the message "WorkSpace Status: Unhealthy\. We were unable to connect you to your WorkSpace\. Please try again in a few minutes\."](#unhealthy_cant_connect)
 + [My users receive the message "This device is not authorized to access the WorkSpace\. Please contact your administrator for assistance\."](#device_not_authorized)
++ [My users receive the message "No network\. Network connection lost\. Check your network connection or contact your administrator for help\." when trying to connect to a WSP WorkSpace](#no_network)
 + [The WorkSpaces client gives my users a network error, but they are able to use other network\-enabled apps on their devices](#network_error)
 + [My WorkSpace users see the following error message: "Device can't connect to the registration service\. Check your network settings\."](#registration_service_failure)
 + [My PCoIP zero client users are receiving the error "The supplied certificate is invalid due to timestamp"](#pcoip_zero_client_ntp)
@@ -252,12 +253,12 @@ Beginning October 1, 2020, customers will no longer be able to use the Amazon Wo
 
 ### The Amazon WorkSpaces client displays a gray "Loading\.\.\." screen for a while before returning to the login screen\. No other error message appears\.<a name="loading_screen"></a>
 
-This behavior usually indicates that the WorkSpaces client can authenticate over port 443, but can't establish a streaming connection over port 4172\. This situation can occur when [network prerequisites](workspaces-port-requirements.md) aren't met\. Issues on the client side often cause the network check in the bottom\-right corner of the client to fail\. To see which health checks are failing, choose the network check icon \(typically a red triangle with an exclamation point\)\.
+This behavior usually indicates that the WorkSpaces client can authenticate over port 443, but can't establish a streaming connection over port 4172 \(PCoIP\) or port 4195 \(WSP beta\)\. This situation can occur when [network prerequisites](workspaces-port-requirements.md) aren't met\. Issues on the client side often cause the network check in the client to fail\. To see which health checks are failing, choose the network check icon \(typically a red triangle with an exclamation point in the bottom\-right corner of the login screen for 2\.0\+ clients or the network icon ![\[Network icon\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/images/network-icon.png) in the upper\-right corner of the 3\.0\+ clients\)\.
 
 **Note**  
-The most common cause of this problem is a client\-side firewall or proxy preventing access over port 4172 \(TCP and UDP\)\. If this health check fails, check your local firewall settings\.
+The most common cause of this problem is a client\-side firewall or proxy preventing access over port 4172 or 4195 \(TCP and UDP\)\. If this health check fails, check your local firewall settings\.
 
-If the network check passes, there might be a problem with the network configuration of the WorkSpace\. For example, a Windows Firewall rule might block port UDP 4172 on the management interface\. [ Connect to the WorkSpace using a Remote Desktop Protocol \(RDP\) client](https://aws.amazon.com/premiumsupport/knowledge-center/connect-workspace-rdp/) to verify that the WorkSpace meets the necessary [ port requirements](workspaces-port-requirements.md)\.
+If the network check passes, there might be a problem with the network configuration of the WorkSpace\. For example, a Windows Firewall rule might block port UDP 4172 or 4195 on the management interface\. [ Connect to the WorkSpace using a Remote Desktop Protocol \(RDP\) client](https://aws.amazon.com/premiumsupport/knowledge-center/connect-workspace-rdp/) to verify that the WorkSpace meets the necessary [ port requirements](workspaces-port-requirements.md)\.
 
 ### My users receive the message "WorkSpace Status: Unhealthy\. We were unable to connect you to your WorkSpace\. Please try again in a few minutes\."<a name="unhealthy_cant_connect"></a>
 
@@ -276,6 +277,10 @@ If the WorkSpace has been running for some time and you still see this error, [c
 This error indicates that [ IP access control groups](amazon-workspaces-ip-access-control-groups.md) are configured on the WorkSpace directory, but the client IP address isn't whitelisted\.
 
 Check the settings on your directory\. Confirm that the public IP address the user is connecting from allows access to the WorkSpace\.
+
+### My users receive the message "No network\. Network connection lost\. Check your network connection or contact your administrator for help\." when trying to connect to a WSP WorkSpace<a name="no_network"></a>
+
+If this error occurs and your users don't have connectivity issues, make sure that port 4195 is open on your network's firewalls\. For WorkSpaces using the WorkSpaces Streaming Protocol \(WSP\) beta, the port used to stream the client session was changed from 4172 to 4195\.
 
 ### The WorkSpaces client gives my users a network error, but they are able to use other network\-enabled apps on their devices<a name="network_error"></a>
 

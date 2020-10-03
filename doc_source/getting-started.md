@@ -24,6 +24,7 @@ To change your Region, see [ Choosing a Region](https://docs.aws.amazon.com/awsc
 ## Before You Begin<a name="quick-setup-prereqs"></a>
 + You must have an AWS account to create or administer a WorkSpace\. Users do not need an AWS account to connect to and use their WorkSpaces\.
 + When you launch a WorkSpace, you must select a WorkSpace bundle\. For more information, see [Amazon WorkSpaces Bundles](https://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles)\.
++ When you launch a WorkSpace, you must select which protocol \(PCoIP or WorkSpaces Streaming Protocol \[WSP\]\) you want to use with your bundle\. For more information, see [Protocols for Amazon WorkSpaces](amazon-workspaces-protocols.md)\.
 + When you launch a WorkSpace, you must specify profile information for the user, including a user name and email address\. Users complete their profiles by specifying a password\. Information about WorkSpaces and users is stored in a directory\.
 + Amazon WorkSpaces is not available in every Region\. Verify the supported Regions and [ select a Region](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html#select-region) for your WorkSpaces\. For more information about the supported Regions, see [Amazon WorkSpaces Pricing by AWS Region](https://aws.amazon.com/workspaces/pricing/#Amazon_WorkSpaces_Pricing_by_AWS_Region)\.
 
@@ -40,7 +41,7 @@ Using Quick Setup, you can launch your first WorkSpace in minutes\.
 1. On the **Get Started with Amazon WorkSpaces** page, next to **Quick Setup**, choose **Launch**\.  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/images/get-started-options.png)
 
-1. For **Bundles**, select a bundle \(hardware and software\) for the user\. For more information about the various public bundles available for Amazon WorkSpaces, see [Amazon WorkSpaces Bundles](https://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles)\.  
+1. For **Bundles**, select a bundle \(hardware and software\) for the user with the appropriate protocol \(PCoIP or WSP\)\. For more information about the various public bundles available for Amazon WorkSpaces, see [Amazon WorkSpaces Bundles](https://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles)\.  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/images/bundles-linux2-windows.png)
 
 1. For **Enter User Details**, complete **Username**, **First Name**, **Last Name**, and **Email**\.  
