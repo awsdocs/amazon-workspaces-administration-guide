@@ -3,9 +3,11 @@
 When you are finished with a WorkSpace, you can delete it\. You can also delete related resources\.
 
 **Warning**  
-This is a permanent action and cannot be undone\. The WorkSpace user's data does not persist and is destroyed\. For help with backing up user data, contact AWS Support\.
+Deleting a WorkSpace is a permanent action and cannot be undone\. The WorkSpace user's data does not persist and is destroyed\. For help with backing up user data, contact AWS Support\.
 
 **To delete a WorkSpace**
+
+You can delete a WorkSpace that is in any state except `SUSPENDED`\.
 
 1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
@@ -13,7 +15,7 @@ This is a permanent action and cannot be undone\. The WorkSpace user's data does
 
 1. Select your WorkSpace and choose **Actions**, **Remove WorkSpaces**\.
 
-1. When prompted for confirmation, choose **Remove WorkSpaces**\. The status of the WorkSpace is set to `TERMINATING`\. When the termination is complete, the status is set to `TERMINATED`\.
+1. When prompted for confirmation, choose **Remove WorkSpaces**\. It takes approximately 5 minutes for a WorkSpace to be deleted\. During deletion, the status of the WorkSpace is set to `TERMINATING`\. When the deletion is complete, the status is very briefly set to `TERMINATED` before the WorkSpace disappears from the console\.
 
 1. \(Optional\) To delete any custom bundles and images that you are finished with, see [Delete a Custom WorkSpaces Bundle or Image](delete_bundle.md)\.
 
