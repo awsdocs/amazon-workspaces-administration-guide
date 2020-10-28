@@ -2,6 +2,8 @@
 
 You can administer your WorkSpaces using the Amazon WorkSpaces console\.
 
+To perform directory administration tasks, see [Set Up Active Directory Administration Tools for Amazon WorkSpaces](directory_administration.md)\.
+
 **Topics**
 + [Manage the WorkSpace Running Mode](running-mode.md)
 + [Modify a WorkSpace](modify-workspaces.md)

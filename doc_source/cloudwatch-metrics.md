@@ -24,12 +24,12 @@ The `AWS/WorkSpaces` namespace includes the following metrics\.
 | ConnectionAttempt2 |  The number of connection attempts\.  |  `DirectoryId` `WorkspaceId`  | Average, Sum, Maximum, Minimum, Data Samples | Count | 
 | ConnectionSuccess2 |  The number of successful connections\.  |  `DirectoryId` `WorkspaceId`  | Average, Sum, Maximum, Minimum, Data Samples | Count | 
 | ConnectionFailure2 |  The number of failed connections\.  |  `DirectoryId` `WorkspaceId`  | Average, Sum, Maximum, Minimum, Data Samples | Count | 
-| SessionLaunchTime2 | The amount of time it takes to initiate a WorkSpaces session\. |  `DirectoryID` `WorkspaceID`  | Average, Sum, Maximum, Minimum, Data Samples | Second \(time\) | 
-| InSessionLatency2 | The round trip time between the WorkSpaces client and the WorkSpace\. |  `DirectoryID` `WorkspaceID`  | Average, Sum, Maximum, Minimum, Data Samples | Millisecond \(time\) | 
-| SessionDisconnect2 | The number of connections that were closed, including user\-initiated and failed connections\. |  `DirectoryID` `WorkspaceID`  | Average, Sum, Maximum, Minimum, Data Samples | Count | 
-| UserConnected3 | The number of WorkSpaces that have a user connected\. |  `DirectoryID` `WorkspaceID`  | Average, Sum, Maximum, Minimum, Data Samples | Count | 
-| Stopped | The number of WorkSpaces that are stopped\. |  `DirectoryID` `WorkspaceID`  | Average, Sum, Maximum, Minimum, Data Samples | Count | 
-| Maintenance4 | The number of WorkSpaces that are under maintenance\. |  `DirectoryID` `WorkspaceID`  | Average, Sum, Maximum, Minimum, Data Samples | Count | 
+| SessionLaunchTime2 | The amount of time it takes to initiate a WorkSpaces session\. |  `DirectoryId` `WorkspaceId`  | Average, Sum, Maximum, Minimum, Data Samples | Second \(time\) | 
+| InSessionLatency2 | The round trip time between the WorkSpaces client and the WorkSpace\. |  `DirectoryId` `WorkspaceId`  | Average, Sum, Maximum, Minimum, Data Samples | Millisecond \(time\) | 
+| SessionDisconnect2 | The number of connections that were closed, including user\-initiated and failed connections\. |  `DirectoryId` `WorkspaceId`  | Average, Sum, Maximum, Minimum, Data Samples | Count | 
+| UserConnected3 | The number of WorkSpaces that have a user connected\. |  `DirectoryId` `WorkspaceId`  | Average, Sum, Maximum, Minimum, Data Samples | Count | 
+| Stopped | The number of WorkSpaces that are stopped\. |  `DirectoryId` `WorkspaceId`  | Average, Sum, Maximum, Minimum, Data Samples | Count | 
+| Maintenance4 | The number of WorkSpaces that are under maintenance\. |  `DirectoryId` `WorkspaceId`  | Average, Sum, Maximum, Minimum, Data Samples | Count | 
 
 1 Amazon WorkSpaces periodically sends status requests to a WorkSpace\. A WorkSpace is marked `Available` when it responds to these requests, and `Unhealthy` when it fails to respond to these requests\. These metrics are available at a per\-WorkSpace granularity, and also aggregated for all WorkSpaces in an organization\. 
 

@@ -4,6 +4,10 @@ You can copy a custom WorkSpaces image within or across AWS Regions\. Copying an
 
 You can copy a Bring Your Own License \(BYOL\) image to another Region as long as the destination Region is enabled for BYOL\. 
 
+**Note**  
+In the China \(Ningxia\) Region, you can copy images only within the same Region\.  
+In the AWS GovCloud \(US\-West\) Region, to copy images to and from other AWS Regions, contact AWS Support\.
+
 You can also copy an image that has been shared with you by another AWS account\. For more information about shared images, see [Share or Unshare a Custom WorkSpaces Image](share-custom-image.md)\.
 
 There are no additional charges for copying an image within or across Regions\. However, the quota for the number of images in the destination Region applies\. For more information about Amazon WorkSpaces quotas, see [Amazon WorkSpaces Quotas](workspaces-limits.md)\.

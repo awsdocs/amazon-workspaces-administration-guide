@@ -106,8 +106,10 @@ You cannot use a web browser \(Web Access\) to connect to Amazon Linux WorkSpace
 
 ## Next Steps<a name="next-steps-microsoft-ad"></a>
 
-You can continue to customize the WorkSpace that you just created\. For example, you can install software and then create a custom bundle from your WorkSpace\. If you are finished with your WorkSpace, you can delete it\. For more information, see the following documentation\.
+You can continue to customize the WorkSpace that you just created\. For example, you can install software and then create a custom bundle from your WorkSpace\. You can also perform various administrative tasks for your WorkSpaces and your WorkSpaces directory\. If you are finished with your WorkSpace, you can delete it\. For more information, see the following documentation\.
 + [Create a Custom WorkSpaces Image and Bundle](create-custom-bundle.md)
 + [Administer Your WorkSpaces](administer-workspaces.md)
 + [Manage Directories for Amazon WorkSpaces](manage-workspaces-directory.md)
 + [Delete a WorkSpace](delete-workspaces.md)
+
+For more information about using the WorkSpaces client applications, such as setting up multiple monitors or using peripheral devices, see [Amazon WorkSpaces Clients](https://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-clients.html) and [Peripheral Device Support](https://docs.aws.amazon.com/workspaces/latest/userguide/peripheral_devices.html) in the *Amazon WorkSpaces User Guide*\.

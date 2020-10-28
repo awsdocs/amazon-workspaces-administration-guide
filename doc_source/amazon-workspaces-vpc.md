@@ -231,19 +231,19 @@ In the previous step, you created a VPC with one public subnet\. Use the followi
 
 You can assign [ Elastic IP addresses](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html) \(static public IP addresses\) to your WorkSpaces automatically or manually\. To use automatic assignment, see [Configure Automatic IP Addresses](update-directory-details.md#automatic-assignment)\. To assign Elastic IP addresses manually, use the following procedure\.
 
-For a video tutorial about how to assign an Elastic IP address to a WorkSpace, see [ How do I associate an Elastic IP Address with a WorkSpace?](https://aws.amazon.com/premiumsupport/knowledge-center/associate-elastic-ip-workspace/) on the AWS Knowledge Center\.
-
 **Warning**  
 We recommend that you not modify the elastic network interface of the WorkSpace after it is launched\. If you have enabled automatic assignment of Elastic IP addresses at the directory level, an Elastic IP address \(from the Amazon\-provided pool\) is assigned to your WorkSpace when it is launched\. However, if you associate an Elastic IP address that you own to a WorkSpace, and then you later disassociate that Elastic IP address from the WorkSpace, the WorkSpace loses its public IP address, and it doesn't automatically get a new one from the Amazon\-provided pool\.  
 To associate a new public IP address from the Amazon\-provided pool with the WorkSpace, you must [rebuild the WorkSpace](rebuild-workspace.md)\. If you don't want to rebuild the WorkSpace, you must associate another Elastic IP address that you own to the WorkSpace\.
 
 **To assign an Elastic IP address to a WorkSpace manually**
 
+For a video tutorial about how to assign an Elastic IP address to a WorkSpace, see the AWS Knowledge Center video [ How do I associate an Elastic IP Address with a WorkSpace?](https://youtu.be/N45klH3ojBI)\.
+
 1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **WorkSpaces**\.
 
-1. Expand the row \(choose the arrow icon\) for the WorkSpace and note the value of **WorkSpace IP**\. This is the primary private IP address of the WorkSpace\.
+1. <a name="step_workspace_id"></a>Expand the row \(choose the arrow icon\) for the WorkSpace and note the value of **WorkSpace IP**\. This is the primary private IP address of the WorkSpace\.
 
 1. Open the Amazon EC2 console at [https://console\.aws\.amazon\.com/ec2/](https://console.aws.amazon.com/ec2/)\.
 
@@ -251,7 +251,7 @@ To associate a new public IP address from the Amazon\-provided pool with the Wor
 
 1. In the navigation pane, choose **Network Interfaces**\.
 
-1. Select the network interface for your WorkSpace\. Note that the value of **VPC ID** matches the ID of your WorkSpaces VPC and the value of **Primary private IPv4 IP** matches the primary private IP address of the WorkSpace that you noted earlier\.
+1. Select the network interface for your WorkSpace\. To find the network interface for your WorkSpace, enter the **WorkSpace IP** value \(which you noted earlier in [Step 3](#step_workspace_id)\) in the search box, and then press **Enter**\. The **WorkSpace IP** value matches the value in the network interface's **Primary private IPv4 IP** column\. Note that the network interface's **VPC ID** value matches the ID of your WorkSpaces VPC\. 
 
 1. Choose **Actions**, **Manage IP Addresses**\. Choose **Assign new IP**, and then choose **Yes, Update**\. Make note of the new IP address\.
 

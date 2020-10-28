@@ -88,6 +88,8 @@ You cannot use a web browser \(Web Access\) to connect to Amazon Linux WorkSpace
 
 1. \(Optional\) When prompted to save your credentials, choose **Yes**\.
 
+For more information about using the client applications, such as setting up multiple monitors or using peripheral devices, see [Amazon WorkSpaces Clients](https://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-clients.html) and [Peripheral Device Support](https://docs.aws.amazon.com/workspaces/latest/userguide/peripheral_devices.html) in the *Amazon WorkSpaces User Guide*\.
+
 ## Step 3: Clean Up \(Optional\)<a name="quick-setup-clean-up"></a>
 
 If you are finished with the WorkSpace that you created for this tutorial, you can delete it\.
@@ -114,4 +116,11 @@ If you are finished with the WorkSpace that you created for this tutorial, you c
 
 ## Next Steps<a name="quick-setup-next-steps"></a>
 
+You can continue to customize the WorkSpace that you just created\. For example, you can install software and then create a custom bundle from your WorkSpace\. You can also perform various administrative tasks for your WorkSpaces and your WorkSpaces directory\. For more information, see the following documentation\.
++ [Create a Custom WorkSpaces Image and Bundle](create-custom-bundle.md)
++ [Administer Your WorkSpaces](administer-workspaces.md)
++ [Manage Directories for Amazon WorkSpaces](manage-workspaces-directory.md)
+
 To create additional WorkSpaces, see [Launch a Virtual Desktop Using Amazon WorkSpaces](launch-workspaces-tutorials.md)\.
+
+For more information about using the WorkSpaces client applications, such as setting up multiple monitors or using peripheral devices, see [Amazon WorkSpaces Clients](https://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-clients.html) and [Peripheral Device Support](https://docs.aws.amazon.com/workspaces/latest/userguide/peripheral_devices.html) in the *Amazon WorkSpaces User Guide*\.

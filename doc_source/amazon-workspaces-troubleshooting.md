@@ -121,7 +121,7 @@ The following information can help you troubleshoot specific issues with your Wo
 + [I receive a "Connectivity issues detected" error when I try to connect to my on\-premises directory](#connectivity_issues_detected)
 + [I receive an "SRV record" error when I try to connect to my on\-premises directory](#srv_record_not_found)
 + [My Windows WorkSpace goes to sleep when it's left idle](#windows_workspace_sleeps_when_idle)
-+ [One of my WorkSpaces has a state of "Unhealthy"](#unhealthy)
++ [One of my WorkSpaces has a state of `UNHEALTHY`](#unhealthy)
 + [My WorkSpace is unexpectedly crashing or rebooting](#crash_web_access)
 + [The same username has more than one WorkSpace, but the user can log in to only one of the WorkSpaces](#multiple_workspaces_same_username)
 + [I'm having trouble using Docker with Amazon WorkSpaces](#docker_support)
@@ -486,9 +486,9 @@ If the preceding steps do not solve the issue, do the following:
 
 1. In the **Change settings for the plan** pane, if you changed any settings, choose **Save changes**\.
 
-### One of my WorkSpaces has a state of "Unhealthy"<a name="unhealthy"></a>
+### One of my WorkSpaces has a state of `UNHEALTHY`<a name="unhealthy"></a>
 
-The Amazon WorkSpaces service periodically sends status requests to a WorkSpace\. A WorkSpace is marked `Unhealthy` when it fails to respond to these requests\. Common causes for this problem are:
+The Amazon WorkSpaces service periodically sends status requests to a WorkSpace\. A WorkSpace is marked `UNHEALTHY` when it fails to respond to these requests\. Common causes for this problem are:
 + An application on the WorkSpace is blocking network ports, which prevents the WorkSpace from responding to the status request\.
 + High CPU utilization is preventing the WorkSpace from responding to the status request in a timely manner\.
 + The computer name of the WorkSpace has been changed\. This prevents a secure channel from being established between Amazon WorkSpaces and the WorkSpace\.
@@ -502,7 +502,8 @@ You can attempt to correct the situation using the following methods:
   1. From the operational WorkSpace, use Remote Desktop Protocol \(RDP\) to connect to the unhealthy WorkSpace using the IP address of the unhealthy WorkSpace\. Depending on the extent of the problem, you might not be able to connect to the unhealthy WorkSpace\.
 
   1. On the unhealthy WorkSpace, confirm that the minimum [port requirements](workspaces-port-requirements.md) are met\.
-+ Rebuild the WorkSpace from the Amazon WorkSpaces console\. Because rebuilding a WorkSpace can potentially cause a loss of data, this option should only be used if all other attempts to correct the problem have been unsuccessful\.
++ Make sure the SkyLightWorkSpacesConfigService service can respond to health checks\. To troubleshoot this issue, see [My users receive the message "WorkSpace Status: Unhealthy\. We were unable to connect you to your WorkSpace\. Please try again in a few minutes\."](#unhealthy_cant_connect)\.
++ Rebuild the WorkSpace from the Amazon WorkSpaces console\. Because rebuilding a WorkSpace can potentially cause a loss of data, this option should be used only if all other attempts to correct the problem have been unsuccessful\.
 
 ### My WorkSpace is unexpectedly crashing or rebooting<a name="crash_web_access"></a>
 
@@ -590,7 +591,11 @@ Deleting a WorkSpace is a permanent action and cannot be undone\. The WorkSpace 
 
 ### I'm having trouble using Docker with Amazon WorkSpaces<a name="docker_support"></a>
 
-Nested virtualization \(including the use of Docker\) is not supported on Amazon WorkSpaces for Windows or Linux\. For more information, see the [Docker documentation](https://docs.docker.com/docker-for-windows/troubleshoot/#running-docker-desktop-in-nested-virtualization-scenarios)\.
+**Windows WorkSpaces**  
+Nested virtualization \(including the use of Docker\) is not supported on Windows WorkSpaces\. For more information, see the [ Docker documentation](https://docs.docker.com/docker-for-windows/troubleshoot/#running-docker-desktop-in-nested-virtualization-scenarios)\.
+
+**Linux WorkSpaces**  
+To use Docker on Linux WorkSpaces, make sure that the CIDR blocks used by Docker don't overlap with the CIDR blocks used in the two elastic network interfaces \(ENIs\) associated with the WorkSpace\. If you encounter problems with using Docker on Linux WorkSpaces, contact Docker for assistance\.
 
 ### I receive ThrottlingException errors to some of my API calls<a name="throttled-api-calls"></a>
 

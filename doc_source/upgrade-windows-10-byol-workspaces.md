@@ -50,7 +50,7 @@ To enable the in\-place upgrade process and to specify where you would like the 
 | Enabled | DWORD |  **0** – \(Default\) Disables in\-place upgrade **1** – Enables in\-place upgrade  | 
 | PostUpgradeRestoreProfileOnD | DWORD |  **0** – \(Default\) Does not attempt to restore the user profile path after the in\-place upgrade **1** – Restores the user profile path \(**ProfileImagePath**\) after the in\-place upgrade  | 
 | UserShellFoldersRedirection | DWORD |  **0** – Does not enable redirection of user shell folders **1** – \(Default\) Enables redirection of user shell folders to `D:\Users\%USERNAME%` after the user profile is regenerated on `C:\Users\%USERNAME%`  | 
-| NoReboot | DWORD |  **0** – \(Default\) Does not allow the script to reboot the WorkSpace after modifying the registry for the user profile **1** – Allows you to control when a reboot occurs after modifying the registry for the user profile  | 
+| NoReboot | DWORD |  **0** – \(Default\) Allows you to control when a reboot occurs after modifying the registry for the user profile **1** – Does not allow the script to reboot the WorkSpace after modifying the registry for the user profile  | 
 
 
 **Registry path: **HKLM:\\Software\\Amazon\\WorkSpacesConfig\\update\-pvdrivers\.ps1****  

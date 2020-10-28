@@ -58,4 +58,4 @@ The process you use for managing users and groups depends on which type of direc
 When you reset the password for an existing user, do not set **User must change password at next logon**\. Otherwise, the users cannot connect to their WorkSpaces\. Instead, assign a secure temporary password to each user and then ask the users to manually change their passwords from within the WorkSpace the next time they log on\.
 
 **Note**  
-If you're using AD Connector, your users won't be able to reset their own passwords\. \(The **Forgot password?** option on the WorkSpaces client application login screen won't be available\.\)
+If you're using AD Connector or if your users are in the AWS GovCloud \(US\-West\) Region, your users won't be able to reset their own passwords\. \(The **Forgot password?** option on the WorkSpaces client application login screen won't be available \.\)

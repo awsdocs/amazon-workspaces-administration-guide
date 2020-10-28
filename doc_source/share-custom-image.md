@@ -2,6 +2,10 @@
 
 You can share custom WorkSpaces images across AWS accounts within the same AWS Region\. After an image has been shared, the recipient account can copy the image to other AWS Regions as needed\. For more information about copying images, see [Copy a Custom WorkSpaces Image](copy-custom-image.md)\.
 
+**Note**  
+In the China \(Ningxia\) Region, you can copy images only within the same Region\.  
+In the AWS GovCloud \(US\-West\) Region, to copy images to and from other AWS Regions, contact AWS Support\.
+
 There are no additional charges for sharing an image\. However, the quota for the number of images in the AWS Region applies\. A shared image doesn't count against the recipient account's quota until the recipient copies the image\. For more information about Amazon WorkSpaces quotas, see [Amazon WorkSpaces Quotas](workspaces-limits.md)\.
 
 To delete a shared image, you must unshare the image before you can delete it\.

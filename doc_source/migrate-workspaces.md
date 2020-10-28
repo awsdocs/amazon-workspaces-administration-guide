@@ -19,7 +19,6 @@ The migration process takes up to one hour per WorkSpace\. When you initiate the
 + You cannot migrate to a public or custom Windows 7 desktop experience bundle\. You also cannot migrate to Bring Your Own License \(BYOL\) Windows 7 bundles\.
 + You can migrate BYOL WorkSpaces only to other BYOL bundles\.
 + You cannot migrate a WorkSpace created from public or custom bundles to a BYOL bundle\.
-+ You cannot migrate between Plus bundles \(those that include Microsoft Office\) and non\-Plus bundles\. You can migrate from a Plus bundle to another Plus bundle, or between a non\-Plus bundle and another non\-Plus bundle\.
 + Migrating Linux WorkSpaces is not currently supported\.
 + In AWS Regions that support more than one language, you can migrate WorkSpaces between language bundles\.
 + The source and target bundles must be different\. \(However, in Regions that support more than one language, you can migrate to the same Windows 10 bundle as long as the languages differ\.\) If you want to refresh your WorkSpace using the same bundle, [rebuild the WorkSpace](rebuild-workspace.md) instead\.

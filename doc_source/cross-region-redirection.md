@@ -236,7 +236,7 @@ Now you need to set up the failover records for your primary and failover Region
 
 1. In the **Define failover record** dialog box, for **Value/route traffic to**, select **IP address or another value depending on the record type**\. 
 
-1. A box opens for you to enter your sample text entries\. Enter the connection identifier for the connection alias association for your primary Region\.
+1. A box opens for you to enter your sample text entries\. Enter the connection identifier for the connection alias association for your failover Region\.
 
 1. For **Failover record type**, choose **Secondary**\.
 

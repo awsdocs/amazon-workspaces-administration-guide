@@ -64,15 +64,13 @@ For the Amazon WorkSpaces client application to be able to access the Amazon Wor
 | Dynamic Messaging Service \(for 3\.0\+ WorkSpaces client applications\) |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 | Directory Settings |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 | Forrester Log Service  | https://fls\-na\.amazon\.com/ | 
-| PCoIP Health Check \(DRP\) Servers | [Health Check Servers](#health_check) | 
-| PCoIP Session Gateway \(PSG\) Servers | [PCoIP Gateway Servers](#gateway_IP) | 
+| Health Check \(DRP\) Servers | [Health Check Servers](#health_check) | 
 | Registration Dependency \(for Web Access and Teradici PCoIP Zero Clients\) | https://s3\.amazonaws\.com | 
-| Session Broker \(PCM\) |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 | User Login Pages | https://<directory id>\.awsapps\.com/ \(where <directory id> is the customer's domain\) | 
 | WS Broker |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 | WorkSpaces API Endpoints |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 
-## <a name="w141aab9c13c15"></a>
+## <a name="w145aab9c13c15"></a>
 
 
 **Domains and IP Addresses to Add to Your Allow List for PCoIP**  
@@ -83,7 +81,7 @@ For the Amazon WorkSpaces client application to be able to access the Amazon Wor
 | Session Broker \(PCM\) |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 | Web Access TURN Servers for PCoIP |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 
-## <a name="w141aab9c13c17"></a>
+## <a name="w145aab9c13c17"></a>
 
 
 **Domains and IP Addresses to Add to Your Allow List for WorkSpaces Streaming Protocol \(WSP\) beta**  
@@ -139,7 +137,7 @@ We are regularly updating our IP address ranges in the [ AWS IP Address Ranges](
 ## WSP beta Gateway Servers<a name="gateway_WSP"></a>
 
 **Important**  
-Today, Amazon WorkSpaces streams the desktop session for WorkSpaces using the WSP beta protocol to clients over port 4172\. Starting in June 2020, the streaming traffic for WSP beta WorkSpaces will transition to port 4195\. If you want to use WSP beta WorkSpaces, make sure that both port 4172 and port 4195 are open to traffic for the month of June while we make this transition\.
+Starting in June 2020, Amazon WorkSpaces streams the desktop session for WSP beta WorkSpaces to clients over port 4195 instead of port 4172\. If you want to use WSP beta WorkSpaces, make sure that port 4195 is open to traffic\.
 
 Amazon WorkSpaces uses a small range of Amazon EC2 public IPv4 addresses for its WSP beta gateway servers\. This enables you to set more finely grained firewall policies for devices that access Amazon WorkSpaces\. Note that the Amazon WorkSpaces clients do not support IPv6 addresses as a connectivity option at this time\.
 
