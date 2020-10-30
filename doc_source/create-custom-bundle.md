@@ -69,6 +69,7 @@ Before you create an image from a WorkSpace, do the following:
 + For Windows WorkSpaces, don't configure any Group Policy Objects \(GPOs\) before image creation\.
 + For Windows WorkSpaces, do not customize the default user profile \(`C:\Users\Default`\) before creating an image\. We recommend making any customizations to the user profile through GPOs, and applying them after image creation\. GPOs can be easily modified or rolled back, and are therefore less prone to error than customizations made to the default user profile\.
 + For Linux WorkSpaces, see also the [ "Best Practices to Prepare Your Amazon WorkSpaces for Linux Images"](https://docs.aws.amazon.com/whitepapers/latest/workspaces-linux-best-practices/welcome.html) whitepaper\.
++ If you want to use smart cards on Linux WorkSpaces with WorkSpaces Streaming Protocol \(WSP\) beta enabled, see [Use Smart Cards for Authentication](manage_linux_workspace.md#linux_smart_cards)\. 
 
 ## Step 1: Run the Image Checker<a name="run_image_checker"></a>
 

@@ -6,9 +6,6 @@ To enable SSH connections, you create a new security group or update an existing
 
 For a video tutorial, see [ How can I connect to my Linux Amazon WorkSpaces using SSH?](https://aws.amazon.com/premiumsupport/knowledge-center/linux-workspace-ssh/) on the AWS Knowledge Center\.
 
-**Note**  
-Linux WorkSpaces support only the PCoIP protocol at this time\.
-
 **Topics**
 + [Prerequisites for SSH Connections to Amazon Linux WorkSpaces](#before-you-begin-enable-ssh-linux-workspaces)
 + [Enable SSH Connections to All Amazon Linux WorkSpaces in a Directory](#enable-ssh-directory-level-access-linux-workspaces)

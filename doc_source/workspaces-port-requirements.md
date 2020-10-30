@@ -70,7 +70,7 @@ For the Amazon WorkSpaces client application to be able to access the Amazon Wor
 | WS Broker |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 | WorkSpaces API Endpoints |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 
-## <a name="w145aab9c13c15"></a>
+## <a name="w148aab9c13c15"></a>
 
 
 **Domains and IP Addresses to Add to Your Allow List for PCoIP**  
@@ -81,7 +81,7 @@ For the Amazon WorkSpaces client application to be able to access the Amazon Wor
 | Session Broker \(PCM\) |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 | Web Access TURN Servers for PCoIP |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 
-## <a name="w145aab9c13c17"></a>
+## <a name="w148aab9c13c17"></a>
 
 
 **Domains and IP Addresses to Add to Your Allow List for WorkSpaces Streaming Protocol \(WSP\) beta**  
@@ -153,9 +153,9 @@ Amazon WorkSpaces uses a small range of Amazon EC2 public IPv4 addresses for its
 | Canada \(Central\) | This Region is not supported for the WSP beta\. | 
 | Europe \(Frankfurt\) | This Region is not supported for the WSP beta\. | 
 | Europe \(Ireland\) | 3\.248\.176\.0/22 | 
-| Europe \(London\) | This Region is not supported for the WSP beta\. | 
+| Europe \(London\) | 18\.134\.68\.0/22 | 
 | South America \(São Paulo\) | This Region is not supported for the WSP beta\. | 
-| AWS GovCloud \(US\-West\) | This Region is not supported for the WSP beta\. | 
+| AWS GovCloud \(US\-West\) | 3\.32\.139\.0/24 | 
 
 ## Network Interfaces<a name="network-interfaces"></a>
 
