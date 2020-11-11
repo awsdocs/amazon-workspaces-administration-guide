@@ -41,6 +41,8 @@ If an image has been shared with you, you can't further share that image with ot
 Before sharing the image, confirm that you are sharing to the correct AWS account ID\.
 
 1. Choose **Share image**\.
+**Note**  
+To use the shared image, the recipient account must first [ copy the image](copy-custom-image.md)\. The recipient account can then use its copy of the shared image to create bundles for launching new WorkSpaces\.
 
 **To stop sharing an image**
 

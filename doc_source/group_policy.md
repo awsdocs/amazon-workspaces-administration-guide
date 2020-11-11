@@ -39,6 +39,7 @@ For information about using the Active Directory administration tools to work wi
   + [Enable or Disable Audio\-In Redirection for WSP beta](#gp_audio_in_wsp)
   + [Disable Time Zone Redirection for WSP beta](#gp_time_zone_wsp)
 + [Set the Maximum Lifetime for a Kerberos Ticket](#gp_kerberos_ticket)
++ [Configure Device Proxy Server Settings for Internet Access](#gp_device_proxy)
 
 ## Install the Group Policy Administrative Template for PCoIP<a name="gp_install_template"></a>
 
@@ -426,3 +427,15 @@ If you have not disabled the **Remember Me** feature of your Windows WorkSpaces,
 If your WorkSpace uses an AD Connector directory, you can modify the maximum lifetime of the Kerberos tickets for your WorkSpaces users through Group Policy by following the steps in [ Maximum Lifetime for a User Ticket](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/maximum-lifetime-for-user-ticket) in the Microsoft Windows documentation\.
 
 To enable or disable the **Remember Me** feature, see [Enable Self\-Service WorkSpace Management Capabilities for Your Users](enable-user-self-service-workspace-management.md)\.
+
+## Configure Device Proxy Server Settings for Internet Access<a name="gp_device_proxy"></a>
+
+By default, the WorkSpaces Windows client application uses the proxy server specified in the device operating system settings for HTTPS \(port 443\) traffic\. The Amazon WorkSpaces client applications use the HTTPS port for updates, registration, and authentication\. 
+
+**Note**  
+The desktop streaming connections to the WorkSpace require ports 4172 and 4195 to be enabled, and do not go through the proxy server\.
+Proxy servers that require authentication with a username and password are not supported\.
+
+You can configure the device proxy server settings for your Windows WorkSpaces through Group Policy by following the steps in [ Configure device proxy and internet connectivity settings](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet) in the Microsoft documentation\.
+
+For more information about configuring the proxy settings in the WorkSpaces Windows client application, see [ Proxy Server](https://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-windows-client.html#windows_proxy_server) in the *Amazon WorkSpaces User Guide*\.

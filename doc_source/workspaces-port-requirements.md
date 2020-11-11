@@ -70,7 +70,7 @@ For the Amazon WorkSpaces client application to be able to access the Amazon Wor
 | WS Broker |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 | WorkSpaces API Endpoints |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 
-## <a name="w148aab9c13c15"></a>
+## <a name="w149aab9c13c15"></a>
 
 
 **Domains and IP Addresses to Add to Your Allow List for PCoIP**  
@@ -81,7 +81,7 @@ For the Amazon WorkSpaces client application to be able to access the Amazon Wor
 | Session Broker \(PCM\) |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 | Web Access TURN Servers for PCoIP |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 
-## <a name="w148aab9c13c17"></a>
+## <a name="w149aab9c13c17"></a>
 
 
 **Domains and IP Addresses to Add to Your Allow List for WorkSpaces Streaming Protocol \(WSP\) beta**  
