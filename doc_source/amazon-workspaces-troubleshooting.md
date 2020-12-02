@@ -253,7 +253,7 @@ Beginning October 1, 2020, customers will no longer be able to use the Amazon Wo
 
 ### The Amazon WorkSpaces client displays a gray "Loading\.\.\." screen for a while before returning to the login screen\. No other error message appears\.<a name="loading_screen"></a>
 
-This behavior usually indicates that the WorkSpaces client can authenticate over port 443, but can't establish a streaming connection over port 4172 \(PCoIP\) or port 4195 \(WSP beta\)\. This situation can occur when [network prerequisites](workspaces-port-requirements.md) aren't met\. Issues on the client side often cause the network check in the client to fail\. To see which health checks are failing, choose the network check icon \(typically a red triangle with an exclamation point in the bottom\-right corner of the login screen for 2\.0\+ clients or the network icon ![\[Network icon\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/images/network-icon.png) in the upper\-right corner of the 3\.0\+ clients\)\.
+This behavior usually indicates that the WorkSpaces client can authenticate over port 443, but can't establish a streaming connection over port 4172 \(PCoIP\) or port 4195 \(WSP\)\. This situation can occur when [network prerequisites](workspaces-port-requirements.md) aren't met\. Issues on the client side often cause the network check in the client to fail\. To see which health checks are failing, choose the network check icon \(typically a red triangle with an exclamation point in the bottom\-right corner of the login screen for 2\.0\+ clients or the network icon ![\[Network icon\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/images/network-icon.png) in the upper\-right corner of the 3\.0\+ clients\)\.
 
 **Note**  
 The most common cause of this problem is a client\-side firewall or proxy preventing access over port 4172 or 4195 \(TCP and UDP\)\. If this health check fails, check your local firewall settings\.
@@ -280,7 +280,7 @@ Check the settings on your directory\. Confirm that the public IP address the us
 
 ### My users receive the message "No network\. Network connection lost\. Check your network connection or contact your administrator for help\." when trying to connect to a WSP WorkSpace<a name="no_network"></a>
 
-If this error occurs and your users don't have connectivity issues, make sure that port 4195 is open on your network's firewalls\. For WorkSpaces using the WorkSpaces Streaming Protocol \(WSP\) beta, the port used to stream the client session was changed from 4172 to 4195\.
+If this error occurs and your users don't have connectivity issues, make sure that port 4195 is open on your network's firewalls\. For WorkSpaces using the WorkSpaces Streaming Protocol \(WSP\), the port used to stream the client session was changed from 4172 to 4195\.
 
 ### The WorkSpaces client gives my users a network error, but they are able to use other network\-enabled apps on their devices<a name="network_error"></a>
 

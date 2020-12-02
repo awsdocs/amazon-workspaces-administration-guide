@@ -5,6 +5,7 @@ By default, you can create only one WorkSpace per user per directory\. However, 
 + If you have multiple directories for your WorkSpaces, create the WorkSpaces for the user in separate directories\. You can use the same username in the directories, or you can use different usernames in the directories\. The WorkSpaces will have different registration codes\. So that you can easily locate all the WorkSpaces that you've created for a user, you might want to use the same email address with each username\.
 
 **Important**  
+A user can have both a PCoIP and a WSP WorkSpace as long as the two WorkSpaces are located in separate directories\. The same user cannot have a PCoIP and a WSP WorkSpace in the same directory\. 
 If you are setting up multiple WorkSpaces for use with cross\-Region redirection, you must set up the WorkSpaces in different directories in different AWS Regions, and you must use the same usernames in each directory\. For more information about cross\-Region redirection, see [Cross\-Region Redirection for Amazon WorkSpaces](cross-region-redirection.md)\. 
 
 To switch between the WorkSpaces, the user logs in with the username and registration code associated with a particular Workspace\. If the user is using a 3\.0\+ version of the WorkSpaces client applications for Windows, macOS, or Linux, the user can assign different names to the WorkSpaces by going to **Settings**, **Manage Login Information** in the client application\.

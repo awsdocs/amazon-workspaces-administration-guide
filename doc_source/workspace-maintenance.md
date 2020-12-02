@@ -9,7 +9,7 @@ By default, your Windows WorkSpaces are configured to receive updates from Windo
 
 For AlwaysOn WorkSpaces, the maintenance window is determined by operating system settings\. The default is a four\-hour period from 00h00 to 04h00, in the time zone of the WorkSpace, each Sunday morning\. By default, the time zone of an AlwaysOn WorkSpace is the time zone of the AWS Region for the WorkSpace\. However, if you connect from another Region and time zone redirection is enabled, and then you disconnect, the time zone of the WorkSpace is updated to the time zone of the Region that you connected from\.
 
-You can [disable time zone redirection for Windows WorkSpaces](group_policy.md#gp_time_zone) using Group Policy\. You cannot disable time zone redirection for Linux WorkSpaces\.
+You can [disable time zone redirection for Windows WorkSpaces](group_policy.md#gp_time_zone) using Group Policy\. You can [disable time zone redirection for Linux WorkSpaces](manage_linux_workspace.md#linux_time_zone) by using the PCoIP Agent conf\.
 
 For Windows WorkSpaces, you can configure the maintenance window using Group Policy; see [Configure Group Policy Settings for Automatic Updates](https://docs.microsoft.com/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates)\. You cannot configure the maintenance window for Linux WorkSpaces\.
 

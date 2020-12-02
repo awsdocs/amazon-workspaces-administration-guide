@@ -1,12 +1,5 @@
 # Amazon WorkSpaces Client Network Requirements<a name="workspaces-network-requirements"></a>
 
-
-****  
-
-|  | 
-| --- |
-| Amazon WorkSpaces Streaming Protocol \(WSP\) WorkSpaces are available as a beta service and are subject to change\. WSP beta WorkSpaces should not be used for production workloads\. For more information about the WSP beta, see [Amazon WorkSpaces Streaming Protocol \(beta\)](http://aws.amazon.com/workspaces/wsp/)\. | 
-
 Your Amazon WorkSpaces users can connect to their WorkSpaces by using the client application for a supported device\. Alternatively, they can use a web browser to connect to WorkSpaces that support this form of access\. For a list of WorkSpaces that support web browser access, see "Which Amazon WorkSpaces bundles support web access?" in [ Client Access, Web Access, and User Experience](https://aws.amazon.com/workspaces/faqs/#Client_Access.2C_Web_Access.2C_and_User_Experience)\.
 
 **Note**  
@@ -20,7 +13,7 @@ To provide your users with a good experience with their WorkSpaces, verify that 
 + The network that the client device is connected to, and any firewall on the client device, must have certain ports open to the IP address ranges for various AWS services\. For more information, see [IP Address and Port Requirements for Amazon WorkSpaces](workspaces-port-requirements.md)\.
 + For the best performance for PCoIP, the round trip time \(RTT\) from the client's network to the Region that the WorkSpaces are in should be less than 100ms\. If the RTT is between 100ms and 200ms, the user can access the WorkSpace, but performance is affected\. If the RTT is between 200ms and 375ms, the performance is degraded\. If the RTT exceeds 375ms, the WorkSpaces client connection is terminated\.
 
-  For WorkSpaces Streaming Protocol \(WSP\) beta, the round trip time \(RTT\) from the client's network to the Region that the WorkSpaces are in should be less than 250ms\. If the RTT is between 250ms and 400ms, the user can access the WorkSpace, but performance is degraded\.
+  For the best performance for WorkSpaces Streaming Protocol \(WSP\), the RTT from the client's network to the Region that the WorkSpaces are in should be less than 250ms\. If the RTT is between 250ms and 400ms, the user can access the WorkSpace, but the performance is degraded\.
 
   To check the RTT to the various AWS Regions from your location, use the [Amazon WorkSpaces Connection Health Check](https://clients.amazonworkspaces.com/Health.html)\.
 + If users will access their WorkSpaces through a virtual private network \(VPN\), the connection must support a maximum transmission unit \(MTU\) of at least 1200 bytes\.

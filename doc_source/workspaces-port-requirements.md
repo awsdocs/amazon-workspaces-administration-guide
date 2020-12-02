@@ -1,12 +1,5 @@
 # IP Address and Port Requirements for Amazon WorkSpaces<a name="workspaces-port-requirements"></a>
 
-
-****  
-
-|  | 
-| --- |
-| Amazon WorkSpaces Streaming Protocol \(WSP\) WorkSpaces are available as a beta service and are subject to change\. WSP beta WorkSpaces should not be used for production workloads\. For more information about the WSP beta, see [Amazon WorkSpaces Streaming Protocol \(beta\)](http://aws.amazon.com/workspaces/wsp/)\. | 
-
 To connect to your WorkSpaces, the network that your Amazon WorkSpaces clients are connected to must have certain ports open to the IP address ranges for the various AWS services \(grouped in subsets\)\. These address ranges vary by AWS Region\. These same ports must also be open on any firewall running on the client\. For more information about the AWS IP address ranges for different Regions, see [AWS IP Address Ranges](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html) in the *Amazon Web Services General Reference*\.
 
 For an architecture diagram, see [ WorkSpaces Architecture](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html#architecture)\. For additional architecture diagrams, see the ["Best Practices for Deploying Amazon WorkSpaces"](http://aws.amazon.com/workspaces/resources/) whitepaper\.
@@ -25,7 +18,7 @@ This port must be open to the following IP address ranges:
 + The `S3` subset in the `us-west-2` Region\.
 
 Port 4172 and 4195 \(UDP and TCP\)  
-These ports are used for streaming the WorkSpace desktop and health checks\. The desktop client applications do not support the use of a proxy server for port 4172 and 4195 traffic; they require a direct connection to ports 4172 and 4195\. These ports must be open to the PCoIP Gateway and WorkSpaces Streaming Protocol \(WSP\) beta Gateway IP address ranges and the health check servers in the Region that the WorkSpace is in\. For more information, see [Health Check Servers](#health_check), [PCoIP Gateway Servers](#gateway_IP), and [WSP beta Gateway Servers](#gateway_WSP)\.
+These ports are used for streaming the WorkSpace desktop and health checks\. The desktop client applications do not support the use of a proxy server for port 4172 and 4195 traffic; they require a direct connection to ports 4172 and 4195\. These ports must be open to the PCoIP Gateway and WorkSpaces Streaming Protocol \(WSP\) Gateway IP address ranges, and to the health check servers in the Region that the WorkSpace is in\. For more information, see [Health Check Servers](#health_check), [PCoIP Gateway Servers](#gateway_IP), and [WSP Gateway Servers](#gateway_WSP)\.
 
 **Note**  
 If your firewall uses stateful filtering, ephemeral \(also known as dynamic\) ports are automatically opened to allow return communication\. If your firewall uses stateless filtering, you must open ephemeral ports explicitly to allow return communication\. The required ephemeral port range that you must open will vary depending on your configuration\.
@@ -70,7 +63,7 @@ For the Amazon WorkSpaces client application to be able to access the Amazon Wor
 | WS Broker |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 | WorkSpaces API Endpoints |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 
-## <a name="w149aab9c13c15"></a>
+## <a name="pcoip-allow-list"></a>
 
 
 **Domains and IP Addresses to Add to Your Allow List for PCoIP**  
@@ -81,15 +74,15 @@ For the Amazon WorkSpaces client application to be able to access the Amazon Wor
 | Session Broker \(PCM\) |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 | Web Access TURN Servers for PCoIP |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 
-## <a name="w149aab9c13c17"></a>
+## <a name="wsp-allow-list"></a>
 
 
-**Domains and IP Addresses to Add to Your Allow List for WorkSpaces Streaming Protocol \(WSP\) beta**  
+**Domains and IP Addresses to Add to Your Allow List for WorkSpaces Streaming Protocol \(WSP\)**  
 
 | Category | Domain or IP address | 
 | --- | --- | 
-| WSP beta Session Gateway \(WSG\) | [WSP beta Gateway Servers](#gateway_WSP) | 
-| Web Access TURN Servers for WSP beta |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
+| WSP Session Gateway \(WSG\) | [WSP Gateway Servers](#gateway_WSP) | 
+| Web Access TURN Servers for WSP |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 
 ## Health Check Servers<a name="health_check"></a>
 
@@ -134,27 +127,27 @@ We are regularly updating our IP address ranges in the [ AWS IP Address Ranges](
 | South America \(São Paulo\) |  18\.230\.103\.0 \- 18\.230\.103\.255 18\.230\.104\.0 \- 18\.230\.105\.255 54\.233\.204\.0 \- 54\.233\.204\.255  | 
 | AWS GovCloud \(US\-West\) |  52\.61\.193\.0 \- 52\.61\.193\.255  | 
 
-## WSP beta Gateway Servers<a name="gateway_WSP"></a>
+## WSP Gateway Servers<a name="gateway_WSP"></a>
 
 **Important**  
-Starting in June 2020, Amazon WorkSpaces streams the desktop session for WSP beta WorkSpaces to clients over port 4195 instead of port 4172\. If you want to use WSP beta WorkSpaces, make sure that port 4195 is open to traffic\.
+Starting in June 2020, Amazon WorkSpaces streams the desktop session for WSP WorkSpaces to clients over port 4195 instead of port 4172\. If you want to use WSP WorkSpaces, make sure that port 4195 is open to traffic\.
 
-Amazon WorkSpaces uses a small range of Amazon EC2 public IPv4 addresses for its WSP beta gateway servers\. This enables you to set more finely grained firewall policies for devices that access Amazon WorkSpaces\. Note that the Amazon WorkSpaces clients do not support IPv6 addresses as a connectivity option at this time\.
+Amazon WorkSpaces uses a small range of Amazon EC2 public IPv4 addresses for its WSP gateway servers\. This enables you to set more finely grained firewall policies for devices that access Amazon WorkSpaces\. Note that the Amazon WorkSpaces clients do not support IPv6 addresses as a connectivity option at this time\.
 
 
 | Region | Public IP Address Range | 
 | --- | --- | 
 | US East \(N\. Virginia\) | 3\.227\.4\.0/22 | 
 | US West \(Oregon\) | 34\.223\.96\.0/22 | 
-| Asia Pacific \(Seoul\) | This Region is not supported for the WSP beta\. | 
-| Asia Pacific \(Singapore\) | This Region is not supported for the WSP beta\. | 
-| Asia Pacific \(Sydney\) | This Region is not supported for the WSP beta\. | 
+| Asia Pacific \(Seoul\) | 3\.35\.160\.0/22 | 
+| Asia Pacific \(Singapore\) | 13\.212\.132\.0/22 | 
+| Asia Pacific \(Sydney\) | 3\.25\.248\.0/22 | 
 | Asia Pacific \(Tokyo\) | 3\.114\.164\.0/22 | 
-| Canada \(Central\) | This Region is not supported for the WSP beta\. | 
-| Europe \(Frankfurt\) | This Region is not supported for the WSP beta\. | 
+| Canada \(Central\) | 3\.97\.20\.0/22 | 
+| Europe \(Frankfurt\) | 18\.192\.216\.0/22 | 
 | Europe \(Ireland\) | 3\.248\.176\.0/22 | 
 | Europe \(London\) | 18\.134\.68\.0/22 | 
-| South America \(São Paulo\) | This Region is not supported for the WSP beta\. | 
+| South America \(São Paulo\) | 15\.228\.64\.0/22 | 
 | AWS GovCloud \(US\-West\) | 3\.32\.139\.0/24 | 
 
 ## Network Interfaces<a name="network-interfaces"></a>
@@ -194,11 +187,11 @@ The following table lists the IP address ranges used for the management network 
 The following ports must be open on the management network interface of all WorkSpaces:
 + Inbound TCP on port 4172\. This is used for establishment of the streaming connection on the PCoIP protocol\.
 + Inbound UDP on port 4172\. This is used for streaming user input on the PCoIP protocol\.
-+ Inbound TCP on port 4489\. This is used for access using the web client\. \(The Web Access client is not supported for the WSP beta\.\)
++ Inbound TCP on port 4489\. This is used for access using the web client\. \(The Web Access client is not supported for the WSP\.\)
 + Inbound TCP on port 8200\. This is used for management and configuration of the WorkSpace on the PCoIP protocol\.
-+ Inbound TCP on ports 8201\-8250\. These ports are used for establishment of the streaming connection and for streaming user input on the WSP beta protocol\.
-+ Outbound TCP on ports 8443 and 9997\. This is used for access using the web client\. \(The Web Access client is not supported for the WSP beta\.\)
-+ Outbound UDP on ports 3478, 4172, and 4195\. This is used for access using the web client\. \(The Web Access client is not supported for the WSP beta\.\)
++ Inbound TCP on ports 8201\-8250\. These ports are used for establishment of the streaming connection and for streaming user input on the WSP protocol\.
++ Outbound TCP on ports 8443 and 9997\. This is used for access using the web client\. \(The Web Access client is not supported for the WSP\.\)
++ Outbound UDP on ports 3478, 4172, and 4195\. This is used for access using the web client\. \(The Web Access client is not supported for the WSP\.\)
 + Outbound UDP on ports 50002 and 55002\. This is used for streaming\. If your firewall uses stateful filtering, the ephemeral ports 50002 and 55002 are automatically opened to allow return communication\. If your firewall uses stateless filtering, you must open ephemeral ports 49152 \- 65535 to allow return communication\.
 + Outbound TCP on port 80 to IP address 169\.254\.169\.254 for access to the EC2 metadata service\. Any HTTP proxy assigned to your WorkSpaces must also exclude 169\.254\.169\.254\.
 + Outbound TCP on port 1688 to IP addresses 169\.254\.169\.250 and 169\.254\.169\.251 to allow access to Microsoft KMS for Windows and Office activation\.

@@ -23,6 +23,7 @@ Amazon's trademarks and trade dress may not be used in
    + [IP Address and Port Requirements for Amazon WorkSpaces](workspaces-port-requirements.md)
    + [Amazon WorkSpaces Client Network Requirements](workspaces-network-requirements.md)
    + [Restrict WorkSpaces Access to Trusted Devices](trusted-devices.md)
+   + [Use Smart Cards for Authentication](smart-cards.md)
    + [Provide Internet Access from Your WorkSpace](amazon-workspaces-internet-access.md)
    + [Security Groups for Your WorkSpaces](amazon-workspaces-security-groups.md)
    + [IP Access Control Groups for Your WorkSpaces](amazon-workspaces-ip-access-control-groups.md)
