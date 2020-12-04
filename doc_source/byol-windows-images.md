@@ -304,7 +304,7 @@ To create a Graphics or GraphicsPro bundle from your image, contact the [AWS Sup
    + For **AMI ID**, click the **EC2 Console** link, and choose the Amazon EC2 image that you imported as described in the previous section \([Step 4: Import the VM as an Image into Amazon EC2](#windows_images_import_image_ec2_byol)\)\. The image name must begin with `ami-` and be followed by the identifier for the AMI \(for example, `ami-1234567e`\)\.
    + For **BYOL image name**, enter a unique name for the image\.
    + For **Image description**, enter a description to help you quickly identify the image\.
-   + For **Ingestion process**, choose the appropriate bundle type \(either **Regular**, **Graphics**, or **GraphicsPro**\)\. For non\-GPU\-enabled bundles \(bundles other than Graphics or GraphicsPro\), choose **Regular**\.
+   + For **Ingestion process**, choose the appropriate bundle type \(either **Regular**, **Graphics**, or **GraphicsPro**\), depending on which protocol you want to use for your image, either PCoIP or WorkSpaces Streaming Protocol \(WSP\)\. For non\-GPU\-enabled bundles \(bundles other than Graphics or GraphicsPro\), choose **Regular**\.
    + \(Optional\) For **Applications**, choose which version of Microsoft Office you want to subscribe to\. For more information, see [Adding Microsoft Office to Your BYOL Image](#windows_images_adding_office)\.
 
 1. Choose **Create**\.
