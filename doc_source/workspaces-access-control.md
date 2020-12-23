@@ -192,7 +192,7 @@ arn:aws:workspaces:region:account_id:workspace/workspace_identifier
 ```
 
 *region*  
-The Region that the WorkSpace is in \(for example, `us-east-2`\)\.
+The Region that the WorkSpace is in \(for example, `us-east-1`\)\.
 
 *account\_id*  
 The ID of the AWS account, with no hyphens \(for example, `123456789012`\)\.
@@ -217,7 +217,7 @@ arn:aws:workspaces:region:account_id:workspaceimage/image_identifier
 ```
 
 *region*  
-The Region that the WorkSpace image is in \(for example, `us-east-2`\)\.
+The Region that the WorkSpace image is in \(for example, `us-east-1`\)\.
 
 *account\_id*  
 The ID of the AWS account, with no hyphens \(for example, `123456789012`\)\.
@@ -242,7 +242,7 @@ arn:aws:workspaces:region:account_id:workspacebundle/bundle_identifier
 ```
 
 *region*  
-The Region that the WorkSpace is in \(for example, `us-east-2`\)\.
+The Region that the WorkSpace is in \(for example, `us-east-1`\)\.
 
 *account\_id*  
 The ID of the AWS account, with no hyphens \(for example, `123456789012`\)\.
@@ -267,7 +267,7 @@ arn:aws:workspaces:region:account_id:workspaceipgroup/ipgroup_identifier
 ```
 
 *region*  
-The Region that the WorkSpace is in \(for example, `us-east-2`\)\.
+The Region that the WorkSpace is in \(for example, `us-east-1`\)\.
 
 *account\_id*  
 The ID of the AWS account, with no hyphens \(for example, `123456789012`\)\.
@@ -292,7 +292,7 @@ arn:aws:workspaces:region:account_id:directory/directory_identifier
 ```
 
 *region*  
-The Region that the WorkSpace is in \(for example, `us-east-2`\)\.
+The Region that the WorkSpace is in \(for example, `us-east-1`\)\.
 
 *account\_id*  
 The ID of the AWS account, with no hyphens \(for example, `123456789012`\)\.
@@ -307,6 +307,31 @@ The following is the format of the `Resource` element of a policy statement that
 ```
 
 You can use the `*` wildcard to specify all directories that belong to a specific account in a specific Region\.
+
+### Connection Alias ARN<a name="connection_alias_arn_syntax"></a>
+
+A connection alias ARN has the syntax shown in the following example\.
+
+```
+arn:aws:workspaces:region:account_id:connectionalias/connectionalias_identifier
+```
+
+*region*  
+The Region that the connection alias is in \(for example, `us-east-1`\)\.
+
+*account\_id*  
+The ID of the AWS account, with no hyphens \(for example, `123456789012`\)\.
+
+*connectionalias\_identifier*  
+The ID of the connection alias \(for example, `wsca-12345a67b8`\)\.
+
+The following is the format of the `Resource` element of a policy statement that identifies a specific connection alias\.
+
+```
+"Resource": "arn:aws:workspaces:region:account_id:connectionalias/connectionalias_identifier"
+```
+
+You can use the `*` wildcard to specify all connection aliases that belong to a specific account in a specific Region\.
 
 ### API Actions with No Support for Resource\-Level Permissions<a name="no-resource-level-permissions"></a>
 
@@ -332,4 +357,17 @@ For API actions that don't support resource\-level permissions, you must specify
 
 ```
 "Resource": "*"
+```
+
+### API Actions That Don't Support Account\-Level Restrictions on Shared Resources<a name="shared-resource-permissions"></a>
+
+For the following API actions, you can't specify an account ID in the resource ARN when the resource isn't owned by the account:
++ `AssociateConnectionAlias`
++ `CopyWorkspaceImage`
++ `DisassociateConnectionAlias`
+
+For these API actions, you can specify an account ID in the resource ARN only when that account owns the resources to be acted upon\. When the account doesn't own the resources, you must specify `*` for the account ID, as shown in the following example\.
+
+```
+"arn:aws:workspaces:region:*:resource_type/resource_identifier"
 ```

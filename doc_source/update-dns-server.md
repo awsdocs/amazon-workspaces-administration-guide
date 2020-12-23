@@ -47,6 +47,8 @@ You can make these updates either by using the Registry Editor or by using Windo
 1. Close the Registry Editor\.
 
 1. Reboot the WorkSpace, or restart the service SkyLightWorkspaceConfigService\.
+**Note**  
+After you restart the service SkyLightWorkspaceConfigService, it can take up to 1 minute for the network adapter to reflect the change\.
 
 1. Proceed to [Step 2](#update-dns-active-directory), and update your DNS server settings in Active Directory to replace `OldIP1` with `NewIP1`\.
 
@@ -78,7 +80,7 @@ The following procedure uses PowerShell commands to update your registry and res
 1. In the PowerShell window, run the following command to change `OldIP1` to `NewIP1`\. Be sure to leave `OldIP2` as is for now\.
 
    ```
-   Set-ItemProperty -Path HKLM:\SOFTWARE\Amazon\SkyLight -Name DomainJoinDNS -Value "NewIP1, OldIP2"
+   Set-ItemProperty -Path HKLM:\SOFTWARE\Amazon\SkyLight -Name DomainJoinDNS -Value "NewIP1,OldIP2"
    ```
 
 1. Run the following command to restart the service SkyLightWorkspaceConfigService\.
@@ -86,6 +88,8 @@ The following procedure uses PowerShell commands to update your registry and res
    ```
    restart-service -Name SkyLightWorkspaceConfigService
    ```
+**Note**  
+After you restart the service SkyLightWorkspaceConfigService, it can take up to 1 minute for the network adapter to reflect the change\.
 
 1. Proceed to [Step 2](#update-dns-active-directory), and update your DNS server settings in Active Directory to replace `OldIP1` with `NewIP1`\.
 

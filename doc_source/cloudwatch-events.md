@@ -47,7 +47,7 @@ This value is always `successfulLogin`\.
 + `Amazon WorkSpaces Mobile client` — iOS client
 + `WorkSpaces Mobile client` — Android clients
 + `WorkSpaces Chrome client` — Chromebook client
-+ `WorkSpaces Web client` — Web Access client
++ `WorkSpaces Web Client` — Web Access client
 + `Teradici PCoIP Zero Client, Teradici PCoIP Desktop Client, or Dell Wyse PCoIP Client ` — Zero Client
 
 `loginTime`  

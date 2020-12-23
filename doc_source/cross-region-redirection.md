@@ -24,6 +24,7 @@ To designate your primary and failover Regions, you define the Region priority \
 + [Disassociate a Connection Alias from a Directory](#cross-region-redirection-disassociate-connection-alias)
 + [Unshare a Connection Alias](#cross-region-redirection-unshare-connection-alias)
 + [Delete a Connection Alias](#cross-region-redirection-delete-connection-alias)
++ [IAM Permissions for Associating and Disassociating Connection Aliases](#cross-region-redirection-iam)
 + [Security Considerations if You Stop Using Cross\-Region Redirection](#cross-region-redirection-security-considerations)
 
 ## Prerequisites<a name="cross-region-redirection-prerequisites"></a>
@@ -356,6 +357,52 @@ After you create a connection string, it is always associated to your AWS accoun
 If the **Delete** button is disabled, make sure that you are the owner of the alias, and make sure that the alias isn't associated with a directory\.
 
 1. In the dialog box that asks you to confirm deletion, choose **Delete**\.
+
+## IAM Permissions for Associating and Disassociating Connection Aliases<a name="cross-region-redirection-iam"></a>
+
+If you use an IAM user to associate or disassociate connection aliases, the user must have permissions for `workspaces:AssociateConnectionAlias` and `workspaces:DisassociateConnectionAlias`\.
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "workspaces:AssociateConnectionAlias",
+        "workspaces:DisassociateConnectionAlias"
+      ],
+      "Resource": [
+          "arn:aws:workspaces:us-east-1:123456789012:connectionalias/wsca-a1bcd2efg"
+      ]
+    }
+  ]
+}
+```
+
+**Important**  
+If you are creating an IAM policy for associating or disassociating connection aliases for accounts that don't own the connection aliases, you cannot specify an account ID in the ARN\. Instead, you must use `*` for the account ID, as shown in the following example policy\.  
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "workspaces:AssociateConnectionAlias",
+        "workspaces:DisassociateConnectionAlias"
+      ],
+      "Resource": [
+          "arn:aws:workspaces:us-east-1:*:connectionalias/wsca-a1bcd2efg"
+      ]
+    }
+  ]
+}
+```
+You can specify an account ID in the ARN only when that account owns the connection alias to be associated or disassociated\.
+
+For more information about working with IAM, see [Identity and Access Management for Amazon WorkSpaces](workspaces-access-control.md)\.
 
 ## Security Considerations if You Stop Using Cross\-Region Redirection<a name="cross-region-redirection-security-considerations"></a>
 

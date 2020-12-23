@@ -16,6 +16,7 @@ To change your Region, see [ Choosing a Region](https://docs.aws.amazon.com/awsc
 
 **Topics**
 + [Before You Begin](#quick-setup-prereqs)
++ [What Quick Setup Does](#quick-setup-what-it-does)
 + [Step 1: Launch the WorkSpace](#quick-setup-launch-workspace)
 + [Step 2: Connect to the WorkSpace](#quick-setup-connect-workspace)
 + [Step 3: Clean Up \(Optional\)](#quick-setup-clean-up)
@@ -27,6 +28,19 @@ To change your Region, see [ Choosing a Region](https://docs.aws.amazon.com/awsc
 + When you launch a WorkSpace, you must select which protocol \(PCoIP or WorkSpaces Streaming Protocol \[WSP\]\) you want to use with your bundle\. For more information, see [Protocols for Amazon WorkSpaces](amazon-workspaces-protocols.md)\.
 + When you launch a WorkSpace, you must specify profile information for the user, including a user name and email address\. Users complete their profiles by specifying a password\. Information about WorkSpaces and users is stored in a directory\.
 + Amazon WorkSpaces is not available in every Region\. Verify the supported Regions and [ select a Region](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html#select-region) for your WorkSpaces\. For more information about the supported Regions, see [Amazon WorkSpaces Pricing by AWS Region](https://aws.amazon.com/workspaces/pricing/#Amazon_WorkSpaces_Pricing_by_AWS_Region)\.
+
+## What Quick Setup Does<a name="quick-setup-what-it-does"></a>
+
+Quick Setup completes the following tasks on your behalf:
++ **Creates an IAM role** to allow the Amazon WorkSpaces service to create elastic network interfaces and list your Amazon WorkSpaces directories\. This role has the name `workspaces_DefaultRole`\.
++ **Creates a virtual private cloud \(VPC\)**\. If you want to use an existing VPC instead, make sure it meets the requirements noted in [Configure a VPC for Amazon WorkSpaces](amazon-workspaces-vpc.md), and then follow the steps in one of the tutorials listed in [Launch a Virtual Desktop Using Amazon WorkSpaces](launch-workspaces-tutorials.md)\. Choose the tutorial that corresponds to the version of Active Directory that you want to use\.
++ **Sets up a Simple AD directory** in the VPC\. This Simple AD directory is used to store user and WorkSpace information\. The directory has an administrator account and it is enabled for Amazon WorkDocs\.
++ **Creates the specified user accounts and adds them to the directory**\.
++ **Creates WorkSpace instances**\. Each WorkSpace receives a public IP address to provide internet access\. The running mode is AlwaysOn\. For more information, see [Manage the WorkSpace Running Mode](running-mode.md)\.
++ **Sends invitation emails to the specified users**\. If your users don't receive their invitation emails, see [Send an Invitation Email](manage-workspaces-users.md#send-invitation)\. 
+
+**Note**  
+The first user account created by Quick Setup is your Admin user account\. You can't update this user account from the Amazon WorkSpaces Console\. Don't share the information for this Admin account with anyone else\. If you want to invite other users to use WorkSpaces, create new user accounts for them\.
 
 ## Step 1: Launch the WorkSpace<a name="quick-setup-launch-workspace"></a>
 
@@ -51,20 +65,7 @@ Using Quick Setup, you can launch your first WorkSpace in minutes\.
 
 1. On the confirmation page, choose **View the WorkSpaces Console**\. It takes approximately 20 minutes for your WorkSpace to be launched\. To monitor the progress, go to the left navigation pane and choose **Directories**\. You will see a directory being created with an initial status of `REQUESTED` and then `CREATING`\. 
 
-   After the directory has been created and has a status of `ACTIVE`, you can choose **WorkSpaces** in the left navigation pane to monitor the progress of the WorkSpace launch process\. The initial status of the WorkSpace is `PENDING`\. When the launch is complete, the status is `AVAILABLE` and an invitation is sent to the email address that you specified for the user\.
-
-**Quick Setup**
-
-Quick Setup completes the following tasks on your behalf:
-+ Creates an IAM role to allow the Amazon WorkSpaces service to create elastic network interfaces and list your Amazon WorkSpaces directories\. This role has the name `workspaces_DefaultRole`\.
-+ Creates a virtual private cloud \(VPC\)\.
-+ Sets up a Simple AD directory in the VPC that is used to store user and WorkSpace information\. The directory has an administrator account and it is enabled for Amazon WorkDocs\.
-+ Creates the specified user accounts and adds them to the directory\.
-+ Creates WorkSpace instances\. Each WorkSpace receives a public IP address to provide internet access\. The running mode is AlwaysOn\. For more information, see [Manage the WorkSpace Running Mode](running-mode.md)\.
-+ Sends invitation emails to the specified users\.
-
-**Note**  
-The first user account created by Quick Setup is your Admin user account\. You can't update this user account from the Amazon WorkSpaces Console\. Don't share the information for this Admin account with anyone else\. If you want to invite other users to use this WorkSpace, create new user accounts for them\.
+   After the directory has been created and has a status of `ACTIVE`, you can choose **WorkSpaces** in the left navigation pane to monitor the progress of the WorkSpace launch process\. The initial status of the WorkSpace is `PENDING`\. When the launch is complete, the status is `AVAILABLE` and an invitation is sent to the email address that you specified for each user\. If your users don't receive their invitation emails, see [Send an Invitation Email](manage-workspaces-users.md#send-invitation)\.
 
 ## Step 2: Connect to the WorkSpace<a name="quick-setup-connect-workspace"></a>
 

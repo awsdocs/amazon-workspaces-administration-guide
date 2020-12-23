@@ -1,8 +1,12 @@
 # Create Multiple WorkSpaces for a User<a name="create-multiple-workspaces-for-user"></a>
 
 By default, you can create only one WorkSpace per user per directory\. However, if needed, you can create more than one WorkSpace for a user, depending on your directory setup\. 
-+ If you have only one directory for your WorkSpaces, create multiple usernames for the user\. For example, a user named Mary Major can have mmajor1, mmajor2, and so on as usernames\. Each username will be associated with a different WorkSpace in the same directory, but the WorkSpaces will have the same registration code\. So that you can easily locate all the WorkSpaces that you've created for a user, you might want to use the same email address with each username\.
-+ If you have multiple directories for your WorkSpaces, create the WorkSpaces for the user in separate directories\. You can use the same username in the directories, or you can use different usernames in the directories\. The WorkSpaces will have different registration codes\. So that you can easily locate all the WorkSpaces that you've created for a user, you might want to use the same email address with each username\.
++ If you have only one directory for your WorkSpaces, create multiple usernames for the user\. For example, a user named Mary Major can have mmajor1, mmajor2, and so on as usernames\. Each username is associated with a different WorkSpace in the same directory, but the WorkSpaces have the same registration code, as long as the WorkSpaces are all created in the same directory in the same AWS Region\.
++ If you have multiple directories for your WorkSpaces, create the WorkSpaces for the user in separate directories\. You can use the same username in the directories, or you can use different usernames in the directories\. The WorkSpaces will have different registration codes\.
+
+**Tip**  
+So that you can easily locate all the WorkSpaces that you've created for a user, use the same base username for each WorkSpace\.  
+For example, if you have a user named Mary Major with the Active Directory username mmajor, create WorkSpaces for her with usernames such as mmajor, mmajor1, mmajor2, mmajor3, or other variants, such as mmajor\_windows or mmajor\_linux\. As long as all the WorkSpaces have the same starting base username \(mmajor\), you can sort on the username in your WorkSpaces console to group all of the WorkSpaces for that user together\.
 
 **Important**  
 A user can have both a PCoIP and a WSP WorkSpace as long as the two WorkSpaces are located in separate directories\. The same user cannot have a PCoIP and a WSP WorkSpace in the same directory\. 

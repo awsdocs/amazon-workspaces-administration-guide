@@ -520,20 +520,35 @@ The computer has rebooted from a bugcheck.
 
 **Note**  
 You should disable Web Access only if you aren't allowing your users to use Web Access\.
+Web Access is available only for PCoIP WorkSpaces\. Web Access isn't available for WorkSpaces Streaming Protocol \(WSP\) WorkSpaces\.
 
 To disable Web Access to the WorkSpace, you must set a group policy and modify two registry settings\. For information about using the Active Directory administration tools to work with Group Policy Objects, see [ Installing the Active Directory Administration Tools](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_install_ad_tools.html) in the *AWS Directory Service Administration Guide*\.
 
 **Step 1: Set a Group Policy to disable Web Access at the directory level**
 
-You can make these changes either from the machine that you use to administer the domain, or from a domain controller\.
+You must make these changes from a PCoIP WorkSpace instead of a domain controller because the STXHD Hosted Application Service must be present\.
+
+1. Edit the Security Group used by WorkSpaces to allow RDP connections\. For more information, see [ How do I connect to my WorkSpace using RDP?](https://aws.amazon.com/premiumsupport/knowledge-center/connect-workspace-rdp/)\.
+
+1. Use RDP to connect to a WorkSpace\. Make sure that you are using a user account that has permissions on the domain to create and modify GPOs\. If you are using Simple AD for your WorkSpace directory, the username is `Administrator`\. If you are using Microsoft AD, the administrator username is `Admin`\. 
+
+1. Install the Active Directory Administration Tools \(RSAT\) to get the Group Policy Management Editor tool\. To install these tools, see [ Installing the Active Directory Administration Tools](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_install_ad_tools.html) in the *AWS Directory Service Administration Guide*\. 
+
+   You can also install these tools by running the following Windows PowerShell command as an administrator: 
+
+   ```
+   Install-WindowsFeature -Name GPMC,RSAT-AD-PowerShell,RSAT-AD-AdminCenter,RSAT-ADDS-Tools,RSAT-DNS-Server
+   ```
 
 1. Open the Group Policy Management Editor \(**gpmc\.msc**\) and locate the Group Policy Object \(GPO\) policy at the domain controller level of your directory\.
+**Note**  
+If the domain backing the WorkSpaces is an AWS Managed Microsoft Active Directory, you must create and link the GPO under the domain container that has delegated privileges\. For more information, see [ What Gets Created](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_getting_started_what_gets_created.html) in the *AWS Directory Service Administration Guide*\.
 
 1. Choose **Action**, **Edit**\.
 
 1. Navigate to the following setting:
 
-   **Computer Configuration\\Windows Settings\\Security Settings\\System Services\\STXHD Hosted Application Service**
+   **Computer Configuration\\Policies\\Windows Settings\\Security Settings\\System Services\\STXHD Hosted Application Service**
 
 1. In the **STXHD Hosted Application Service Properties** dialog box, on the **Security Policy Setting** tab, select the **Define this policy setting** check box\.
 

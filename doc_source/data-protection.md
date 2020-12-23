@@ -20,4 +20,6 @@ You can encrypt the storage volumes for your WorkSpaces using customer master ke
 
 ## Encryption in Transit<a name="encryption-transit"></a>
 
-Data in\-transit is encrypted using TLS 1\.2 encryption and SigV4 request signing\. The PCOIP protocol uses encrypted UDP traffic, with AES encryption, for streaming pixels\.
+For PCoIP, data in\-transit is encrypted using TLS 1\.2 encryption and SigV4 request signing\. The PCoIP protocol uses encrypted UDP traffic, with AES encryption, for streaming pixels\.
+
+For WorkSpaces Streaming Protocol \(WSP\), streaming and control data in\-transit is encrypted using DTLS 1\.2 encryption for UDP traffic and TLS 1\.2 encryption for TCP traffic, with AES\-256 ciphers\.

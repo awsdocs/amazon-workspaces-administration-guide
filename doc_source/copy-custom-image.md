@@ -35,6 +35,28 @@ The following example policy allows the user to copy the specified image to the 
 }
 ```
 
+**Important**  
+If you are creating an IAM policy for copying shared images for accounts that don't own the images, you cannot specify an account ID in the ARN\. Instead, you must use `*` for the account ID, as shown in the following example policy\.  
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "workspaces:DescribeWorkspaceImages",
+        "workspaces:CopyWorkspaceImage"
+      ],
+      "Resource": [
+          "arn:aws:workspaces:us-east-1:*:workspaceimage/wsi-a1bcd2efg"
+      ]
+    }
+  ]
+}
+```
+You can specify an account ID in the ARN only when that account owns the images to be copied\.
+
 For more information about working with IAM, see [Identity and Access Management for Amazon WorkSpaces](workspaces-access-control.md)\.
 
 **Copy an Image**  
