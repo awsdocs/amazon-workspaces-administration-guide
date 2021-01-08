@@ -5,13 +5,13 @@ Amazon WorkSpaces enables you to provision virtual, cloud\-based Microsoft Windo
 For more information, see [Amazon WorkSpaces](https://aws.amazon.com/workspaces/)\.
 
 ## Features<a name="features"></a>
-+ Choose your operating system \(Windows or Amazon Linux\) and select from a range of hardware configurations, software configurations, and AWS Regions\. For more information, see [Amazon WorkSpaces Bundles](https://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles)\.
++ Choose your operating system \(Windows or Amazon Linux\) and select from a range of hardware configurations, software configurations, and AWS Regions\. For more information, see [Amazon WorkSpaces Bundles](https://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles) and [Create a Custom WorkSpaces Image and Bundle](create-custom-bundle.md)\.
 + Choose your protocol: PCoIP or WorkSpaces Streaming Protocol \(WSP\)\. For more information, see [Protocols for Amazon WorkSpaces](amazon-workspaces-protocols.md)\.
 + Connect to your WorkSpace and pick up from right where you left off\. Amazon WorkSpaces provides a persistent desktop experience\.
 + Amazon WorkSpaces provides the flexibility of either monthly or hourly billing for WorkSpaces\. For more information, see [Amazon WorkSpaces Pricing](https://aws.amazon.com/workspaces/pricing/)\.
 + Deploy and manage applications for your Windows WorkSpaces by using Amazon WorkSpaces Application Manager \(Amazon WAM\)\.
 + For Windows desktops, you can bring your own licenses and applications, or purchase them from the AWS Marketplace for Desktop Apps\.
-+ Create a standalone managed directory for your users, or connect your WorkSpaces to your on\-premises directory so that your users can use their existing credentials to obtain seamless access to corporate resources\.
++ Create a standalone managed directory for your users, or connect your WorkSpaces to your on\-premises directory so that your users can use their existing credentials to obtain seamless access to corporate resources\. For more information, see [Manage Directories for Amazon WorkSpaces](manage-workspaces-directory.md)\.
 + Use the same tools to manage WorkSpaces that you use to manage on\-premises desktops\.
 + Use multi\-factor authentication \(MFA\) for additional security\.
 + Use AWS Key Management Service \(AWS KMS\) to encrypt data at rest, disk I/O, and volume snapshots\.
@@ -19,7 +19,7 @@ For more information, see [Amazon WorkSpaces](https://aws.amazon.com/workspaces/
 
 ## Architecture<a name="architecture"></a>
 
-For both Windows and Amazon Linux WorkSpaces, each WorkSpace is associated with a virtual private cloud \(VPC\), and a directory to store and manage information for your WorkSpaces and users\. Directories are managed through the AWS Directory Service, which offers the following options: Simple AD, AD Connector, or AWS Directory Service for Microsoft Active Directory, also known as AWS Managed Microsoft AD\. For more information, see the [AWS Directory Service Administration Guide](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/)\.
+For both Windows and Amazon Linux WorkSpaces, each WorkSpace is associated with a virtual private cloud \(VPC\), and a directory to store and manage information for your WorkSpaces and users\. For more information, see [Configure a VPC for Amazon WorkSpaces](amazon-workspaces-vpc.md)\. Directories are managed through the AWS Directory Service, which offers the following options: Simple AD, AD Connector, or AWS Directory Service for Microsoft Active Directory, also known as AWS Managed Microsoft AD\. For more information, see the [AWS Directory Service Administration Guide](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/)\.
 
 Amazon WorkSpaces uses your Simple AD, AD Connector, or AWS Managed Microsoft AD directory to authenticate users\. Users access their WorkSpaces by using a client application from a supported device or, for Windows WorkSpaces, a web browser, and they log in by using their directory credentials\. The login information is sent to an authentication gateway, which forwards the traffic to the directory for the WorkSpace\. After the user is authenticated, streaming traffic is initiated through the streaming gateway\.
 
@@ -63,6 +63,8 @@ After you sign up for AWS, you can get started with Amazon WorkSpaces for free u
 With Amazon WorkSpaces, you pay only for what you use\. You are charged based on the bundle and the number of WorkSpaces that you launch\. The pricing for Amazon WorkSpaces includes the use of Simple AD and AD Connector but not the use of AWS Managed Microsoft AD\.
 
 Amazon WorkSpaces provides monthly or hourly billing for WorkSpaces\. With monthly billing, you pay a fixed fee for unlimited usage, which is best for users who use their WorkSpaces full time\. With hourly billing, you pay a small fixed monthly fee per WorkSpace, plus a low hourly rate for each hour the WorkSpace is running\. For more information, see [Amazon WorkSpaces Pricing](https://aws.amazon.com/workspaces/pricing/)\.
+
+For information about supported regions, see [Amazon WorkSpaces Pricing](https://aws.amazon.com/workspaces/pricing/)\.
 
 ## How to Get Started<a name="how-to-start"></a>
 

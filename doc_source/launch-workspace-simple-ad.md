@@ -29,13 +29,13 @@ Create a Simple AD directory\. AWS Directory Service creates two directory serve
 
 1. In the navigation pane, choose **Directories**\.
 
-1. Choose **Set up Directory**, **Create Simple AD**\.
+1. Choose **Set up Directory**, **Simple AD**, and **Next**\.
 
 1. Configure the directory as follows:
 
    1. For **Organization name**, enter a unique organization name for your directory \(for example, my\-example\-directory\)\. This name must be at least four characters in length, consist of only alphanumeric characters and hyphens \(\-\), and begin or end with a character other than a hyphen\.
 
-   1. For **Directory DNS**, enter the fully\-qualified name for the directory \(for example, example\.com\)\.
+   1. For **Directory DNS name**, enter the fully\-qualified name for the directory \(for example, example\.com\)\.
 **Important**  
 If you need to update your DNS server after launching your WorkSpaces, follow the procedure in [Update DNS Servers for Amazon WorkSpaces](update-dns-server.md) to ensure that your WorkSpaces get properly updated\.
 
@@ -45,17 +45,17 @@ If you need to update your DNS server after launching your WorkSpaces, follow th
 
    1. \(Optional\) For **Description**, enter a description for the directory\.
 
-   1. Keep **Directory size** as **Small**\.
+   1. For **Directory size**, choose **Small**\.
 
    1. For **VPC**, select the VPC that you created\.
 
    1. For **Subnets**, select the two private subnets \(with the CIDR blocks `10.0.1.0/24` and `10.0.2.0/24`\)\.
 
-   1. Choose **Next Step**\.
+   1. Choose **Next**\.
 
-1. Choose **Create Simple AD**\.
+1. Choose **Create directory**\.
 
-1. Choose **Done**\. The initial status of the directory is `Requested` and then `Creating`\. When directory creation is complete, the status is `Active`\.
+1. The initial status of the directory is `Requested` and then `Creating`\. When directory creation is complete \(this might take a few minutes\), the status is `Active`\.
 
 **Directory Creation**
 
@@ -80,11 +80,13 @@ Now you are ready to launch the WorkSpace\.
 
    1. For **Directory**, choose the directory that you created\.
 
+   1. For **Enable Self Service Permissions**, choose **Yes** or **No** and enter a description\.
+
    1. For **Enable Amazon WorkDocs**, choose **Yes**\.
 **Note**  
 This option is available only if Amazon WorkDocs is available in the selected Region\.
 
-   1. Choose **Next**\. Amazon WorkSpaces registers your Simple AD directory\.
+   1. Choose **Next Step**\. Amazon WorkSpaces registers your Simple AD directory\.
 
 1. On the **Identify Users** page, add a new user to your directory as follows:
 
@@ -98,7 +100,7 @@ This option is available only if Amazon WorkDocs is available in the selected Re
 
 1. On the **WorkSpaces Configuration** page, choose a running mode and then choose **Next Step**\.
 
-1. On the **Review & Launch WorkSpaces** page, choose **Launch WorkSpaces**\. The initial status of the WorkSpace is `PENDING`\. When the launch is complete, the status is `AVAILABLE` and an invitation is sent to the email address that you specified for the user\.
+1. On the **Review & Launch WorkSpaces** page, choose **Launch WorkSpaces**\. The initial status of the WorkSpace is `PENDING`\. When the launch is complete \(this can take up to 20 minutes\), the status is `AVAILABLE` and an invitation is sent to the email address that you specified for the user\.
 
 ## Step 3: Connect to the WorkSpace<a name="connect-workspace-simple-ad"></a>
 
@@ -111,8 +113,8 @@ After you receive the invitation email, you can connect to your WorkSpace using 
 Passwords are case\-sensitive and must be between 8 and 64 characters in length, inclusive\. Passwords must contain at least one character from each of the following categories: lowercase letters \(a\-z\), uppercase letters \(A\-Z\), numbers \(0\-9\), and \~\!@\#$%^&\*\_\-\+=`\|\\\(\)\{\}\[\]:;"'<>,\.?/\.
 
 1. Review [Amazon WorkSpaces Clients](https://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-clients.html) in the *Amazon WorkSpaces User Guide* for more information about the requirements for each client, and then do one of the following: 
-   + When prompted, download one of the client applications or launch Web Access\.
-   + If you aren't prompted and you haven't installed a client application already, open [https://clients\.amazonworkspaces\.com/](https://clients.amazonworkspaces.com/) and download one of the client applications or launch Web Access\.
+   + When prompted, download one of the client applications or launch **Web Access**\.
+   + If you aren't prompted and you haven't installed a client application already, open [https://clients\.amazonworkspaces\.com/](https://clients.amazonworkspaces.com/) and download one of the client applications or launch **Web Access**\.
 **Note**  
 You cannot use a web browser \(Web Access\) to connect to Amazon Linux WorkSpaces\.
 

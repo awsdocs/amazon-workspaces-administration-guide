@@ -449,9 +449,9 @@ The time zone of the WorkSpaces is now static and no longer mirrors the time zon
 
 ### Enable or Disable Smart Card Redirection for WSP<a name="gp_smart_cards_in_wsp"></a>
 
-By default, Amazon WorkSpaces is configured to support the use of smart cards for both *pre\-session authentication* and *in\-session authentication*\. Pre\-session authentication refers to smart card authentication that's performed while users are logging in to their WorkSpaces\. In\-session authentication refers to authentication that's performed after logging in\.
+By default, Amazon WorkSpaces are not enabled to support the use of smart cards for either *pre\-session authentication* or *in\-session authentication*\. Pre\-session authentication refers to smart card authentication that's performed while users are logging in to their WorkSpaces\. In\-session authentication refers to authentication that's performed after logging in\.
 
-If needed, you can disable in\-session authentication for Windows WorkSpaces by using Group Policy settings\. You can't disable pre\-session authentication through Group Policy, but you can do so through your AD Connector directory settings by using the DisableClientAuthentication API action or the disable\-client\-authentication AWS command line interface \(AWS CLI\) command\. For more information, see AD Connector Support for Smart Cards in the *AWS Directory Service Administration Guide*\.
+If needed, you can enable in\-session authentication for Windows WorkSpaces by using Group Policy settings\. You can't enable pre\-session authentication through Group Policy, but you can do so through your AD Connector directory settings by using the EnableClientAuthentication API action or the enable\-client\-authentication AWS command line interface \(AWS CLI\) command\. For more information, see [ Enable Smart Card Authentication for AD Connector](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ad_connector_clientauth.html) in the *AWS Directory Service Administration Guide*\.
 
 **Note**  
 To enable the use of smart cards with Windows WorkSpaces, additional steps are required\. For more information, see [Use Smart Cards for Authentication](smart-cards.md)\. 

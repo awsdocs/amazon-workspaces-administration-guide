@@ -39,9 +39,9 @@ Allocate an [ Elastic IP address](https://docs.aws.amazon.com/vpc/latest/usergui
 
 1. In the navigation pane, choose **Elastic IPs**\.
 
-1. Choose **Allocate new address**\.
+1. Choose **Allocate Elastic IP address**\.
 
-1. On the **Allocate new address** page, for **iPv4 address pool**, choose **Amazon pool** or **Owned by me**, and then choose **Allocate**\.
+1. On the **Allocate Elastic IP address** page, for **Public iPv4 address pool**, choose **Amazon's pool of IPv4 addresses**, **Public IPv4 address that you bring to your AWS account**, or **Customer owned pool of IPv4 addresses**, and then choose **Allocate**\.
 
 1. Make a note of the Elastic IP address, then choose **Close**\.
 
@@ -69,7 +69,7 @@ Create a VPC with one public subnet and two private subnets as follows\.
 
 1. Configure the public subnet as follows:
 
-   1. For **IPv4 CIDR block**, enter the CIDR block for the subnet\. For more information, see [VPC and Subnet Sizing for IPv4](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-sizing-ipv4) in the *Amazon VPC User Guide*\.
+   1. For **IPv4 CIDR block**, enter the CIDR block for the subnet\. For example, `10.0.0.0/24`\. For more information, see [VPC and Subnet Sizing for IPv4](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-sizing-ipv4) in the *Amazon VPC User Guide*\.
 
    1. For **Availability Zone**, keep **No Preference**\.
 
@@ -77,7 +77,7 @@ Create a VPC with one public subnet and two private subnets as follows\.
 
 1. <a name="step_private_first_az"></a>Configure the first private subnet as follows:
 
-   1. For **Private subnet's IPv4 CIDR**, enter the CIDR block for the subnet\.
+   1. For **Private subnet's IPv4 CIDR**, enter the CIDR block for the subnet\. For example, `10.0.1.0/24`\.
 
    1. To make an appropriate selection for **Availability Zone**, see [Availability Zones for Amazon WorkSpaces](azs-workspaces.md)\.
 
@@ -115,9 +115,9 @@ In the previous step, you created a VPC with one public subnet and one private s
 
 1. To make an appropriate selection for **Availability Zone**, see [Availability Zones for Amazon WorkSpaces](azs-workspaces.md)\. Make sure you select a different Availability Zone from the one you selected for [Step 7](#step_private_first_az) earlier\.
 
-1. For **IPv4 CIDR block**, enter the CIDR block for the subnet\.
+1. For **IPv4 CIDR block**, enter the CIDR block for the subnet\. For example, `10.0.2.0/24`\.
 
-1. Choose **Create**\.
+1. Choose **Create** and **Close**\.
 
 ### Step 4: Verify and Name the Route Tables<a name="verify-route-tables"></a>
 
@@ -175,7 +175,7 @@ Create a VPC with one public subnet as follows\.
 
 1. For **VPC name**, enter a name for the VPC\.
 
-1. For **Public subnet's IPv4 CIDR**, enter the CIDR block for the subnet\. For more information, see [VPC and Subnet Sizing for IPv4](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-sizing-ipv4) in the *Amazon VPC User Guide*\.
+1. For **Public subnet's IPv4 CIDR**, enter the CIDR block for the subnet\. For example, `10.0.0.0/24`\. For more information, see [VPC and Subnet Sizing for IPv4](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-sizing-ipv4) in the *Amazon VPC User Guide*\.
 
 1. <a name="step_public_first_az"></a>To make an appropriate selection for **Availability Zone**, see [Availability Zones for Amazon WorkSpaces](azs-workspaces.md)\.
 
@@ -211,7 +211,7 @@ In the previous step, you created a VPC with one public subnet\. Use the followi
 
 1. To make an appropriate selection for **Availability Zone**, see [Availability Zones for Amazon WorkSpaces](azs-workspaces.md)\. Make sure you select a different Availability Zone from the one you selected for [Step 9](#step_public_first_az) earlier\.
 
-1. For **IPv4 CIDR block**, enter the CIDR block for the subnet\.
+1. For **IPv4 CIDR block**, enter the CIDR block for the subnet\. For example, `10.0.1.0/24`\.
 
 1. Choose **Create**\. After the subnet is created, choose **Close**\.
 
@@ -247,7 +247,7 @@ For a video tutorial about how to assign an Elastic IP address to a WorkSpace, s
 
 1. Open the Amazon EC2 console at [https://console\.aws\.amazon\.com/ec2/](https://console.aws.amazon.com/ec2/)\.
 
-1. In the navigation pane, choose **Elastic IPs**\. If you do not have an available Elastic IP address, choose **Allocate new address** and choose **Amazon pool** or **Owned by me**, and then choose **Allocate**\. Make note of the new IP address\.
+1. In the navigation pane, choose **Elastic IPs**\. If you do not have an available Elastic IP address, choose **Allocate Elastic IP address** and choose **Amazon's pool of IPv4 addresses** or **Customer owned pool of IPv4 addresses**, and then choose **Allocate**\. Make note of the new IP address\.
 
 1. In the navigation pane, choose **Network Interfaces**\.
 

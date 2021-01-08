@@ -62,6 +62,9 @@ If you want to increase both volumes, you must wait 20\-30 minutes for the first
 
 You can switch a WorkSpace between the Value, Standard, Performance, Power, and PowerPro bundles\. For more information about these bundle types, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/features/#Amazon_WorkSpaces_Bundles)\.
 
+**Note**  
+You cannot change the compute type for Graphics and GraphicsPro WorkSpaces\.
+
 When you request a bundle change, Amazon WorkSpaces reboots the WorkSpace using the new bundle\. Amazon WorkSpaces preserves the operating system, applications, data, and storage settings for the WorkSpace\.
 
 You can request a larger bundle once in a 1\-hour period or a smaller bundle once every 30 days\. For a newly launched WorkSpace, you must wait 1 hour before requesting a larger bundle\.

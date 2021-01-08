@@ -7,7 +7,15 @@ When you enable this feature, Amazon WorkSpaces uses certificate\-based authenti
 For each directory, you can import up to two root certificates\. If you import two root certificates, Amazon WorkSpaces presents them both to the client and the client finds the first valid matching certificate that chains up to either of the root certificates\.
 
 **Important**  
-**This feature applies only to the Amazon WorkSpaces Windows and macOS clients\.** This feature does not apply to the Amazon WorkSpaces Web Access client or any third\-party clients, including but not limited to Teradici PCoIP Software and Mobile Clients, Teradici PCoIP Zero Clients, RDP clients, and remote desktop applications\.
+**This feature applies only to the Amazon WorkSpaces Windows and macOS clients\.**  
+This feature does **not** apply to:  
+The Amazon WorkSpaces client applications for Linux, Android, or iPad
+The Amazon WorkSpaces Web Access client
+Any third\-party clients, including but not limited to:  
+Teradici PCoIP Software and Mobile Clients
+Teradici PCoIP Zero Clients
+RDP clients
+Remote desktop applications
 
 ## Step 1: Create the Certificates<a name="create-certificate"></a>
 

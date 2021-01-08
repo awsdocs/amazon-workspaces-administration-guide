@@ -2,7 +2,7 @@
 
 Windows and Linux WorkSpaces on WorkSpaces Streaming Protocol \(WSP\) bundles allow the use of [Common Access Card \(CAC\)](https://www.cac.mil/Common-Access-Card) and [Personal Identity Verification \(PIV\)](https://piv.idmanagement.gov/) smart cards for authentication\.
 
-By default, Amazon WorkSpaces is configured to support the use of smart cards for both *pre\-session authentication* and *in\-session authentication*\. Pre\-session authentication refers to smart card authentication that's performed while users are logging in to their WorkSpaces\. In\-session authentication refers to authentication that's performed after logging in\.
+Amazon WorkSpaces supports the use of smart cards for both *pre\-session authentication* and *in\-session authentication*\. Pre\-session authentication refers to smart card authentication that's performed while users are logging in to their WorkSpaces\. In\-session authentication refers to authentication that's performed after logging in\.
 
 For example, users can use smart cards for in\-session authentication while working with web browsers and applications\. They can also use smart cards for actions that require administrative permissions\. For example, if the user has administrative permissions on their Linux WorkSpace, they can use smart cards to authenticate themselves when running `sudo` and `sudo -i` commands\. 
 
@@ -58,17 +58,17 @@ To allow users to unlock Windows WorkSpaces that are enabled for smart card pre\
 
  You can enable disconnecting the session when the Windows lock screen is detected by using Group Policy settings\. For more information, see [Enable or Disable Disconnect Session on Screen Lock for WSP](group_policy.md#gp_lock_screen_in_wsp)\.
 
-**To disable in\-session or pre\-session authentication**  
-By default, Windows WorkSpaces are configured to support the use of smart cards for pre\-session and in\-session authentication\. If needed, you can disable in\-session authentication for Windows WorkSpaces by using Group Policy settings\. For more information, see [Enable or Disable Smart Card Redirection for WSP](group_policy.md#gp_smart_cards_in_wsp)\.
+**To enable in\-session or pre\-session authentication**  
+By default, Windows WorkSpaces are not enabled to support the use of smart cards for pre\-session or in\-session authentication\. If needed, you can enable in\-session authentication for Windows WorkSpaces by using Group Policy settings\. For more information, see [Enable or Disable Smart Card Redirection for WSP](group_policy.md#gp_smart_cards_in_wsp)\.
 
-You can't disable pre\-session authentication through Group Policy, but you can do so through your AD Connector directory settings by using the DisableClientAuthentication API action or the disable\-client\-authentication CLI command\. For more information, see [ Enabling Smart Card Authentication for Amazon WorkSpaces](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ad_connector_clientauth.html) in the *AWS Directory Service Administration Guide*\.
+You can enable pre\-session authentication through your AD Connector directory settings by using the EnableClientAuthentication API action or the enable\-client\-authentication CLI command\. For more information, see [ Enable Smart Card Authentication for AD Connector](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ad_connector_clientauth.html) in the *AWS Directory Service Administration Guide*\.
 
 **To enable users to use smart cards in a browser**  
 If your users are using Chrome as their browser, no special configuration is required to use smart cards\.
 
 If your users are using Firefox as their browser, you can enable your users to use smart cards in Firefox through Group Policy\. You can use these [ Firefox Group Policy templates](https://github.com/mozilla/policy-templates/tree/master/windows) in GitHub\.
 
-You must install the appropriate version of [OpenSC](https://github.com/OpenSC/OpenSC/wiki) for Windows \(64\-bit or 32\-bit\) to support PKCS \#11, and then use the following Group Policy setting, where `NAME_OF_DEVICE` is whatever value you want to use to identify PKCS \#11, such as `OpenSC`, and where `PATH_TO_LIBRARY_FOR_DEVICE` is the path to PKCS \#11\. This path should point to a library with a \.DLL extension, such as `C:\Windows\System32\pkcs11.dll`\.
+You must install the 64\-bit version of [OpenSC](https://github.com/OpenSC/OpenSC/wiki) for Windows to support PKCS \#11, and then use the following Group Policy setting, where `NAME_OF_DEVICE` is whatever value you want to use to identify PKCS \#11, such as `OpenSC`, and where `PATH_TO_LIBRARY_FOR_DEVICE` is the path to PKCS \#11\. This path should point to a library with a \.DLL extension, such as `C:\Windows\System32\pkcs11.dll`\.
 
 ```
 Software\Policies\Mozilla\Firefox\SecurityDevices\NAME_OF_DEVICE = PATH_TO_LIBRARY_FOR_DEVICE

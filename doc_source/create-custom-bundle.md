@@ -84,22 +84,12 @@ Before you run the Image Checker, verify that the latest Windows security and cu
 The Image Checker does not check the user profile size for Windows 10 WorkSpaces\. If you have a Windows 10 WorkSpace, make sure that the user profile size is less than 10 GB\.
 
 To get the Image Checker, do one of the following:
-+ Reboot your WorkSpace\. The Image Checker is downloaded automatically during the reboot and installed at `C:\Program Files\Amazon\ImageChecker.exe`\.
++ [Reboot your WorkSpace](reboot-workspaces.md)\. The Image Checker is downloaded automatically during the reboot and installed at `C:\Program Files\Amazon\ImageChecker.exe`\.
 + Download the Amazon WorkSpaces Image Checker from [https://tools\.amazonworkspaces\.com/ImageChecker\.zip](https://tools.amazonworkspaces.com/ImageChecker.zip) and extract the `ImageChecker.exe` file\. Copy this file to `C:\Program Files\Amazon\`\.
 
 **To run the Image Checker**
 
-1. On the Windows **Start** menu, choose **Windows System**, then choose **Command Prompt**\.
-
-1. In the Command Prompt window, enter the following commands, one at a time, and press Enter after each command\.
-
-   ```
-   c:
-   cd C:\Program Files\Amazon
-   ImageChecker.exe
-   ```
-
-1. When asked "Do you want to allow this app to make changes to your device?" choose **Yes**\.
+1. Open the `C:\Program Files\Amazon\ImageChecker.exe` file\.
 
 1. In the **Amazon WorkSpaces Image Checker** dialog box, choose **Run**\.
 
@@ -401,7 +391,7 @@ After you have validated your WorkSpace image, you can proceed with creating you
 
 **To create a custom image and custom bundle**
 
-1. If you are still connected to the WorkSpace, disconnect\.
+1. If you are still connected to the WorkSpace, disconnect by choosing **Amazon Workspaces** and **Disconnect**\.
 
 1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
@@ -415,7 +405,7 @@ After you have validated your WorkSpace image, you can proceed with creating you
 
 1. Enter an image name and a description that will help you identify the image, and then choose **Create Image**\. While the image is being created, the status of the WorkSpace is **Suspended** and the WorkSpace is unavailable\.
 
-1. In the navigation pane, choose **Images**\. The image is complete when the status of the WorkSpace changes to **Available**\.
+1. In the navigation pane, choose **Images**\. The image is complete when the status of the WorkSpace changes to **Available** \(this can take up to 45 minutes\)\.
 
 1. Select the image and choose **Actions**, **Create Bundle**\.
 
@@ -433,6 +423,8 @@ After you have validated your WorkSpace image, you can proceed with creating you
 To ensure that your data is preserved, you cannot decrease the size of the root or user volumes after you launch a WorkSpace\. Instead, make sure that you specify the minimum sizes for these volumes when launching a WorkSpace\. You can launch a Value, Standard, Performance, Power, or PowerPro WorkSpace with a minimum of 80 GB for the root volume and 10 GB for the user volume\. You can launch a Graphics or GraphicsPro WorkSpace with a minimum of 100 GB for the root volume and 100 GB for the user volume\.
 
 1. Choose **Create Bundle**\.
+
+1. To confirm that your bundle has been created, choose **Bundles** and verify that the bundle is listed\.
 
 ## What's Included with Windows WorkSpaces Custom Images<a name="image_creation_windows"></a>
 
