@@ -49,7 +49,7 @@ For the Amazon WorkSpaces client application to be able to access the Amazon Wor
 
 | Category | Domain or IP address | 
 | --- | --- | 
-| CAPTCHA | https://opfcaptcha\-prod\.s3\.amazonaws\.com/ | 
+| CAPTCHA | https://opfcaptcha\-prod\.s3\.amazonaws\.com/  | 
 | Client Auto\-update |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 | Connectivity Check |  https://connectivity\.amazonworkspaces\.com/  | 
 | Device Metrics \(for 1\.0\+ and 2\.0\+ WorkSpaces client applications\) | https://device\-metrics\-us\-2\.amazon\.com/ | 
@@ -59,7 +59,7 @@ For the Amazon WorkSpaces client application to be able to access the Amazon Wor
 | Forrester Log Service  | https://fls\-na\.amazon\.com/ | 
 | Health Check \(DRP\) Servers | [Health Check Servers](#health_check) | 
 | Registration Dependency \(for Web Access and Teradici PCoIP Zero Clients\) | https://s3\.amazonaws\.com | 
-| User Login Pages | https://<directory id>\.awsapps\.com/ \(where <directory id> is the customer's domain\) | 
+| User Login Pages | https://<directory id>\.awsapps\.com/ \(where <directory id> is the customer's domain\)  | 
 | WS Broker |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 | WorkSpaces API Endpoints |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 
@@ -167,7 +167,7 @@ To associate a new public IP address from the Amazon\-provided pool with the Wor
 The following table lists the IP address ranges used for the management network interface\.
 
 **Note**  
-If you're using Bring Your Own License \(BYOL\) Windows WorkSpaces, 54\.239\.224\.0/20 is the IP address of the management interface in all AWS Regions\.
+If you're using Bring Your Own License \(BYOL\) Windows WorkSpaces, the IP address ranges in the following table do not apply\. Instead, BYOL WorkSpaces use the 54\.239\.224\.0/20 IP address range for management interface traffic in all AWS Regions\. \(This IP address range is used in addition to the /16 CIDR block that you select for management traffic for your BYOL WorkSpaces\.\)
 
 
 | Region | IP Address Range | 

@@ -100,6 +100,7 @@ The following information can help you troubleshoot specific issues with your Wo
 + [My Amazon Linux WorkSpaces won't start](#linux_workspace_provision_fail_pcoip_agent_upgrade)
 + [Launching WorkSpaces in my connected directory often fails](#provision_fail)
 + [Launching WorkSpaces fails with an internal error](#launch-failure-ipv6)
++ [When I try to register a directory, the registration fails and leaves the directory in an ERROR state](#cannot-register-directory)
 + [My users can't connect to a Windows WorkSpace with an interactive logon banner](#logon_banner)
 + [My users can't connect to a Windows WorkSpace](#gpo_security_user_rights)
 + [My users are having issues when they try to log on to WorkSpaces from WorkSpaces Web Access](#byol_logon_issues)
@@ -201,6 +202,10 @@ Verify that the two DNS servers or domain controllers in your on\-premises direc
 ### Launching WorkSpaces fails with an internal error<a name="launch-failure-ipv6"></a>
 
 Check whether your subnets are configured to automatically assign IPv6 addresses to instances launched in the subnet\. To check this setting, open the Amazon VPC console, select your subnet, and choose **Subnet Actions**, **Modify auto\-assign IP settings**\. If this setting is enabled, you cannot launch WorkSpaces using the Performance or Graphics bundles\. Instead, disable this setting and specify IPv6 addresses manually when you launch your instances\.
+
+### When I try to register a directory, the registration fails and leaves the directory in an ERROR state<a name="cannot-register-directory"></a>
+
+This problem can occur if you're trying to register an AWS Managed Microsoft AD directory that has been configured for multi\-Region replication\. Although the directory in the primary Region can be successfully registered for use with Amazon WorkSpaces, attempting to register the directory in a replicated Region fails\. Multi\-Region replication with AWS Managed Microsoft AD isn't supported for use with Amazon WorkSpaces within replicated Regions\.
 
 ### My users can't connect to a Windows WorkSpace with an interactive logon banner<a name="logon_banner"></a>
 

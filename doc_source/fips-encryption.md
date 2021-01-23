@@ -4,6 +4,9 @@ To comply with the [Federal Risk and Authorization Management Program \(FedRAMP\
 
 The level of FedRAMP authorization \(Moderate or High\) or DoD SRG Impact Level \(2, 4, or 5\) depends on the US AWS Region in which Amazon WorkSpaces is being used\. For the levels of FedRAMP authorization and DoD SRG compliance that apply to each Region, see [AWS Services in Scope by Compliance Program](https://aws.amazon.com/compliance/services-in-scope/)\.
 
+**Note**  
+In addition to using FIPS endpoint encryption, you can also encrypt your WorkSpaces\. For more information, see [Encrypted WorkSpaces](encrypt-workspaces.md)\.
+
 **Requirements**
 + You must create your WorkSpaces in a [US AWS Region that has FedRAMP authorization or is DoD SRG\-compliant](https://aws.amazon.com/compliance/services-in-scope/)\.
 + The WorkSpaces directory must be configured to use **FIPS 140\-2 Validated Mode** for endpoint encryption\.

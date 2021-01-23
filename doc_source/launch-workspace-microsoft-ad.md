@@ -22,6 +22,9 @@ In this tutorial, we launch a WorkSpace that uses AWS Managed Microsoft AD\. For
 
 First, create an AWS Managed Microsoft AD directory\. AWS Directory Service creates two directory servers, one in each of the private subnets of your VPC\. Note that there are no users in the directory initially\. You will add a user in the next step when you launch the WorkSpace\.
 
+**Note**  
+If you configure your AWS Managed Microsoft AD directory for multi\-Region replication, only the directory in the primary Region can be registered for use with Amazon WorkSpaces\. Attempts to register the directory in a replicated Region for use with Amazon WorkSpaces will fail\. Multi\-Region replication with AWS Managed Microsoft AD isn't supported for use with Amazon WorkSpaces within replicated Regions\.
+
 **To create an AWS Managed Microsoft AD directory**
 
 1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.

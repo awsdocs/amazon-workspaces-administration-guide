@@ -35,6 +35,8 @@ Before you begin, verify the following:
   + 198\.18\.0\.0/15
 **Note**  
 As you adopt the WorkSpaces service, the available management interface IP address ranges frequently change\. To determine which ranges are currently available, run the [ list\-available\-management\-cidr\-ranges](https://docs.aws.amazon.com/cli/latest/reference/workspaces/list-available-management-cidr-ranges.html) AWS Command Line Interface \(AWS CLI\) command\.
+In addition to the /16 CIDR block that you select, the 54\.239\.224\.0/20 IP address range is used for management interface traffic in all AWS Regions\.
++ Make sure you have opened the necessary management interface ports for Microsoft Windows and Microsoft Office KMS activation for BYOL WorkSpaces\. For more information, see [Management Interface Ports](workspaces-port-requirements.md#management_ports)\.
 + You have a virtual machine \(VM\) that runs a supported 64\-bit version of Windows\. For a list of supported versions, see the next section in this topic, [Windows Versions That Are Supported for BYOL](#windows_images_supported_versions)\. The VM must also meet these requirements: 
   + The Windows operating system must be activated against your key management servers\.
   + The Windows operating system must have **English \(United States\)** as the primary language\.
@@ -80,16 +82,13 @@ We choose the language used for your Office subscription based on the AWS Region
 By default, we install a number of frequently used Office language packs on your WorkSpaces\. If the language pack that you want isn't installed, you can download additional language packs from Microsoft\. For more information, see [ Language Accessory Pack for Office](https://support.microsoft.com/office/language-accessory-pack-for-office-82ee1236-0f9a-45ee-9c72-05b026ee809f) in the Microsoft documentation\.
 
 To change the language for Office, you have several options:
-+ [Option 1: Allow individual users to customize their Office language settings on their WorkSpaces](#option1_office_languages)
-+ [Option 2: Use GPO administrative templates \(\.admx/\.adml\) to enforce default Office language settings for all of your WorkSpaces users](#option2_office_languages)
-+ [Option 3: Update the Office language registry settings on your WorkSpaces](#option3_office_languages)
 
-For more information about working with the language settings for Office, see [ Customize language setup and settings for Office](https://docs.microsoft.com/deployoffice/office2016/customize-language-setup-and-settings-for-office-2016) in the Microsoft documentation\. 
+### Option 1: Allow individual users to customize their Office language settings<a name="option1_office_languages"></a>
 
-**Option 1: Allow individual users to customize their Office language settings**  
 Individual users can adjust the Office language settings on their WorkSpaces\. For more information, see [ Add an editing or authoring language or set language preferences in Office](https://support.microsoft.com/office/add-an-editing-or-authoring-language-or-set-language-preferences-in-office-663d9d94-ca99-4a0d-973e-7c4a6b8a827d#ID0EAACAAA=Newer_versions) in the Microsoft documentation\.
 
-**Option 2: Use GPO administrative templates \(\.admx/\.adml\) to enforce default Office language settings for all of your WorkSpaces users**  
+### Option 2: Use GPO administrative templates \(\.admx/\.adml\) to enforce default Office language settings for all of your WorkSpaces users<a name="option2_office_languages"></a>
+
 You can use Group Policy Object \(GPO\) settings to enforce default Office language settings for your WorkSpaces users\.
 
 **Note**  
@@ -158,7 +157,8 @@ Office 2016 and Office 2019 use the same GPO settings \(labeled with Office 2016
    + Reboot the WorkSpace \(in the Amazon WorkSpaces console, select the WorkSpace, then choose **Actions**, **Reboot WorkSpaces**\)\.
    + From an administrative command prompt, enter gpupdate /force\.
 
-**Option 3: Update the Office language registry settings on your WorkSpaces**  
+### Option 3: Update the Office language registry settings on your WorkSpaces<a name="option3_office_languages"></a>
+
 To set the Office language settings through the registry, update the following registry settings:
 + **HKEY\_CURRENT\_USER\\SOFTWARE\\Microsoft\\Office\\16\.0\\Common\\LanguageResources\\UILanguage**
 + **HKEY\_CURRENT\_USER\\SOFTWARE\\Microsoft\\Office\\16\.0\\Common\\LanguageResources\\HelpLanguage**
@@ -166,6 +166,8 @@ To set the Office language settings through the registry, update the following r
 For these settings, add a DWORD key value with the appropriate Office locale ID \(LCID\)\. For example, the LCID for English \(US\) is 1033\. Because LCIDs are decimal values, you must set the **Base** option for the DWORD value to **Decimal**\. For a list of the Office LCIDs, see [Language identifiers and OptionState Id values in Office 2016](https://docs.microsoft.com/deployoffice/office2016/language-identifiers-and-optionstate-id-values-in-office-2016) in the Microsoft documentation\.
 
 You can apply these registry settings to your WorkSpaces through GPO settings or a logon script\.
+
+For more information about working with the language settings for Office, see [ Customize language setup and settings for Office](https://docs.microsoft.com/deployoffice/office2016/customize-language-setup-and-settings-for-office-2016) in the Microsoft documentation\. 
 
 **Adding Office to Your Existing BYOL WorkSpaces**  
 You can also add a subscription to Office to your existing BYOL WorkSpaces\. After you have created a BYOL bundle with Office installed, you can use the WorkSpaces migration feature to migrate your existing BYOL WorkSpaces to the BYOL bundle that is subscribed to Office\. For more information, see [Migrate a WorkSpace](migrate-workspaces.md)\.

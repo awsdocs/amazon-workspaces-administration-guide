@@ -11,7 +11,8 @@ For tutorials that demonstrate how to set up these directories and launch WorkSp
 After you create a directory, you'll perform most directory administration tasks using tools such as the Active Directory Administration Tools\. You can perform some directory administration tasks using the Amazon WorkSpaces console and other tasks using Group Policy\. For more information about managing users and groups, see [Manage WorkSpaces Users](manage-workspaces-users.md) and [Set Up Active Directory Administration Tools for Amazon WorkSpaces](directory_administration.md)\.
 
 **Note**  
-Shared directories are not currently supported with WorkSpaces\.
+Shared directories are not currently supported for use with Amazon WorkSpaces\.
+If you configure your AWS Managed Microsoft AD directory for multi\-Region replication, only the directory in the primary Region can be registered for use with Amazon WorkSpaces\. Attempts to register the directory in a replicated Region for use with Amazon WorkSpaces will fail\. Multi\-Region replication with AWS Managed Microsoft AD isn't supported for use with Amazon WorkSpaces within replicated Regions\.
 
 **Topics**
 + [Register a Directory with Amazon WorkSpaces](register-deregister-directory.md)

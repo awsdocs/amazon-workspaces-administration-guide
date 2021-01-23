@@ -12,6 +12,9 @@ For more information about events, see the [Amazon CloudWatch Events User Guide]
 
 Amazon WorkSpaces client applications send WorkSpaces Access events to CloudWatch Events when a user successfully logs in to a WorkSpace\. All Amazon WorkSpaces clients send these events\.
 
+**Note**  
+Events are emitted on a best\-effort basis\.
+
 Events are represented as JSON objects\. The following is example data for a `WorkSpaces Access` event\.
 
 ```

@@ -18,6 +18,8 @@ For more information about Amazon WorkSpaces and FIPS endpoint encryption, see [
 
 You can encrypt the storage volumes for your WorkSpaces using customer master keys \(CMK\) from AWS Key Management Service\. For more information, see [Encrypted WorkSpaces](encrypt-workspaces.md)\.
 
+When you create WorkSpaces with encrypted volumes, Amazon WorkSpaces uses Amazon Elastic Block Store \(Amazon EBS\) to create and manage those volumes\. EBS encrypts your volumes with a data key using the industry\-standard AES\-256 algorithm\. For more information, see [ Amazon EBS Encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) in the *Amazon EC2 User Guide for Windows Instances*\.
+
 ## Encryption in Transit<a name="encryption-transit"></a>
 
 For PCoIP, data in\-transit is encrypted using TLS 1\.2 encryption and SigV4 request signing\. The PCoIP protocol uses encrypted UDP traffic, with AES encryption, for streaming pixels\.

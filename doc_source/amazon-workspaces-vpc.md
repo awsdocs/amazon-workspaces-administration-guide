@@ -28,6 +28,10 @@ If you aren't already familiar with working with VPCs and subnets, we recommend 
 + [Step 2: Create a VPC](#create-vpc)
 + [Step 3: Add a Second Private Subnet](#add-subnet)
 + [Step 4: Verify and Name the Route Tables](#verify-route-tables)
++ [Step 5: Route Your WorkSpaces to the Subnets](#route-workspaces-subnets-nat)
+
+**Note**  
+As an alternative to the following procedure for configuring a VPC with private subnets and a NAT gateway, you can follow the steps in the [ "Getting started project" tutorial](http://aws.amazon.com/workspaces/resources/), which details how to set up your VPC and your WorkSpaces directory\. That tutorial also covers how to launch WorkSpaces, create custom images and bundles, and perform other tasks related to administering your WorkSpaces\.
 
 ### Step 1: Allocate an Elastic IP Address<a name="allocate-eip"></a>
 
@@ -131,7 +135,8 @@ You can verify and name the route tables for each subnet\.
 
    1. Select the route table\. Under **Name**, choose the edit icon \(the pencil\), and enter a name \(for example, `workspaces-public-routetable`\), and then choose the check mark to save the name\.
 
-   1. On the **Routes** tab, verify that there is one route for local traffic and another route that sends all other traffic to the internet gateway for the VPC\.
+   1. On the **Routes** tab, verify that there is one route for local traffic and another route that sends all other traffic to the internet gateway for the VPC\. For example, you should see entries similar to those in the following table\.    
+[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-vpc.html)
 
 1. In the navigation pane, choose **Subnets**, and select the first private subnet that you created \(for example, `WorkSpaces Private Subnet 1`\)\.
 
@@ -139,9 +144,16 @@ You can verify and name the route tables for each subnet\.
 
    1. Select the route table\. Under **Name**, choose the edit icon \(the pencil\), and enter a name \(for example, `workspaces-private-routetable`\), and then choose the check mark to save the name\.
 
-   1. On the **Routes** tab, verify that there is one route for local traffic and another route that sends all other traffic to the NAT gateway\.
+   1. On the **Routes** tab, verify that there is one route for local traffic and another route that sends all other traffic to the NAT gateway\. For example, you should see entries similar to those in the following table\.    
+[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-vpc.html)
 
 1. In the navigation pane, choose **Subnets**, and select the second private subnet that you created \(for example, `WorkSpaces Private Subnet 2`\)\. On the **Route Table** tab, verify that the route table is the private route table \(for example, `workspaces-private-routetable`\)\. If the route table is different, choose **Edit** and select this route table\.
+
+### Step 5: Route Your WorkSpaces to the Subnets<a name="route-workspaces-subnets-nat"></a>
+
+To route your WorkSpaces to your VPC's subnets, make sure to select your VPC and subnets during the process of setting up your WorkSpaces directory\.
+
+To set up your WorkSpaces directory, see [Launch a Virtual Desktop Using Amazon WorkSpaces](launch-workspaces-tutorials.md), and select the tutorial for the type of directory you'd like to use \(AWS Managed Microsoft AD, Simple AD, AD Connector, or a trust relationship between your AWS Managed Microsoft AD directory and your on\-premises domain\)\.
 
 ## Configure a VPC with Public Subnets<a name="configure-vpc-public-subnets"></a>
 
@@ -154,6 +166,7 @@ If you aren't already familiar with working with VPCs and subnets, we recommend 
 + [Step 1: Create a VPC](#create-vpc-public-subnet)
 + [Step 2: Add a Second Public Subnet](#add-second-public-subnet)
 + [Step 3: Assign the Elastic IP Address](#assign-eip)
++ [Step 4: Route Your WorkSpaces to the Subnets](#route-workspaces-subnets-public)
 
 ### Step 1: Create a VPC<a name="create-vpc-public-subnet"></a>
 
@@ -258,3 +271,9 @@ For a video tutorial about how to assign an Elastic IP address to a WorkSpace, s
 1. Choose **Actions**, **Associate Address**\.
 
 1. On the **Associate Elastic IP Address** page, choose an Elastic IP address from **Address**\. For **Associate to private IP address**, specify the new private IP address, and then choose **Associate Address**\.
+
+### Step 4: Route Your WorkSpaces to the Subnets<a name="route-workspaces-subnets-public"></a>
+
+To route your WorkSpaces to your VPC's subnets, make sure to select your VPC and subnets during the process of setting up your WorkSpaces directory\.
+
+To set up your WorkSpaces directory, see [Launch a Virtual Desktop Using Amazon WorkSpaces](launch-workspaces-tutorials.md), and select the tutorial for the type of directory you'd like to use \(AWS Managed Microsoft AD, Simple AD, AD Connector, or a trust relationship between your AWS Managed Microsoft AD directory and your on\-premises domain\)\.

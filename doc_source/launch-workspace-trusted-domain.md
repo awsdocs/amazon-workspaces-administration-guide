@@ -24,6 +24,8 @@ In this tutorial, we launch a WorkSpace that uses a trust relationship\. For tut
 **To set up the trust relationship**
 
 1. Set up AWS Managed Microsoft AD in your virtual private cloud \(VPC\)\. For more information, see [Create Your AWS Managed Microsoft AD directory](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/create_managed_ad.html) in the *AWS Directory Service Administration Guide*\.
+**Note**  
+If your AWS Managed Microsoft AD directory has been configured for multi\-Region replication, only the directory in the primary Region can be registered for use with Amazon WorkSpaces\. Attempts to register the directory in a replicated Region for use with Amazon WorkSpaces will fail\. Multi\-Region replication with AWS Managed Microsoft AD isn't supported for use with Amazon WorkSpaces within replicated Regions\.
 
 1. Create a trust relationship between your AWS Managed Microsoft AD and your on\-premises domain\. Ensure that the trust is configured as a two\-way trust\. For more information, see [Tutorial: Create a Trust Relationship Between Your AWS Managed Microsoft AD and Your On\-Premises Domain](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/tutorial_setup_trust.html) in the *AWS Directory Service Administration Guide*\.
 
