@@ -2,6 +2,14 @@
 
 To allow Amazon WorkSpaces to use an existing AWS Directory Service directory, you must register it with Amazon WorkSpaces\. After you register a directory, you can launch WorkSpaces in the directory\.
 
+**Requirements**  
+To register a directory for use with Amazon WorkSpaces, it must meet the following requirements:
++ The directory that you want to register for use with Amazon WorkSpaces must be present in every virtual private cloud \(VPC\) subnet where you want to launch WorkSpaces\.
++ If you're using AD Connector, your AD Connector must be directly attached to the VPC subnets that will be used for WorkSpaces deployments\.
++ If you're using AWS Managed Microsoft AD or Simple AD, your directory can be in a dedicated private subnet, as long as the directory has access to the VPC where the WorkSpaces are located\.
+
+For more information about directory and VPC design, see the [ *Best Practices for Deploying Amazon WorkSpaces*](https://d1.awsstatic.com/whitepapers/Best-Practices-for-Deploying-Amazon-WorkSpaces.pdf) whitepaper\.
+
 **Note**  
 Simple AD and AD Connector are made available to you free of charge to use with WorkSpaces\. If there are no WorkSpaces being used with your Simple AD or AD Connector directory for 30 consecutive days, this directory will be automatically deregistered for use with Amazon WorkSpaces, and you will be charged for this directory as per the [AWS Directory Service pricing terms](http://aws.amazon.com/directoryservice/pricing/)\.  
 To delete empty directories, see [Delete the Directory for Your WorkSpaces](delete-workspaces-directory.md)\. If you delete your Simple AD or AD Connector directory, you can always create a new one when you want to start using WorkSpaces again\.
@@ -24,7 +32,7 @@ If your AWS Managed Microsoft AD directory has been configured for multi\-Region
 
 1. For **Enable Amazon WorkDocs**, choose **Yes** to register the directory for use with Amazon WorkDocs or **No** otherwise\.
 **Note**  
-This option is displayed only if Amazon WorkDocs is available in the Region and if you're not using Microsoft Active Directory \(AD\)\. If you're using Microsoft AD, finish registering your directory, and then see [Enable Amazon WorkDocs for Microsoft Active Directory](enable-workdocs-active-directory.md)\.
+This option is displayed only if Amazon WorkDocs is available in the Region and if you're not using AWS Managed Microsoft AD\. If you're using AWS Managed Microsoft AD, finish registering your directory, and then see [Enable Amazon WorkDocs for AWS Managed Microsoft AD](enable-workdocs-active-directory.md)\.
 
 1. Choose **Register**\. Initially the value of **Registered** is `REGISTERING`\. After registration is complete, the value is `Yes`\.
 

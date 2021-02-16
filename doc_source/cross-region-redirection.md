@@ -39,6 +39,8 @@ You must have all necessary rights to use any domain name that you use in conjun
   `"We're unable to register the WorkSpace because of a DNS server issue. Contact your administrator for help."`
 + You must set up your DNS service and configure the necessary DNS routing policies\. Cross\-Region redirection works in conjunction with your DNS routing policies to redirect your WorkSpaces users as needed\.
 + In each primary and failover Region where you want to set up cross\-Region redirection, create WorkSpaces for your users\. Make sure that you use the same usernames in each WorkSpaces directory in each Region\. To keep your Active Directory user data in sync, we recommend using AD Connector to point to the same Active Directory in each Region where you've set up WorkSpaces for your users\. For more information about creating WorkSpaces, see [Launch WorkSpaces](launch-workspaces-tutorials.md)\.
+**Important**  
+If you configure your AWS Managed Microsoft AD directory for multi\-Region replication, only the directory in the primary Region can be registered for use with Amazon WorkSpaces\. Attempts to register the directory in a replicated Region for use with Amazon WorkSpaces will fail\. Multi\-Region replication with AWS Managed Microsoft AD isn't supported for use with Amazon WorkSpaces within replicated Regions\.
 
   When you've finished setting up cross\-Region redirection, you must make sure your WorkSpaces users are using the FQDN\-based registration code instead of the Region\-based registration code \(for example, `WSpdx+ABC12D`\) for their primary Region\. To do this, you must send them an email with the FQDN connection string by using the procedure in [Step 5: Send the Connection String to Your WorkSpaces Users](#cross-region-redirection-send-connection-string-to-users)\.
 **Note**  
@@ -48,7 +50,7 @@ If you create your users in the WorkSpaces console instead of creating them in A
 + Cross\-Region redirection doesn't automatically check whether connections to the primary Region have failed and then fails your WorkSpaces over to another Region\. In other words, automatic failover doesn't occur\.
 
   To implement an automatic failover scenario, you must use some other mechanism in conjunction with cross\-Region redirection\. For example, you can use an Amazon Route 53 failover DNS routing policy paired with a Route 53 health check that monitors a CloudWatch alarm in the primary Region\. If the CloudWatch alarm in the primary Region is triggered, your DNS failover routing policy then redirects your WorkSpaces users to the WorkSpaces that you've set up for them in the failover Region\.
-+ When you're using cross\-Region redirection, user data isn't persisted between WorkSpaces in different Regions\. To ensure that users can access their files from different Regions, we recommend that you set up Amazon WorkDocs Drive for your WorkSpaces users\.
++ When you're using cross\-Region redirection, user data isn't persisted between WorkSpaces in different Regions\. To ensure that users can access their files from different Regions, we recommend that you set up Amazon WorkDocs for your WorkSpaces users, if Amazon WorkDocs is supported in your primary and failover Regions\. For more information about Amazon WorkDocs, see [Amazon WorkDocs Drive](https://docs.aws.amazon.com/workdocs/latest/userguide/workdocs_drive_help.html) in the *Amazon WorkDocs Administration Guide*\. For more information about enabling Amazon WorkDocs for your WorkSpace users, see [Register a Directory with Amazon WorkSpaces](register-deregister-directory.md) and [Enable Amazon WorkDocs for AWS Managed Microsoft AD](enable-workdocs-active-directory.md)\. For information about how WorkSpaces users can set up Amazon WorkDocs on their WorkSpaces, see [ Integrate with WorkDocs](https://docs.aws.amazon.com/workspaces/latest/userguide/workspaces-user-getting-started.html#workdocs-integration) in the *Amazon WorkSpaces User Guide*\.
 + Cross\-Region redirection is supported only on version 3\.0\.9 or later of the Linux, macOS, and Windows WorkSpaces client applications\.
 + Cross\-Region redirection is available in all [ AWS Regions where Amazon WorkSpaces is available](http://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/), except for the AWS GovCloud \(US\-West\) Region and the China \(Ningxia\) Region\. 
 
@@ -123,6 +125,8 @@ You can associate a connection alias with only one directory per AWS Region\. If
    You can also associate a connection alias with a directory from the details page for your connection alias\. To do so, under **Associated directory**, choose **Associate directory**\.
 
 1. On the **Associate/disassociate** page, Under **Associate to a directory**, select the directory that you want to associate your connection alias with in this AWS Region\.
+**Note**  
+If you configure your AWS Managed Microsoft AD directory for multi\-Region replication, only the directory in the primary Region can be used with Amazon WorkSpaces\. Attempts to use the directory in a replicated Region with Amazon WorkSpaces will fail\. Multi\-Region replication with AWS Managed Microsoft AD isn't supported for use with Amazon WorkSpaces within replicated Regions\.
 
 1. Choose **Associate**\.
 

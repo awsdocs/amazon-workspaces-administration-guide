@@ -2,7 +2,7 @@
 
 To connect to your WorkSpaces, the network that your Amazon WorkSpaces clients are connected to must have certain ports open to the IP address ranges for the various AWS services \(grouped in subsets\)\. These address ranges vary by AWS Region\. These same ports must also be open on any firewall running on the client\. For more information about the AWS IP address ranges for different Regions, see [AWS IP Address Ranges](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html) in the *Amazon Web Services General Reference*\.
 
-For an architecture diagram, see [ WorkSpaces Architecture](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html#architecture)\. For additional architecture diagrams, see the ["Best Practices for Deploying Amazon WorkSpaces"](http://aws.amazon.com/workspaces/resources/) whitepaper\.
+For an architecture diagram, see [ WorkSpaces Architecture](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html#architecture)\. For additional architecture diagrams, see the [ *Best Practices for Deploying Amazon WorkSpaces*](https://d1.awsstatic.com/whitepapers/Best-Practices-for-Deploying-Amazon-WorkSpaces.pdf) whitepaper\.
 
 ## Ports for Client Applications<a name="client-application-ports"></a>
 
@@ -190,11 +190,11 @@ If you're using Bring Your Own License \(BYOL\) Windows WorkSpaces, the IP addre
 The following ports must be open on the management network interface of all WorkSpaces:
 + Inbound TCP on port 4172\. This is used for establishment of the streaming connection on the PCoIP protocol\.
 + Inbound UDP on port 4172\. This is used for streaming user input on the PCoIP protocol\.
-+ Inbound TCP on port 4489\. This is used for access using the web client\. \(The Web Access client is not supported for WSP\.\)
++ Inbound TCP on port 4489\. This is used for access using the web client\. \(The Web Access client is not supported for the WSP protocol\.\)
 + Inbound TCP on port 8200\. This is used for management and configuration of the WorkSpace on the PCoIP protocol\.
-+ Inbound TCP on ports 8201\-8250\. These ports are used for establishment of the streaming connection and for streaming user input on WSP protocol\.
-+ Outbound TCP on ports 8443 and 9997\. This is used for access using the web client\. \(The Web Access client is not supported for WSP\.\)
-+ Outbound UDP on ports 3478, 4172, and 4195\. This is used for access using the web client\. \(The Web Access client is not supported for WSP\.\)
++ Inbound TCP on ports 8201\-8250\. These ports are used for establishment of the streaming connection and for streaming user input on the WSP protocol\.
++ Outbound TCP on ports 8443 and 9997\. This is used for access using the web client\. \(The Web Access client is not supported for the WSP protocol\.\)
++ Outbound UDP on ports 3478, 4172, and 4195\. This is used for access using the web client\. \(The Web Access client is not supported for the WSP protocol\.\)
 + Outbound UDP on ports 50002 and 55002\. This is used for streaming\. If your firewall uses stateful filtering, the ephemeral ports 50002 and 55002 are automatically opened to allow return communication\. If your firewall uses stateless filtering, you must open ephemeral ports 49152 \- 65535 to allow return communication\.
 + Outbound TCP on port 80 to IP address 169\.254\.169\.254 for access to the EC2 metadata service\. Any HTTP proxy assigned to your WorkSpaces must also exclude 169\.254\.169\.254\.
 + Outbound TCP on port 1688 to IP addresses 169\.254\.169\.250 and 169\.254\.169\.251 to allow access to Microsoft KMS for Windows activation for Workspaces that are based on public bundles\. If you're using Bring Your Own License \(BYOL\) Windows WorkSpaces, you must allow access to your own KMS servers for Windows activation\.

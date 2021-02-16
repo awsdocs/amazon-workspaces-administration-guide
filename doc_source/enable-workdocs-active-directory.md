@@ -1,6 +1,6 @@
-# Enable Amazon WorkDocs for Microsoft Active Directory<a name="enable-workdocs-active-directory"></a>
+# Enable Amazon WorkDocs for AWS Managed Microsoft AD<a name="enable-workdocs-active-directory"></a>
 
-If you're using Microsoft Active Directory \(AD\) with Amazon WorkSpaces, you can enable Amazon WorkDocs for your directory through either the Amazon WorkDocs console or the AWS Directory Service console\. 
+If you're using AWS Managed Microsoft AD with Amazon WorkSpaces, you can enable Amazon WorkDocs for your directory through either the Amazon WorkDocs console or the AWS Directory Service console\. 
 
 **To enable WorkDocs through the Amazon WorkDocs console**
 

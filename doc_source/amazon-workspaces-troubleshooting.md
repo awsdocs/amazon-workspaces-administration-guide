@@ -469,13 +469,23 @@ AD Connector needs to obtain the `_ldap._tcp.dns-domain-name` and `_kerberos._tc
 
 To resolve this issue, connect to the WorkSpace and change the power plan to **High performance** by using the following procedure:
 
-1. From the WorkSpace, open **Control Panel**, then choose **Hardware and Sound**\.
+1. From the WorkSpace, open **Control Panel**, then choose **Hardware** or choose **Hardware and Sound** \(the name might differ, depending on your version of Windows\)\.
 
 1. Under **Power Options**, choose **Choose a power plan**\. 
 
-1. In the **Choose or customize a power plan** pane, choose the **High performance** power plan\. If this plan isn't visible, choose the arrow to the right of **Show additional plans** to display it\. 
+1. In the **Choose or customize a power plan** pane, choose the **High performance** power plan, and then choose **Change plan settings**\. 
+   + If the option to choose the **High performance** power plan is disabled, choose **Change settings that are currently unavailable**, and then choose the **High performance** power plan\. 
+   + If the **High performance** plan isn't visible, choose the arrow to the right of **Show additional plans** to display it, or choose **Create a power plan** in the left navigation, choose **High performance**, give the power plan a name, and then choose **Next**\. 
+
+1. On the **Change settings for the plan: High performance** page, make sure **Turn off the display** and \(if available\) **Put the computer to sleep** are set to **Never**\.
+
+1. If you made any changes to the high performance plan, choose **Save changes** \(or choose **Create** if you're creating a new plan\)\.
 
 If the preceding steps do not solve the issue, do the following: 
+
+1. From the WorkSpace, open **Control Panel**, then choose **Hardware** or choose **Hardware and Sound** \(the name might differ, depending on your version of Windows\)\.
+
+1. Under **Power Options**, choose **Choose a power plan**\. 
 
 1. In the **Choose or customize a power plan** pane, choose the **Change plan settings** link to the right of the **High performance** power plan, then choose the **Change advanced power settings** link\.
 

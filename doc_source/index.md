@@ -38,7 +38,7 @@ Amazon's trademarks and trade dress may not be used in
    + [Update Directory Details for Your WorkSpaces](update-directory-details.md)
    + [Update DNS Servers for Amazon WorkSpaces](update-dns-server.md)
    + [Delete the Directory for Your WorkSpaces](delete-workspaces-directory.md)
-   + [Enable Amazon WorkDocs for Microsoft Active Directory](enable-workdocs-active-directory.md)
+   + [Enable Amazon WorkDocs for AWS Managed Microsoft AD](enable-workdocs-active-directory.md)
    + [Set Up Active Directory Administration Tools for Amazon WorkSpaces](directory_administration.md)
 + [Launch a Virtual Desktop Using Amazon WorkSpaces](launch-workspaces-tutorials.md)
    + [Launch a WorkSpace Using AWS Managed Microsoft AD](launch-workspace-microsoft-ad.md)

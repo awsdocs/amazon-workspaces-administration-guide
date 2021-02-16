@@ -294,7 +294,7 @@ Perform these steps to create an Amazon WorkSpaces BYOL image\.
 To perform this procedure, verify that you have AWS Identity and Access Management \(IAM\) permissions to:  
 Call Amazon WorkSpaces **ImportWorkspaceImage**\.
 Call Amazon EC2 **DescribeImages** on the Amazon EC2 image that you want to use to create the BYOL image\.
-Call Amazon EC2 **ModifyImageAttribute** on the Amazon EC2 image that you want to use to create the BYOL image\.
+Call Amazon EC2 **ModifyImageAttribute** on the Amazon EC2 image that you want to use to create the BYOL image\. Make sure that the launch permissions on the Amazon EC2 image are not restricted\. The image must be shareable throughout the BYOL image creation process\.
 For more information, see [Changing Permissions for an IAM User ](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html) in the *IAM User Guide*\.  
 To create a Graphics or GraphicsPro bundle from your image, contact the [AWS Support Center](https://console.aws.amazon.com/support/home#/) to get your account added to the allow list\. After your account is on the allow list, you can use the AWS CLI import\-workspace\-image command to ingest the Graphics or GraphicsPro image\. For more information, see [import\-workspace\-image](https://docs.aws.amazon.com/cli/latest/reference/workspaces/import-workspace-image.html) in the *AWS CLI Command Reference*\.
 

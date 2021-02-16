@@ -4,15 +4,20 @@ Amazon WorkSpaces launches your WorkSpaces in a virtual private cloud \(VPC\)\. 
 
 You can create a VPC with two private subnets for your WorkSpaces and a NAT gateway in a public subnet\. Alternatively, you can create a VPC with two public subnets for your WorkSpaces and associate an Elastic IP address with each WorkSpace\.
 
-**VPC Requirements**  
+**Tip**  
+For a detailed exploration of directory and virtual private cloud \(VPC\) design considerations for various deployment scenarios, see the [ *Best Practices for Deploying Amazon WorkSpaces*](https://d1.awsstatic.com/whitepapers/Best-Practices-for-Deploying-Amazon-WorkSpaces.pdf) whitepaper\.
+
+**Topics**
++ [Requirements](#configure-vpc-requirements)
++ [Configure a VPC with Private Subnets and a NAT Gateway](#configure-vpc-nat-gateway)
++ [Configure a VPC with Public Subnets](#configure-vpc-public-subnets)
+
+## Requirements<a name="configure-vpc-requirements"></a>
+
 Your VPC's subnets must reside in different Availability Zones in the Region where you're launching WorkSpaces\. Availability Zones are distinct locations that are engineered to be isolated from failures in other Availability Zones\. By launching instances in separate Availability Zones, you can protect your applications from the failure of a single location\. Each subnet must reside entirely within one Availability Zone and cannot span zones\.
 
 **Note**  
 Amazon WorkSpaces is available in a subset of the Availability Zones in each supported Region\. To determine which Availability Zones you can use for the subnets of the VPC that you're using for WorkSpaces, see [Availability Zones for Amazon WorkSpaces](azs-workspaces.md)\. 
-
-**Topics**
-+ [Configure a VPC with Private Subnets and a NAT Gateway](#configure-vpc-nat-gateway)
-+ [Configure a VPC with Public Subnets](#configure-vpc-public-subnets)
 
 ## Configure a VPC with Private Subnets and a NAT Gateway<a name="configure-vpc-nat-gateway"></a>
 
@@ -146,6 +151,8 @@ You can verify and name the route tables for each subnet\.
 
    1. On the **Routes** tab, verify that there is one route for local traffic and another route that sends all other traffic to the NAT gateway\. For example, you should see entries similar to those in the following table\.    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-vpc.html)
+**Note**  
+To provide internet access to your WorkSpaces in the private subnets, make sure your NAT gateway is configured in the public subnet\.
 
 1. In the navigation pane, choose **Subnets**, and select the second private subnet that you created \(for example, `WorkSpaces Private Subnet 2`\)\. On the **Route Table** tab, verify that the route table is the private route table \(for example, `workspaces-private-routetable`\)\. If the route table is different, choose **Edit** and select this route table\.
 

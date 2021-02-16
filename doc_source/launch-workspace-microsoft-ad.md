@@ -85,6 +85,8 @@ Now that you have created an AWS Managed Microsoft AD directory, you are ready t
 
 1. On the **Review & Launch WorkSpaces** page, choose **Launch WorkSpaces**\. The initial status of the WorkSpace is `PENDING`\. When the launch is complete, the status is `AVAILABLE` and an invitation is sent to the email address that you specified for the user\.
 
+1. \(Optional\) If Amazon WorkDocs is supported in the Region, you can enable Amazon WorkDocs for all users in the directory\. For more information, see [Enable Amazon WorkDocs for AWS Managed Microsoft AD](enable-workdocs-active-directory.md)\. For more information about Amazon WorkDocs, see [ Amazon WorkDocs Drive](https://docs.aws.amazon.com/workdocs/latest/userguide/workdocs_drive_help.html) in the *Amazon WorkDocs Administration Guide*\.
+
 ## Step 3: Connect to the WorkSpace<a name="connect-workspace-microsoft-ad"></a>
 
 After you receive the invitation email, you can connect to your WorkSpace using the client of your choice\. After you sign in, the client displays the WorkSpace desktop\.

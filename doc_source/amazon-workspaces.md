@@ -31,7 +31,7 @@ The following diagram shows the architecture of Amazon WorkSpaces\.
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/images/architectural-diagram-new-2.png)
 
-For additional architecture diagrams, see the [ "Best Practices for Deploying Amazon WorkSpaces"](http://aws.amazon.com/workspaces/resources/) whitepaper\.
+For additional architecture diagrams, see the [ *Best Practices for Deploying Amazon WorkSpaces*](https://d1.awsstatic.com/whitepapers/Best-Practices-for-Deploying-Amazon-WorkSpaces.pdf) whitepaper\.
 
 ## Accessing Your WorkSpace<a name="devices"></a>
 

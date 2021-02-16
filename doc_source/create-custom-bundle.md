@@ -18,8 +18,9 @@ Custom bundles cost as same as the public bundles they are created from\. For mo
 + [Requirements to Create Windows Custom Images](#windows_custom_image_requirements)
 + [Requirements to Create Amazon Linux Custom Images](#linux_custom_image_requirements)
 + [Best Practices](#custom_image_best_practices)
-+ [Step 1: Run the Image Checker](#run_image_checker)
-+ [Step 2: Create a Custom Image and Custom Bundle](#create_custom_image_bundle)
++ [\(Optional\) Step 1: Specify a Custom Computer Name Format for Your Images](#custom_computer_name)
++ [Step 2: Run the Image Checker](#run_image_checker)
++ [Step 3: Create a Custom Image and Custom Bundle](#create_custom_image_bundle)
 + [What's Included with Windows WorkSpaces Custom Images](#image_creation_windows)
 + [What's Included with Amazon Linux WorkSpace Custom Images](#image_creation_linux)
 
@@ -71,10 +72,46 @@ Before you create an image from a WorkSpace, do the following:
 + For Linux WorkSpaces, see also the [ "Best Practices to Prepare Your Amazon WorkSpaces for Linux Images"](https://docs.aws.amazon.com/whitepapers/latest/workspaces-linux-best-practices/welcome.html) whitepaper\.
 + If you want to use smart cards on Linux WorkSpaces with WorkSpaces Streaming Protocol \(WSP\) enabled, see [Use Smart Cards for Authentication](smart-cards.md) for the customizations that you must make to your Linux WorkSpace before creating your image\. 
 
-## Step 1: Run the Image Checker<a name="run_image_checker"></a>
+## \(Optional\) Step 1: Specify a Custom Computer Name Format for Your Images<a name="custom_computer_name"></a>
+
+For the WorkSpaces launched from your custom or Bring Your Own License \(BYOL\) images, you can specify a custom prefix for the computer name format instead of using the [default computer name format](launch-workspaces-tutorials.md)\. To specify a custom prefix, follow the appropriate procedure for your image type\. 
+
+### To specify a custom computer name format for custom images<a name="custom_computer_name_custom_image"></a>
+
+1. On the WorkSpace that you're using to create your custom image, open `C:\ProgramData\Amazon\EC2-Windows\Launch\Sysprep\Unattend.xml` in Notepad or another text editor\. For more information about working with the `Unattend.xml` file, see [ Answer files \(unattend\.xml\)](https://docs.microsoft.com/windows-hardware/manufacture/desktop/update-windows-settings-and-scripts-create-your-own-answer-file-sxs) in the Microsoft documentation\.
+**Note**  
+To access the C: drive from the Windows File Explorer on your WorkSpace, enter **C:\\** in the address bar\.
+
+1. In the `<settings pass="specialize">` section, do the following:
+
+   1. Make sure that `<ComputerName>` is set to an asterisk \(`*`\)\. If `<ComputerName>` is set to any other value, your custom computer name settings will be ignored\. For more information about the `<ComputerName>` setting, see [ ComputerName](https://docs.microsoft.com/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup-computername) in the Microsoft documentation\.
+
+   1. \(Optional\) Set `<RegisteredOrganization>` to your preferred organization name\.
+
+1. In the `<settings pass="oobeSystem">` section, set `<RegisteredOrganization>` and `<RegisteredOwner>` to your preferred values\.
+
+   During Sysprep, the values that you specify for `<RegisteredOwner>` and `<RegisteredOrganization>` are concatenated together, and the first 7 characters of the combined string are used to create the computer name\. For example, if you specify **Amazon\.com** for `<RegisteredOrganization>` and **EC2** for `<RegisteredOwner>`, the computer names for the WorkSpaces created from your custom bundle will start with EC2AMAZ\-*xxxxxxx*\.
+
+1. Save your changes to the `Unattend.xml` file\.
+
+### To specify a custom computer name format for BYOL images<a name="custom_computer_name_byol"></a>
+
+1. Open `C:\Program Files\Amazon\Ec2ConfigService\Sysprep2008.xml` in Notepad or another text editor\.
+
+1. In the `<settings pass="specialize">` section, uncomment `<ComputerName>*</ComputerName>`, and make sure that `<ComputerName>` is set to an asterisk \(`*`\)\. If `<ComputerName>` is set to any other value, your custom computer name settings will be ignored\. For more information about the `<ComputerName>` setting, see [ ComputerName](https://docs.microsoft.com/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup-computername) in the Microsoft documentation\.
+
+1. In the `<settings pass="specialize">` section, set `<RegisteredOrganization>` and `<RegisteredOwner>` to your preferred values\.
+
+   During Sysprep, the values that you specify for `<RegisteredOwner>` and `<RegisteredOrganization>` are concatenated together, and the first 7 characters of the combined string are used to create the computer name\. For example, if you specify **Amazon\.com** for `<RegisteredOrganization>` and **EC2** for `<RegisteredOwner>`, the computer names for the WorkSpaces created from your custom bundle will start with EC2AMAZ\-*xxxxxxx*\.
+**Note**  
+The `<RegisteredOrganization>` and `<RegisteredOwner>` values in the `<settings pass="oobeSystem">` section are ignored by Sysprep\.
+
+1. Save your changes to the `Sysprep2008.xml` file\.
+
+## Step 2: Run the Image Checker<a name="run_image_checker"></a>
 
 **Note**  
-The Image Checker is available only for Windows WorkSpaces\. If you are creating an image from a Linux WorkSpace, skip to [Step 2: Create a Custom Image and Custom Bundle](#create_custom_image_bundle)\.
+The Image Checker is available only for Windows WorkSpaces\. If you are creating an image from a Linux WorkSpace, skip to [Step 3: Create a Custom Image and Custom Bundle](#create_custom_image_bundle)\.
 
 To confirm that your Windows WorkSpace meets the requirements for image creation, we recommend running the Image Checker\. The Image Checker performs a series of tests on the WorkSpace that you want to use to create your image, and provides guidance on how to resolve any issues it finds\.
 
@@ -385,7 +422,7 @@ If your WorkSpace passes all of the tests run by the Image Checker, but you are 
 
   1. Choose **OK**\.
 
-## Step 2: Create a Custom Image and Custom Bundle<a name="create_custom_image_bundle"></a>
+## Step 3: Create a Custom Image and Custom Bundle<a name="create_custom_image_bundle"></a>
 
 After you have validated your WorkSpace image, you can proceed with creating your custom image and custom bundle\.
 

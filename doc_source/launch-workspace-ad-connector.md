@@ -69,7 +69,7 @@ Now you are ready to launch WorkSpaces for one or more users in your on\-premise
 
 1. For **Directory**, choose the directory that you created\.
 
-1. \(Optional\) If this is the first time you have launched a WorkSpace in this directory, and Amazon WorkDocs is supported in the Region, you can enable or disable Amazon WorkDocs for all users in the directory\. For more information, see [Amazon WorkDocs Sync Client Help](https://docs.aws.amazon.com/workdocs/latest/userguide/sync_client_help.html) in the *Amazon WorkDocs Administration Guide*\.
+1. \(Optional\) If this is the first time you have launched a WorkSpace in this directory, and Amazon WorkDocs is supported in the Region, you can enable or disable Amazon WorkDocs for all users in the directory\. For more information about Amazon WorkDocs, see [Amazon WorkDocs Drive](https://docs.aws.amazon.com/workdocs/latest/userguide/workdocs_drive_help.html) in the *Amazon WorkDocs Administration Guide*\.
 
 1. Choose **Next**\. Amazon WorkSpaces registers your AD Connector\.
 

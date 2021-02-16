@@ -68,11 +68,26 @@ If your users are using Chrome as their browser, no special configuration is req
 
 If your users are using Firefox as their browser, you can enable your users to use smart cards in Firefox through Group Policy\. You can use these [ Firefox Group Policy templates](https://github.com/mozilla/policy-templates/tree/master/windows) in GitHub\.
 
-You must install the 64\-bit version of [OpenSC](https://github.com/OpenSC/OpenSC/wiki) for Windows to support PKCS \#11, and then use the following Group Policy setting, where `NAME_OF_DEVICE` is whatever value you want to use to identify PKCS \#11, such as `OpenSC`, and where `PATH_TO_LIBRARY_FOR_DEVICE` is the path to PKCS \#11\. This path should point to a library with a \.DLL extension, such as `C:\Windows\System32\pkcs11.dll`\.
+For example, you can install the 64\-bit version of [OpenSC](https://github.com/OpenSC/OpenSC/wiki) for Windows to support PKCS \#11, and then use the following Group Policy setting, where `NAME_OF_DEVICE` is whatever value you want to use to identify PKCS \#11, such as `OpenSC`, and where `PATH_TO_LIBRARY_FOR_DEVICE` is the path to the PKCS \#11 module\. This path should point to a library with a \.DLL extension, such as `C:\Program Files\OpenSC Project\OpenSC\pkcs11\onepin-opensc-pkcs11.dll`\.
 
 ```
 Software\Policies\Mozilla\Firefox\SecurityDevices\NAME_OF_DEVICE = PATH_TO_LIBRARY_FOR_DEVICE
 ```
+
+**Tip**  
+If you're using OpenSC, you can also load the OpenSC `pkcs11` module into Firefox by running the `pkcs11-register.exe` program\. To run this program, either double\-click the file at `C:\Program Files\OpenSC Project\OpenSC\tools\pkcs11-register.exe`, or open a Command Prompt window and run the following command:  
+
+```
+"C:\Program Files\OpenSC Project\OpenSC\tools\pkcs11-register.exe"
+```
+To verify that the OpenSC `pkcs11` module has been loaded into Firefox, do the following:  
+If Firefox is already running, close it\.
+Open Firefox\. Choose the menu button ![\[Firefox menu button\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/images/firefox-menu-button.png) in the upper\-right corner, and then choose **Options**\. 
+On the **about:preferences** page, in the left navigation pane, choose **Privacy & Security**\.
+Under **Certificates**, choose **Security Devices**\.
+In the **Device Manager** dialog box, you should see **OpenSC smartcard framework \(0\.21\)** in the left navigation, and it should have the following values when you select it:  
+**Module**: `OpenSC smartcard framework (0.21)`  
+**Path**: `C:\Program Files\OpenSC Project\OpenSC\pkcs11\onepin-opensc-pkcs11.dll`
 
 **Troubleshooting**  
 For information about troubleshooting smart cards, see [ Certificate and configuration problems](https://docs.microsoft.com/troubleshoot/windows-server/windows-security/enabling-smart-card-logon-third-party-certification-authorities#certificate-and-configuration-problems) in the Microsoft documentation\. 
