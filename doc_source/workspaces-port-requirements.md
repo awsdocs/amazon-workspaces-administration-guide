@@ -167,23 +167,24 @@ To associate a new public IP address from the Amazon\-provided pool with the Wor
 The following table lists the IP address ranges used for the management network interface\.
 
 **Note**  
-If you're using Bring Your Own License \(BYOL\) Windows WorkSpaces, the IP address ranges in the following table do not apply\. Instead, BYOL WorkSpaces use the 54\.239\.224\.0/20 IP address range for management interface traffic in all AWS Regions\. \(This IP address range is used in addition to the /16 CIDR block that you select for management traffic for your BYOL WorkSpaces\.\)
+**If you're using Bring Your Own License \(BYOL\) Windows WorkSpaces**, the IP address ranges in the following table do not apply\. Instead, PCoIP BYOL WorkSpaces use the 54\.239\.224\.0/20 IP address range for management interface traffic in all AWS Regions\. For WSP BYOL Windows WorkSpaces, both the 54\.239\.224\.0/20 and 10\.0\.0\.0/8 IP address ranges apply in all AWS Regions\. \(These IP address ranges are used in addition to the /16 CIDR block that you select for management traffic for your BYOL WorkSpaces\.\)
+**If you're using WSP WorkSpaces created from public bundles**, the IP address range 10\.0\.0\.0/8 also applies for management interface traffic in all AWS Regions, in addition to the PCoIP/WSP ranges shown in the following table\.
 
 
 | Region | IP Address Range | 
 | --- | --- | 
-| US East \(N\. Virginia\) | 172\.31\.0\.0/16, 192\.168\.0\.0/16, 198\.19\.0\.0/16 | 
-| US West \(Oregon\) | 172\.31\.0\.0/16, 192\.168\.0\.0/16, and 198\.19\.0\.0/16 | 
-| Asia Pacific \(Seoul\) | 198\.19\.0\.0/16 | 
-| Asia Pacific \(Singapore\) | 198\.19\.0\.0/16 | 
-| Asia Pacific \(Sydney\) | 172\.31\.0\.0/16, 192\.168\.0\.0/16, and 198\.19\.0\.0/16 | 
-| Asia Pacific \(Tokyo\) | 198\.19\.0\.0/16 | 
-| Canada \(Central\) | 198\.19\.0\.0/16 | 
-| Europe \(Frankfurt\) | 198\.19\.0\.0/16 | 
-| Europe \(Ireland\) | 172\.31\.0\.0/16, 192\.168\.0\.0/16, and 198\.19\.0\.0/16 | 
-| Europe \(London\) | 198\.19\.0\.0/16 | 
-| South America \(São Paulo\) | 198\.19\.0\.0/16 | 
-| AWS GovCloud \(US\-West\) | 198\.19\.0\.0/16 | 
+| US East \(N\. Virginia\) | PCoIP/WSP: 172\.31\.0\.0/16, 192\.168\.0\.0/16, 198\.19\.0\.0/16 WSP: 10\.0\.0\.0/8 | 
+| US West \(Oregon\) | PCoIP/WSP: 172\.31\.0\.0/16, 192\.168\.0\.0/16, and 198\.19\.0\.0/16 WSP: 10\.0\.0\.0/8 | 
+| Asia Pacific \(Seoul\) | PCoIP/WSP: 198\.19\.0\.0/16 WSP: 10\.0\.0\.0/8 | 
+| Asia Pacific \(Singapore\) | PCoIP/WSP: 198\.19\.0\.0/16 WSP: 10\.0\.0\.0/8 | 
+| Asia Pacific \(Sydney\) | PCoIP/WSP: 172\.31\.0\.0/16, 192\.168\.0\.0/16, and 198\.19\.0\.0/16 WSP: 10\.0\.0\.0/8 | 
+| Asia Pacific \(Tokyo\) | PCoIP/WSP: 198\.19\.0\.0/16 WSP: 10\.0\.0\.0/8 | 
+| Canada \(Central\) | PCoIP/WSP: 198\.19\.0\.0/16 WSP: 10\.0\.0\.0/8 | 
+| Europe \(Frankfurt\) | PCoIP/WSP: 198\.19\.0\.0/16 WSP: 10\.0\.0\.0/8 | 
+| Europe \(Ireland\) | PCoIP/WSP: 172\.31\.0\.0/16, 192\.168\.0\.0/16, and 198\.19\.0\.0/16 WSP: 10\.0\.0\.0/8 | 
+| Europe \(London\) | PCoIP/WSP: 198\.19\.0\.0/16 WSP: 10\.0\.0\.0/8 | 
+| South America \(São Paulo\) | PCoIP/WSP: 198\.19\.0\.0/16 WSP: 10\.0\.0\.0/8 | 
+| AWS GovCloud \(US\-West\) | PCoIP/WSP: 198\.19\.0\.0/16 WSP: 10\.0\.0\.0/8 | 
 
 ### Management Interface Ports<a name="management_ports"></a>
 

@@ -1,6 +1,6 @@
 # Manage the WorkSpace Running Mode<a name="running-mode"></a>
 
-The *running mode* of a WorkSpace determines its immediate availability and how you pay for it\. You can choose between the following running modes when you create the WorkSpace:
+The *running mode* of a WorkSpace determines its immediate availability and how you pay for it \(monthly or hourly\)\. You can choose between the following running modes when you create the WorkSpace:
 + **AlwaysOn** — Use when paying a fixed monthly fee for unlimited usage of your WorkSpaces\. This mode is best for users who use their WorkSpace full time as their primary desktop\.
 + **AutoStop** — Use when paying for your WorkSpaces by the hour\. With this mode, your WorkSpaces stop after a specified period of disconnection, and the state of apps and data is saved\.
 
@@ -9,13 +9,15 @@ The *running mode* of a WorkSpace determines its immediate availability and how 
 After a WorkSpace is disconnected and the AutoStop Time period has expired, it might take several additional minutes for the WorkSpace to be automatically stopped\. However, billing stops as soon as the AutoStop Time period expires, and you aren't charged for that additional time\. 
 
   When possible, the state of the desktop is saved to the root volume of the WorkSpace\. The WorkSpace resumes when a user logs in, and all open documents and running programs return to their saved state\.
+**Note**  
+AutoStop GraphicsPro WorkSpaces do not preserve the state of data and programs when they stop\. For GraphicsPro WorkSpaces, we recommend saving your work when you’re done using them each time\.
 **Important**  
 **AutoStop WorkSpaces are automatically stopped only if the WorkSpaces are disconnected\.** A WorkSpace is disconnected only in the following circumstances:  
 If the user manually disconnects from the WorkSpace or quits the Amazon WorkSpaces client application\.
 If the client device is shut down\.
 If there's no connection between the client device and the WorkSpace for more than 20 minutes\.
 As a best practice, AutoStop WorkSpace users should manually disconnect from their WorkSpaces when they're done using them each day\. To manually disconnect, choose **Disconnect WorkSpace** or **Quit Amazon WorkSpaces** from the **Amazon WorkSpaces** menu in the WorkSpaces client applications for Linux, macOS, or Windows\. For Android or iPad, choose **Disconnect** from the sidebar menu\.  
-AutoStop WorkSpaces might not be automatically stopped in the following situations:  
+**AutoStop WorkSpaces might not be automatically stopped in the following situations**:  
 If the client device is only locked, sleeping, or otherwise inactive \(for example, the laptop lid is closed\) instead of shut down, the WorkSpaces application might still be running in the background\. As long as the WorkSpaces application is still running, the WorkSpace might not be disconnected, and therefore the WorkSpace might not automatically stop\.
 Amazon WorkSpaces can detect disconnection only when users are using Amazon WorkSpaces clients\. If users are using third\-party clients, Amazon WorkSpaces might not be able to detect disconnection, and therefore the WorkSpaces might not automatically stop and billing might not be suspended\.
 
