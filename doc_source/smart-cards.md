@@ -59,9 +59,9 @@ To allow users to unlock Windows WorkSpaces that are enabled for smart card pre\
  You can enable disconnecting the session when the Windows lock screen is detected by using Group Policy settings\. For more information, see [Enable or Disable Disconnect Session on Screen Lock for WSP](group_policy.md#gp_lock_screen_in_wsp)\.
 
 **To enable in\-session or pre\-session authentication**  
-By default, Windows WorkSpaces are not enabled to support the use of smart cards for pre\-session or in\-session authentication\. If needed, you can enable in\-session authentication for Windows WorkSpaces by using Group Policy settings\. For more information, see [Enable or Disable Smart Card Redirection for WSP](group_policy.md#gp_smart_cards_in_wsp)\.
+By default, Windows WorkSpaces are not enabled to support the use of smart cards for pre\-session or in\-session authentication\. If needed, you can enable in\-session and pre\-session authentication for Windows WorkSpaces by using Group Policy settings\. For more information, see [Enable or Disable Smart Card Redirection for WSP](group_policy.md#gp_smart_cards_in_wsp)\.
 
-You can enable pre\-session authentication through your AD Connector directory settings by using the EnableClientAuthentication API action or the enable\-client\-authentication CLI command\. For more information, see [ Enable Smart Card Authentication for AD Connector](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ad_connector_clientauth.html) in the *AWS Directory Service Administration Guide*\.
+To use pre\-session authentication, in addition to updating the Group Policy settings, you must also enable pre\-session authentication through your AD Connector directory settings by using the EnableClientAuthentication API action or the enable\-client\-authentication CLI command\. For more information, see [ Enable Smart Card Authentication for AD Connector](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ad_connector_clientauth.html) in the *AWS Directory Service Administration Guide*\.
 
 **To enable users to use smart cards in a browser**  
 If your users are using Chrome as their browser, no special configuration is required to use smart cards\.
