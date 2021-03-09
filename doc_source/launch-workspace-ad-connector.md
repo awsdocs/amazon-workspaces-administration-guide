@@ -21,6 +21,10 @@ In this tutorial, we launch a WorkSpace that uses AD Connector\. For tutorials t
 
 ## Step 1: Create an AD Connector<a name="create-ad-connector"></a>
 
+**Note**  
+AD Connector is made available to you free of charge to use with WorkSpaces\. If there are no WorkSpaces being used with your AD Connector directory for 30 consecutive days, this directory will be automatically deregistered for use with Amazon WorkSpaces, and you will be charged for this directory as per the [AWS Directory Service pricing terms](http://aws.amazon.com/directoryservice/pricing/)\.  
+To delete empty directories, see [Delete the Directory for Your WorkSpaces](delete-workspaces-directory.md)\. If you delete your AD Connector directory, you can always create a new one when you want to start using WorkSpaces again\.
+
 **To create an AD Connector**
 
 1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.

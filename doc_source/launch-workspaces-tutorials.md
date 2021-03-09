@@ -18,6 +18,12 @@ Amazon WorkSpaces uses a directory to store and manage information for your Work
 + Connect to an existing Microsoft Active Directory by using Active Directory Connector\.
 + Create a trust relationship between your AWS Managed Microsoft AD directory and your on\-premises domain\.
 
+**Note**  
+Shared directories are not currently supported for use with Amazon WorkSpaces\.
+If you configure your AWS Managed Microsoft AD directory for multi\-Region replication, only the directory in the primary Region can be registered for use with Amazon WorkSpaces\. Attempts to register the directory in a replicated Region for use with Amazon WorkSpaces will fail\. Multi\-Region replication with AWS Managed Microsoft AD isn't supported for use with Amazon WorkSpaces within replicated Regions\.
+Simple AD and AD Connector are made available to you free of charge to use with WorkSpaces\. If there are no WorkSpaces being used with your Simple AD or AD Connector directory for 30 consecutive days, this directory will be automatically deregistered for use with Amazon WorkSpaces, and you will be charged for this directory as per the [AWS Directory Service pricing terms](http://aws.amazon.com/directoryservice/pricing/)\.  
+To delete empty directories, see [Delete the Directory for Your WorkSpaces](delete-workspaces-directory.md)\. If you delete your Simple AD or AD Connector directory, you can always create a new one when you want to start using WorkSpaces again\.
+
 The following tutorials show you how to launch a WorkSpace by using the supported directory service options\.
 
 **Topics**

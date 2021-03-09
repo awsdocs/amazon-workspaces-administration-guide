@@ -121,6 +121,59 @@ To also grant the user the ability to use the Launch WorkSpaces wizard, add the 
 }
 ```
 
+**Example 3: Perform all Amazon WorkSpaces tasks for BYOL WorkSpaces**  <a name="perform-byol-workspaces-tasks"></a>
+The following policy statement grants an IAM user permission to perform all Amazon WorkSpaces tasks, including those Amazon EC2 tasks necessary for creating Bring Your Own License \(BYOL\) WorkSpaces\.  
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "workspaces:*",
+        "ds:*",
+        "iam:PassRole", 
+        "iam:GetRole", 
+        "iam:CreateRole", 
+        "iam:PutRolePolicy", 
+        "kms:ListAliases",
+        "kms:ListKeys",
+        "ec2:CreateVpc", 
+        "ec2:CreateSubnet", 
+        "ec2:CreateNetworkInterface", 
+        "ec2:CreateInternetGateway", 
+        "ec2:CreateRouteTable", 
+        "ec2:CreateRoute", 
+        "ec2:CreateTags", 
+        "ec2:CreateSecurityGroup",
+        "ec2:DescribeImages",
+        "ec2:ModifyImageAttribute",
+        "ec2:DescribeInternetGateways",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeRouteTables", 
+        "ec2:DescribeVpcs", 
+        "ec2:DescribeSubnets", 
+        "ec2:DescribeNetworkInterfaces", 
+        "ec2:DescribeAvailabilityZones", 
+        "ec2:AttachInternetGateway", 
+        "ec2:AssociateRouteTable", 
+        "ec2:AuthorizeSecurityGroupEgress", 
+        "ec2:AuthorizeSecurityGroupIngress", 
+        "ec2:DeleteSecurityGroup", 
+        "ec2:DeleteNetworkInterface", 
+        "ec2:RevokeSecurityGroupEgress", 
+        "ec2:RevokeSecurityGroupIngress",
+        "workdocs:RegisterDirectory",
+        "workdocs:DeregisterDirectory",
+        "workdocs:AddUserToGroup"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+```
+
 ## Creating the workspaces\_DefaultRole Role<a name="create-default-role"></a>
 
 Before you can register a directory using the API, you must create the workspaces\_DefaultRole role, if it doesn't already exist\.

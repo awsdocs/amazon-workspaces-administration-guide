@@ -93,6 +93,7 @@ The Amazon WorkSpaces client applications perform health checks over ports 4172 
 | --- | --- | --- | 
 | US East \(N\. Virginia\) | drp\-iad\.amazonworkspaces\.com |  3\.209\.215\.252 3\.212\.50\.30 3\.225\.55\.35 3\.226\.24\.234 34\.200\.29\.95 52\.200\.219\.150  | 
 | US West \(Oregon\) | drp\-pdx\.amazonworkspaces\.com |  34\.217\.248\.177 52\.34\.160\.80 54\.68\.150\.54 54\.185\.4\.125 54\.188\.171\.18 54\.244\.158\.140  | 
+| Asia Pacific \(Mumbai\) | drp\-bom\.amazonworkspaces\.com |  13\.127\.57\.82 13\.234\.250\.73  | 
 | Asia Pacific \(Seoul\) | drp\-icn\.amazonworkspaces\.com |  13\.124\.44\.166 13\.124\.203\.105 52\.78\.44\.253 52\.79\.54\.102  | 
 | Asia Pacific \(Singapore\) | drp\-sin\.amazonworkspaces\.com |  3\.0\.212\.144 18\.138\.99\.116 18\.140\.252\.123 52\.74\.175\.118  | 
 | Asia Pacific \(Sydney\) | drp\-syd\.amazonworkspaces\.com |  3\.24\.11\.127 13\.237\.232\.125  | 
@@ -116,6 +117,7 @@ We are regularly updating our IP address ranges in the [ AWS IP Address Ranges](
 | --- | --- | 
 | US East \(N\. Virginia\) |  3\.217\.228\.0 \- 3\.217\.231\.255 3\.235\.112\.0 \- 3\.235\.119\.255 52\.23\.61\.0 \- 52\.23\.62\.255  | 
 | US West \(Oregon\) |  44\.234\.54\.0 \- 44\.234\.55\.255 54\.244\.46\.0 \- 54\.244\.47\.255  | 
+| Asia Pacific \(Mumbai\) |  13\.126\.143\.0 \- 13\.126\.143\.255  | 
 | Asia Pacific \(Seoul\) |  3\.34\.37\.0 \- 3\.34\.37\.255 3\.34\.38\.0 \- 3\.34\.39\.255 13\.124\.247\.0 \- 13\.124\.247\.255  | 
 | Asia Pacific \(Singapore\) |  18\.141\.152\.0 \- 18\.141\.152\.255 18\.141\.154\.0 \- 18\.141\.155\.255 52\.76\.127\.0 \- 52\.76\.127\.255  | 
 | Asia Pacific \(Sydney\) |  3\.25\.43\.0 \- 3\.25\.43\.255 3\.25\.44\.0 \- 3\.25\.45\.255 54\.153\.254\.0 \- 54\.153\.254\.255  | 
@@ -139,6 +141,7 @@ Amazon WorkSpaces uses a small range of Amazon EC2 public IPv4 addresses for its
 | --- | --- | 
 | US East \(N\. Virginia\) | 3\.227\.4\.0/22 | 
 | US West \(Oregon\) | 34\.223\.96\.0/22 | 
+| Asia Pacific \(Mumbai\) | 65\.1\.156\.0/22 | 
 | Asia Pacific \(Seoul\) | 3\.35\.160\.0/22 | 
 | Asia Pacific \(Singapore\) | 13\.212\.132\.0/22 | 
 | Asia Pacific \(Sydney\) | 3\.25\.248\.0/22 | 
@@ -175,6 +178,7 @@ The following table lists the IP address ranges used for the management network 
 | --- | --- | 
 | US East \(N\. Virginia\) | PCoIP/WSP: 172\.31\.0\.0/16, 192\.168\.0\.0/16, 198\.19\.0\.0/16 WSP: 10\.0\.0\.0/8 | 
 | US West \(Oregon\) | PCoIP/WSP: 172\.31\.0\.0/16, 192\.168\.0\.0/16, and 198\.19\.0\.0/16 WSP: 10\.0\.0\.0/8 | 
+| Asia Pacific \(Mumbai\) | PCoIP/WSP: 192\.168\.0\.0/16 WSP: 10\.0\.0\.0/8 | 
 | Asia Pacific \(Seoul\) | PCoIP/WSP: 198\.19\.0\.0/16 WSP: 10\.0\.0\.0/8 | 
 | Asia Pacific \(Singapore\) | PCoIP/WSP: 198\.19\.0\.0/16 WSP: 10\.0\.0\.0/8 | 
 | Asia Pacific \(Sydney\) | PCoIP/WSP: 172\.31\.0\.0/16, 192\.168\.0\.0/16, and 198\.19\.0\.0/16 WSP: 10\.0\.0\.0/8 | 

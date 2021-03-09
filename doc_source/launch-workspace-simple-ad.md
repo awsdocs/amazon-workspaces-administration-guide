@@ -23,6 +23,10 @@ In this tutorial, we launch a WorkSpace that uses Simple AD\. For tutorials that
 
 Create a Simple AD directory\. AWS Directory Service creates two directory servers, one in each of the private subnets of your VPC\. Note that there are no users in the directory initially\. You will add a user in the next step when you create the WorkSpace\.
 
+**Note**  
+Simple AD is made available to you free of charge to use with WorkSpaces\. If there are no WorkSpaces being used with your Simple AD directory for 30 consecutive days, this directory will be automatically deregistered for use with Amazon WorkSpaces, and you will be charged for this directory as per the [AWS Directory Service pricing terms](http://aws.amazon.com/directoryservice/pricing/)\.  
+To delete empty directories, see [Delete the Directory for Your WorkSpaces](delete-workspaces-directory.md)\. If you delete your Simple AD directory, you can always create a new one when you want to start using WorkSpaces again\.
+
 **To create a Simple AD directory**
 
 1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.

@@ -11,6 +11,7 @@ You can use the same custom image to create various custom bundles by selecting 
 **Important**  
 If you plan to create an image from a Windows 10 WorkSpace, note that image creation is not supported on Windows 10 systems that have been upgraded from one version of Windows 10 to a newer version of Windows 10 \(a Windows feature/version upgrade\)\. However, Windows cumulative or security updates are supported by the WorkSpaces image\-creation process\.
 After January 14, 2020, images cannot be created from public Windows 7 bundles\. You might want to consider migrating your Windows 7 WorkSpaces to Windows 10\. For more information, see [Migrate a WorkSpace](migrate-workspaces.md)\.
+Graphics and GraphicsPro bundles aren't currently available in the Asia Pacific \(Mumbai\) Region\.
 
 Custom bundles cost as same as the public bundles they are created from\. For more information about pricing, see [Amazon WorkSpaces Pricing](http://aws.amazon.com/workspaces/pricing/)\.
 

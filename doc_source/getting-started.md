@@ -37,7 +37,7 @@ It's also helpful to review and understand the following concepts before you pro
 
 Quick Setup completes the following tasks on your behalf:
 + **Creates an IAM role** to allow the Amazon WorkSpaces service to create elastic network interfaces and list your Amazon WorkSpaces directories\. This role has the name `workspaces_DefaultRole`\.
-+ **Creates a virtual private cloud \(VPC\)**\. If you want to use an existing VPC instead, make sure it meets the requirements noted in [Configure a VPC for Amazon WorkSpaces](amazon-workspaces-vpc.md), and then follow the steps in one of the tutorials listed in [Launch a Virtual Desktop Using Amazon WorkSpaces](launch-workspaces-tutorials.md)\. Choose the tutorial that corresponds to the version of Active Directory that you want to use\.
++ **Creates a virtual private cloud \(VPC\)**\. If you want to use an existing VPC instead, make sure it meets the requirements noted in [Configure a VPC for Amazon WorkSpaces](amazon-workspaces-vpc.md), and then follow the steps in one of the tutorials listed in [Launch a Virtual Desktop Using Amazon WorkSpaces](launch-workspaces-tutorials.md)\. Choose the tutorial that corresponds to the type of Active Directory that you want to use\.
 + **Sets up a Simple AD directory** in the VPC\. This Simple AD directory is used to store user and WorkSpace information\. The directory has an administrator account and it is enabled for Amazon WorkDocs\.
 + **Creates the specified user accounts and adds them to the directory**\.
 + **Creates WorkSpaces**\. Each WorkSpace receives a public IP address to provide internet access\. The running mode is AlwaysOn\. For more information, see [Manage the WorkSpace Running Mode](running-mode.md)\.
@@ -101,6 +101,10 @@ For more information about using the client applications, such as setting up mul
 
 If you are finished with the WorkSpace that you created for this tutorial, you can delete it\. For more information, see [Delete a WorkSpace](delete-workspaces.md)\.
 
+**Note**  
+Simple AD is made available to you free of charge to use with WorkSpaces\. If there are no WorkSpaces being used with your Simple AD directory for 30 consecutive days, this directory will be automatically deregistered for use with Amazon WorkSpaces, and you will be charged for this directory as per the [AWS Directory Service pricing terms](http://aws.amazon.com/directoryservice/pricing/)\.  
+To delete empty directories, see [Delete the Directory for Your WorkSpaces](delete-workspaces-directory.md)\. If you delete your Simple AD directory, you can always create a new one when you want to start using WorkSpaces again\.
+
 ## Next Steps<a name="quick-setup-next-steps"></a>
 
 You can continue to customize the WorkSpace that you just created\. For example, you can install software and then create a custom bundle from your WorkSpace\. You can also perform various administrative tasks for your WorkSpaces and your WorkSpaces directory\. For more information, see the following documentation\.
@@ -108,6 +112,8 @@ You can continue to customize the WorkSpace that you just created\. For example,
 + [Administer Your WorkSpaces](administer-workspaces.md)
 + [Manage Directories for Amazon WorkSpaces](manage-workspaces-directory.md)
 
-To create additional WorkSpaces, see [Launch a Virtual Desktop Using Amazon WorkSpaces](launch-workspaces-tutorials.md)\.
+To create additional WorkSpaces, do one of the following:
++ If you want to continue using the VPC and the Simple AD directory that were created by Quick Setup, you can add WorkSpaces for additional users by following the steps in the [Step 2: Create a WorkSpace](launch-workspace-simple-ad.md#create-workspace-simple-ad) section of the Launch a WorkSpace Using Simple AD tutorial\.
++ If you need to use another directory type or if you need to use an existing Active Directory, see the appropriate tutorial in [Launch a Virtual Desktop Using Amazon WorkSpaces](launch-workspaces-tutorials.md)\.
 
 For more information about using the WorkSpaces client applications, such as setting up multiple monitors or using peripheral devices, see [Amazon WorkSpaces Clients](https://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-clients.html) and [Peripheral Device Support](https://docs.aws.amazon.com/workspaces/latest/userguide/peripheral_devices.html) in the *Amazon WorkSpaces User Guide*\.

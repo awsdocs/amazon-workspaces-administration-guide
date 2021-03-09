@@ -2,6 +2,9 @@
 
 If you're using AWS Managed Microsoft AD with Amazon WorkSpaces, you can enable Amazon WorkDocs for your directory through either the Amazon WorkDocs console or the AWS Directory Service console\. 
 
+**Note**  
+Amazon WorkDocs is not available in all of the AWS Regions where Amazon WorkSpaces is available\. For more information, see [Amazon WorkDocs Pricing](http://aws.amazon.com/workdocs/pricing/)\.
+
 **To enable WorkDocs through the Amazon WorkDocs console**
 
 1. Open the Amazon WorkDocs console at [https://console\.aws\.amazon\.com/zocalo/](https://console.aws.amazon.com/zocalo/)\.

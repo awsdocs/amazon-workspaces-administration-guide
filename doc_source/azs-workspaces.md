@@ -15,6 +15,7 @@ Amazon WorkSpaces is available in a subset of the Availability Zones for each su
 | --- | --- | --- | 
 | US East \(N\. Virginia\) | us\-east\-1 | use1\-az2, use1\-az4, use1\-az6 | 
 | US West \(Oregon\) | us\-west\-2 | usw2\-az1, usw2\-az2, usw2\-az3 | 
+| Asia Pacific \(Mumbai\) | ap\-south\-1 | aps1\-az1, aps1\-az2, aps1\-az3 | 
 | Asia Pacific \(Seoul\) | ap\-northeast\-2 | apne2\-az1, apne2\-az3 | 
 | Asia Pacific \(Singapore\) | ap\-southeast\-1 | apse1\-az1, apse1\-az2 | 
 | Asia Pacific \(Sydney\) | ap\-southeast\-2 | apse2\-az1, apse2\-az3 | 

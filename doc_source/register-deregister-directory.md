@@ -24,6 +24,7 @@ To delete empty directories, see [Delete the Directory for Your WorkSpaces](dele
 
 1. Choose **Actions**, **Register**\.
 **Note**  
+Shared directories are not currently supported for use with Amazon WorkSpaces\.
 If your AWS Managed Microsoft AD directory has been configured for multi\-Region replication, only the directory in the primary Region can be registered for use with Amazon WorkSpaces\. Attempts to register the directory in a replicated Region for use with Amazon WorkSpaces will fail\. Multi\-Region replication with AWS Managed Microsoft AD isn't supported for use with Amazon WorkSpaces within replicated Regions\.
 
 1. Select two subnets that are not from the same Availability Zone\.

@@ -6,6 +6,7 @@ For notification about these updates, you can subscribe to the Amazon WorkSpaces
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Amazon WorkSpaces launched in Asia Pacific \(Mumbai\)](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) | Amazon WorkSpaces is available in the Asia Pacific \(Mumbai\) Region\. | March 8, 2021 | 
 | [WorkSpaces Streaming Protocol \(WSP\)](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-protocols.html) | The WorkSpaces Streaming Protocol \(WSP\) is now available for both license\-included \(Windows Server 2016\) and BYOL Windows 10\-based WorkSpaces on all bundle types except for Graphics and GraphicsPro\. WSP is also available for Linux WorkSpaces in the AWS GovCloud \(US\-West\) Region\. | December 1, 2020 | 
 | [Smart Cards](https://docs.aws.amazon.com/workspaces/latest/adminguide/smart-cards.html) | Amazon WorkSpaces now supports pre\-session \(login\) and in\-session smart card authentication on Windows and Linux WorkSpaces in the AWS GovCloud \(US\-West\) Region\. | December 1, 2020 | 
 | [Share Custom Images](https://docs.aws.amazon.com/workspaces/latest/adminguide/share-custom-image.html) | You can now share custom WorkSpaces images across AWS accounts\. After an image has been shared, the recipient account can copy the image and use it to create bundles for launching new WorkSpaces\. | October 1, 2020 | 

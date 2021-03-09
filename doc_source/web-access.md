@@ -5,6 +5,7 @@ Most WorkSpaces bundles support Amazon WorkSpaces Web Access through Chrome or F
 **Note**  
 A web browser cannot be used to connect to Amazon Linux WorkSpaces\.
 Web Access isn't currently supported for WorkSpaces using the WorkSpaces Streaming Protocol \(WSP\)\.
+Web Access isn't currently available in the Asia Pacific \(Mumbai\) Region\.
 
 **Important**  
 Beginning October 1, 2020, customers will no longer be able to use the Amazon WorkSpaces Web Access client to connect to Windows 7 custom WorkSpaces or to Windows 7 Bring Your Own License \(BYOL\) WorkSpaces\.

@@ -21,9 +21,9 @@ The `AWS/WorkSpaces` namespace includes the following metrics\.
 | --- | --- | --- | --- | --- | 
 | Available1 |  The number of WorkSpaces that returned a healthy status\.  |  `DirectoryId` `WorkspaceId`  | Average, Sum, Maximum, Minimum, Data Samples | Count | 
 | Unhealthy1 |  The number of WorkSpaces that returned an unhealthy status\.  |  `DirectoryId` `WorkspaceId`  | Average, Sum, Maximum, Minimum, Data Samples | Count | 
-| ConnectionAttempt2 |  The number of connection attempts\.  |  `DirectoryId` `WorkspaceId`  | Average, Sum, Maximum, Minimum, Data Samples | Count | 
-| ConnectionSuccess2 |  The number of successful connections\.  |  `DirectoryId` `WorkspaceId`  | Average, Sum, Maximum, Minimum, Data Samples | Count | 
-| ConnectionFailure2 |  The number of failed connections\.  |  `DirectoryId` `WorkspaceId`  | Average, Sum, Maximum, Minimum, Data Samples | Count | 
+| ConnectionAttempt2,5 |  The number of connection attempts\.  |  `DirectoryId` `WorkspaceId`  | Average, Sum, Maximum, Minimum, Data Samples | Count | 
+| ConnectionSuccess2,5 |  The number of successful connections\.  |  `DirectoryId` `WorkspaceId`  | Average, Sum, Maximum, Minimum, Data Samples | Count | 
+| ConnectionFailure2,5 |  The number of failed connections\.  |  `DirectoryId` `WorkspaceId`  | Average, Sum, Maximum, Minimum, Data Samples | Count | 
 | SessionLaunchTime2 | The amount of time it takes to initiate a WorkSpaces session\. |  `DirectoryId` `WorkspaceId`  | Average, Sum, Maximum, Minimum, Data Samples | Second \(time\) | 
 | InSessionLatency2 | The round trip time between the WorkSpaces client and the WorkSpace\. |  `DirectoryId` `WorkspaceId`  | Average, Sum, Maximum, Minimum, Data Samples | Millisecond \(time\) | 
 | SessionDisconnect2 | The number of connections that were closed, including user\-initiated and failed connections\. |  `DirectoryId` `WorkspaceId`  | Average, Sum, Maximum, Minimum, Data Samples | Count | 
@@ -38,6 +38,8 @@ The `AWS/WorkSpaces` namespace includes the following metrics\.
 3 Amazon WorkSpaces periodically sends connection status requests to a WorkSpace\. Users are reported as connected when they are actively using their sessions\. This metric is available at a per\-WorkSpace granularity, and is also aggregated for all WorkSpaces in an organization\.
 
 4 This metric applies to WorkSpaces that are configured with an AutoStop running mode\. If you have maintenance enabled for your WorkSpaces, this metric captures the number of WorkSpaces that are currently under maintenance\. This metric is available at a per\-WorkSpace granularity, which describes when a WorkSpace went into maintenance and when it was removed\.
+
+5 This metric is currently emitted only for PCoIP WorkSpaces\.
 
 ## Dimensions for Amazon WorkSpaces Metrics<a name="wsp-metric-dimensions"></a>
 

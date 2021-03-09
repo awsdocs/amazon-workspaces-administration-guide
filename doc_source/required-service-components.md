@@ -13,6 +13,7 @@ On Windows WorkSpaces, the service components are installed in the following loc
 **Note**  
 If antivirus software is installed on the WorkSpace, exclude the following locations\.
 + C:\\Program Files\\Amazon
++ C:\\Program Files\\Teradici
 + C:\\Program Files \(x86\)\\Teradici
 + C:\\ProgramData\\Amazon
 + C:\\ProgramData\\Teradici
