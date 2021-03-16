@@ -446,6 +446,8 @@ After you have validated your WorkSpace image, you can proceed with creating you
 1. In the navigation pane, choose **Images**\. The image is complete when the status of the WorkSpace changes to **Available** \(this can take up to 45 minutes\)\.
 
 1. Select the image and choose **Actions**, **Create Bundle**\.
+**Note**  
+To create a bundle programmatically, use the CreateWorkspaceBundle API action\. For more information, see [ CreateWorkspaceBundle](https://docs.aws.amazon.com/workspaces/latest/api/API_CreateWorkspaceBundle.html) in the *Amazon WorkSpaces API Reference*\.
 
 1. Enter a bundle name and a description, and then do the following: 
    + For **Bundle Type**, choose the hardware to use when launching WorkSpaces from this custom bundle\.

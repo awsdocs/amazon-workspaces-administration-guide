@@ -6,6 +6,7 @@ For notification about these updates, you can subscribe to the Amazon WorkSpaces
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Amazon WorkSpaces bundle management APIs](https://docs.aws.amazon.com/workspaces/latest/api/welcome.html) | Amazon WorkSpaces bundle management APIs are now available\. These API actions support creation, deletion, and image association operations for WorkSpaces bundles\. | March 15, 2021 | 
 | [Amazon WorkSpaces launched in Asia Pacific \(Mumbai\)](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) | Amazon WorkSpaces is available in the Asia Pacific \(Mumbai\) Region\. | March 8, 2021 | 
 | [WorkSpaces Streaming Protocol \(WSP\)](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-protocols.html) | The WorkSpaces Streaming Protocol \(WSP\) is now available for both license\-included \(Windows Server 2016\) and BYOL Windows 10\-based WorkSpaces on all bundle types except for Graphics and GraphicsPro\. WSP is also available for Linux WorkSpaces in the AWS GovCloud \(US\-West\) Region\. | December 1, 2020 | 
 | [Smart Cards](https://docs.aws.amazon.com/workspaces/latest/adminguide/smart-cards.html) | Amazon WorkSpaces now supports pre\-session \(login\) and in\-session smart card authentication on Windows and Linux WorkSpaces in the AWS GovCloud \(US\-West\) Region\. | December 1, 2020 | 

@@ -33,7 +33,10 @@ To ensure that your data is preserved, you cannot decrease the size of the root 
 
 While a WorkSpace disk size increase is in progress, users can perform most tasks on their WorkSpace\. However, they can't change their WorkSpace compute type, switch the WorkSpace running mode, rebuild their WorkSpace, or reboot \(restart\) their WorkSpace\.
 
-The disk size increase process might take up to an hour\.
+**Note**  
+If you want your users to be able to use their WorkSpaces while the disk size increase is in progress, make sure the WorkSpaces have a status of `AVAILABLE` instead of `STOPPED` before you resize the volumes of the WorkSpaces\. If the WorkSpaces are `STOPPED`, they can't be started while the disk size increase is in progress\.
+
+In most cases, the disk size increase process might take up to an hour\. However, if you're modifying the volume sizes for a large number of WorkSpaces, the process can take significantly longer\. If you have a large number of WorkSpaces to modify, we recommend contacting Support for assistance\.
 
 **Limitations for Increasing Volumes**
 + You can resize only SSD volumes\.

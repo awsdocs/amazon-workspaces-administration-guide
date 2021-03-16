@@ -25,7 +25,7 @@ Events are represented as JSON objects\. The following is example data for a `Wo
     "source": "aws.workspaces",
     "account": "123456789012",
     "time": "2018-07-01T17:53:06Z",
-    "region": "us-east-2",
+    "region": "us-east-1",
     "resources": [],
     "detail": {
         "clientIpAddress": "192.0.2.3",
@@ -33,7 +33,7 @@ Events are represented as JSON objects\. The following is example data for a `Wo
         "workspacesClientProductName": "WorkSpaces Desktop client",
         "loginTime": "2018-07-01T17:52:51.595Z",
         "clientPlatform": "Windows",
-        "directoryId": "d-123456789",
+        "directoryId": "domain/d-123456789",
         "workspaceId": "ws-xyskdga"
     }
 }
@@ -67,7 +67,7 @@ The time at which the user logged in to the WorkSpace\.
 + `Web`
 
 `directoryId`  
-The identifier of the directory for the WorkSpace\.
+The identifier of the directory for the WorkSpace\. You must prepend the directory identifier with `domain/`\. For example, `"domain/d-123456789"`\.
 
 `workspaceId`  
 The identifier of the WorkSpace\.
