@@ -230,25 +230,25 @@ The following procedure describes how to create the Central Store and add the ad
 
 1. From a running Windows WorkSpace, make a copy of the `wsp.admx` and `wsp.adml` files in the `C:\Program Files\Amazon\WSP` directory\.
 
-1. On a directory administration WorkSpace or Amazon EC2 instance that is joined to your WorkSpaces directory, navigate to the domain's shared network folder\. This folder will have your organization's fully qualified domain name \(FQDN\), such as `\\example.com`\. In the Windows File Explorer, go to **Network** > ***FQDN***\.
+1. On a directory administration WorkSpace or Amazon EC2 instance that is joined to your WorkSpaces directory, open Windows File Explorer, and in the address bar, enter your organization's fully qualified domain name \(FQDN\), such as `\\example.com`\.
 
-1. Open the `SYSVOL` folder\.
+1. Open the `sysvol` folder\.
 
 1. Open the folder with the `FQDN` name\.
 
-1. Open the `Policies` folder\. You should now be in `\\FQDN\SYSVOL\FQDN\Policies`\.
+1. Open the `Policies` folder\. You should now be in `\\FQDN\sysvol\FQDN\Policies`\.
 
 1. If it doesn't already exist, create a folder named `PolicyDefinitions`\.
 
 1. Open the `PolicyDefinitions` folder\.
 
-1. Copy the `wsp.admx` file into the `\\FQDN\SYSVOL\FQDN\Policies\PolicyDefinitions` folder\.
+1. Copy the `wsp.admx` file into the `\\FQDN\sysvol\FQDN\Policies\PolicyDefinitions` folder\.
 
 1. Create a folder named `en-US` in the `PolicyDefinitions` folder\.
 
 1. Open the `en-US` folder\.
 
-1. Copy the `wsp.adml` file into the `\\FQDN\SYSVOL\FQDN\Policies\PolicyDefinitions\en-US` folder\.
+1. Copy the `wsp.adml` file into the `\\FQDN\sysvol\FQDN\Policies\PolicyDefinitions\en-US` folder\.
 
 **To verify that the administrative template files are correctly installed**
 

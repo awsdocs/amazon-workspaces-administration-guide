@@ -1,6 +1,8 @@
 # Bring Your Own Windows Desktop Licenses<a name="byol-windows-images"></a>
 
-If your licensing agreement with Microsoft allows it, you can use your Windows 10 Enterprise or Windows 10 Pro desktop licenses for your WorkSpaces\. To do this, you must Bring Your Own License \(BYOL\) and provide a Windows 10 license that meets the following requirements\. To stay compliant with Microsoft licensing terms, AWS runs your BYOL WorkSpaces on hardware that is dedicated to you in the AWS Cloud\. By bringing your own license, you can provide a consistent experience for your users\. For more information, see [Amazon WorkSpaces Pricing](https://aws.amazon.com/workspaces/pricing/)\.
+If your licensing agreement with Microsoft allows it, you can use your Windows 10 Enterprise or Windows 10 Pro desktop licenses for your WorkSpaces\. To do this, you must Bring Your Own License \(BYOL\) and provide a Windows 10 license that meets the following requirements\. For more information about using Microsoft software on AWS, see [Amazon Web Services and Microsoft](http://aws.amazon.com/windows/faq/)\.
+
+To stay compliant with Microsoft licensing terms, AWS runs your BYOL WorkSpaces on hardware that is dedicated to you in the AWS Cloud\. By bringing your own license, you can provide a consistent experience for your users\. For more information, see [Amazon WorkSpaces Pricing](https://aws.amazon.com/workspaces/pricing/)\.
 
 **Important**  
 Image creation is not supported on Windows 10 systems that have been upgraded from one version of Windows 10 to a newer version of Windows 10 \(a Windows feature/version upgrade\)\. However, Windows cumulative or security updates are supported by the WorkSpaces image\-creation process\. 

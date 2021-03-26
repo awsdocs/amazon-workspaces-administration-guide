@@ -19,6 +19,9 @@ The behavior of the PCoIP Agent is controlled by configuration settings in the `
 
 For a full listing of the available settings, run `man pcoip-agent.conf` from the terminal on any Amazon Linux WorkSpace\.
 
+**Note**  
+Local printer redirection is not available for Linux WorkSpaces\.
+
 ## Enable or Disable Clipboard Redirection for Amazon Linux WorkSpaces<a name="linux_clipboard"></a>
 
 By default, Amazon WorkSpaces supports clipboard redirection\. Use the PCoIP Agent conf to disable this feature, if needed\. This setting takes effect when you reboot the WorkSpace\.

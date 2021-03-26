@@ -16,11 +16,12 @@ To provide your users with a good experience with their WorkSpaces, verify that 
   For the best performance for WorkSpaces Streaming Protocol \(WSP\), the RTT from the client's network to the Region that the WorkSpaces are in should be less than 250ms\. If the RTT is between 250ms and 400ms, the user can access the WorkSpace, but the performance is degraded\.
 
   To check the RTT to the various AWS Regions from your location, use the [Amazon WorkSpaces Connection Health Check](https://clients.amazonworkspaces.com/Health.html)\.
++ To use webcams with WSP, we recommend a minimum upload bandwidth of 1\.7 megabits per second\.
 + If users will access their WorkSpaces through a virtual private network \(VPN\), the connection must support a maximum transmission unit \(MTU\) of at least 1200 bytes\.
 **Note**  
 You cannot access WorkSpaces through a VPN connected to your virtual private cloud \(VPC\)\. To access WorkSpaces using a VPN, internet connectivity \(through the VPN's public IP addresses\) is required, as described in [IP Address and Port Requirements for Amazon WorkSpaces](workspaces-port-requirements.md)\.
 + The clients require HTTPS access to Amazon WorkSpaces resources hosted by the service and Amazon Simple Storage Service \(Amazon S3\)\. The clients do not support proxy redirection at the application level\. HTTPS access is required so that users can successfully complete registration and access their WorkSpaces\.
-+ To allow access from PCoIP zero client devices, you must launch and configure an EC2 instance with PCoIP Connection Manager for Amazon WorkSpaces and you must be using a PCoIP protocol bundle for WorkSpaces\. For more information, see *Deploying the PCoIP Connection Manager for Amazon WorkSpaces* in the [PCoIP Connection Manager User Guide](https://www.teradici.com/web-help/Connecting_ZC_AWS_HTML5/TER1408002_Connecting_ZC_AWS.htm)\. You must also enable Network Time Protocol \(NTP\) in Teradici\. For more information, see [Set Up PCoIP Zero Client for WorkSpaces](set-up-pcoip-zero-client.md)\.
++ To allow access from PCoIP zero client devices, you must be using a PCoIP protocol bundle for WorkSpaces\. You must also enable Network Time Protocol \(NTP\) in Teradici\. For more information, see [Set Up PCoIP Zero Client for WorkSpaces](set-up-pcoip-zero-client.md)\.
 + For 3\.0\+ clients, if you are using single sign\-on \(SSO\) for Amazon WorkDocs, you must follow the instructions in [ Single Sign\-On](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_single_sign_on.html) in the *AWS Directory Service Administration Guide*\.
 
 You can verify that a client device meets the networking requirements as follows\.

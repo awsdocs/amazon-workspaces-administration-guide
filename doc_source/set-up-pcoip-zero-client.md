@@ -14,5 +14,3 @@ For more information about working with PCoIP Connection Manager, see *Deploying
 In the Teradici PCoIP Administrative Web Interface \(AWI\) or the Teradici PCoIP Management Console \(MC\), make sure you enable Network Time Protocol \(NTP\)\. For the NTP host DNS name, use **pool\.ntp\.org**, and set the NTP host port to **123**\. If NTP isn't enabled, your PCoIP zero client users might receive certificate failure errors, such as "The supplied certificate is invalid due to timestamp\."
 
 For information about setting up and connecting with a PCoIP zero client device, see [PCoIP Zero Client](https://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-pcoip-zero-client.html) in the *Amazon WorkSpaces User Guide*\. For a list of approved PCoIP zero client devices, see [PCoIP Zero Clients](https://www.teradici.com/resource-center/product-service-finder/pcoip-zero-clients) on the Teradici website\.
-
-Thin clients aren't supported for use with Amazon WorkSpaces\.

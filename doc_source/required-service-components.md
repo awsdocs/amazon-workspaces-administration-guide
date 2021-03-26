@@ -11,7 +11,7 @@ We recommend that you not modify the operating system\-level routing table for a
 On Windows WorkSpaces, the service components are installed in the following locations\. Do not delete, change, block, or quarantine these objects\. If you do so, the WorkSpace will not function correctly\.
 
 **Note**  
-If antivirus software is installed on the WorkSpace, exclude the following locations\.
+If antivirus software is installed on the WorkSpace, make sure it does not interfere with the service components installed in the following locations\.
 + C:\\Program Files\\Amazon
 + C:\\Program Files\\Teradici
 + C:\\Program Files \(x86\)\\Teradici

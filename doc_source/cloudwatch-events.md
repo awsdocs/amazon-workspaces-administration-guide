@@ -46,10 +46,11 @@ The WAN IP address of the client application\. For PCoIP zero clients, this is t
 This value is always `successfulLogin`\.
 
 `workspacesClientProductName`  
+The following values are case\-sensitive\.  
 + `WorkSpaces Desktop client` — Windows, macOS, and Linux clients
 + `Amazon WorkSpaces Mobile client` — iOS client
-+ `WorkSpaces Mobile client` — Android clients
-+ `WorkSpaces Chrome client` — Chromebook client
++ `WorkSpaces Mobile Client` — Android clients
++ `WorkSpaces Chrome Client` — Chromebook client
 + `WorkSpaces Web Client` — Web Access client
 + `Teradici PCoIP Zero Client, Teradici PCoIP Desktop Client, or Dell Wyse PCoIP Client ` — Zero Client
 
