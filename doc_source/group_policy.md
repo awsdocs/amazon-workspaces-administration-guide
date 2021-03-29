@@ -42,25 +42,53 @@ For information about using the Active Directory administration tools to work wi
 
 ## Install the Group Policy Administrative Template for PCoIP<a name="gp_install_template"></a>
 
-To use the Group Policy settings that are specific to Amazon WorkSpaces when using the PCoIP protocol, you must install the Group Policy administrative template for PCoIP\. Perform the following procedure on a directory administration WorkSpace or Amazon EC2 instance that is joined to your directory\.
+To use the Group Policy settings that are specific to Amazon WorkSpaces when using the PCoIP protocol, you must add the Group Policy administrative template `PCoIP.admx` and `PCoIP.adml` files for PCoIP to the Central Store of the domain controller for your WorkSpaces directory\. For more information about `.admx` and `.adml` files, see [ How to create and manage the Central Store for Group Policy Administrative Templates in Windows](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra)\.
 
-**To install the Group Policy administrative template for PCoIP**
+The following procedure describes how to create the Central Store and add the administrative template files to it\. Perform the following procedure on a directory administration WorkSpace or Amazon EC2 instance that is joined to your WorkSpaces directory\.
 
-1. From a running Windows WorkSpace, make a copy of the `pcoip.adm` file in the `C:\Program Files (x86)\Teradici\PCoIP Agent\configuration` directory\.
+**To install the Group Policy administrative template files for PCoIP**
 
-1. On a directory administration WorkSpace or Amazon EC2 instance that is joined to your WorkSpaces directory, open the Group Policy Management tool \(gpmc\.msc\) and navigate to the organizational unit in your domain that contains your WorkSpaces machine accounts\.
+1. From a running Windows WorkSpace, make a copy of the `PCoIP.admx` and `PCoIP.adml` files in the `C:\Program Files\Teradici\PCoIP Agent\configuration\policyDefinitions` directory\. The `PCoIP.adml` file is in the `en-US` subfolder of that directory\.
 
-1. Open the context \(right\-click\) menu for the machine account organizational unit and choose **Create a GPO in this domain, and link it here**\.
+1. On a directory administration WorkSpace or Amazon EC2 instance that is joined to your WorkSpaces directory, open Windows File Explorer, and in the address bar, enter your organization's fully qualified domain name \(FQDN\), such as `\\example.com`\.
 
-1. In the **New GPO** dialog box, enter a descriptive name for the GPO, such as **WorkSpaces Machine Policies**, and leave **Source Starter GPO** set to **\(none\)**\. Choose **OK**\.
+1. Open the `sysvol` folder\.
 
-1. Open the context \(right\-click\) menu for the new GPO and choose **Edit**\.
+1. Open the folder with the `FQDN` name\.
 
-1. In the Group Policy Management Editor, choose **Computer Configuration**, **Policies**, and **Administrative Templates**\. Choose **Action**, **Add/Remove Templates** from the main menu\. 
+1. Open the `Policies` folder\. You should now be in `\\FQDN\sysvol\FQDN\Policies`\.
 
-1. In the **Add/Remove Templates** dialog box, choose **Add**, select the `pcoip.adm` file copied previously, and then choose **Open**, **Close**\.
+1. If it doesn't already exist, create a folder named `PolicyDefinitions`\.
 
-1. Close the Group Policy Management Editor\. You can now use this GPO to modify the Group Policy settings that are specific to Amazon WorkSpaces\.
+1. Open the `PolicyDefinitions` folder\.
+
+1. Copy the `PCoIP.admx` file into the `\\FQDN\sysvol\FQDN\Policies\PolicyDefinitions` folder\.
+
+1. Create a folder named `en-US` in the `PolicyDefinitions` folder\.
+
+1. Open the `en-US` folder\.
+
+1. Copy the `PCoIP.adml` file into the `\\FQDN\sysvol\FQDN\Policies\PolicyDefinitions\en-US` folder\.
+
+**To verify that the administrative template files are correctly installed**
+
+1. On your directory administration WorkSpace or Amazon EC2 instance that is joined to your WorkSpaces directory, open the Group Policy Management tool \(gpmc\.msc\)\.
+
+1. Expand the forest \(**Forest:*FQDN***\)\.
+
+1. Expand **Domains**\. 
+
+1. Expand your FQDN \(for example, `example.com`\)\.
+
+1. Expand **Group Policy Objects**\.
+
+1. Select **Default Domain Policy**, open the context \(right\-click\) menu, and choose **Edit**\.
+
+1. In the Group Policy Management Editor, choose **Computer Configuration**, **Policies**, **Administrative Templates**, and **PCoIP Session Variables**\.
+
+1. You can now use this **PCoIP Session Variable** Group Policy object to modify the Group Policy settings that are specific to Amazon WorkSpaces when using PCoIP\.
+**Note**  
+To allow the user to override your settings, choose **Overridable Administrator Defaults**; otherwise, choose **Not Overridable Administrator Defaults**\.
 
 ### Configure Printer Support for PCoIP<a name="gp_local_printers"></a>
 
@@ -74,11 +102,23 @@ For Windows WorkSpaces, you can use Group Policy settings to configure printer s
 
 **To configure printer support**
 
-1. Make sure that the most recent [Amazon WorkSpaces Group Policy administrative template for PCoIP](#gp_install_template) is installed in your domain\.
+1. Make sure that the most recent [Amazon WorkSpaces Group Policy administrative template for PCoIP](#gp_install_template) is installed in the Central Store of the domain controller for your WorkSpaces directory\.
 
-1. On a directory administration WorkSpace or Amazon EC2 instance that is joined to your WorkSpaces directory, open the Group Policy Management tool \(gpmc\.msc\) and navigate to and select the WorkSpaces GPO for your WorkSpaces machine accounts\. Choose **Action**, **Edit** in the main menu\.
+1. On your directory administration WorkSpace or Amazon EC2 instance that is joined to your WorkSpaces directory, open the Group Policy Management tool \(gpmc\.msc\)\.
 
-1. In the Group Policy Management Editor, choose **Computer Configuration**, **Policies**, **Administrative Templates**, **Classic Administrative Templates**, **PCoIP Session Variables**, and **Overridable Administrator Defaults**\.
+1. Expand the forest \(**Forest:*FQDN***\)\.
+
+1. Expand **Domains**\. 
+
+1. Expand your FQDN \(for example, `example.com`\)\.
+
+1. Expand **Group Policy Objects**\.
+
+1. Select **Default Domain Policy**, open the context \(right\-click\) menu, and choose **Edit**\.
+
+1. In the Group Policy Management Editor, choose **Computer Configuration**, **Policies**, **Administrative Templates**, and **PCoIP Session Variables**\.
+
+   To allow the user to override your setting, choose **Overridable Administrator Defaults**; otherwise, choose **Not Overridable Administrator Defaults**\.
 
 1. Open the **Configure remote printing** setting\.
 
@@ -99,11 +139,23 @@ Local printer redirection is not available for Amazon Linux WorkSpaces\.
 
 **To enable local printer auto\-redirection**
 
-1. Make sure that the most recent [Amazon WorkSpaces Group Policy administrative template for PCoIP](#gp_install_template) is installed in your domain\.
+1. Make sure that the most recent [Amazon WorkSpaces Group Policy administrative template for PCoIP](#gp_install_template) is installed in the Central Store of the domain controller for your WorkSpaces directory\.
 
-1. On a directory administration WorkSpace or Amazon EC2 instance that is joined to your WorkSpaces directory, open the Group Policy Management tool \(gpmc\.msc\) and navigate to and select the WorkSpaces GPO for your WorkSpaces machine accounts\. Choose **Action**, **Edit** in the main menu\.
+1. On your directory administration WorkSpace or Amazon EC2 instance that is joined to your WorkSpaces directory, open the Group Policy Management tool \(gpmc\.msc\)\.
 
-1. In the Group Policy Management Editor, choose **Computer Configuration**, **Policies**, **Administrative Templates**, **Classic Administrative Templates**, **PCoIP Session Variables**, and **Overridable Administrator Defaults**\.
+1. Expand the forest \(**Forest:*FQDN***\)\.
+
+1. Expand **Domains**\. 
+
+1. Expand your FQDN \(for example, `example.com`\)\.
+
+1. Expand **Group Policy Objects**\.
+
+1. Select **Default Domain Policy**, open the context \(right\-click\) menu, and choose **Edit**\.
+
+1. In the Group Policy Management Editor, choose **Computer Configuration**, **Policies**, **Administrative Templates**, and **PCoIP Session Variables**\.
+
+   To allow the user to override your setting, choose **Overridable Administrator Defaults**; otherwise, choose **Not Overridable Administrator Defaults**\.
 
 1. Open the **Configure remote printing** setting\.
 
@@ -123,11 +175,23 @@ By default, Amazon WorkSpaces supports clipboard redirection\. If needed for Win
 
 **To enable or disable clipboard redirection**
 
-1. Make sure that the most recent [Amazon WorkSpaces Group Policy administrative template for PCoIP](#gp_install_template) is installed in your domain\.
+1. Make sure that the most recent [Amazon WorkSpaces Group Policy administrative template for PCoIP](#gp_install_template) is installed in the Central Store of the domain controller for your WorkSpaces directory\.
 
-1. On a directory administration WorkSpace or Amazon EC2 instance that is joined to your WorkSpaces directory, open the Group Policy Management tool \(gpmc\.msc\) and navigate to and select the WorkSpaces GPO for your WorkSpaces machine accounts\. Choose **Action**, **Edit** in the main menu\.
+1. On your directory administration WorkSpace or Amazon EC2 instance that is joined to your WorkSpaces directory, open the Group Policy Management tool \(gpmc\.msc\)\.
 
-1. In the Group Policy Management Editor, choose **Computer Configuration**, **Policies**, **Administrative Templates**,**Classic Administrative Templates**, **PCoIP Session Variables**, and **Overridable Administrator Defaults**\.
+1. Expand the forest \(**Forest:*FQDN***\)\.
+
+1. Expand **Domains**\. 
+
+1. Expand your FQDN \(for example, `example.com`\)\.
+
+1. Expand **Group Policy Objects**\.
+
+1. Select **Default Domain Policy**, open the context \(right\-click\) menu, and choose **Edit**\.
+
+1. In the Group Policy Management Editor, choose **Computer Configuration**, **Policies**, **Administrative Templates**, and **PCoIP Session Variables**\.
+
+   To allow the user to override your setting, choose **Overridable Administrator Defaults**; otherwise, choose **Not Overridable Administrator Defaults**\.
 
 1. Open the **Configure clipboard redirection** setting\.
 
@@ -150,11 +214,21 @@ When using the Amazon WorkSpaces client applications, an interruption of network
 
 **To set the automatic session resume timeout value**
 
-1. Make sure that the most recent [Amazon WorkSpaces Group Policy administrative template for PCoIP](#gp_install_template) is installed in your domain\.
+1. Make sure that the most recent [Amazon WorkSpaces Group Policy administrative template for PCoIP](#gp_install_template) is installed in the Central Store of the domain controller for your WorkSpaces directory\.
 
-1. On a directory administration WorkSpace or Amazon EC2 instance that is joined to your WorkSpaces directory, open the Group Policy Management tool \(gpmc\.msc\) and navigate to and select the WorkSpaces GPO for your WorkSpaces machine accounts\. Choose **Action**, **Edit** in the main menu\.
+1. On your directory administration WorkSpace or Amazon EC2 instance that is joined to your WorkSpaces directory, open the Group Policy Management tool \(gpmc\.msc\)\.
 
-1. In the Group Policy Management Editor, choose **Computer Configuration**, **Policies**, **Administrative Templates**, **Classic Administrative Templates**, and **PCoIP Session Variables**\.
+1. Expand the forest \(**Forest:*FQDN***\)\.
+
+1. Expand **Domains**\. 
+
+1. Expand your FQDN \(for example, `example.com`\)\.
+
+1. Expand **Group Policy Objects**\.
+
+1. Select **Default Domain Policy**, open the context \(right\-click\) menu, and choose **Edit**\.
+
+1. In the Group Policy Management Editor, choose **Computer Configuration**, **Policies**, **Administrative Templates**, and **PCoIP Session Variables**\.
 
    To allow the user to override your setting, choose **Overridable Administrator Defaults**; otherwise, choose **Not Overridable Administrator Defaults**\.
 
@@ -175,11 +249,23 @@ If you have a Group Policy setting that restricts users' local logon in their Wo
 
 **To enable or disable audio\-in redirection**
 
-1. On a directory administration WorkSpace or Amazon EC2 instance that is joined to your WorkSpaces directory, open the Group Policy Management tool \(gpmc\.msc\) and navigate to and select a GPO at the domain or domain controller level of the directory you use for your WorkSpaces\. \(If you have the [Amazon WorkSpaces Group Policy administrative template](#gp_install_template) installed in your domain, you can use the WorkSpaces GPO for your WorkSpaces machine accounts\.\)
+1. Make sure that the most recent [Amazon WorkSpaces Group Policy administrative template for PCoIP](#gp_install_template) is installed in the Central Store of the domain controller for your WorkSpaces directory\.
 
-1. Choose **Action**, **Edit** in the main menu\.
+1. On your directory administration WorkSpace or Amazon EC2 instance that is joined to your WorkSpaces directory, open the Group Policy Management tool \(gpmc\.msc\)\.
 
-1. In the Group Policy Management Editor, choose **Computer Configuration**, **Policies**, **Administrative Templates**, **Classic Administrative Templates**, **PCoIP Session Variables**, and **Overridable Administrator Defaults**\. 
+1. Expand the forest \(**Forest:*FQDN***\)\.
+
+1. Expand **Domains**\. 
+
+1. Expand your FQDN \(for example, `example.com`\)\.
+
+1. Expand **Group Policy Objects**\.
+
+1. Select **Default Domain Policy**, open the context \(right\-click\) menu, and choose **Edit**\.
+
+1. In the Group Policy Management Editor, choose **Computer Configuration**, **Policies**, **Administrative Templates**, and **PCoIP Session Variables**\.
+
+   To allow the user to override your setting, choose **Overridable Administrator Defaults**; otherwise, choose **Not Overridable Administrator Defaults**\.
 
 1. Open the **Enable/disable audio in the PCoIP session** setting\.
 
@@ -202,11 +288,13 @@ If needed for Windows WorkSpaces, you can use Group Policy settings to disable t
 
 **To disable time zone redirection**
 
-1. On a directory administration WorkSpace or Amazon EC2 instance that is joined to your WorkSpaces directory, open the Group Policy Management tool \(gpmc\.msc\) and navigate to and select a GPO at the domain or domain controller level of the directory you use for your WorkSpaces\. \(If you have the [Amazon WorkSpaces Group Policy administrative template](#gp_install_template) installed in your domain, you can use the WorkSpaces GPO for your WorkSpaces machine accounts\.\)
+1. On a directory administration WorkSpace or Amazon EC2 instance that is joined to your WorkSpaces directory, open the Group Policy Management tool \(gpmc\.msc\) and navigate to and select a GPO at the domain or domain controller level of the directory you use for your WorkSpaces\.
 
 1. Choose **Action**, **Edit** in the main menu\.
 
 1. In the Group Policy Management Editor, choose **Computer Configuration**, **Policies**, **Administrative Templates**, **Windows Components**, **Remote Desktop Services**, **Remote Desktop Session Host**, and **Device and Resource Redirection**\. 
+**Note**  
+If you don't see this setting in the Group Policy Management tool, you must download and add the `.admx`/`.adml` files for your version of Windows Server to the Central Store of your domain controller for your WorkSpaces directory\.
 
 1. Open the **Allow time zone redirection** setting\.
 
@@ -266,7 +354,7 @@ The following procedure describes how to create the Central Store and add the ad
 
 1. In the Group Policy Management Editor, choose **Computer Configuration**, **Policies**, **Administrative Templates**, **Amazon**, and **WSP**\.
 
-1. You can now use this WSP Group Policy object to modify the Group Policy settings that are specific to Amazon WorkSpaces when using WSP\.
+1. You can now use this **WSP** Group Policy object to modify the Group Policy settings that are specific to Amazon WorkSpaces when using WSP\.
 
 ### Configure Printer Support for WSP<a name="gp_local_printers_wsp"></a>
 

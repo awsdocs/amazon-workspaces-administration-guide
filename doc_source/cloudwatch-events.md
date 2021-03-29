@@ -14,6 +14,7 @@ Amazon WorkSpaces client applications send WorkSpaces Access events to CloudWatc
 
 **Note**  
 Events are emitted on a best\-effort basis\.
+Events are not currently emitted for WorkSpaces using the WorkSpaces Streaming Protocol \(WSP\)\.
 
 Events are represented as JSON objects\. The following is example data for a `WorkSpaces Access` event\.
 

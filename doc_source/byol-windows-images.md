@@ -54,17 +54,12 @@ In addition to the /16 CIDR block that you select, the 54\.239\.224\.0/20 IP add
 ## Windows Versions That Are Supported for BYOL<a name="windows_images_supported_versions"></a>
 
 Your VM must run one of the following Windows versions:
-+ Windows 10 Version 1803 \(April 2018 Update\) 
-+ Windows 10 Version 1809 \(October 2018 Update\) 
 + Windows 10 Version 1903 \(May 2019 Update\)
 + Windows 10 Version 1909 \(November 2019 Update\)
 + Windows 10 Version 2004 \(May 2020 Update\)
 + Windows 10 Version 20H2 \(October 2020 Update\)
 
 All supported OS versions support all of the compute types available in the AWS Region where you're using WorkSpaces\. Versions of Windows that are no longer supported by Microsoft are not guaranteed to work and are not supported by AWS Support\.
-
-**Note**  
-For Graphics or GraphicsPro BYOL bundles, you must use Windows 10 Version 1803 \(April 2018 Update\)\.
 
 ## Adding Microsoft Office to Your BYOL Image<a name="windows_images_adding_office"></a>
 
