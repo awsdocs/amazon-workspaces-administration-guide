@@ -29,11 +29,6 @@ You must meet the following requirements to use an AWS KMS CMK to encrypt your W
 + **The CMK must be enabled\.** To determine whether a CMK is enabled, see [ Displaying CMK Details](https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys-console.html#viewing-console-details) in the *AWS Key Management Service Developer Guide*\.
 + **You must have the correct permissions and policies associated with the CMK\.** For more information, see [Part 2: Giving WorkSpaces Administrators Additional Permissions with an IAM Policy](#kms-permissions-iam-policy)\.
 
-**Important**  
-There is a limit of 500 WorkSpaces per CMK\. This limit is due to the Grants for a given principal per CMK quota in AWS KMS\. For more information about this quota, see [ Grants for a given principal per CMK](https://docs.aws.amazon.com/kms/latest/developerguide/resource-limits.html#grants-per-principal-per-key) in the *AWS Key Management Service Developer Guide*\.  
-When you are encrypting WorkSpaces, create a CMK for every 500 WorkSpaces\. For example, if you are encrypting 850 WorkSpaces, create two CMKs\. For more information about creating CMKs, see [ Creating Keys](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) in the *AWS Key Management Service Developer Guide*\.  
-If you are trying to launch encrypted WorkSpaces and you receive the error message "The specified key is not available\. Please provide a valid key for encryption," the Grants for a given principal per CMK quota for the existing CMK has been reached\.
-
 ## Limits<a name="encryption_limits"></a>
 + You can't encrypt an existing WorkSpace\. You must encrypt a WorkSpace when you launch it\.
 + Creating a custom image from an encrypted WorkSpace is not supported\.

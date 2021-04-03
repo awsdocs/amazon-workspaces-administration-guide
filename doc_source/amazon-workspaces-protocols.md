@@ -12,7 +12,7 @@ Amazon WorkSpaces supports two protocols: PCoIP and WorkSpaces Streaming Protoco
 **When to Use WSP**
 + If you need higher loss/latency tolerance to support your end user network conditions\. For example, you have users who are accessing their WorkSpaces across global distances or using unreliable networks\.
 + If you need your users to authenticate with smart cards or to use smart cards in\-session\.
-+ If you need webcam support capabilities in\-session\. \(Webcam support in WSP WorkSpaces is a beta feature\.\)
++ If you need webcam support capabilities in\-session\.
 
 **Note**  
 A directory can have a mix of PCoIP and WSP WorkSpaces in it\.

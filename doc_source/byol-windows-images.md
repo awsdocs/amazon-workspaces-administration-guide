@@ -54,6 +54,7 @@ In addition to the /16 CIDR block that you select, the 54\.239\.224\.0/20 IP add
 ## Windows Versions That Are Supported for BYOL<a name="windows_images_supported_versions"></a>
 
 Your VM must run one of the following Windows versions:
++ Windows 10 Version 1809 \(October 2018 Update\)
 + Windows 10 Version 1903 \(May 2019 Update\)
 + Windows 10 Version 1909 \(November 2019 Update\)
 + Windows 10 Version 2004 \(May 2020 Update\)
@@ -105,7 +106,7 @@ The following procedure describes how to create the Central Store and add the ad
 
 1. Download the [ administrative template files \(\.admx/\.adml\) for Office](https://www.microsoft.com/download/details.aspx?id=49030) from the Microsoft Download Center\.
 
-1. On a directory administration WorkSpace or Amazon EC2 instance that is joined to your WorkSpaces directory, navigate to the domain's shared network folder\. This folder will have your organization's fully qualified domain name \(FQDN\), such as `\\example.com`\. In the Windows File Explorer, go to **Network** > ***FQDN***\.
+1. On a directory administration WorkSpace or an Amazon EC2 instance that is joined to your WorkSpaces directory, open Windows File Explorer, and in the address bar, enter your organization's fully qualified domain name \(FQDN\), such as `\\example.com`\.
 
 1. Open the `SYSVOL` folder\.
 

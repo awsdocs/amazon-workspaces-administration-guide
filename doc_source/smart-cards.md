@@ -15,7 +15,7 @@ For example, users can use smart cards for in\-session authentication while work
 
 ## Requirements<a name="smart-cards-requirements"></a>
 + An Active Directory Connector \(AD Connector\) directory is required\. For more information about how to configure your AD Connector and your on\-premises directory, see [Directory Configuration](#smart-cards-directory-config)\.
-+ To use a smart card with a Windows or Linux WorkSpace, the user must use the Amazon WorkSpaces Windows client version 3\.1\.1 or later\. For more information about using smart cards with the Windows client, see [ Smart Card Support](https://docs.aws.amazon.com/workspaces/latest/userguide/smart_card_support.html) in the *Amazon WorkSpaces User Guide*\. 
++ To use a smart card with a Windows or Linux WorkSpace, the user must use the Amazon WorkSpaces Windows client version 3\.1\.1 or later or the WorkSpaces macOS client version 3\.1\.5 or later\. For more information about using smart cards with the Windows and macOS clients, see [ Smart Card Support](https://docs.aws.amazon.com/workspaces/latest/userguide/smart_card_support.html) in the *Amazon WorkSpaces User Guide*\. 
 + The root CA and smart card certificates must meet certain requirements\. For more information, see [ Enabling Smart Card Authentication for Amazon WorkSpaces](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ad_connector_clientauth.html) in the *AWS Directory Service Administration Guide* and [ Certificate Requirements](https://docs.microsoft.com/en-us/windows/security/identity-protection/smart-cards/smart-card-certificate-requirements-and-enumeration#certificate-requirements) in the Microsoft documentation\. 
 
   In addition to those requirements, user certificates employed for smart card authentication to Amazon WorkSpaces must include the following attributes:
@@ -25,7 +25,7 @@ For example, users can use smart cards for in\-session authentication while work
 + For pre\-session authentication, Online Certificate Status Protocol \(OCSP\) is required for certificate revocation checking\. For in\-session authentication, OCSP is recommended, but not required\.
 
 ## Limitations<a name="smart-cards-limitations"></a>
-+ Only the WorkSpaces Windows client application version 3\.1\.1 or later is currently supported for smart card authentication\.
++ Only the WorkSpaces Windows client application version 3\.1\.1 or later and the macOS client application version 3\.1\.5 or later are currently supported for smart card authentication\.
 + The WorkSpaces Windows client application 3\.1\.1 or later supports smart cards only when the client is running on a 64\-bit version of Windows\.
 + Only AD Connector directories are currently supported for smart card authentication\.
 + Pre\-session authentication is available only in the AWS GovCloud \(US\-West\) Region at this time\. In\-session authentication is available in all Regions where WSP is supported\.
