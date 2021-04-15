@@ -106,6 +106,13 @@ The tools for managing the certificates and keys on the smart card \(such as rem
 
 ## Enabling Smart Cards for Linux WorkSpaces<a name="smart-cards-linux-workspaces"></a>
 
+**Note**  
+Linux WorkSpaces on WorkSpaces Streaming Protocol \(WSP\) bundles are available only in the AWS GovCloud \(US\-West\) Region at this time\.  
+Linux WorkSpaces on WSP currently have the following limitations:  
+Clipboard, audio\-in, video\-in, and time zone redirection aren't supported\.
+Multiple monitors aren't supported\.
+You must use the WorkSpaces Windows client application to connect to Linux WorkSpaces on WSP\.
+
 To enable the use of smart cards on Linux WorkSpaces, you need to include a root CA certificate file in the PEM format in the WorkSpace image\.
 
 **To obtain your root CA certificate**  

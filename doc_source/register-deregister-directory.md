@@ -5,7 +5,7 @@ To allow Amazon WorkSpaces to use an existing AWS Directory Service directory, y
 **Requirements**  
 To register a directory for use with Amazon WorkSpaces, it must meet the following requirements:
 + The directory that you want to register for use with Amazon WorkSpaces must be present in every virtual private cloud \(VPC\) subnet where you want to launch WorkSpaces\.
-+ If you're using AD Connector, your AD Connector must be directly attached to the VPC subnets that will be used for WorkSpaces deployments\.
++ If you're using AD Connector, your AD Connector must be directly attached to the subnets of the same VPC that will be used for WorkSpaces deployments\.
 + If you're using AWS Managed Microsoft AD or Simple AD, your directory can be in a dedicated private subnet, as long as the directory has access to the VPC where the WorkSpaces are located\.
 
 For more information about directory and VPC design, see the [ *Best Practices for Deploying Amazon WorkSpaces*](https://d1.awsstatic.com/whitepapers/Best-Practices-for-Deploying-Amazon-WorkSpaces.pdf) whitepaper\.

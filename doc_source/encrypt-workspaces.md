@@ -24,6 +24,11 @@ You need an AWS KMS CMK before you can begin the encryption process\. This CMK c
   AWS managed CMKs, including the one that Amazon WorkSpaces supports, are rotated every three years\. For details, see [Rotating Customer Master Keys](https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) in the *AWS Key Management Service Developer Guide*\.
 + **Customer managed CMK** – Alternatively, you can select a symmetric customer managed CMK that you created using AWS KMS\. You can view, use, and manage this CMK, including setting its policies\. For more information about creating CMKs, see [Creating Keys](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) in the *AWS Key Management Service Developer Guide*\. For more information about creating CMKs using the AWS KMS API, see [Working with Keys](https://docs.aws.amazon.com/kms/latest/developerguide/programming-keys.html) in the *AWS Key Management Service Developer Guide*\.
 
+  Customer managed CMKs are not automatically rotated unless you decide to enable automatic key rotation\. For details, see [Rotating Customer Master Keys](https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) in the *AWS Key Management Service Developer Guide*\.
+
+**Important**  
+When you rotate CMKs, you must keep both the original CMK and the new CMK enabled so that AWS KMS can decrypt the WorkSpaces that the original CMK encrypted\. If you don't want to keep the original CMK enabled, you must recreate your WorkSpaces and encrypt them using the new CMK\.
+
 You must meet the following requirements to use an AWS KMS CMK to encrypt your WorkSpaces:
 + **The CMK must be symmetric\.** Amazon WorkSpaces does not support asymmetric CMKs\. For information about distinguishing between symmetric and asymmetric CMKs, see [ Identifying Symmetric and Asymmetric CMKs](https://docs.aws.amazon.com/kms/latest/developerguide/find-symm-asymm.html) in the *AWS Key Management Service Developer Guide*\.
 + **The CMK must be enabled\.** To determine whether a CMK is enabled, see [ Displaying CMK Details](https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys-console.html#viewing-console-details) in the *AWS Key Management Service Developer Guide*\.

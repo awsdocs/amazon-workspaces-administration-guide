@@ -4,7 +4,7 @@ Amazon WorkSpaces uses a directory to store and manage information for your Work
 + AD Connector — Use your existing on\-premises Microsoft Active Directory\. Users can sign into their WorkSpaces using their on\-premises credentials and access on\-premises resources from their WorkSpaces\.
 + AWS Managed Microsoft AD — Create a Microsoft Active Directory hosted on AWS\.
 + Simple AD — Create a directory that is compatible with Microsoft Active Directory, powered by Samba 4, and hosted on AWS\.
-+ Cross trust — Create a trust relationship between your Microsoft AD directory and your on\-premises domain\.
++ Cross trust — Create a trust relationship between your AWS Managed Microsoft AD directory and your on\-premises domain\.
 
 For tutorials that demonstrate how to set up these directories and launch WorkSpaces, see [Launch a Virtual Desktop Using Amazon WorkSpaces](launch-workspaces-tutorials.md)\.
 

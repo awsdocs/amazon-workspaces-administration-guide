@@ -19,27 +19,33 @@ The `AWS/WorkSpaces` namespace includes the following metrics\.
 
 | Metric | Description | Dimensions | Statistics Available | Units | 
 | --- | --- | --- | --- | --- | 
-| Available1 |  The number of WorkSpaces that returned a healthy status\.  |  `DirectoryId` `WorkspaceId`  | Average, Sum, Maximum, Minimum, Data Samples | Count | 
-| Unhealthy1 |  The number of WorkSpaces that returned an unhealthy status\.  |  `DirectoryId` `WorkspaceId`  | Average, Sum, Maximum, Minimum, Data Samples | Count | 
-| ConnectionAttempt2,5 |  The number of connection attempts\.  |  `DirectoryId` `WorkspaceId`  | Average, Sum, Maximum, Minimum, Data Samples | Count | 
-| ConnectionSuccess2,5 |  The number of successful connections\.  |  `DirectoryId` `WorkspaceId`  | Average, Sum, Maximum, Minimum, Data Samples | Count | 
-| ConnectionFailure2,5 |  The number of failed connections\.  |  `DirectoryId` `WorkspaceId`  | Average, Sum, Maximum, Minimum, Data Samples | Count | 
-| SessionLaunchTime2 | The amount of time it takes to initiate a WorkSpaces session\. |  `DirectoryId` `WorkspaceId`  | Average, Sum, Maximum, Minimum, Data Samples | Second \(time\) | 
-| InSessionLatency2 | The round trip time between the WorkSpaces client and the WorkSpace\. |  `DirectoryId` `WorkspaceId`  | Average, Sum, Maximum, Minimum, Data Samples | Millisecond \(time\) | 
-| SessionDisconnect2 | The number of connections that were closed, including user\-initiated and failed connections\. |  `DirectoryId` `WorkspaceId`  | Average, Sum, Maximum, Minimum, Data Samples | Count | 
-| UserConnected3 | The number of WorkSpaces that have a user connected\. |  `DirectoryId` `WorkspaceId`  | Average, Sum, Maximum, Minimum, Data Samples | Count | 
-| Stopped | The number of WorkSpaces that are stopped\. |  `DirectoryId` `WorkspaceId`  | Average, Sum, Maximum, Minimum, Data Samples | Count | 
-| Maintenance4 | The number of WorkSpaces that are under maintenance\. |  `DirectoryId` `WorkspaceId`  | Average, Sum, Maximum, Minimum, Data Samples | Count | 
+| `Available`1 |  The number of WorkSpaces that returned a healthy status\.  |  `DirectoryId` `WorkspaceId`  | Average, Sum, Maximum, Minimum, Data Samples | Count | 
+| `Unhealthy`1 |  The number of WorkSpaces that returned an unhealthy status\.  |  `DirectoryId` `WorkspaceId`  | Average, Sum, Maximum, Minimum, Data Samples | Count | 
+| `ConnectionAttempt`2,5 |  The number of connection attempts\.  |  `DirectoryId` `WorkspaceId`  | Average, Sum, Maximum, Minimum, Data Samples | Count | 
+| `ConnectionSuccess`2,5 |  The number of successful connections\.  |  `DirectoryId` `WorkspaceId`  | Average, Sum, Maximum, Minimum, Data Samples | Count | 
+| `ConnectionFailure`2,5 |  The number of failed connections\.  |  `DirectoryId` `WorkspaceId`  | Average, Sum, Maximum, Minimum, Data Samples | Count | 
+| `SessionLaunchTime`2 | The amount of time it takes to initiate a WorkSpaces session\. |  `DirectoryId` `WorkspaceId`  | Average, Sum, Maximum, Minimum, Data Samples | Second \(time\) | 
+| `InSessionLatency`2 | The round trip time between the WorkSpaces client and the WorkSpace\. |  `DirectoryId` `WorkspaceId`  | Average, Sum, Maximum, Minimum, Data Samples | Millisecond \(time\) | 
+| `SessionDisconnect`2 | The number of connections that were closed, including user\-initiated and failed connections\. |  `DirectoryId` `WorkspaceId`  | Average, Sum, Maximum, Minimum, Data Samples | Count | 
+| `UserConnected`3 | The number of WorkSpaces that have a user connected\. |  `DirectoryId` `WorkspaceId`  | Average, Sum, Maximum, Minimum, Data Samples | Count | 
+| `Stopped` | The number of WorkSpaces that are stopped\. |  `DirectoryId` `WorkspaceId`  | Average, Sum, Maximum, Minimum, Data Samples | Count | 
+| `Maintenance`4 | The number of WorkSpaces that are under maintenance\. |  `DirectoryId` `WorkspaceId`  | Average, Sum, Maximum, Minimum, Data Samples | Count | 
+| `TrustedDeviceValidationAttempt`6 | The number of device authentication signature validation attempts\. | `DirectoryId` | Average, Sum, Maximum, Minimum, Data Samples | Count | 
+| `TrustedDeviceValidationSuccess`6 | The number of successful device authentication signature validations\. | `DirectoryId` | Average, Sum, Maximum, Minimum, Data Samples | Count | 
+| `TrustedDeviceValidationFailure`6 | The number of failed device authentication signature validations\.  | `DirectoryId` | Average, Sum, Maximum, Minimum, Data Samples | Count | 
+| `TrustedDeviceCertificateDaysBeforeExpiration` | Days left before the root certificate associated with the directory is expired\. | `CertificateId` | Average, Sum, Maximum, Minimum, Data Samples | Count | 
 
-1 Amazon WorkSpaces periodically sends status requests to a WorkSpace\. A WorkSpace is marked `Available` when it responds to these requests, and `Unhealthy` when it fails to respond to these requests\. These metrics are available at a per\-WorkSpace granularity, and also aggregated for all WorkSpaces in an organization\. 
+1 Amazon WorkSpaces periodically sends status requests to a WorkSpace\. A WorkSpace is marked `Available` when it responds to these requests, and `Unhealthy` when it fails to respond to these requests\. These metrics are available at a per\-WorkSpace level of granularity, and also aggregated for all WorkSpaces in an organization\. 
 
-2 Amazon WorkSpaces records metrics on connections made to each WorkSpace\. These metrics are emitted after a user has successfully authenticated via the WorkSpaces client and the client then initiates a session\. The metrics are available at a per\-WorkSpace granularity, and also aggregated for all WorkSpaces in a directory\.
+2 Amazon WorkSpaces records metrics on connections made to each WorkSpace\. These metrics are emitted after a user has successfully authenticated via the WorkSpaces client and the client then initiates a session\. The metrics are available at a per\-WorkSpace level of granularity, and also aggregated for all WorkSpaces in a directory\.
 
-3 Amazon WorkSpaces periodically sends connection status requests to a WorkSpace\. Users are reported as connected when they are actively using their sessions\. This metric is available at a per\-WorkSpace granularity, and is also aggregated for all WorkSpaces in an organization\.
+3 Amazon WorkSpaces periodically sends connection status requests to a WorkSpace\. Users are reported as connected when they are actively using their sessions\. This metric is available at a per\-WorkSpace level of granularity, and is also aggregated for all WorkSpaces in an organization\.
 
-4 This metric applies to WorkSpaces that are configured with an AutoStop running mode\. If you have maintenance enabled for your WorkSpaces, this metric captures the number of WorkSpaces that are currently under maintenance\. This metric is available at a per\-WorkSpace granularity, which describes when a WorkSpace went into maintenance and when it was removed\.
+4 This metric applies to WorkSpaces that are configured with an AutoStop running mode\. If you have maintenance enabled for your WorkSpaces, this metric captures the number of WorkSpaces that are currently under maintenance\. This metric is available at a per\-WorkSpace level of granularity, which describes when a WorkSpace went into maintenance and when it was removed\.
 
 5 This metric is currently emitted only for PCoIP WorkSpaces\.
+
+6 If the trusted devices feature is enabled for the directory, Amazon WorkSpaces uses certificate\-based authentication to determine whether a device is trusted\. When users attempt to access their WorkSpaces, these metrics are emitted to indicate successful or failed trusted device authentication\. These metrics are available at a per\-directory level of granularity, and only for the Amazon WorkSpaces Windows and macOS client applications\. 
 
 ## Dimensions for Amazon WorkSpaces Metrics<a name="wsp-metric-dimensions"></a>
 
@@ -48,8 +54,9 @@ To filter the metric data, use the following dimensions\.
 
 | Dimension | Description | 
 | --- | --- | 
-| DirectoryId | Filters the metric data to the WorkSpaces in the specified directory\. The form of the directory ID is d\-XXXXXXXXXX\. | 
-| WorkspaceId | Filters the metric data to the specified WorkSpace\. The form of the workspace ID is ws\-XXXXXXXXXX\. | 
+| `DirectoryId` | Filters the metric data to the WorkSpaces in the specified directory\. The form of the directory ID is `d-XXXXXXXXXX`\. | 
+| `WorkspaceId` | Filters the metric data to the specified WorkSpace\. The form of the WorkSpace ID is `ws-XXXXXXXXXX`\. | 
+| `CertificateId` | Filters the metric data to the specified root certificate associated with the directory\. The form of the certificate ID is `wsc-XXXXXXXXX`\. | 
 
 ## Monitoring Example<a name="monitoring_example"></a>
 

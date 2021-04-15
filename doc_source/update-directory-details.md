@@ -127,7 +127,7 @@ You can update the AD Connector account that is used to read users and groups an
 
 ## Multi\-factor Authentication \(AD Connector\)<a name="connect-mfa"></a>
 
-You can enable multi\-factor authentication \(MFA\) for your AD Connector directory\.
+You can enable multi\-factor authentication \(MFA\) for your AD Connector directory\. For more information about using multi\-factor authentication with AWS Directory Service, see [ Enable multi\-factor authentication for AD Connector](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ad_connector_mfa.html) and [ AD Connector prerequisites](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/prereq_connector.html)\. 
 
 **Note**  
 Your RADIUS server can either be hosted by AWS or it can be on\-premises\.
@@ -145,13 +145,13 @@ The usernames must match between Active Directory and your RADIUS server\.
 
 1. For **RADIUS server IP address\(es\)**, type the IP addresses of your RADIUS server endpoints separated by commas, or type the IP address of your RADIUS server load balancer\.
 
-1. For **Port**, type the port that your RADIUS server is using for communications\. Your on\-premises network must allow inbound traffic over the default RADIUS server port \(1812\) from AD Connector\.
+1. For **Port**, type the port that your RADIUS server is using for communications\. Your on\-premises network must allow inbound traffic over the default RADIUS server port \(UDP:1812\) from AD Connector\.
 
 1. For **Shared secret code** and **Confirm shared secret code**, type the shared secret code for your RADIUS server\.
 
 1. For **Protocol**, choose the protocol for your RADIUS server\.
 
-1. For **Server timeout**, type the time, in seconds, to wait for the RADIUS server to respond\. This value must be between 1 and 20\.
+1. For **Server timeout**, type the time, in seconds, to wait for the RADIUS server to respond\. This value must be between 1 and 50\.
 
 1. For **Max retries**, type the number of times to attempt communication with the RADIUS server\. This value must be between 0 and 10\.
 
