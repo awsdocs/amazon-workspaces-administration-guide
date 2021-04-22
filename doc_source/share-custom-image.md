@@ -32,7 +32,7 @@ If an image has been shared with you, you can't further share that image with ot
 
 1. In the navigation pane, choose **Images**\.
 
-1. Select the image and choose **Actions**, **View details**\.
+1. Choose the image to open its details page\.
 
 1. On the image detail page, in the **Shared accounts** section, choose **Add account**\.
 
@@ -50,7 +50,7 @@ To use the shared image, the recipient account must first [ copy the image](copy
 
 1. In the navigation pane, choose **Images**\.
 
-1. Select the image and choose **Actions**, **View details**\.
+1. Choose the image to open its details page\.
 
 1. On the image detail page, in the **Shared accounts** section, select the AWS account that you want to stop sharing with, and then choose **Unshare**\.
 

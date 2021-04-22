@@ -30,7 +30,8 @@ Before you begin, verify the following:
 
   If you plan to use GPU\-enabled \(Graphics and GraphicsPro\) bundles, verify that you will run a minimum of 4 AlwaysOn or 20 AutoStop GPU\-enabled WorkSpaces in a Region per month on dedicated hardware\.
 **Note**  
-GPU\-enabled bundles aren't currently available in the Asia Pacific \(Mumbai\) Region\.
+Graphics and GraphicsPro bundles can be created only for the PCoIP protocol at this time\.
+Graphics and GraphicsPro bundles aren't currently available in the Asia Pacific \(Mumbai\) Region\.
 + Amazon WorkSpaces can use a management interface in the /16 IP address range\. The management interface is connected to a secure Amazon WorkSpaces management network used for interactive streaming\. This allows Amazon WorkSpaces to manage your WorkSpaces\. For more information, see [Network Interfaces](workspaces-port-requirements.md#network-interfaces)\. You must reserve a /16 netmask from at least one of the following IP address ranges for this purpose:
   + 10\.0\.0\.0/8
   + 100\.64\.0\.0/10
@@ -196,13 +197,13 @@ The steps in this procedure for enabling BYOL for your account need to be perfor
 
 1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
-1. In the navigation pane, choose **Account Settings**\. If your account is not currently eligible for BYOL, a message provides guidance for next steps\.
+1. In the navigation pane, choose **Account Settings**, and then choose **View WorkSpaces BYOL settings**\. If your account is not currently eligible for BYOL, a message provides guidance for next steps\.
 
 1. Under **Bring Your Own License \(BYOL\)**, in the **Management network interface IP address range** area, choose an IP address range, and then choose **Display available CIDR blocks**\.
 
    Amazon WorkSpaces searches for and displays available IP address ranges as IPv4 Classless Inter\-Domain Routing \(CIDR\) blocks, within the range that you specify\. If you require a specific IP address range, you can edit the search range\.
 **Important**  
-After you specify an IP address range, you cannot modify it\. Make sure to specify an IP address range that doesn't conflict with the ranges used by your internal network\. If you have any question about which range to specify, contact your AWS account manager or sales representative, or contact the [AWS Support Center](https://console.aws.amazon.com/support/home#/) before proceeding\.
+**After you specify an IP address range, you cannot modify it\.** Make sure to specify an IP address range that doesn't conflict with the ranges used by your internal network\. If you have any questions about which range to specify, contact your AWS account manager or sales representative, or contact the [AWS Support Center](https://console.aws.amazon.com/support/home#/) before proceeding\.
 
 1. Choose the CIDR block that you want from the list of results, and then choose **Enable BYOL**\.
 
@@ -304,18 +305,21 @@ To create a Graphics or GraphicsPro bundle from your image, contact the [AWS Sup
 
 1. In the navigation pane, choose **Images**\.
 
-1. Choose **Actions**, **Create BYOL Image**\. 
+1. Choose **Create BYOL image**\. 
 
-1. In the **Create BYOL Image** dialog box, do the following: 
-   + For **AMI ID**, click the **EC2 Console** link, and choose the Amazon EC2 image that you imported as described in the previous section \([Step 4: Import the VM as an Image into Amazon EC2](#windows_images_import_image_ec2_byol)\)\. The image name must begin with `ami-` and be followed by the identifier for the AMI \(for example, `ami-1234567e`\)\.
-   + For **BYOL image name**, enter a unique name for the image\.
-   + For **Image description**, enter a description to help you quickly identify the image\.
-   + For **Ingestion process**, choose the appropriate bundle type \(either **Regular**, **Graphics**, or **GraphicsPro**\), depending on which protocol you want to use for your image, either PCoIP or WorkSpaces Streaming Protocol \(WSP\)\. For non\-GPU\-enabled bundles \(bundles other than Graphics or GraphicsPro\), choose **Regular**\.
-   + \(Optional\) For **Applications**, choose which version of Microsoft Office you want to subscribe to\. For more information, see [Adding Microsoft Office to Your BYOL Image](#windows_images_adding_office)\.
+1. On the **Create BYOL image** page, do the following: 
+   + For **AMI ID**, choose the **EC2 Console** link, and choose the Amazon EC2 image that you imported as described in the previous section \([Step 4: Import the VM as an Image into Amazon EC2](#windows_images_import_image_ec2_byol)\)\. The image name must begin with `ami-` and be followed by the identifier for the AMI \(for example, `ami-1234567e`\)\.
+   + For **Image name**, enter a unique name for the image\.
+   + For **Description**, enter a description to help you quickly identify the image\.
+   + For **Instance type**, choose the appropriate bundle type \(either **Regular**, **Graphics**, or **GraphicsPro**\), depending on which protocol you want to use for your image, either PCoIP or WorkSpaces Streaming Protocol \(WSP\)\. For non\-GPU\-enabled bundles \(bundles other than Graphics or GraphicsPro\), choose **Regular**\.
+**Note**  
+Graphics and GraphicsPro images can be created only for the PCoIP protocol at this time\.
+   + \(Optional\) For **Select applications**, choose which version of Microsoft Office you want to subscribe to\. For more information, see [Adding Microsoft Office to Your BYOL Image](#windows_images_adding_office)\.
+   + \(Optional\) For **Tags**, choose **Add new tag** to associate tags with this image\. For more information, see [Tag WorkSpaces Resources](tag-workspaces-resources.md)\.
 
-1. Choose **Create**\.
+1. Choose **Create BYOL image**\.
 
-   While your image is being created, the image status in the image registry of the console appears as **Pending**\. The BYOL ingestion process takes a minimum of 90 minutes\. If you have subscribed to Office as well, expect the process to take a minimum of 3 hours\. 
+   While your image is being created, the image's status on the **Images** page of the console appears as **Pending**\. The BYOL ingestion process takes a minimum of 90 minutes\. If you have subscribed to Office as well, expect the process to take a minimum of 3 hours\. 
 
    If the image validation does not succeed, the console displays an error code\. When the image creation is complete, the status changes to** Available**\.
 

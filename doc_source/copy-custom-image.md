@@ -71,6 +71,12 @@ Before copying a shared image, be sure to verify that it has been shared from th
 
 1. In the navigation pane, choose **Images**\.
 
-1. Select the image and choose **Actions**, **Copy Image**\.
+1. Select the image and choose **Actions**, **Copy image**\.
 
-1. Provide a name, description and Region for the copied image, and then choose **Copy Image**\.
+1. For **Select destination**, select the AWS Region that you want to copy the image to\.
+
+1. For **Name of the copy**, enter the new name for the copied image, and for **Description**, enter a description for the copied image\.
+
+1. \(Optional\) Under **Tags**, enter tags for the copied image\. For more information, see [Tag WorkSpaces Resources](tag-workspaces-resources.md)\.
+
+1. Choose **Copy image**\.

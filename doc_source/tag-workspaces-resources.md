@@ -19,11 +19,11 @@ Although tags appear 24 hours after activation, it can take 4 to 5 days for valu
 + Tag keys and values are case\-sensitive\. Allowed characters are letters, spaces, and numbers representable in UTF\-8, plus the following special characters: \+ \- = \. \_ : / @\. Do not use leading or trailing spaces\.
 + Do not use the "aws:" or "aws:workspaces:" prefixes in your tag names or values because they are reserved for AWS use\. You can't edit or delete tag names or values with these prefixes\.
 
-**To update the tags for an existing resource using the console**
+**To update the tags for an existing resource using the console \(directories, WorkSpaces, or IP access control groups\)**
 
 1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
-1. In the navigation pane, choose one of the following resource types: **Directories**, **WorkSpaces**, **Bundles**, **Images**, or **IP Access Controls**\.
+1. In the navigation pane, choose one of the following resource types: **Directories**, **WorkSpaces**, or **IP Access Controls**\.
 
 1. Select the resource and choose **Actions**, **Manage Tags**\.
 
@@ -33,6 +33,23 @@ Although tags appear 24 hours after activation, it can take 4 to 5 days for valu
    + To delete a tag, choose the delete icon \(X\) next to the tag\.
 
 1. When you are finished updating tags, choose **Save**\.
+
+**To update the tags for an existing resource using the console \(images or bundles\)**
+
+1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+
+1. In the navigation pane, choose one of the following resource types: **Bundles** or **Images**\.
+
+1. Choose the resource to open its details page\.
+
+1. Under **Tags**, choose **Manage tags**\.
+
+1. Do one or more of the following:
+   + To update a tag, edit the values of **Key** and **Value**\.
+   + To add a tag, choose **Add new tag** and then edit the values of **Key** and **Value**\.
+   + To delete a tag, choose **Remove** next to the tag\.
+
+1. When you are finished updating tags, choose **Save changes**\.
 
 **To update the tags for an existing resource using the AWS CLI**  
 Use the [create\-tags](https://docs.aws.amazon.com/cli/latest/reference/workspaces/create-tags.html) and [delete\-tags](https://docs.aws.amazon.com/cli/latest/reference/workspaces/delete-tags.html) commands\.

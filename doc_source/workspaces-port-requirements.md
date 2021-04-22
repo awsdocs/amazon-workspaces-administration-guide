@@ -59,7 +59,7 @@ For the Amazon WorkSpaces client application to be able to access the Amazon Wor
 | Forrester Log Service  | https://fls\-na\.amazon\.com/ | 
 | Health Check \(DRP\) Servers | [Health Check Servers](#health_check) | 
 | Registration Dependency \(for Web Access and Teradici PCoIP Zero Clients\) | https://s3\.amazonaws\.com | 
-| User Login Pages | https://<directory id>\.awsapps\.com/ \(where <directory id> is the customer's domain\)  | 
+| User Login Pages | https://<directory id>\.awsapps\.com/ \(where <directory id> is the customer's domain\)  In the AWS GovCloud \(US\-West\) Region: https://login\.us\-gov\-home\.awsapps\.com/directory/<directory id>/ \(where <directory id> is the customer's domain\)    | 
 | WS Broker |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 | WorkSpaces API Endpoints |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 

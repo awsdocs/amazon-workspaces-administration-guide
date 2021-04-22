@@ -83,15 +83,13 @@ For the WorkSpaces launched from your custom or Bring Your Own License \(BYOL\) 
 **Note**  
 To access the C: drive from the Windows File Explorer on your WorkSpace, enter **C:\\** in the address bar\.
 
-1. In the `<settings pass="specialize">` section, do the following:
+1. In the `<settings pass="specialize">` section, make sure that `<ComputerName>` is set to an asterisk \(`*`\)\. If `<ComputerName>` is set to any other value, your custom computer name settings will be ignored\. For more information about the `<ComputerName>` setting, see [ ComputerName](https://docs.microsoft.com/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup-computername) in the Microsoft documentation\.
 
-   1. Make sure that `<ComputerName>` is set to an asterisk \(`*`\)\. If `<ComputerName>` is set to any other value, your custom computer name settings will be ignored\. For more information about the `<ComputerName>` setting, see [ ComputerName](https://docs.microsoft.com/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup-computername) in the Microsoft documentation\.
-
-   1. \(Optional\) Set `<RegisteredOrganization>` to your preferred organization name\.
-
-1. In the `<settings pass="oobeSystem">` section, set `<RegisteredOrganization>` and `<RegisteredOwner>` to your preferred values\.
+1. In the `<settings pass="specialize">` section, set `<RegisteredOrganization>` and `<RegisteredOwner>` to your preferred values\.
 
    During Sysprep, the values that you specify for `<RegisteredOwner>` and `<RegisteredOrganization>` are concatenated together, and the first 7 characters of the combined string are used to create the computer name\. For example, if you specify **Amazon\.com** for `<RegisteredOrganization>` and **EC2** for `<RegisteredOwner>`, the computer names for the WorkSpaces created from your custom bundle will start with EC2AMAZ\-*xxxxxxx*\.
+**Note**  
+The `<RegisteredOrganization>` and `<RegisteredOwner>` values in the `<settings pass="oobeSystem">` section are ignored by Sysprep\.
 
 1. Save your changes to the `Unattend.xml` file\.
 
@@ -429,31 +427,31 @@ After you have validated your WorkSpace image, you can proceed with creating you
 
 **To create a custom image and custom bundle**
 
-1. If you are still connected to the WorkSpace, disconnect by choosing **Amazon Workspaces** and **Disconnect**\.
+1. If you are still connected to the WorkSpace, disconnect by choosing **Amazon Workspaces** and **Disconnect** in the WorkSpaces client application\.
 
 1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **WorkSpaces**\.
 
-1. <a name="step_create_image"></a>Select the WorkSpace and choose **Actions**, **Create Image**\.
+1. <a name="step_create_image"></a>Select the WorkSpace and choose **Actions**, **Create Image**\. If the status of the WorkSpace is `STOPPED`, you must start it first \(choose **Actions**, **Start WorkSpaces**\) before you can choose **Actions**, **Create Image**\.
 
 1. A message displays, prompting you to reboot \(restart\) your WorkSpace before continuing\. Rebooting your WorkSpace updates your Amazon WorkSpaces software to the latest version\.
 
-   Reboot your WorkSpace by closing the message and following the steps in [Reboot a WorkSpace](reboot-workspaces.md)\. When you're done, repeat [Step 4](#step_create_image) of this procedure, but this time choose **Next** when the reboot message appears\. To create an image, the status of the WorkSpace must be **Available** and its modification state must be **None**\.
+   Reboot your WorkSpace by closing the message and following the steps in [Reboot a WorkSpace](reboot-workspaces.md)\. When you're done, repeat [Step 4](#step_create_image) of this procedure, but this time choose **Next** when the reboot message appears\. To create an image, the status of the WorkSpace must be `AVAILABLE` and its modification state must be **None**\.
 
-1. Enter an image name and a description that will help you identify the image, and then choose **Create Image**\. While the image is being created, the status of the WorkSpace is **Suspended** and the WorkSpace is unavailable\.
+1. Enter an image name and a description that will help you identify the image, and then choose **Create Image**\. While the image is being created, the status of the WorkSpace is `SUSPENDED` and the WorkSpace is unavailable\.
 
 1. In the navigation pane, choose **Images**\. The image is complete when the status of the WorkSpace changes to **Available** \(this can take up to 45 minutes\)\.
 
-1. Select the image and choose **Actions**, **Create Bundle**\.
+1. Select the image and choose **Actions**, **Create bundle**\.
 **Note**  
 To create a bundle programmatically, use the CreateWorkspaceBundle API action\. For more information, see [ CreateWorkspaceBundle](https://docs.aws.amazon.com/workspaces/latest/api/API_CreateWorkspaceBundle.html) in the *Amazon WorkSpaces API Reference*\.
 
 1. Enter a bundle name and a description, and then do the following: 
-   + For **Bundle Type**, choose the hardware to use when launching WorkSpaces from this custom bundle\.
-   + For **Root Volume Size**, leave the default value or enter a new value that is equal to or greater than the current size\. Then, enter a value for **User Volume Size**\.
+   + For **Bundle hardware type**, choose the hardware to use when launching WorkSpaces from this custom bundle\.
+   + For **Storage settings**, select one of the default combinations for the root volume and user volume size, or select **Custom**, and then enter values \(up to 2000 GB\) for **Root volume size** and **User volume size**\.
 
-     The default available sizes for the root volume \(for Microsoft Windows, the `C` drive, for Linux, /\) and the user volume \(for Windows, the `D` drive; for Linux, /home\) are as follows: 
+     The default available size combinations for the root volume \(for Microsoft Windows, the `C` drive, for Linux, /\) and the user volume \(for Windows, the `D` drive; for Linux, /home\) are as follows: 
      + Root: 80 GB, User: 10 GB, 50 GB, or 100 GB
      + Root: 175 GB, User: 100 GB
      + For Graphics and GraphicsPro WorkSpaces only: Root: 100 GB, User: 100 GB
@@ -462,7 +460,7 @@ To create a bundle programmatically, use the CreateWorkspaceBundle API action\. 
 **Note**  
 To ensure that your data is preserved, you cannot decrease the size of the root or user volumes after you launch a WorkSpace\. Instead, make sure that you specify the minimum sizes for these volumes when launching a WorkSpace\. You can launch a Value, Standard, Performance, Power, or PowerPro WorkSpace with a minimum of 80 GB for the root volume and 10 GB for the user volume\. You can launch a Graphics or GraphicsPro WorkSpace with a minimum of 100 GB for the root volume and 100 GB for the user volume\.
 
-1. Choose **Create Bundle**\.
+1. Choose **Create bundle**\.
 
 1. To confirm that your bundle has been created, choose **Bundles** and verify that the bundle is listed\.
 

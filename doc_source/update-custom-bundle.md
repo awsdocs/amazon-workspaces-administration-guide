@@ -11,21 +11,21 @@ Existing WorkSpaces aren't automatically updated when you update the bundle that
 
    Alternatively, you can create a new WorkSpace with the same base software package \(Plus or Standard\) as the image used to create the bundle, and make changes\.
 
-1. If you are still connected to the WorkSpace, disconnect\.
+1. If you are still connected to the WorkSpace, disconnect by choosing **Amazon WorkSpaces** and **Disconnect** in the WorkSpaces client application\.
 
 1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **WorkSpaces**\.
 
-1. Select the WorkSpace and choose **Actions**, **Create Image**\. 
+1. Select the WorkSpace and choose **Actions**, **Create Image**\. If the status of the WorkSpace is `STOPPED`, you must start it first \(choose **Actions**, **Start WorkSpaces**\) before you can choose **Actions**, **Create Image**\.
 
-1. Enter an image name and a description, and then choose **Create Image**\. The WorkSpace is unavailable while the image is being created\.
+1. Enter an image name and a description, and then choose **Create Image**\. The WorkSpace is unavailable while the image is being created\. For detailed information about the image creation process, see [Create a Custom WorkSpaces Image and Bundle](create-custom-bundle.md)\.
 
 1. In the navigation pane, choose **Bundles**\.
 
-1. Select the bundle and choose **Actions**, **Update Bundle**\.
+1. Choose the bundle to open its details page, and then under **Source image**, choose **Edit**\.
 
-1. For **Update WorkSpace Bundle**, select the image that you created and choose **Update Bundle**\.
+1. On the **Update source image** page, select the image that you created and choose **Update bundle**\.
 
 1. As needed, update any existing WorkSpaces that are based on the bundle by rebuilding the WorkSpaces or deleting and recreating them\. For more information, see [Rebuild a WorkSpace](rebuild-workspace.md)\.
 
