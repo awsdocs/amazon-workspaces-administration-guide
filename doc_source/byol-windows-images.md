@@ -52,6 +52,9 @@ In addition to the /16 CIDR block that you select, the 54\.239\.224\.0/20 IP add
   + Your VM must run Windows PowerShell version 4 or later\.
 + Make sure that you have installed the latest Microsoft Windows patches before running the BYOL Checker PowerShell script in [Step 2](#windows_images_run_byol_checker_script) later in this topic\.
 
+**Note**  
+For BYOL AutoStop WorkSpaces, a large number of concurrent logins could result in significantly increased time for WorkSpaces to be available\. If you expect many users to log into your BYOL AutoStop WorkSpaces at the same time, please consult your account manager for advice\.
+
 ## Windows Versions That Are Supported for BYOL<a name="windows_images_supported_versions"></a>
 
 Your VM must run one of the following Windows versions:

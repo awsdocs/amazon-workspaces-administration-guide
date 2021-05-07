@@ -17,8 +17,9 @@ The migration process takes up to one hour per WorkSpace\. When you initiate the
 
 ## Migration Limits<a name="migration-limits"></a>
 + You cannot migrate to a public or custom Windows 7 desktop experience bundle\. You also cannot migrate to Bring Your Own License \(BYOL\) Windows 7 bundles\.
-+ You can migrate BYOL WorkSpaces only to other BYOL bundles\.
++ You can migrate BYOL WorkSpaces only to other BYOL bundles\. To migrate a BYOL WorkSpace from PCoIP to WSP, you must first create a BYOL bundle with the WSP protocol\. You can then migrate your PCoIP BYOL WorkSpaces to that WSP BYOL bundle\. 
 + You cannot migrate a WorkSpace created from public or custom bundles to a BYOL bundle\.
++ Graphics and GraphicsPro bundles are available for only the PCoIP protocol at this time, so Graphics and GraphicsPro WorkSpaces can't be migrated to WSP yet\.
 + Migrating Linux WorkSpaces is not currently supported\.
 + In AWS Regions that support more than one language, you can migrate WorkSpaces between language bundles\.
 + The source and target bundles must be different\. \(However, in Regions that support more than one language, you can migrate to the same Windows 10 bundle as long as the languages differ\.\) If you want to refresh your WorkSpace using the same bundle, [rebuild the WorkSpace](rebuild-workspace.md) instead\.
@@ -99,6 +100,8 @@ You can migrate WorkSpaces through the Amazon WorkSpaces console, the AWS comman
 1. Select your WorkSpace and choose **Actions**, **Migrate WorkSpaces**\.
 
 1. Under **Select Target Bundle**, select the bundle that you'd like to migrate your WorkSpace to\.
+**Note**  
+To migrate a BYOL WorkSpace from PCoIP to WSP, you must first create a BYOL bundle with the WSP protocol\. You can then migrate your PCoIP BYOL WorkSpaces to that WSP BYOL bundle\. 
 
 1. Under **Assign WorkSpace Bundle**, choose the target bundle for each WorkSpace user\.
 **Warning**  
