@@ -17,7 +17,7 @@ You can create an IP access control group as follows\. Each IP access control gr
 
 **To create an IP access control group**
 
-1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **IP Access Controls**\.
 
@@ -37,7 +37,7 @@ If you associate an IP access control group that has no rules with a directory, 
 
 **To associate an IP access control group with a directory**
 
-1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **Directories**\.
 
@@ -53,7 +53,7 @@ You can use an existing IP access control group as a base for creating a new IP 
 
 **To create an IP access control group from an existing one**
 
-1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **IP Access Controls**\.
 
@@ -71,7 +71,7 @@ Before you can delete an IP access control group, you must disassociate it from 
 
 **To delete an IP access control group**
 
-1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **Directories**\.
 

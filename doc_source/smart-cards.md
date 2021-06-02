@@ -2,7 +2,7 @@
 
 Windows and Linux WorkSpaces on WorkSpaces Streaming Protocol \(WSP\) bundles allow the use of [Common Access Card \(CAC\)](https://www.cac.mil/Common-Access-Card) and [Personal Identity Verification \(PIV\)](https://piv.idmanagement.gov/) smart cards for authentication\.
 
-Amazon WorkSpaces supports the use of smart cards for both *pre\-session authentication* and *in\-session authentication*\. Pre\-session authentication refers to smart card authentication that's performed while users are logging in to their WorkSpaces\. In\-session authentication refers to authentication that's performed after logging in\.
+Amazon Workspaces supports the use of smart cards for both *pre\-session authentication* and *in\-session authentication*\. Pre\-session authentication refers to smart card authentication that's performed while users are logging in to their WorkSpaces\. In\-session authentication refers to authentication that's performed after logging in\.
 
 For example, users can use smart cards for in\-session authentication while working with web browsers and applications\. They can also use smart cards for actions that require administrative permissions\. For example, if the user has administrative permissions on their Linux WorkSpace, they can use smart cards to authenticate themselves when running `sudo` and `sudo -i` commands\. 
 
@@ -14,11 +14,11 @@ For example, users can use smart cards for in\-session authentication while work
 + [Enabling Smart Cards for Linux WorkSpaces](#smart-cards-linux-workspaces)
 
 ## Requirements<a name="smart-cards-requirements"></a>
-+ An Active Directory Connector \(AD Connector\) directory is required\. For more information about how to configure your AD Connector and your on\-premises directory, see [Directory Configuration](#smart-cards-directory-config)\.
-+ To use a smart card with a Windows or Linux WorkSpace, the user must use the Amazon WorkSpaces Windows client version 3\.1\.1 or later or the WorkSpaces macOS client version 3\.1\.5 or later\. For more information about using smart cards with the Windows and macOS clients, see [ Smart Card Support](https://docs.aws.amazon.com/workspaces/latest/userguide/smart_card_support.html) in the *Amazon WorkSpaces User Guide*\. 
++ An Active Directory Connector \(AD Connector\) directory is required for pre\-session authentication\. AD Connector uses certificate\-based mutual Transport Layer Security \(mutual TLS\) authentication to authenticate users to Active Directory using a hardware or software\-based smart card certificate\. For more information about how to configure your AD Connector and your on\-premises directory, see [Directory Configuration](#smart-cards-directory-config)\.
++ To use a smart card with a Windows or Linux WorkSpace, the user must use the Amazon Workspaces Windows client version 3\.1\.1 or later or the WorkSpaces macOS client version 3\.1\.5 or later\. For more information about using smart cards with the Windows and macOS clients, see [ Smart Card Support](https://docs.aws.amazon.com/workspaces/latest/userguide/smart_card_support.html) in the *Amazon Workspaces User Guide*\. 
 + The root CA and smart card certificates must meet certain requirements\. For more information, see [ Enabling Smart Card Authentication for Amazon WorkSpaces](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ad_connector_clientauth.html) in the *AWS Directory Service Administration Guide* and [ Certificate Requirements](https://docs.microsoft.com/en-us/windows/security/identity-protection/smart-cards/smart-card-certificate-requirements-and-enumeration#certificate-requirements) in the Microsoft documentation\. 
 
-  In addition to those requirements, user certificates employed for smart card authentication to Amazon WorkSpaces must include the following attributes:
+  In addition to those requirements, user certificates employed for smart card authentication to Amazon Workspaces must include the following attributes:
   + The AD user's userPrincipalName \(UPN\) in the subjectAltName \(SAN\) field of the certificate\. We recommend issuing smart card certificates for the user's default UPN\.
   + The Client Authentication \(1\.3\.6\.1\.5\.5\.7\.3\.2\) Extended Key Usage \(EKU\) attribute\.
   + The Smart Card Logon \(1\.3\.6\.1\.4\.1\.311\.20\.2\.2\) EKU attribute\.
@@ -31,7 +31,7 @@ For example, users can use smart cards for in\-session authentication while work
 + Pre\-session authentication is available only in the AWS GovCloud \(US\-West\) Region at this time\. In\-session authentication is available in all Regions where WSP is supported\.
 + For in\-session authentication and pre\-session authentication on Linux or Windows WorkSpaces, only one smart card is currently allowed at a time\.
 + For pre\-session authentication, enabling both smart card authentication and username and password authentication on the same directory is not currently supported\.
-+ Only CAC and PIV cards are supported at this time\. Other types of smart cards might also work, but they haven't been fully tested for use with WSP\.
++ Only CAC and PIV cards are supported at this time\. Other types of hardware or software\-based smart cards might also work, but they haven't been fully tested for use with WSP\.
 + Using a smart card to unlock the screen during a Windows or Linux WorkSpace session currently isn't supported\. To work around this issue for Windows WorkSpaces, see [To detect the Windows lock screen and disconnect the session](#lock-screen-windows)\. To work around this issue for Linux WorkSpaces, see [To disable the lock screen on Linux WorkSpaces](#lock-screen-linux)\.
 
 ## Directory Configuration<a name="smart-cards-directory-config"></a>
@@ -148,7 +148,7 @@ To assist you with enabling smart cards, we've added the `enable_smartcard` scri
 
 The following procedure explains how to use the `enable_smartcard` script to add your root CA certificate to your Linux WorkSpaces and to enable smart cards for your Linux WorkSpaces\.
 
-1. Create a new Linux WorkSpace with the WSP protocol enabled\. When launching the WorkSpace in the Amazon WorkSpaces console, on the **Select Bundles** page, be sure to select **WSP** for the protocol, and then select one of the Amazon Linux 2 public bundles\.
+1. Create a new Linux WorkSpace with the WSP protocol enabled\. When launching the WorkSpace in the Amazon Workspaces console, on the **Select Bundles** page, be sure to select **WSP** for the protocol, and then select one of the Amazon Linux 2 public bundles\.
 
 1. On the new WorkSpace, run the following command as root, where `pem-path` is the path to the root CA certificate file in PEM format\.
 
@@ -176,7 +176,7 @@ To use alternate UPN suffixes, `run /usr/lib/skylight/enable_smartcard --help` f
    sudo glib-compile-schemas /usr/share/glib-2.0/schemas/
    ```
 
-1. Perform any additional customizations to the WorkSpace\. For example, you might want to add a system\-wide policy to [enable users to use smart cards in Firefox](#smart-cards-firefox-linux)\. \(Chrome users must enable smart cards on their clients themselves\. For more information, see [ Smart Card Support](https://docs.aws.amazon.com/workspaces/latest/userguide/smart_card_support.html) in the *Amazon WorkSpaces User Guide*\.\) 
+1. Perform any additional customizations to the WorkSpace\. For example, you might want to add a system\-wide policy to [enable users to use smart cards in Firefox](#smart-cards-firefox-linux)\. \(Chrome users must enable smart cards on their clients themselves\. For more information, see [ Smart Card Support](https://docs.aws.amazon.com/workspaces/latest/userguide/smart_card_support.html) in the *Amazon Workspaces User Guide*\.\) 
 
 1. [Create a custom WorkSpace image and bundle](create-custom-bundle.md) from the WorkSpace\.
 

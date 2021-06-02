@@ -1,6 +1,6 @@
-# Protocols for Amazon WorkSpaces<a name="amazon-workspaces-protocols"></a>
+# Protocols for Amazon Workspaces<a name="amazon-workspaces-protocols"></a>
 
-Amazon WorkSpaces supports two protocols: PCoIP and WorkSpaces Streaming Protocol \(WSP\)\. The protocol that you choose depends on several factors, such as the type of devices your users will be accessing their WorkSpaces from, which operating system is on your WorkSpaces, what network conditions your users will be facing, and whether your users require bidirectional video support\.
+Amazon Workspaces supports two protocols: PCoIP and WorkSpaces Streaming Protocol \(WSP\)\. The protocol that you choose depends on several factors, such as the type of devices your users will be accessing their WorkSpaces from, which operating system is on your WorkSpaces, what network conditions your users will be facing, and whether your users require bidirectional video support\.
 
 **When to Use PCoIP**
 + If you want to use the iPad, Android, or Linux clients\.

@@ -6,7 +6,7 @@ You can share custom WorkSpaces images across AWS accounts within the same AWS R
 In the China \(Ningxia\) Region, you can copy images only within the same Region\.  
 In the AWS GovCloud \(US\-West\) Region, to copy images to and from other AWS Regions, contact AWS Support\.
 
-There are no additional charges for sharing an image\. However, the quota for the number of images in the AWS Region applies\. A shared image doesn't count against the recipient account's quota until the recipient copies the image\. For more information about Amazon WorkSpaces quotas, see [Amazon WorkSpaces Quotas](workspaces-limits.md)\.
+There are no additional charges for sharing an image\. However, the quota for the number of images in the AWS Region applies\. A shared image doesn't count against the recipient account's quota until the recipient copies the image\. For more information about Amazon Workspaces quotas, see [Amazon Workspaces Quotas](workspaces-limits.md)\.
 
 To delete a shared image, you must unshare the image before you can delete it\.
 
@@ -28,7 +28,7 @@ If an image has been shared with you, you can't further share that image with ot
 
 **To share an image**
 
-1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **Images**\.
 
@@ -46,7 +46,7 @@ To use the shared image, the recipient account must first [ copy the image](copy
 
 **To stop sharing an image**
 
-1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **Images**\.
 

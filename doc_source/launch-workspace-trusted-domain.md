@@ -1,10 +1,10 @@
 # Launch a WorkSpace Using a Trusted Domain<a name="launch-workspace-trusted-domain"></a>
 
-Amazon WorkSpaces enables you to provision virtual, cloud\-based Microsoft Windows desktops for your users, known as *WorkSpaces*\.
+Workspaces enables you to provision virtual, cloud\-based Microsoft Windows desktops for your users, known as *WorkSpaces*\.
 
-Amazon WorkSpaces uses directories to store and manage information for your WorkSpaces and users\. For your directory, you can choose from Simple AD, AD Connector, or AWS Directory Service for Microsoft Active Directory, also known as AWS Managed Microsoft AD\. In addition, you can establish a trust relationship between your AWS Managed Microsoft AD directory and your on\-premises domain\.
+Workspaces uses directories to store and manage information for your WorkSpaces and users\. For your directory, you can choose from Simple AD, AD Connector, or AWS Directory Service for Microsoft Active Directory, also known as AWS Managed Microsoft AD\. In addition, you can establish a trust relationship between your AWS Managed Microsoft AD directory and your on\-premises domain\.
 
-In this tutorial, we launch a WorkSpace that uses a trust relationship\. For tutorials that use the other options, see [Launch a Virtual Desktop Using Amazon WorkSpaces](launch-workspaces-tutorials.md)\.
+In this tutorial, we launch a WorkSpace that uses a trust relationship\. For tutorials that use the other options, see [Launch a Virtual Desktop Using Workspaces](launch-workspaces-tutorials.md)\.
 
 **Topics**
 + [Before You Begin](#prereqs-trusted-domain)
@@ -15,9 +15,9 @@ In this tutorial, we launch a WorkSpace that uses a trust relationship\. For tut
 
 ## Before You Begin<a name="prereqs-trusted-domain"></a>
 + Launching WorkSpaces with user accounts in a separate trusted domain works with AWS Managed Microsoft AD when it is configured with a trust relationship to your on\-premises directory\. However, WorkSpaces using Simple AD or AD Connector cannot launch WorkSpaces for users from a trusted domain\.
-+ Amazon WorkSpaces is not available in every Region\. Verify the supported Regions and select a Region for your WorkSpaces\. For more information about the supported Regions, see [Amazon WorkSpaces Pricing by AWS Region](https://aws.amazon.com/workspaces/pricing/)\.
++ Workspaces is not available in every Region\. Verify the supported Regions and select a Region for your WorkSpaces\. For more information about the supported Regions, see [Workspaces Pricing by AWS Region](https://aws.amazon.com/workspaces/pricing/)\.
 + When you launch a WorkSpace, you must select a WorkSpace bundle\. A bundle is a combination of storage, compute, and software resources\. For more information, see [Amazon WorkSpaces Bundles](https://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles)\.
-+ When you create a directory using AWS Directory Service or launch a WorkSpace, you must create or select a virtual private cloud configured with a public subnet and two private subnets\. For more information, see [Configure a VPC for Amazon WorkSpaces](amazon-workspaces-vpc.md)\.
++ When you create a directory using AWS Directory Service or launch a WorkSpace, you must create or select a virtual private cloud configured with a public subnet and two private subnets\. For more information, see [Configure a VPC for Workspaces](amazon-workspaces-vpc.md)\.
 
 ## Step 1: Establish a Trust Relationship<a name="create-trust-relationship"></a>
 
@@ -25,8 +25,8 @@ In this tutorial, we launch a WorkSpace that uses a trust relationship\. For tut
 
 1. Set up AWS Managed Microsoft AD in your virtual private cloud \(VPC\)\. For more information, see [Create Your AWS Managed Microsoft AD directory](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/create_managed_ad.html) in the *AWS Directory Service Administration Guide*\.
 **Note**  
-Shared directories are not currently supported for use with Amazon WorkSpaces\.
-If your AWS Managed Microsoft AD directory has been configured for multi\-Region replication, only the directory in the primary Region can be registered for use with Amazon WorkSpaces\. Attempts to register the directory in a replicated Region for use with Amazon WorkSpaces will fail\. Multi\-Region replication with AWS Managed Microsoft AD isn't supported for use with Amazon WorkSpaces within replicated Regions\.
+Shared directories are not currently supported for use with Amazon Workspaces\.
+If your AWS Managed Microsoft AD directory has been configured for multi\-Region replication, only the directory in the primary Region can be registered for use with Amazon Workspaces\. Attempts to register the directory in a replicated Region for use with Amazon Workspaces will fail\. Multi\-Region replication with AWS Managed Microsoft AD isn't supported for use with Amazon Workspaces within replicated Regions\.
 
 1. Create a trust relationship between your AWS Managed Microsoft AD and your on\-premises domain\. Ensure that the trust is configured as a two\-way trust\. For more information, see [Tutorial: Create a Trust Relationship Between Your AWS Managed Microsoft AD and Your On\-Premises Domain](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/tutorial_setup_trust.html) in the *AWS Directory Service Administration Guide*\.
 
@@ -36,11 +36,11 @@ A two\-way trust is required so that on\-premises credentials can be used to man
 
 After you establish a trust relationship between your AWS Managed Microsoft AD and your on\-premises Microsoft Active Directory domain, you can provision WorkSpaces for users in the on\-premises domain\.
 
-Note that you must ensure that GPO settings are replicated across domains before you can apply them to Amazon WorkSpaces\.
+Note that you must ensure that GPO settings are replicated across domains before you can apply them to Workspaces\.
 
 **To launch workspaces for users in a trusted on\-premises domain**
 
-1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **WorkSpaces**\.
 
@@ -74,7 +74,7 @@ After you receive the invitation email, you can connect to your WorkSpace\. User
 **Note**  
 Passwords are case\-sensitive and must be between 8 and 64 characters in length, inclusive\. Passwords must contain at least one character from each of the following categories: lowercase letters \(a\-z\), uppercase letters \(A\-Z\), numbers \(0\-9\), and \~\!@\#$%^&\*\_\-\+=`\|\\\(\)\{\}\[\]:;"'<>,\.?/\.
 
-1. Review [Amazon WorkSpaces Clients](https://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-clients.html) in the *Amazon WorkSpaces User Guide* for more information about the requirements for each client, and then do one of the following: 
+1. Review [Workspaces Clients](https://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-clients.html) in the *Amazon Workspaces User Guide* for more information about the requirements for each client, and then do one of the following: 
    + When prompted, download one of the client applications or launch Web Access\.
    + If you aren't prompted and you haven't installed a client application already, open [https://clients\.amazonworkspaces\.com/](https://clients.amazonworkspaces.com/) and download one of the client applications or launch Web Access\.
 **Note**  
@@ -91,7 +91,7 @@ You cannot use a web browser \(Web Access\) to connect to Amazon Linux WorkSpace
 You can continue to customize the WorkSpace that you just created\. For example, you can install software and then create a custom bundle from your WorkSpace\. You can also perform various administrative tasks for your WorkSpaces and your WorkSpaces directory\. If you are finished with your WorkSpace, you can delete it\. For more information, see the following documentation\.
 + [Create a Custom WorkSpaces Image and Bundle](create-custom-bundle.md)
 + [Administer Your WorkSpaces](administer-workspaces.md)
-+ [Manage Directories for Amazon WorkSpaces](manage-workspaces-directory.md)
++ [Manage Directories for Workspaces](manage-workspaces-directory.md)
 + [Delete a WorkSpace](delete-workspaces.md)
 
-For more information about using the WorkSpaces client applications, such as setting up multiple monitors or using peripheral devices, see [Amazon WorkSpaces Clients](https://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-clients.html) and [Peripheral Device Support](https://docs.aws.amazon.com/workspaces/latest/userguide/peripheral_devices.html) in the *Amazon WorkSpaces User Guide*\.
+For more information about using the WorkSpaces client applications, such as setting up multiple monitors or using peripheral devices, see [Workspaces Clients](https://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-clients.html) and [Peripheral Device Support](https://docs.aws.amazon.com/workspaces/latest/userguide/peripheral_devices.html) in the *Amazon Workspaces User Guide*\.

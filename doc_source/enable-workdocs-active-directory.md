@@ -1,9 +1,9 @@
 # Enable Amazon WorkDocs for AWS Managed Microsoft AD<a name="enable-workdocs-active-directory"></a>
 
-If you're using AWS Managed Microsoft AD with Amazon WorkSpaces, you can enable Amazon WorkDocs for your directory through either the Amazon WorkDocs console or the AWS Directory Service console\. 
+If you're using AWS Managed Microsoft AD with Amazon Workspaces, you can enable Amazon WorkDocs for your directory through either the Amazon WorkDocs console or the AWS Directory Service console\. 
 
 **Note**  
-Amazon WorkDocs is not available in all of the AWS Regions where Amazon WorkSpaces is available\. For more information, see [Amazon WorkDocs Pricing](http://aws.amazon.com/workdocs/pricing/)\.
+Amazon WorkDocs is not available in all of the AWS Regions where Amazon Workspaces is available\. For more information, see [Amazon WorkDocs Pricing](http://aws.amazon.com/workdocs/pricing/)\.
 
 **To enable WorkDocs through the Amazon WorkDocs console**
 

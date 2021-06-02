@@ -1,6 +1,6 @@
 # Enable Self\-Service WorkSpace Management Capabilities for Your Users<a name="enable-user-self-service-workspace-management"></a>
 
-In Amazon WorkSpaces, you can enable self\-service WorkSpace management capabilities for your users to provide them with more control over their experience\. It can also reduce your IT support staff workload for Amazon WorkSpaces\. When you enable self\-service capabilities, you can allow users to perform one or more of the following tasks directly from their Windows, macOS, or Linux client for Amazon WorkSpaces:
+In Workspaces, you can enable self\-service WorkSpace management capabilities for your users to provide them with more control over their experience\. It can also reduce your IT support staff workload for Workspaces\. When you enable self\-service capabilities, you can allow users to perform one or more of the following tasks directly from their Windows, macOS, or Linux client for Workspaces:
 + Cache their credentials on their client\. This lets them reconnect to their WorkSpace without re\-entering their credentials\.
 + Restart \(reboot\) their WorkSpace\.
 + Increase the size of the root and user volumes on their WorkSpace\. 
@@ -12,7 +12,7 @@ To enable one or more of these capabilities for your users, perform the followin
 
 **To enable self\-service management capabilities for your users**
 
-1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **Directories**\.
 

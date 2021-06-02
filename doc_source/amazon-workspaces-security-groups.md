@@ -1,6 +1,6 @@
 # Security Groups for Your WorkSpaces<a name="amazon-workspaces-security-groups"></a>
 
-When you register a directory with Amazon WorkSpaces, it creates two security groups, one for directory controllers and another for WorkSpaces in the directory\. The security group for directory controllers has a name that consists of the directory identifier followed by **\_controllers** \(for example, d\-12345678e1\_controllers\)\. The security group for WorkSpaces has a name that consists of the directory identifier followed by **\_workspacesMembers** \(for example, d\-123456fc11\_workspacesMembers\)\.
+When you register a directory with Workspaces, it creates two security groups, one for directory controllers and another for WorkSpaces in the directory\. The security group for directory controllers has a name that consists of the directory identifier followed by **\_controllers** \(for example, d\-12345678e1\_controllers\)\. The security group for WorkSpaces has a name that consists of the directory identifier followed by **\_workspacesMembers** \(for example, d\-123456fc11\_workspacesMembers\)\.
 
 **Warning**  
 Do not modify or delete the **\_controllers** and the **\_workspacesMembers** security groups\. If you modify or delete these security groups, your WorkSpaces won't function correctly, and you won't be able to recreate these groups and add them back\.
@@ -13,7 +13,7 @@ For more information about security groups, see [ Security Groups for Your VPC](
 
 **To add a security group to a WorkSpaces directory**
 
-1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **Directories**\.
 
@@ -29,7 +29,7 @@ To add a security group to an existing WorkSpace without rebuilding it, you assi
 
 1. Find the IP address for each WorkSpace that needs to be updated\.
 
-   1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+   1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
    1. Expand each WorkSpace and record its WorkSpace IP address\.
 

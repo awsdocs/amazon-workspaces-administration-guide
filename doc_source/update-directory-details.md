@@ -1,6 +1,6 @@
 # Update Directory Details for Your WorkSpaces<a name="update-directory-details"></a>
 
-You can complete the following directory management tasks using the Amazon WorkSpaces console\.
+You can complete the following directory management tasks using the Workspaces console\.
 
 **Topics**
 + [Select an Organizational Unit](#select-ou)
@@ -18,7 +18,7 @@ After you select a new OU, the machine accounts for all WorkSpaces that are crea
 
 **To select an organizational unit**
 
-1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **Directories**\.
 
@@ -34,7 +34,7 @@ After you select a new OU, the machine accounts for all WorkSpaces that are crea
 
 **To specify a target domain and organizational unit**
 
-1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **Directories**\.
 
@@ -50,14 +50,14 @@ After you select a new OU, the machine accounts for all WorkSpaces that are crea
 
 After you enable automatic assignment of [ Elastic IP addresses](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html), each WorkSpace that you launch is assigned an Elastic IP address \(a static public IP address\) from the Amazon\-provided pool of Elastic IP addresses\. These Elastic IP addresses allow WorkSpaces in public subnets to access the internet\. WorkSpaces that already exist before you enable automatic assignment do not receive an Elastic IP address until you rebuild them\.
 
-Note that you do not need to enable automatic assignment of Elastic IP addresses if your WorkSpaces are in private subnets and you configured a NAT gateway for the virtual private cloud \(VPC\), or if your WorkSpaces are in public subnets and you manually assigned Elastic IP addresses\. For more information, see [Configure a VPC for Amazon WorkSpaces](amazon-workspaces-vpc.md)\.
+Note that you do not need to enable automatic assignment of Elastic IP addresses if your WorkSpaces are in private subnets and you configured a NAT gateway for the virtual private cloud \(VPC\), or if your WorkSpaces are in public subnets and you manually assigned Elastic IP addresses\. For more information, see [Configure a VPC for Workspaces](amazon-workspaces-vpc.md)\.
 
 **Warning**  
 If you associate an Elastic IP address that you own to a WorkSpace, and then you later disassociate that Elastic IP address from the WorkSpace, the WorkSpace loses its public IP address, and it doesn't automatically get a new one from the Amazon\-provided pool\. To associate a new public IP address from the Amazon\-provided pool with the WorkSpace, you must [rebuild the WorkSpace](rebuild-workspace.md)\. If you don't want to rebuild the WorkSpace, you must associate another Elastic IP address that you own to the WorkSpace\.
 
 **To configure Elastic IP addresses**
 
-1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **Directories**\.
 
@@ -75,7 +75,7 @@ You can specify the types of devices that have access to WorkSpaces\. In additio
 
 **To control device access to WorkSpaces**
 
-1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **Directories**\.
 
@@ -95,7 +95,7 @@ You can specify whether users are local administrators on their WorkSpaces, whic
 
 **To modify local administrator permissions**
 
-1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **Directories**\.
 
@@ -109,11 +109,11 @@ You can specify whether users are local administrators on their WorkSpaces, whic
 
 ## Update the AD Connector Account \(AD Connector\)<a name="connect-account"></a>
 
-You can update the AD Connector account that is used to read users and groups and join Amazon WorkSpaces machine accounts to your AD Connector directory\.
+You can update the AD Connector account that is used to read users and groups and join Workspaces machine accounts to your AD Connector directory\.
 
 **To update the AD Connector account**
 
-1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **Directories**\.
 
@@ -135,7 +135,7 @@ The usernames must match between Active Directory and your RADIUS server\.
 
 **To enable multi\-factor authentication**
 
-1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **Directories**\.
 

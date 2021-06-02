@@ -24,7 +24,7 @@ Local printer redirection is not available for Linux WorkSpaces\.
 
 ## Enable or Disable Clipboard Redirection for Amazon Linux WorkSpaces<a name="linux_clipboard"></a>
 
-By default, Amazon WorkSpaces supports clipboard redirection\. Use the PCoIP Agent conf to disable this feature, if needed\. This setting takes effect when you reboot the WorkSpace\.
+By default, Workspaces supports clipboard redirection\. Use the PCoIP Agent conf to disable this feature, if needed\. This setting takes effect when you reboot the WorkSpace\.
 
 **Note**  
 Clipboard redirection is not currently supported in the WorkSpaces Linux client application or on Linux WorkSpaces using WSP\.
@@ -58,7 +58,7 @@ Clipboard redirection is implemented as a virtual channel\. If virtual channels 
 
 ## Enable or Disable Audio\-In Redirection for Amazon Linux WorkSpaces<a name="linux_audio"></a>
 
-By default, Amazon WorkSpaces supports audio\-in redirection\. Use the PCoIP Agent conf to disable this feature, if needed\. This setting takes effect when you reboot the WorkSpace\.
+By default, Workspaces supports audio\-in redirection\. Use the PCoIP Agent conf to disable this feature, if needed\. This setting takes effect when you reboot the WorkSpace\.
 
 **Note**  
 Audio\-in redirection is not currently supported on Linux WorkSpaces using WSP\.

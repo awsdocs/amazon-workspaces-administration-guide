@@ -11,9 +11,9 @@ Existing WorkSpaces aren't automatically updated when you update the bundle that
 
    Alternatively, you can create a new WorkSpace with the same base software package \(Plus or Standard\) as the image used to create the bundle, and make changes\.
 
-1. If you are still connected to the WorkSpace, disconnect by choosing **Amazon WorkSpaces** and **Disconnect** in the WorkSpaces client application\.
+1. If you are still connected to the WorkSpace, disconnect by choosing **Amazon Workspaces** and **Disconnect** in the WorkSpaces client application\.
 
-1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **WorkSpaces**\.
 
@@ -30,4 +30,4 @@ Existing WorkSpaces aren't automatically updated when you update the bundle that
 1. As needed, update any existing WorkSpaces that are based on the bundle by rebuilding the WorkSpaces or deleting and recreating them\. For more information, see [Rebuild a WorkSpace](rebuild-workspace.md)\.
 
 **To update a bundle programmatically**  
-To update a bundle programmatically, use the UpdateWorkspaceBundle API action\. For more information, see [ UpdateWorkspaceBundle](https://docs.aws.amazon.com/workspaces/latest/api/API_UpdateWorkspaceBundle.html) in the *Amazon WorkSpaces API Reference*\.
+To update a bundle programmatically, use the UpdateWorkspaceBundle API action\. For more information, see [ UpdateWorkspaceBundle](https://docs.aws.amazon.com/workspaces/latest/api/API_UpdateWorkspaceBundle.html) in the *Amazon Workspaces API Reference*\.

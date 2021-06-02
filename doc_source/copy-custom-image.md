@@ -10,7 +10,7 @@ In the AWS GovCloud \(US\-West\) Region, to copy images to and from other AWS Re
 
 You can also copy an image that has been shared with you by another AWS account\. For more information about shared images, see [Share or Unshare a Custom WorkSpaces Image](share-custom-image.md)\.
 
-There are no additional charges for copying an image within or across Regions\. However, the quota for the number of images in the destination Region applies\. For more information about Amazon WorkSpaces quotas, see [Amazon WorkSpaces Quotas](workspaces-limits.md)\.
+There are no additional charges for copying an image within or across Regions\. However, the quota for the number of images in the destination Region applies\. For more information about Amazon Workspaces quotas, see [Amazon Workspaces Quotas](workspaces-limits.md)\.
 
 **IAM Permissions for Copying an Image**  
 If you use an IAM user to copy an image, the user must have permissions for `workspaces:DescribeWorkspaceImages` and `workspaces:CopyWorkspaceImage`\.
@@ -57,17 +57,17 @@ If you are creating an IAM policy for copying shared images for accounts that do
 ```
 You can specify an account ID in the ARN only when that account owns the images to be copied\.
 
-For more information about working with IAM, see [Identity and Access Management for Amazon WorkSpaces](workspaces-access-control.md)\.
+For more information about working with IAM, see [Identity and Access Management for Workspaces](workspaces-access-control.md)\.
 
 **Copy an Image**  
-You can copy images one by one using the console\. To bulk copy images, use the CopyWorkspaceImage API operation or the copy\-workspace\-image command in the AWS command line interface \(CLI\)\. For more information, see [ CopyWorkspaceImage](https://docs.aws.amazon.com/workspaces/latest/api/API_CopyWorkspaceImage.html) in the *Amazon WorkSpaces API Reference* or see [ copy\-workspace\-image](https://docs.aws.amazon.com/cli/latest/reference/workspaces/copy-workspace-image.html) in the *AWS CLI Command Reference*\.
+You can copy images one by one using the console\. To bulk copy images, use the CopyWorkspaceImage API operation or the copy\-workspace\-image command in the AWS command line interface \(CLI\)\. For more information, see [ CopyWorkspaceImage](https://docs.aws.amazon.com/workspaces/latest/api/API_CopyWorkspaceImage.html) in the *Amazon Workspaces API Reference* or see [ copy\-workspace\-image](https://docs.aws.amazon.com/cli/latest/reference/workspaces/copy-workspace-image.html) in the *AWS CLI Command Reference*\.
 
 **Important**  
 Before copying a shared image, be sure to verify that it has been shared from the correct AWS account\. To determine if an image has been shared and to see the AWS account ID that owns an image, use the [DescribeWorkSpaceImages](https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImages.html) and [DescribeWorkspaceImagePermissions](https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImagePermissions.html) API operations or the [describe\-workspace\-images](https://docs.aws.amazon.com/cli/latest/reference/workspaces/describe-workspace-images.html) and [describe\-workspace\-image\-permissions](https://docs.aws.amazon.com/cli/latest/reference/workspaces/describe-workspace-image-permissions.html) commands in the AWS CLI\. 
 
 **To copy an image using the console**
 
-1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **Images**\.
 

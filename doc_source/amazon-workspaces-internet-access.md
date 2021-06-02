@@ -6,7 +6,7 @@ Your WorkSpaces must have access to the internet so that you can install updates
 + Launch your WorkSpaces in private subnets and configure a NAT gateway in a public subnet in your VPC\.
 + Launch your WorkSpaces in public subnets and automatically or manually assign public IP addresses to your WorkSpaces\.
 
-For more information about these options, see the corresponding sections in [Configure a VPC for Amazon WorkSpaces](amazon-workspaces-vpc.md)\.
+For more information about these options, see the corresponding sections in [Configure a VPC for Workspaces](amazon-workspaces-vpc.md)\.
 
 With any of these options, you must ensure that the security group for your WorkSpaces allows outbound traffic on ports 80 \(HTTP\) and 443 \(HTTPS\) to all destinations \(`0.0.0.0/0`\)\.
 

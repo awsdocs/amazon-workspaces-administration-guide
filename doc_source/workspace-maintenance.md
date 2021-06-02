@@ -1,6 +1,6 @@
 # WorkSpace Maintenance<a name="workspace-maintenance"></a>
 
-We recommend that you maintain your WorkSpaces on a regular basis\. Amazon WorkSpaces schedules default maintenance windows for your WorkSpaces\. During the maintenance window, the WorkSpace installs important updates from Amazon WorkSpaces and reboots as necessary\. If available, operating system updates are also installed from the OS update server that the WorkSpace is configured to use\. During maintenance, your WorkSpaces might be unavailable\.
+We recommend that you maintain your WorkSpaces on a regular basis\. Workspaces schedules default maintenance windows for your WorkSpaces\. During the maintenance window, the WorkSpace installs important updates from Amazon Workspaces and reboots as necessary\. If available, operating system updates are also installed from the OS update server that the WorkSpace is configured to use\. During maintenance, your WorkSpaces might be unavailable\.
 
 **Note**  
 By default, your Windows WorkSpaces are configured to receive updates from Windows Update\. To configure your own automatic update mechanisms for Windows, see the documentation for [ Windows Server Update Services \(WSUS\)](https://docs.microsoft.com/windows-server/administration/windows-server-update-services/deploy/deploy-windows-server-update-services) and [Configuration Manager](https://docs.microsoft.com/configmgr/sum/deploy-use/deploy-software-updates)\.
@@ -23,7 +23,7 @@ Although you cannot modify the time zone that is used for maintaining AutoStop W
 
 **To disable maintenance mode**
 
-1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **Directories**\.
 
@@ -48,7 +48,7 @@ When a WorkSpace is in `ADMIN_MAINTENANCE` mode, the following behaviors occur:
 **Note**  
 To change the state of a WorkSpace, the WorkSpace must have a status of `AVAILABLE`\. The **Modify State** setting is not available when a WorkSpace has a status of `STOPPED`\.
 
-1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **WorkSpaces**\.
 

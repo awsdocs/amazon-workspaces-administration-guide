@@ -1,17 +1,17 @@
 # Manage WorkSpaces Users<a name="manage-workspaces-users"></a>
 
-As an administrator for Amazon WorkSpaces, you can perform the following tasks to manage WorkSpaces users\.
+As an administrator for Workspaces, you can perform the following tasks to manage WorkSpaces users\.
 
 ## Edit User Information<a name="edit-user"></a>
 
-You can use the Amazon WorkSpaces console to edit the user information for a WorkSpace\.
+You can use the Workspaces console to edit the user information for a WorkSpace\.
 
 **Note**  
 This feature is available only if you use AWS Managed Microsoft AD or Simple AD\. If you use Microsoft Active Directory through AD Connector or a trust relationship, you can manage users and groups by using [ Active Directory](https://docs.microsoft.com/powershell/module/addsadministration/?view=win10-ps)\.
 
 **To edit user information**
 
-1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **WorkSpaces**\.
 
@@ -23,10 +23,10 @@ This feature is available only if you use AWS Managed Microsoft AD or Simple AD\
 
 ## Add or Delete Users<a name="add-delete-user"></a>
 
-You can create new users from the Amazon WorkSpaces console only during the process of launching a WorkSpace, and you cannot delete users through the Amazon WorkSpaces console\. Most user management tasks, including managing user groups, must be performed through your directory\.
+You can create new users from the Amazon Workspaces console only during the process of launching a WorkSpace, and you cannot delete users through the Amazon Workspaces console\. Most user management tasks, including managing user groups, must be performed through your directory\.
 
 **To add or delete users and groups**  
-To add, delete, or otherwise manage users and groups, you must do this through your directory\. You'll perform most administrative tasks for your WorkSpaces directory using directory management tools, such as the Active Directory Administration Tools\. For more information, see [Set Up Active Directory Administration Tools for Amazon WorkSpaces](directory_administration.md)\.
+To add, delete, or otherwise manage users and groups, you must do this through your directory\. You'll perform most administrative tasks for your WorkSpaces directory using directory management tools, such as the Active Directory Administration Tools\. For more information, see [Set Up Active Directory Administration Tools for Workspaces](directory_administration.md)\.
 
 **Important**  
 Before you can remove a user, you must delete the WorkSpace assigned to that user\. For more information, see [Delete a WorkSpace](delete-workspaces.md)\.
@@ -45,7 +45,7 @@ If you're using AD Connector, welcome emails aren't automatically sent to your u
 
 **To resend an invitation email**
 
-1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **WorkSpaces**\.
 

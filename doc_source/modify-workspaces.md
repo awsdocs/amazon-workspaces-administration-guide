@@ -4,7 +4,7 @@ After you launch a WorkSpace, you can modify its configuration in two ways:
 + You can change the size of its root volume \(for Windows, drive C; for Linux, /\) and its user volume \(for Windows, drive D; for Linux /home\)\.
 + You can change its compute type to select a new bundle\.
 
-The current modification state of a WorkSpace is displayed in the **State** setting in the Amazon WorkSpaces console\. The possible values for **State** are **Modifying Compute**, **Modifying Storage,** and **None**\.
+The current modification state of a WorkSpace is displayed in the **State** setting in the Workspaces console\. The possible values for **State** are **Modifying Compute**, **Modifying Storage,** and **None**\.
 
 If you want to modify a WorkSpace, it must have a status of `AVAILABLE` or `STOPPED`\. When you are modifying the volume size, you can't change the compute type at the same time, and vice versa\.
 
@@ -27,7 +27,7 @@ You can increase the size of the root and user volumes for a WorkSpace, up to 20
 You can expand the root and user volumes whether they are encrypted or unencrypted, and you can expand both volumes once in a 6\-hour period\. However, you can't increase the size of the root and user volumes at the same time\. For more information, see [Limitations for Increasing Volumes](#limitations_increasing_volumes)\.
 
 **Note**  
-When you expand a volume for a WorkSpace, Amazon WorkSpaces automatically extends the volume's partition within Windows or Linux\. When the process is finished, you must reboot the WorkSpace for the changes to take effect\. 
+When you expand a volume for a WorkSpace, Workspaces automatically extends the volume's partition within Windows or Linux\. When the process is finished, you must reboot the WorkSpace for the changes to take effect\. 
 
 To ensure that your data is preserved, you cannot decrease the size of the root or user volumes after you launch a WorkSpace\. Instead, make sure that you specify the minimum sizes for these volumes when launching a WorkSpace\. You can launch a Value, Standard, Performance, Power, or PowerPro WorkSpace with a minimum of 80 GB for the root volume and 10 GB for the user volume\. You can launch a Graphics or GraphicsPro WorkSpace with a minimum of 100 GB for the root volume and 100 GB for the user volume\.
 
@@ -36,7 +36,7 @@ While a WorkSpace disk size increase is in progress, users can perform most task
 **Note**  
 If you want your users to be able to use their WorkSpaces while the disk size increase is in progress, make sure the WorkSpaces have a status of `AVAILABLE` instead of `STOPPED` before you resize the volumes of the WorkSpaces\. If the WorkSpaces are `STOPPED`, they can't be started while the disk size increase is in progress\.
 
-In most cases, the disk size increase process might take up to an hour\. However, if you're modifying the volume sizes for a large number of WorkSpaces, the process can take significantly longer\. If you have a large number of WorkSpaces to modify, we recommend contacting Support for assistance\.
+In most cases, the disk size increase process might take up to two hours\. However, if you're modifying the volume sizes for a large number of WorkSpaces, the process can take significantly longer\. If you have a large number of WorkSpaces to modify, we recommend contacting AWS Support for assistance\.
 
 **Limitations for Increasing Volumes**
 + You can resize only SSD volumes\.
@@ -49,7 +49,7 @@ If you want to increase both volumes, you must wait 20\-30 minutes for the first
 
 **To change the volume sizes of a WorkSpace**
 
-1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **WorkSpaces**\.
 
@@ -63,12 +63,12 @@ If you want to increase both volumes, you must wait 20\-30 minutes for the first
 
 ## Changing Bundle Types<a name="change_bundles"></a>
 
-You can switch a WorkSpace between the Value, Standard, Performance, Power, and PowerPro bundles\. For more information about these bundle types, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/features/#Amazon_WorkSpaces_Bundles)\.
+You can switch a WorkSpace between the Value, Standard, Performance, Power, and PowerPro bundles\. For more information about these bundle types, see [Amazon Workspaces Bundles](http://aws.amazon.com/workspaces/features/#Amazon_WorkSpaces_Bundles)\.
 
 **Note**  
 You cannot change the compute type for Graphics and GraphicsPro WorkSpaces\.
 
-When you request a bundle change, Amazon WorkSpaces reboots the WorkSpace using the new bundle\. Amazon WorkSpaces preserves the operating system, applications, data, and storage settings for the WorkSpace\.
+When you request a bundle change, Workspaces reboots the WorkSpace using the new bundle\. Workspaces preserves the operating system, applications, data, and storage settings for the WorkSpace\.
 
 You can request a larger bundle once in a 1\-hour period or a smaller bundle once every 30 days\. For a newly launched WorkSpace, you must wait 1 hour before requesting a larger bundle\.
 
@@ -81,7 +81,7 @@ The compute type change process might take up to an hour\.
 
 **To change the bundle type of a WorkSpace**
 
-1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **WorkSpaces**\.
 

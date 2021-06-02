@@ -1,6 +1,6 @@
-# Cross\-Region Redirection for Amazon WorkSpaces<a name="cross-region-redirection"></a>
+# Cross\-Region Redirection for Amazon Workspaces<a name="cross-region-redirection"></a>
 
-With the cross\-Region redirection feature in Amazon WorkSpaces, you can use a fully qualified domain name \(FQDN\) as the registration code for your WorkSpaces\. Cross\-Region redirection works with your Domain Name System \(DNS\) routing policies to redirect your WorkSpaces users to alternative WorkSpaces when their primary WorkSpaces aren't available\. For example, by using DNS failover routing policies, you can connect your users to WorkSpaces in your specified failover AWS Region when they can't access their WorkSpaces in the primary Region\.
+With the cross\-Region redirection feature in Amazon Workspaces, you can use a fully qualified domain name \(FQDN\) as the registration code for your WorkSpaces\. Cross\-Region redirection works with your Domain Name System \(DNS\) routing policies to redirect your WorkSpaces users to alternative WorkSpaces when their primary WorkSpaces aren't available\. For example, by using DNS failover routing policies, you can connect your users to WorkSpaces in your specified failover AWS Region when they can't access their WorkSpaces in the primary Region\.
 
 You can use cross\-Region redirection along with your DNS failover routing policies to achieve regional resiliency and high availability\. You can also use this feature for other purposes, such as traffic distribution or providing alternative WorkSpaces during maintenance periods\. If you use Amazon Route 53 for your DNS configuration, you can take advantage of health checks that monitor Amazon CloudWatch alarms\.
 
@@ -30,7 +30,7 @@ To designate your primary and failover Regions, you define the Region priority \
 ## Prerequisites<a name="cross-region-redirection-prerequisites"></a>
 + You must own and register the domain that you want to use as the FQDN in your connection aliases\. If you're not already using another domain registrar, you can use Amazon Route 53 to register your domain\. For more information, see [ Registering domain names using Amazon Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar.html) in the *Amazon Route 53 Developer Guide*\.
 **Important**  
-You must have all necessary rights to use any domain name that you use in conjunction with Amazon WorkSpaces\. You agree that the domain name does not violate or infringe on the legal rights of any third party or otherwise violate applicable law\.
+You must have all necessary rights to use any domain name that you use in conjunction with Amazon Workspaces\. You agree that the domain name does not violate or infringe on the legal rights of any third party or otherwise violate applicable law\.
 
   The total length of your domain name can't exceed 255 characters\. For more information about domain names, see [ DNS domain name format](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DomainNameFormat.html) in the *Amazon Route 53 Developer Guide*\.
 
@@ -40,7 +40,7 @@ You must have all necessary rights to use any domain name that you use in conjun
 + You must set up your DNS service and configure the necessary DNS routing policies\. Cross\-Region redirection works in conjunction with your DNS routing policies to redirect your WorkSpaces users as needed\.
 + In each primary and failover Region where you want to set up cross\-Region redirection, create WorkSpaces for your users\. Make sure that you use the same usernames in each WorkSpaces directory in each Region\. To keep your Active Directory user data in sync, we recommend using AD Connector to point to the same Active Directory in each Region where you've set up WorkSpaces for your users\. For more information about creating WorkSpaces, see [Launch WorkSpaces](launch-workspaces-tutorials.md)\.
 **Important**  
-If you configure your AWS Managed Microsoft AD directory for multi\-Region replication, only the directory in the primary Region can be registered for use with Amazon WorkSpaces\. Attempts to register the directory in a replicated Region for use with Amazon WorkSpaces will fail\. Multi\-Region replication with AWS Managed Microsoft AD isn't supported for use with Amazon WorkSpaces within replicated Regions\.
+If you configure your AWS Managed Microsoft AD directory for multi\-Region replication, only the directory in the primary Region can be registered for use with Amazon Workspaces\. Attempts to register the directory in a replicated Region for use with Amazon Workspaces will fail\. Multi\-Region replication with AWS Managed Microsoft AD isn't supported for use with Amazon Workspaces within replicated Regions\.
 
   When you've finished setting up cross\-Region redirection, you must make sure your WorkSpaces users are using the FQDN\-based registration code instead of the Region\-based registration code \(for example, `WSpdx+ABC12D`\) for their primary Region\. To do this, you must send them an email with the FQDN connection string by using the procedure in [Step 5: Send the Connection String to Your WorkSpaces Users](#cross-region-redirection-send-connection-string-to-users)\.
 **Note**  
@@ -50,9 +50,9 @@ If you create your users in the WorkSpaces console instead of creating them in A
 + Cross\-Region redirection doesn't automatically check whether connections to the primary Region have failed and then fails your WorkSpaces over to another Region\. In other words, automatic failover doesn't occur\.
 
   To implement an automatic failover scenario, you must use some other mechanism in conjunction with cross\-Region redirection\. For example, you can use an Amazon Route 53 failover DNS routing policy paired with a Route 53 health check that monitors a CloudWatch alarm in the primary Region\. If the CloudWatch alarm in the primary Region is triggered, your DNS failover routing policy then redirects your WorkSpaces users to the WorkSpaces that you've set up for them in the failover Region\.
-+ When you're using cross\-Region redirection, user data isn't persisted between WorkSpaces in different Regions\. To ensure that users can access their files from different Regions, we recommend that you set up Amazon WorkDocs for your WorkSpaces users, if Amazon WorkDocs is supported in your primary and failover Regions\. For more information about Amazon WorkDocs, see [Amazon WorkDocs Drive](https://docs.aws.amazon.com/workdocs/latest/userguide/workdocs_drive_help.html) in the *Amazon WorkDocs Administration Guide*\. For more information about enabling Amazon WorkDocs for your WorkSpace users, see [Register a Directory with Amazon WorkSpaces](register-deregister-directory.md) and [Enable Amazon WorkDocs for AWS Managed Microsoft AD](enable-workdocs-active-directory.md)\. For information about how WorkSpaces users can set up Amazon WorkDocs on their WorkSpaces, see [ Integrate with WorkDocs](https://docs.aws.amazon.com/workspaces/latest/userguide/workspaces-user-getting-started.html#workdocs-integration) in the *Amazon WorkSpaces User Guide*\.
++ When you're using cross\-Region redirection, user data isn't persisted between WorkSpaces in different Regions\. To ensure that users can access their files from different Regions, we recommend that you set up Amazon WorkDocs for your WorkSpaces users, if Amazon WorkDocs is supported in your primary and failover Regions\. For more information about Amazon WorkDocs, see [Amazon WorkDocs Drive](https://docs.aws.amazon.com/workdocs/latest/userguide/workdocs_drive_help.html) in the *Amazon WorkDocs Administration Guide*\. For more information about enabling Amazon WorkDocs for your WorkSpace users, see [Register a Directory with Workspaces](register-deregister-directory.md) and [Enable Amazon WorkDocs for AWS Managed Microsoft AD](enable-workdocs-active-directory.md)\. For information about how WorkSpaces users can set up Amazon WorkDocs on their WorkSpaces, see [ Integrate with WorkDocs](https://docs.aws.amazon.com/workspaces/latest/userguide/workspaces-user-getting-started.html#workdocs-integration) in the *Amazon Workspaces User Guide*\.
 + Cross\-Region redirection is supported only on version 3\.0\.9 or later of the Linux, macOS, and Windows WorkSpaces client applications\.
-+ Cross\-Region redirection is available in all [ AWS Regions where Amazon WorkSpaces is available](http://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/), except for the AWS GovCloud \(US\-West\) Region and the China \(Ningxia\) Region\. 
++ Cross\-Region redirection is available in all [ AWS Regions where Amazon Workspaces is available](http://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/), except for the AWS GovCloud \(US\-West\) Region and the China \(Ningxia\) Region\. 
 
 ## Step 1: Create Your Connection Aliases<a name="cross-region-redirection-create-connection-aliases"></a>
 
@@ -60,7 +60,7 @@ Using the same AWS account, create connection aliases in each primary and failov
 
 **To create a connection alias**
 
-1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. <a name="step_select_region_create_alias"></a>In the upper\-right corner of the console, select the primary AWS Region for your WorkSpaces\. 
 
@@ -87,7 +87,7 @@ A connection alias can be associated with only one directory per AWS Region\. If
 
 **To share a connection alias with another AWS account**
 
-1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the upper\-right corner of the console, select the AWS Region where you want to share the connection alias with another AWS account\.
 
@@ -108,13 +108,13 @@ Associating the same connection alias with a WorkSpaces directory in two or more
 For example, if your primary Region is the US West \(Oregon\) Region, you can pair your WorkSpaces directory in the US West \(Oregon\) Region with a WorkSpaces directory in the US East \(N\. Virginia\) Region\. If an outage occurs in the primary Region, cross\-Region redirection works in conjunction with your DNS failover routing policies and any health checks that you've put in place on the US West \(Oregon\) Region to redirect your users to the WorkSpaces you've set up for them in the US East \(N\. Virginia\) Region\. For more information about the cross\-Region redirection experience, see [What Happens During Cross\-Region Redirection](#cross-region-redirection-what-happens)\.
 
 **Note**  
-If your WorkSpaces users are located a significant distance from the failover Region \(for example, thousands of miles away\), their WorkSpaces experience might be less responsive than usual\. To check the round\-trip time \(RTT\) to the various AWS Regions from your location, use the [Amazon WorkSpaces Connection Health Check](https://clients.amazonworkspaces.com/Health.html)\.
+If your WorkSpaces users are located a significant distance from the failover Region \(for example, thousands of miles away\), their WorkSpaces experience might be less responsive than usual\. To check the round\-trip time \(RTT\) to the various AWS Regions from your location, use the [Amazon Workspaces Connection Health Check](https://clients.amazonworkspaces.com/Health.html)\.
 
 **To associate a connection alias with a directory**
 
 You can associate a connection alias with only one directory per AWS Region\. If you have shared a connection alias with another AWS account, only one account \(your account or the shared account\) can associate the alias with a directory in that Region\. 
 
-1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. <a name="step_select_region_associate_alias"></a>In the upper\-right corner of the console, select the primary AWS Region for your WorkSpaces\. 
 
@@ -126,7 +126,7 @@ You can associate a connection alias with only one directory per AWS Region\. If
 
 1. On the **Associate/disassociate** page, Under **Associate to a directory**, select the directory that you want to associate your connection alias with in this AWS Region\.
 **Note**  
-If you configure your AWS Managed Microsoft AD directory for multi\-Region replication, only the directory in the primary Region can be used with Amazon WorkSpaces\. Attempts to use the directory in a replicated Region with Amazon WorkSpaces will fail\. Multi\-Region replication with AWS Managed Microsoft AD isn't supported for use with Amazon WorkSpaces within replicated Regions\.
+If you configure your AWS Managed Microsoft AD directory for multi\-Region replication, only the directory in the primary Region can be used with Amazon Workspaces\. Attempts to use the directory in a replicated Region with Amazon Workspaces will fail\. Multi\-Region replication with AWS Managed Microsoft AD isn't supported for use with Amazon Workspaces within replicated Regions\.
 
 1. Choose **Associate**\.
 
@@ -147,7 +147,7 @@ The connection identifier is **not** the same as the connection alias ID\. The c
 
 **To find the connection identifier for a connection alias association**
 
-1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. <a name="step_select_region_connection_id"></a>In the upper\-right corner of the console, select the primary AWS Region for your WorkSpaces\.
 
@@ -265,7 +265,7 @@ To make sure your WorkSpaces users are using the connection string instead of th
 
 **To send the connection string to your WorkSpaces users**
 
-1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the upper\-right corner of the console, select the primary AWS Region for your WorkSpaces\.
 
@@ -300,7 +300,7 @@ If you've shared a connection alias with another account and that account has as
 
 **To disassociate a connection alias from a directory**
 
-1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the upper\-right corner of the console, select the AWS Region that contains the connection alias that you want to disassociate\.
 
@@ -320,7 +320,7 @@ Only the owner of a connection alias can unshare the alias\. If you unshare a co
 
 **To unshare a connection alias**
 
-1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the upper\-right corner of the console, select the AWS Region that contains the connection alias that you want to unshare\.
 
@@ -348,7 +348,7 @@ After you create a connection string, it is always associated to your AWS accoun
 
 **To delete a connection alias**
 
-1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the upper\-right corner of the console, select the AWS Region that contains the connection alias that you want to delete\.
 
@@ -406,7 +406,7 @@ If you are creating an IAM policy for associating or disassociating connection a
 ```
 You can specify an account ID in the ARN only when that account owns the connection alias to be associated or disassociated\.
 
-For more information about working with IAM, see [Identity and Access Management for Amazon WorkSpaces](workspaces-access-control.md)\.
+For more information about working with IAM, see [Identity and Access Management for Workspaces](workspaces-access-control.md)\.
 
 ## Security Considerations if You Stop Using Cross\-Region Redirection<a name="cross-region-redirection-security-considerations"></a>
 

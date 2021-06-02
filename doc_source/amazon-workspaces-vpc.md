@@ -1,11 +1,11 @@
-# Configure a VPC for Amazon WorkSpaces<a name="amazon-workspaces-vpc"></a>
+# Configure a VPC for Workspaces<a name="amazon-workspaces-vpc"></a>
 
-Amazon WorkSpaces launches your WorkSpaces in a virtual private cloud \(VPC\)\. Your WorkSpaces must have access to the internet so that you can install updates to the operating system and deploy applications using Amazon WorkSpaces Application Manager \(Amazon WAM\)\.
+Workspaces launches your WorkSpaces in a virtual private cloud \(VPC\)\. Your WorkSpaces must have access to the internet so that you can install updates to the operating system and deploy applications using Amazon WorkSpaces Application Manager \(Amazon WAM\)\.
 
 You can create a VPC with two private subnets for your WorkSpaces and a NAT gateway in a public subnet\. Alternatively, you can create a VPC with two public subnets for your WorkSpaces and associate an Elastic IP address with each WorkSpace\.
 
 **Tip**  
-For a detailed exploration of directory and virtual private cloud \(VPC\) design considerations for various deployment scenarios, see the [ *Best Practices for Deploying Amazon WorkSpaces*](https://d1.awsstatic.com/whitepapers/Best-Practices-for-Deploying-Amazon-WorkSpaces.pdf) whitepaper\.
+For a detailed exploration of directory and virtual private cloud \(VPC\) design considerations for various deployment scenarios, see the [ *Best Practices for Deploying Amazon Workspaces*](https://d1.awsstatic.com/whitepapers/Best-Practices-for-Deploying-Amazon-WorkSpaces.pdf) whitepaper\.
 
 **Topics**
 + [Requirements](#configure-vpc-requirements)
@@ -17,7 +17,7 @@ For a detailed exploration of directory and virtual private cloud \(VPC\) design
 Your VPC's subnets must reside in different Availability Zones in the Region where you're launching WorkSpaces\. Availability Zones are distinct locations that are engineered to be isolated from failures in other Availability Zones\. By launching instances in separate Availability Zones, you can protect your applications from the failure of a single location\. Each subnet must reside entirely within one Availability Zone and cannot span zones\.
 
 **Note**  
-Amazon WorkSpaces is available in a subset of the Availability Zones in each supported Region\. To determine which Availability Zones you can use for the subnets of the VPC that you're using for WorkSpaces, see [Availability Zones for Amazon WorkSpaces](azs-workspaces.md)\. 
+Amazon Workspaces is available in a subset of the Availability Zones in each supported Region\. To determine which Availability Zones you can use for the subnets of the VPC that you're using for WorkSpaces, see [Availability Zones for Amazon Workspaces](azs-workspaces.md)\. 
 
 ## Configure a VPC with Private Subnets and a NAT Gateway<a name="configure-vpc-nat-gateway"></a>
 
@@ -88,7 +88,7 @@ Create a VPC with one public subnet and two private subnets as follows\.
 
    1. For **Private subnet's IPv4 CIDR**, enter the CIDR block for the subnet\. For example, `10.0.1.0/24`\.
 
-   1. To make an appropriate selection for **Availability Zone**, see [Availability Zones for Amazon WorkSpaces](azs-workspaces.md)\.
+   1. To make an appropriate selection for **Availability Zone**, see [Availability Zones for Amazon Workspaces](azs-workspaces.md)\.
 
    1. For **Private subnet name**, enter a name for the subnet \(for example, `WorkSpaces Private Subnet 1`\)\.
 
@@ -122,7 +122,7 @@ In the previous step, you created a VPC with one public subnet and one private s
 
 1. For **VPC**, select the VPC that you created\.
 
-1. To make an appropriate selection for **Availability Zone**, see [Availability Zones for Amazon WorkSpaces](azs-workspaces.md)\. Make sure you select a different Availability Zone from the one you selected for [Step 7](#step_private_first_az) earlier\.
+1. To make an appropriate selection for **Availability Zone**, see [Availability Zones for Amazon Workspaces](azs-workspaces.md)\. Make sure you select a different Availability Zone from the one you selected for [Step 7](#step_private_first_az) earlier\.
 
 1. For **IPv4 CIDR block**, enter the CIDR block for the subnet\. For example, `10.0.2.0/24`\.
 
@@ -160,7 +160,7 @@ To provide internet access to your WorkSpaces in the private subnets, make sure 
 
 To route your WorkSpaces to your VPC's subnets, make sure to select your VPC and subnets during the process of setting up your WorkSpaces directory\.
 
-To set up your WorkSpaces directory, see [Launch a Virtual Desktop Using Amazon WorkSpaces](launch-workspaces-tutorials.md), and select the tutorial for the type of directory you'd like to use \(AWS Managed Microsoft AD, Simple AD, AD Connector, or a trust relationship between your AWS Managed Microsoft AD directory and your on\-premises domain\)\.
+To set up your WorkSpaces directory, see [Launch a Virtual Desktop Using Workspaces](launch-workspaces-tutorials.md), and select the tutorial for the type of directory you'd like to use \(AWS Managed Microsoft AD, Simple AD, AD Connector, or a trust relationship between your AWS Managed Microsoft AD directory and your on\-premises domain\)\.
 
 ## Configure a VPC with Public Subnets<a name="configure-vpc-public-subnets"></a>
 
@@ -197,7 +197,7 @@ Create a VPC with one public subnet as follows\.
 
 1. For **Public subnet's IPv4 CIDR**, enter the CIDR block for the subnet\. For example, `10.0.0.0/24`\. For more information, see [VPC and Subnet Sizing for IPv4](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-sizing-ipv4) in the *Amazon VPC User Guide*\.
 
-1. <a name="step_public_first_az"></a>To make an appropriate selection for **Availability Zone**, see [Availability Zones for Amazon WorkSpaces](azs-workspaces.md)\.
+1. <a name="step_public_first_az"></a>To make an appropriate selection for **Availability Zone**, see [Availability Zones for Amazon Workspaces](azs-workspaces.md)\.
 
 1. \(Optional\) For **Subnet name**, enter a name for the subnet\.
 
@@ -229,7 +229,7 @@ In the previous step, you created a VPC with one public subnet\. Use the followi
 
 1. For **VPC**, select the VPC that you created\.
 
-1. To make an appropriate selection for **Availability Zone**, see [Availability Zones for Amazon WorkSpaces](azs-workspaces.md)\. Make sure you select a different Availability Zone from the one you selected for [Step 9](#step_public_first_az) earlier\.
+1. To make an appropriate selection for **Availability Zone**, see [Availability Zones for Amazon Workspaces](azs-workspaces.md)\. Make sure you select a different Availability Zone from the one you selected for [Step 9](#step_public_first_az) earlier\.
 
 1. For **IPv4 CIDR block**, enter the CIDR block for the subnet\. For example, `10.0.1.0/24`\.
 
@@ -259,7 +259,7 @@ To associate a new public IP address from the Amazon\-provided pool with the Wor
 
 For a video tutorial about how to assign an Elastic IP address to a WorkSpace, see the AWS Knowledge Center video [ How do I associate an Elastic IP Address with a WorkSpace?](https://youtu.be/N45klH3ojBI)\.
 
-1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **WorkSpaces**\.
 
@@ -283,4 +283,4 @@ For a video tutorial about how to assign an Elastic IP address to a WorkSpace, s
 
 To route your WorkSpaces to your VPC's subnets, make sure to select your VPC and subnets during the process of setting up your WorkSpaces directory\.
 
-To set up your WorkSpaces directory, see [Launch a Virtual Desktop Using Amazon WorkSpaces](launch-workspaces-tutorials.md), and select the tutorial for the type of directory you'd like to use \(AWS Managed Microsoft AD, Simple AD, AD Connector, or a trust relationship between your AWS Managed Microsoft AD directory and your on\-premises domain\)\.
+To set up your WorkSpaces directory, see [Launch a Virtual Desktop Using Workspaces](launch-workspaces-tutorials.md), and select the tutorial for the type of directory you'd like to use \(AWS Managed Microsoft AD, Simple AD, AD Connector, or a trust relationship between your AWS Managed Microsoft AD directory and your on\-premises domain\)\.

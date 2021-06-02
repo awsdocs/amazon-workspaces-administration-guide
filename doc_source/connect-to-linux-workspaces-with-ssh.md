@@ -27,7 +27,7 @@ For a video tutorial, see [ How can I connect to my Linux Amazon WorkSpaces usin
 
 **To find the IP addresses for the Amazon Linux WorkSpace you want to connect to and your user name**
 
-1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **WorkSpaces**\.
 

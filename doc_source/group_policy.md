@@ -7,11 +7,11 @@ Linux instances do not adhere to Group Policy\. For information about managing A
 
 We recommend that you create an organizational unit for your WorkSpaces Computer Objects and an organizational unit for your WorkSpaces User Objects\.
 
-To use the Group Policy settings that are specific to Amazon WorkSpaces, you must install the Group Policy administrative template for the protocol or protocols that you are using, either PCoIP or WorkSpaces Streaming Protocol \(WSP\)\.
+To use the Group Policy settings that are specific to Amazon Workspaces, you must install the Group Policy administrative template for the protocol or protocols that you are using, either PCoIP or WorkSpaces Streaming Protocol \(WSP\)\.
 
 **Warning**  
 Group Policy settings can affect the experience of your WorkSpace users as follows:  
-**Implementing an interactive logon message to display a logon banner prevents users from being able to access their WorkSpaces\.** The interactive logon message Group Policy setting is not currently supported by Amazon WorkSpaces\.
+**Implementing an interactive logon message to display a logon banner prevents users from being able to access their WorkSpaces\.** The interactive logon message Group Policy setting is not currently supported by Workspaces\.
 **Disabling removable storage through Group Policy settings causes a login failure** that results in users being logged in to temporary user profiles with no access to drive D\.
 **Removing users from the Remote Desktop Users local group through Group Policy settings prevents those users from being able to authenticate** through the WorkSpaces client applications\. For more information about this Group Policy setting, see [ Allow log on through Remote Desktop Services](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/allow-log-on-through-remote-desktop-services) in the Microsoft documentation\.
 **If you remove the built\-in Users group from the **Allow log on locally** security policy, your PCoIP WorkSpaces users won't be able to connect to their WorkSpaces through the WorkSpaces client applications\.** Your PCoIP WorkSpaces also won't receive updates to the PCoIP agent software\. PCoIP agent updates might contain security and other fixes, or they might enable new features for your WorkSpaces\. For more information about working with this security policy, see [ Allow log on locally](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/allow-log-on-locally) in the Microsoft documentation\.
@@ -21,7 +21,7 @@ For more information about enabling or disabling audio\-in redirection, see [Ena
 Using Group Policy to set the Windows power plan to **Balanced** or **Power saver** might cause your WorkSpaces to sleep when they're left idle\. We strongly recommend using Group Policy to set the Windows power plan to **High performance**\. For more information, see [My Windows WorkSpace goes to sleep when it's left idle](amazon-workspaces-troubleshooting.md#windows_workspace_sleeps_when_idle)\. 
 Some Group Policy settings force users to log off when they are disconnected from a session\. Any applications that users have open on their WorkSpaces are closed\.
 
-For information about using the Active Directory administration tools to work with GPOs, see [Set Up Active Directory Administration Tools for Amazon WorkSpaces](directory_administration.md)\.
+For information about using the Active Directory administration tools to work with GPOs, see [Set Up Active Directory Administration Tools for Workspaces](directory_administration.md)\.
 
 **Contents**
 + [Install the Group Policy Administrative Template for PCoIP](#gp_install_template)
@@ -30,9 +30,11 @@ For information about using the Active Directory administration tools to work wi
   + [Set the Session Resume Timeout](#gp_auto_resume)
   + [Enable or Disable Audio\-In Redirection](#gp_audio)
   + [Disable Time Zone Redirection](#gp_time_zone)
+  + [Configure PCoIP Security Settings](#gp_security)
 + [Install the Group Policy Administrative Template Files for WSP](#gp_install_template_wsp)
   + [Configure Printer Support](#gp_local_printers_wsp)
   + [Enable or Disable Clipboard Redirection](#gp_clipboard_wsp)
+  + [Set the Session Resume Timeout](#gp_auto_resume_wsp)
   + [Enable or Disable Video\-In Redirection](#gp_video_in_wsp)
   + [Enable or Disable Audio\-In Redirection](#gp_audio_in_wsp)
   + [Disable Time Zone Redirection](#gp_time_zone_wsp)
@@ -60,7 +62,7 @@ If you have a mix of WorkSpaces with 32\-bit and 64\-bit agents, you can use the
 
 ### Install the Group Policy Administrative Template for PCoIP \(32\-Bit\)<a name="gp_install_template_pcoip_32_bit"></a>
 
-To use the Group Policy settings that are specific to Amazon WorkSpaces when using the PCoIP protocol with the 32\-bit PCoIP agent, you must install the Group Policy administrative template for PCoIP\. Perform the following procedure on a directory administration WorkSpace or Amazon EC2 instance that is joined to your directory\. 
+To use the Group Policy settings that are specific to Workspaces when using the PCoIP protocol with the 32\-bit PCoIP agent, you must install the Group Policy administrative template for PCoIP\. Perform the following procedure on a directory administration WorkSpace or Amazon EC2 instance that is joined to your directory\. 
 
 For more information about working with \.adm files, see [ Recommendations for managing Group Policy administrative template \(\.adm\) files](https://docs.microsoft.com/troubleshoot/windows-server/group-policy/manage-group-policy-adm-file) in the Microsoft documentation\.
 
@@ -80,7 +82,7 @@ For more information about working with \.adm files, see [ Recommendations for m
 
 1. In the **Add/Remove Templates** dialog box, choose **Add**, select the `pcoip.adm` file copied previously, and then choose **Open**, **Close**\.
 
-1. Close the Group Policy Management Editor\. You can now use this GPO to modify the Group Policy settings that are specific to Amazon WorkSpaces\.
+1. Close the Group Policy Management Editor\. You can now use this GPO to modify the Group Policy settings that are specific to Workspaces\.
 
 **To verify that the administrative template file is correctly installed**
 
@@ -88,13 +90,13 @@ For more information about working with \.adm files, see [ Recommendations for m
 
 1. In the Group Policy Management Editor, choose **Computer Configuration**, **Policies**, **Administrative Templates**, **Classic Administrative Templates**, and **PCoIP Session Variables**\.
 
-1. You can now use this **PCoIP Session Variables** Group Policy object to modify the Group Policy settings that are specific to Amazon WorkSpaces when using PCoIP\. 
+1. You can now use this **PCoIP Session Variables** Group Policy object to modify the Group Policy settings that are specific to Amazon Workspaces when using PCoIP\. 
 **Note**  
 To allow the user to override your setting, choose **Overridable Administrator Defaults**; otherwise, choose **Not Overridable Administrator Defaults**\.
 
 ### Install the Group Policy Administrative Template for PCoIP \(64\-Bit\)<a name="gp_install_template_pcoip_64_bit"></a>
 
-To use the Group Policy settings that are specific to Amazon WorkSpaces when using the PCoIP protocol, you must add the Group Policy administrative template `PCoIP.admx` and `PCoIP.adml` files for PCoIP to the Central Store of the domain controller for your WorkSpaces directory\. For more information about `.admx` and `.adml` files, see [ How to create and manage the Central Store for Group Policy Administrative Templates in Windows](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra)\.
+To use the Group Policy settings that are specific to Workspaces when using the PCoIP protocol, you must add the Group Policy administrative template `PCoIP.admx` and `PCoIP.adml` files for PCoIP to the Central Store of the domain controller for your WorkSpaces directory\. For more information about `.admx` and `.adml` files, see [ How to create and manage the Central Store for Group Policy Administrative Templates in Windows](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra)\.
 
 The following procedure describes how to create the Central Store and add the administrative template files to it\. Perform the following procedure on a directory administration WorkSpace or Amazon EC2 instance that is joined to your WorkSpaces directory\.
 
@@ -135,16 +137,21 @@ The following procedure describes how to create the Central Store and add the ad
 1. Expand **Group Policy Objects**\.
 
 1. Select **Default Domain Policy**, open the context \(right\-click\) menu, and choose **Edit**\.
+**Note**  
+If the domain backing the WorkSpaces is an AWS Managed Microsoft AD directory, you cannot use the Default Domain Policy to create your GPO\. Instead, you must create and link the GPO under the domain container that has delegated privileges\.  
+When you create a directory with AWS Managed Microsoft AD, AWS Directory Service creates a *yourdomainname* organizational unit \(OU\) under the domain root\. The name of this OU is based on the NetBIOS name that you typed when you created your directory\. If you didn't specify a NetBIOS name, it will default to the first part of your Directory DNS name \(for example, in the case of `corp.example.com`, the NetBIOS name is `corp`\)\.  
+To create your GPO, instead of selecting **Default Domain Policy**, select the *yourdomainname* OU \(or any OU under that one\), open the context \(right\-click\) menu, and choose **Create a GPO in this domain, and Link it here**\.   
+For more information about the *yourdomainname* OU, see [ What Gets Created](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_getting_started_what_gets_created.html) in the *AWS Directory Service Administration Guide*\.
 
 1. In the Group Policy Management Editor, choose **Computer Configuration**, **Policies**, **Administrative Templates**, and **PCoIP Session Variables**\.
 
-1. You can now use this **PCoIP Session Variables** Group Policy object to modify the Group Policy settings that are specific to Amazon WorkSpaces when using PCoIP\.
+1. You can now use this **PCoIP Session Variables** Group Policy object to modify the Group Policy settings that are specific to Workspaces when using PCoIP\.
 **Note**  
 To allow the user to override your settings, choose **Overridable Administrator Defaults**; otherwise, choose **Not Overridable Administrator Defaults**\.
 
 ### Configure Printer Support for PCoIP<a name="gp_local_printers"></a>
 
-By default, Amazon WorkSpaces enables Basic remote printing, which offers limited printing capabilities because it uses a generic printer driver on the host side to ensure compatible printing\.
+By default, Workspaces enables Basic remote printing, which offers limited printing capabilities because it uses a generic printer driver on the host side to ensure compatible printing\.
 
 Advanced remote printing for Windows clients lets you use specific features of your printer, such as double\-sided printing, but it requires installation of the matching printer driver on the host side\.
 
@@ -154,7 +161,7 @@ For Windows WorkSpaces, you can use Group Policy settings to configure printer s
 
 **To configure printer support**
 
-1. Make sure that you've installed the most recent [Amazon WorkSpaces Group Policy administrative template for PCoIP \(32\-Bit\)](#gp_install_template_pcoip_32_bit) or [Amazon WorkSpaces Group Policy administrative template for PCoIP \(64\-Bit\)](#gp_install_template_pcoip_64_bit)\.
+1. Make sure that you've installed the most recent [Workspaces Group Policy administrative template for PCoIP \(32\-Bit\)](#gp_install_template_pcoip_32_bit) or [Workspaces Group Policy administrative template for PCoIP \(64\-Bit\)](#gp_install_template_pcoip_64_bit)\.
 
 1. On a directory administration WorkSpace or an Amazon EC2 instance that is joined to your WorkSpaces directory, open the Group Policy Management tool \(gpmc\.msc\) and navigate to **PCoIP Session Variables**\.
 
@@ -169,7 +176,7 @@ For Windows WorkSpaces, you can use Group Policy settings to configure printer s
 1. Choose **OK**\.
 
 1. The Group Policy setting change takes effect after the next Group Policy update for the WorkSpace and after the WorkSpace session is restarted\. To apply the Group Policy changes, do one of the following:
-   + Reboot the WorkSpace \(in the Amazon WorkSpaces console, select the WorkSpace, then choose **Actions**, **Reboot WorkSpaces**\)\.
+   + Reboot the WorkSpace \(in the Amazon Workspaces console, select the WorkSpace, then choose **Actions**, **Reboot WorkSpaces**\)\.
    + From an administrative command prompt, enter gpupdate /force\.
 
 By default, local printer auto\-redirection is disabled\. You can use Group Policy settings to enable this feature so that your local printer is set as the default printer every time that you connect to your WorkSpace\.
@@ -179,7 +186,7 @@ Local printer redirection is not available for Amazon Linux WorkSpaces\.
 
 **To enable local printer auto\-redirection**
 
-1. Make sure that you've installed the most recent [Amazon WorkSpaces Group Policy administrative template for PCoIP \(32\-Bit\)](#gp_install_template_pcoip_32_bit) or [Amazon WorkSpaces Group Policy administrative template for PCoIP \(64\-Bit\)](#gp_install_template_pcoip_64_bit)\.
+1. Make sure that you've installed the most recent [Workspaces Group Policy administrative template for PCoIP \(32\-Bit\)](#gp_install_template_pcoip_32_bit) or [Workspaces Group Policy administrative template for PCoIP \(64\-Bit\)](#gp_install_template_pcoip_64_bit)\.
 
 1. On a directory administration WorkSpace or an Amazon EC2 instance that is joined to your WorkSpaces directory, open the Group Policy Management tool \(gpmc\.msc\) and navigate to **PCoIP Session Variables**\.
 
@@ -194,16 +201,16 @@ Local printer redirection is not available for Amazon Linux WorkSpaces\.
 1. Select **Automatically set default printer**, and then choose **OK**\.
 
 1. The Group Policy setting change takes effect after the next Group Policy update for the WorkSpace and after the WorkSpace session is restarted\. To apply the Group Policy changes, do one of the following:
-   + Reboot the WorkSpace \(in the Amazon WorkSpaces console, select the WorkSpace, then choose **Actions**, **Reboot WorkSpaces**\)\.
+   + Reboot the WorkSpace \(in the Amazon Workspaces console, select the WorkSpace, then choose **Actions**, **Reboot WorkSpaces**\)\.
    + From an administrative command prompt, enter gpupdate /force\.
 
 ### Enable or Disable Clipboard Redirection for PCoIP<a name="gp_clipboard"></a>
 
-By default, Amazon WorkSpaces supports clipboard redirection\. If needed for Windows WorkSpaces, you can use Group Policy settings to disable this feature\. 
+By default, Workspaces supports clipboard redirection\. If needed for Windows WorkSpaces, you can use Group Policy settings to disable this feature\. 
 
 **To enable or disable clipboard redirection**
 
-1. Make sure that you've installed the most recent [Amazon WorkSpaces Group Policy administrative template for PCoIP \(32\-Bit\)](#gp_install_template_pcoip_32_bit) or [Amazon WorkSpaces Group Policy administrative template for PCoIP \(64\-Bit\)](#gp_install_template_pcoip_64_bit)\.
+1. Make sure that you've installed the most recent [Workspaces Group Policy administrative template for PCoIP \(32\-Bit\)](#gp_install_template_pcoip_32_bit) or [Workspaces Group Policy administrative template for PCoIP \(64\-Bit\)](#gp_install_template_pcoip_64_bit)\.
 
 1. On a directory administration WorkSpace or an Amazon EC2 instance that is joined to your WorkSpaces directory, open the Group Policy Management tool \(gpmc\.msc\) and navigate to **PCoIP Session Variables**\.
 
@@ -218,7 +225,7 @@ By default, Amazon WorkSpaces supports clipboard redirection\. If needed for Win
    + Enabled in both directions 
 
 1. The Group Policy setting change takes effect after the next Group Policy update for the WorkSpace and after the WorkSpace session is restarted\. To apply the Group Policy changes, do one of the following:
-   + Reboot the WorkSpace \(in the Amazon WorkSpaces console, select the WorkSpace, then choose **Actions**, **Reboot WorkSpaces**\)\.
+   + Reboot the WorkSpace \(in the Amazon Workspaces console, select the WorkSpace, then choose **Actions**, **Reboot WorkSpaces**\)\.
    + From an administrative command prompt, enter gpupdate /force\.
 
 **Known Limitation**  
@@ -226,11 +233,11 @@ With clipboard redirection enabled on the WorkSpace, if you copy content that is
 
 ### Set the Session Resume Timeout for PCoIP<a name="gp_auto_resume"></a>
 
-When using the Amazon WorkSpaces client applications, an interruption of network connectivity causes an active session to be disconnected\. This can be caused by events such as closing the laptop lid, or the loss of your wireless network connection\. The Amazon WorkSpaces client applications for Windows and macOS attempt to reconnect the session automatically if network connectivity is regained within a certain amount of time\. The default session resume timeout is 20 minutes, but you can modify that value for WorkSpaces that are controlled by your domain's Group Policy settings\.
+When using the Workspaces client applications, an interruption of network connectivity causes an active session to be disconnected\. This can be caused by events such as closing the laptop lid, or the loss of your wireless network connection\. The Workspaces client applications for Windows and macOS attempt to reconnect the session automatically if network connectivity is regained within a certain amount of time\. The default session resume timeout is 20 minutes, but you can modify that value for WorkSpaces that are controlled by your domain's Group Policy settings\.
 
 **To set the automatic session resume timeout value**
 
-1. Make sure that you've installed the most recent [Amazon WorkSpaces Group Policy administrative template for PCoIP \(32\-Bit\)](#gp_install_template_pcoip_32_bit) or [Amazon WorkSpaces Group Policy administrative template for PCoIP \(64\-Bit\)](#gp_install_template_pcoip_64_bit)\.
+1. Make sure that you've installed the most recent [Workspaces Group Policy administrative template for PCoIP \(32\-Bit\)](#gp_install_template_pcoip_32_bit) or [Workspaces Group Policy administrative template for PCoIP \(64\-Bit\)](#gp_install_template_pcoip_64_bit)\.
 
 1. On a directory administration WorkSpace or an Amazon EC2 instance that is joined to your WorkSpaces directory, open the Group Policy Management tool \(gpmc\.msc\) and navigate to **PCoIP Session Variables**\.
 
@@ -241,19 +248,19 @@ When using the Amazon WorkSpaces client applications, an interruption of network
 1. In the **Configure Session Automatic Reconnection Policy** dialog box, choose **Enabled**, set the **Configure Session Automatic Reconnection Policy** option to the desired timeout, in minutes, and choose **OK**\. 
 
 1. The Group Policy setting change takes effect after the next Group Policy update for the WorkSpace and after the WorkSpace session is restarted\. To apply the Group Policy changes, do one of the following:
-   + Reboot the WorkSpace \(in the Amazon WorkSpaces console, select the WorkSpace, then choose **Actions**, **Reboot WorkSpaces**\)\.
+   + Reboot the WorkSpace \(in the Amazon Workspaces console, select the WorkSpace, then choose **Actions**, **Reboot WorkSpaces**\)\.
    + From an administrative command prompt, enter gpupdate /force\.
 
 ### Enable or Disable Audio\-In Redirection for PCoIP<a name="gp_audio"></a>
 
-By default, Amazon WorkSpaces supports redirecting data from a local microphone\. If needed for Windows WorkSpaces, you can use Group Policy settings to disable this feature\.
+By default, Amazon Workspaces supports redirecting data from a local microphone\. If needed for Windows WorkSpaces, you can use Group Policy settings to disable this feature\.
 
 **Note**  
 If you have a Group Policy setting that restricts users' local logon in their WorkSpaces, audio\-in won't work on your WorkSpaces\. If you remove that Group Policy setting, the audio\-in feature is enabled after the next reboot of the WorkSpace\. For more information about this Group Policy setting, see [ Allow logon locally](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/allow-log-on-locally) in the Microsoft documentation\.
 
 **To enable or disable audio\-in redirection**
 
-1. Make sure that you've installed the most recent [Amazon WorkSpaces Group Policy administrative template for PCoIP \(32\-Bit\)](#gp_install_template_pcoip_32_bit) or [Amazon WorkSpaces Group Policy administrative template for PCoIP \(64\-Bit\)](#gp_install_template_pcoip_64_bit)\.
+1. Make sure that you've installed the most recent [Workspaces Group Policy administrative template for PCoIP \(32\-Bit\)](#gp_install_template_pcoip_32_bit) or [Workspaces Group Policy administrative template for PCoIP \(64\-Bit\)](#gp_install_template_pcoip_64_bit)\.
 
 1. On a directory administration WorkSpace or an Amazon EC2 instance that is joined to your WorkSpaces directory, open the Group Policy Management tool \(gpmc\.msc\) and navigate to **PCoIP Session Variables**\.
 
@@ -266,7 +273,7 @@ If you have a Group Policy setting that restricts users' local logon in their Wo
 1. Choose **OK**\.
 
 1. The Group Policy setting change takes effect after the next Group Policy update for the WorkSpace and after the WorkSpace session is restarted\. To apply the Group Policy changes, do one of the following:
-   + Reboot the WorkSpace \(in the Amazon WorkSpaces console, select the WorkSpace, then choose **Actions**, **Reboot WorkSpaces**\)\.
+   + Reboot the WorkSpace \(in the Amazon Workspaces console, select the WorkSpace, then choose **Actions**, **Reboot WorkSpaces**\)\.
    + From an administrative command prompt, enter gpupdate /force\.
 
 ### Disable Time Zone Redirection for PCoIP<a name="gp_time_zone"></a>
@@ -280,27 +287,55 @@ If needed for Windows WorkSpaces, you can use Group Policy settings to disable t
 
 **To disable time zone redirection**
 
-1. On a directory administration WorkSpace or an Amazon EC2 instance that is joined to your WorkSpaces directory, open the Group Policy Management tool \(gpmc\.msc\) and navigate to and select a GPO at the domain or domain controller level of the directory you use for your WorkSpaces\.
+1. Make sure that you've installed the most recent [Workspaces Group Policy administrative template for PCoIP \(32\-Bit\)](#gp_install_template_pcoip_32_bit) or [Workspaces Group Policy administrative template for PCoIP \(64\-Bit\)](#gp_install_template_pcoip_64_bit)\.
 
-1. Choose **Action**, **Edit** in the main menu\.
+1. On a directory administration WorkSpace or an Amazon EC2 instance that is joined to your WorkSpaces directory, open the Group Policy Management tool \(gpmc\.msc\) and navigate to **PCoIP Session Variables**\.
 
-1. In the Group Policy Management Editor, choose **Computer Configuration**, **Policies**, **Administrative Templates**, **Windows Components**, **Remote Desktop Services**, **Remote Desktop Session Host**, and **Device and Resource Redirection**\. 
+   To allow the user to override your setting, choose **Overridable Administrator Defaults**; otherwise, choose **Not Overridable Administrator Defaults**\.
 
-1. Open the **Allow time zone redirection** setting\.
+1. Open the **Configure timezone redirection** setting\.
 
-1. In the **Allow time zone redirection** dialog box, choose **Disabled**, and choose **OK**\.
+1. In the **Configure timezone redirection** dialog box, choose **Disabled**\.
+
+1. Choose **OK**\.
 
 1. The Group Policy setting change takes effect after the next Group Policy update for the WorkSpace and after the WorkSpace session is restarted\. To apply the Group Policy changes, do one of the following:
-   + Reboot the WorkSpace \(in the Amazon WorkSpaces console, select the WorkSpace, then choose **Actions**, **Reboot WorkSpaces**\)\.
+   + Reboot the WorkSpace \(in the Amazon Workspaces console, select the WorkSpace, then choose **Actions**, **Reboot WorkSpaces**\)\.
    + From an administrative command prompt, enter gpupdate /force\.
 
 1. Set the time zone for the WorkSpaces to the desired time zone\.
 
 The time zone of the WorkSpaces is now static and no longer mirrors the time zone of the client machines\. 
 
+### Configure PCoIP Security Settings<a name="gp_security"></a>
+
+For PCoIP, data in\-transit is encrypted using TLS 1\.2 encryption and SigV4 request signing\. The PCoIP protocol uses encrypted UDP traffic, with AES encryption, for streaming pixels\. The streaming connection, using port 4172 \(TCP and UDP\), is encrypted by using AES\-128 and AES\-256 ciphers, but the encryption defaults to 128\-bit\. You can change this default to 256\-bit by using the **Configure PCoIP Security Settings** Group Policy setting\.
+
+You can also use this Group Policy setting to modify the TLS Security Mode and to block certain cipher suites\. A detailed explanation of these settings and the supported cipher suites is provided in the **Configure PCoIP Security Settings** Group Policy dialog box\. 
+
+**To configure PCoIP security settings**
+
+1. Make sure that you've installed the most recent [Workspaces Group Policy administrative template for PCoIP \(32\-Bit\)](#gp_install_template_pcoip_32_bit) or [Workspaces Group Policy administrative template for PCoIP \(64\-Bit\)](#gp_install_template_pcoip_64_bit)\.
+
+1. On a directory administration WorkSpace or an Amazon EC2 instance that is joined to your WorkSpaces directory, open the Group Policy Management tool \(gpmc\.msc\) and navigate to **PCoIP Session Variables**\.
+
+   To allow the user to override your setting, choose **Overridable Administrator Defaults**; otherwise, choose **Not Overridable Administrator Defaults**\.
+
+1. Open the **Configure PCoIP Security Settings** setting\.
+
+1. In the **Configure PCoIP Security Settings** dialog box, choose **Enabled**\. To set the default encryption for streaming traffic to 256\-bit, go to the **PCoIP Data Encryption Ciphers** option, and select **AES\-256\-GCM only**\.
+
+1. \(Optional\) Adjust the **TLS Security Mode** setting, and then list any cipher suites that you want to block\. For more information about these settings, see the descriptions provided in the **Configure PCoIP Security Settings** dialog box\.
+
+1. Choose **OK**\.
+
+1. The Group Policy setting change takes effect after the next Group Policy update for the WorkSpace and after the WorkSpace session is restarted\. To apply the Group Policy changes, do one of the following:
+   + Reboot the WorkSpace \(in the Amazon Workspaces console, select the WorkSpace, then choose **Actions**, **Reboot WorkSpaces**\)\.
+   + From an administrative command prompt, enter gpupdate /force\.
+
 ## Install the Group Policy Administrative Template Files for the WorkSpaces Streaming Protocol \(WSP\)<a name="gp_install_template_wsp"></a>
 
-To use the Group Policy settings that are specific to Amazon WorkSpaces when using the WorkSpaces Streaming Protocol \(WSP\), you must add the Group Policy administrative template `wsp.admx` and `wsp.adml` files for WSP to the Central Store of the domain controller for your WorkSpaces directory\. For more information about `.admx` and `.adml` files, see [ How to create and manage the Central Store for Group Policy Administrative Templates in Windows](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra)\.
+To use the Group Policy settings that are specific to Workspaces when using the WorkSpaces Streaming Protocol \(WSP\), you must add the Group Policy administrative template `wsp.admx` and `wsp.adml` files for WSP to the Central Store of the domain controller for your WorkSpaces directory\. For more information about `.admx` and `.adml` files, see [ How to create and manage the Central Store for Group Policy Administrative Templates in Windows](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra)\.
 
 The following procedure describes how to create the Central Store and add the administrative template files to it\. Perform the following procedure on a directory administration WorkSpace or Amazon EC2 instance that is joined to your WorkSpaces directory\.
 
@@ -341,14 +376,19 @@ The following procedure describes how to create the Central Store and add the ad
 1. Expand **Group Policy Objects**\.
 
 1. Select **Default Domain Policy**, open the context \(right\-click\) menu, and choose **Edit**\.
+**Note**  
+If the domain backing the WorkSpaces is an AWS Managed Microsoft AD directory, you cannot use the Default Domain Policy to create your GPO\. Instead, you must create and link the GPO under the domain container that has delegated privileges\.  
+When you create a directory with AWS Managed Microsoft AD, AWS Directory Service creates a *yourdomainname* organizational unit \(OU\) under the domain root\. The name of this OU is based on the NetBIOS name that you typed when you created your directory\. If you didn't specify a NetBIOS name, it will default to the first part of your Directory DNS name \(for example, in the case of `corp.example.com`, the NetBIOS name is `corp`\)\.  
+To create your GPO, instead of selecting **Default Domain Policy**, select the *yourdomainname* OU \(or any OU under that one\), open the context \(right\-click\) menu, and choose **Create a GPO in this domain, and Link it here**\.   
+For more information about the *yourdomainname* OU, see [ What Gets Created](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_getting_started_what_gets_created.html) in the *AWS Directory Service Administration Guide*\.
 
 1. In the Group Policy Management Editor, choose **Computer Configuration**, **Policies**, **Administrative Templates**, **Amazon**, and **WSP**\.
 
-1. You can now use this **WSP** Group Policy object to modify the Group Policy settings that are specific to Amazon WorkSpaces when using WSP\.
+1. You can now use this **WSP** Group Policy object to modify the Group Policy settings that are specific to Workspaces when using WSP\.
 
 ### Configure Printer Support for WSP<a name="gp_local_printers_wsp"></a>
 
-By default, Amazon WorkSpaces enables Basic remote printing, which offers limited printing capabilities because it uses a generic printer driver on the host side to ensure compatible printing\.
+By default, Workspaces enables Basic remote printing, which offers limited printing capabilities because it uses a generic printer driver on the host side to ensure compatible printing\.
 
 Advanced remote printing for Windows clients \(not available for WSP\) lets you use specific features of your printer, such as double\-sided printing, but it requires installation of the matching printer driver on the host side\.
 
@@ -358,7 +398,7 @@ For Windows WorkSpaces, you can use Group Policy settings to configure printer s
 
 **To configure printer support**
 
-1. Make sure that the most recent [Amazon WorkSpaces Group Policy administrative template for WSP](#gp_install_template_wsp) is installed in the Central Store of the domain controller for your WorkSpaces directory\.
+1. Make sure that the most recent [Workspaces Group Policy administrative template for WSP](#gp_install_template_wsp) is installed in the Central Store of the domain controller for your WorkSpaces directory\.
 
 1. On a directory administration WorkSpace or an Amazon EC2 instance that is joined to your WorkSpaces directory, open the Group Policy Management tool \(gpmc\.msc\)\.
 
@@ -371,6 +411,8 @@ For Windows WorkSpaces, you can use Group Policy settings to configure printer s
 1. Expand **Group Policy Objects**\.
 
 1. Select **Default Domain Policy**, open the context \(right\-click\) menu, and choose **Edit**\.
+**Note**  
+If the domain backing the WorkSpaces is an AWS Managed Microsoft AD directory, you cannot use the Default Domain Policy to create your GPO\. Instead, select the *yourdomainname* OU \(or any OU under that one\), open the context \(right\-click\) menu, and choose **Create a GPO in this domain, and Link it here**\. For more information about the *yourdomainname* OU, see [ What Gets Created](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_getting_started_what_gets_created.html) in the *AWS Directory Service Administration Guide*\.
 
 1. In the Group Policy Management Editor, choose **Computer Configuration**, **Policies**, **Administrative Templates**, **Amazon**, and **WSP**\.
 
@@ -383,16 +425,16 @@ For Windows WorkSpaces, you can use Group Policy settings to configure printer s
 1. Choose **OK**\.
 
 1. The Group Policy setting change takes effect after the next Group Policy update for the WorkSpace and after the WorkSpace session is restarted\. To apply the Group Policy changes, do one of the following:
-   + Reboot the WorkSpace \(in the Amazon WorkSpaces console, select the WorkSpace, then choose **Actions**, **Reboot WorkSpaces**\)\.
+   + Reboot the WorkSpace \(in the Amazon Workspaces console, select the WorkSpace, then choose **Actions**, **Reboot WorkSpaces**\)\.
    + From an administrative command prompt, enter gpupdate /force\.
 
 ### Enable or Disable Clipboard Redirection for WSP<a name="gp_clipboard_wsp"></a>
 
-By default, Amazon WorkSpaces supports two\-way \(copy/paste\) clipboard redirection\. If needed for Windows WorkSpaces, you can use Group Policy settings to disable this feature\. 
+By default, Workspaces supports two\-way \(copy/paste\) clipboard redirection\. If needed for Windows WorkSpaces, you can use Group Policy settings to disable this feature\. 
 
 **To enable or disable clipboard redirection for Windows WorkSpaces**
 
-1. Make sure that the most recent [Amazon WorkSpaces Group Policy administrative template for WSP](#gp_install_template_wsp) is installed in the Central Store of the domain controller for your WorkSpaces directory\.
+1. Make sure that the most recent [Workspaces Group Policy administrative template for WSP](#gp_install_template_wsp) is installed in the Central Store of the domain controller for your WorkSpaces directory\.
 
 1. On a directory administration WorkSpace or an Amazon EC2 instance that is joined to your WorkSpaces directory, open the Group Policy Management tool \(gpmc\.msc\)\.
 
@@ -405,6 +447,8 @@ By default, Amazon WorkSpaces supports two\-way \(copy/paste\) clipboard redirec
 1. Expand **Group Policy Objects**\.
 
 1. Select **Default Domain Policy**, open the context \(right\-click\) menu, and choose **Edit**\.
+**Note**  
+If the domain backing the WorkSpaces is an AWS Managed Microsoft AD directory, you cannot use the Default Domain Policy to create your GPO\. Instead, select the *yourdomainname* OU \(or any OU under that one\), open the context \(right\-click\) menu, and choose **Create a GPO in this domain, and Link it here**\. For more information about the *yourdomainname* OU, see [ What Gets Created](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_getting_started_what_gets_created.html) in the *AWS Directory Service Administration Guide*\.
 
 1. In the Group Policy Management Editor, choose **Computer Configuration**, **Policies**, **Administrative Templates**, **Amazon**, and **WSP**\.
 
@@ -415,19 +459,19 @@ By default, Amazon WorkSpaces supports two\-way \(copy/paste\) clipboard redirec
 1. Choose **OK**\.
 
 1. The Group Policy setting change takes effect after the next Group Policy update for the WorkSpace and after the WorkSpace session is restarted\. To apply the Group Policy changes, do one of the following:
-   + Reboot the WorkSpace \(in the Amazon WorkSpaces console, select the WorkSpace, then choose **Actions**, **Reboot WorkSpaces**\)\.
+   + Reboot the WorkSpace \(in the Amazon Workspaces console, select the WorkSpace, then choose **Actions**, **Reboot WorkSpaces**\)\.
    + From an administrative command prompt, enter gpupdate /force\.
 
 **Known Limitation**  
 With clipboard redirection enabled on the WorkSpace, if you copy content that is larger than 890 KB from a Microsoft Office application, the application might become slow or unresponsive for up to 5 seconds\.
 
-### Enable or Disable Video\-In Redirection for WSP<a name="gp_video_in_wsp"></a>
+### Set the Session Resume Timeout for WSP<a name="gp_auto_resume_wsp"></a>
 
-By default, Amazon WorkSpaces supports redirecting data from a local camera\. If needed for Windows WorkSpaces, you can use Group Policy settings to disable this feature\. 
+When using the WorkSpaces client applications, an interruption of network connectivity causes an active session to be disconnected\. This can be caused by events such as closing the laptop lid, or the loss of your wireless network connection\. The WorkSpaces client applications for Windows and macOS attempt to reconnect the session automatically if network connectivity is regained within a certain amount of time\. The default session resume timeout is 20 minutes \(1200 seconds\), but you can modify that value for WorkSpaces that are controlled by your domain's Group Policy settings\. 
 
-**To enable or disable video\-in redirection for Windows WorkSpaces**
+**To set the automatic session resume timeout value**
 
-1. Make sure that the most recent [Amazon WorkSpaces Group Policy administrative template for WSP](#gp_install_template_wsp) is installed in the Central Store of the domain controller for your WorkSpaces directory\.
+1. Make sure that the most recent [Workspaces Group Policy administrative template for WSP](#gp_install_template_wsp) is installed in the Central Store of the domain controller for your WorkSpaces directory\.
 
 1. On a directory administration WorkSpace or an Amazon EC2 instance that is joined to your WorkSpaces directory, open the Group Policy Management tool \(gpmc\.msc\)\.
 
@@ -440,6 +484,42 @@ By default, Amazon WorkSpaces supports redirecting data from a local camera\. If
 1. Expand **Group Policy Objects**\.
 
 1. Select **Default Domain Policy**, open the context \(right\-click\) menu, and choose **Edit**\.
+**Note**  
+If the domain backing the WorkSpaces is an AWS Managed Microsoft AD directory, you cannot use the Default Domain Policy to create your GPO\. Instead, select the *yourdomainname* OU \(or any OU under that one\), open the context \(right\-click\) menu, and choose **Create a GPO in this domain, and Link it here**\. For more information about the *yourdomainname* OU, see [ What Gets Created](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_getting_started_what_gets_created.html) in the *AWS Directory Service Administration Guide*\.
+
+1. In the Group Policy Management Editor, choose **Computer Configuration**, **Policies**, **Administrative Templates**, **Amazon**, and **WSP**\.
+
+1. Open the **Enable/disable automatic reconnect** setting\.
+
+1. In the **Enable/disable automatic reconnect** dialog box, choose **Enabled**, and then set **Reconnect timeout \(seconds\)** to the desired timeout in seconds\.
+
+1. Choose **OK**\.
+
+1. The Group Policy setting change takes effect after the next Group Policy update for the WorkSpace and after the WorkSpace session is restarted\. To apply the Group Policy changes, do one of the following:
+   + Reboot the WorkSpace \(in the Amazon Workspaces console, select the WorkSpace, then choose **Actions**, **Reboot WorkSpaces**\)\.
+   + From an administrative command prompt, enter gpupdate /force\.
+
+### Enable or Disable Video\-In Redirection for WSP<a name="gp_video_in_wsp"></a>
+
+By default, Workspaces supports redirecting data from a local camera\. If needed for Windows WorkSpaces, you can use Group Policy settings to disable this feature\. 
+
+**To enable or disable video\-in redirection for Windows WorkSpaces**
+
+1. Make sure that the most recent [Workspaces Group Policy administrative template for WSP](#gp_install_template_wsp) is installed in the Central Store of the domain controller for your WorkSpaces directory\.
+
+1. On a directory administration WorkSpace or an Amazon EC2 instance that is joined to your WorkSpaces directory, open the Group Policy Management tool \(gpmc\.msc\)\.
+
+1. Expand the forest \(**Forest:*FQDN***\)\.
+
+1. Expand **Domains**\. 
+
+1. Expand your FQDN \(for example, `example.com`\)\.
+
+1. Expand **Group Policy Objects**\.
+
+1. Select **Default Domain Policy**, open the context \(right\-click\) menu, and choose **Edit**\.
+**Note**  
+If the domain backing the WorkSpaces is an AWS Managed Microsoft AD directory, you cannot use the Default Domain Policy to create your GPO\. Instead, select the *yourdomainname* OU \(or any OU under that one\), open the context \(right\-click\) menu, and choose **Create a GPO in this domain, and Link it here**\. For more information about the *yourdomainname* OU, see [ What Gets Created](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_getting_started_what_gets_created.html) in the *AWS Directory Service Administration Guide*\.
 
 1. In the Group Policy Management Editor, choose **Computer Configuration**, **Policies**, **Administrative Templates**, **Amazon**, and **WSP**\.
 
@@ -450,16 +530,16 @@ By default, Amazon WorkSpaces supports redirecting data from a local camera\. If
 1. Choose **OK**\.
 
 1. The Group Policy setting change takes effect after the next Group Policy update for the WorkSpace and after the WorkSpace session is restarted\. To apply the Group Policy changes, do one of the following:
-   + Reboot the WorkSpace \(in the Amazon WorkSpaces console, select the WorkSpace, then choose **Actions**, **Reboot WorkSpaces**\)\.
+   + Reboot the WorkSpace \(in the Amazon Workspaces console, select the WorkSpace, then choose **Actions**, **Reboot WorkSpaces**\)\.
    + From an administrative command prompt, enter gpupdate /force\.
 
 ### Enable or Disable Audio\-In Redirection for WSP<a name="gp_audio_in_wsp"></a>
 
-By default, Amazon WorkSpaces supports redirecting data from a local microphone\. If needed for Windows WorkSpaces, you can use Group Policy settings to disable this feature\. 
+By default, Workspaces supports redirecting data from a local microphone\. If needed for Windows WorkSpaces, you can use Group Policy settings to disable this feature\. 
 
 **To enable or disable audio\-in redirection for Windows WorkSpaces**
 
-1. Make sure that the most recent [Amazon WorkSpaces Group Policy administrative template for WSP](#gp_install_template_wsp) is installed in the Central Store of the domain controller for your WorkSpaces directory\.
+1. Make sure that the most recent [Workspaces Group Policy administrative template for WSP](#gp_install_template_wsp) is installed in the Central Store of the domain controller for your WorkSpaces directory\.
 
 1. On a directory administration WorkSpace or an Amazon EC2 instance that is joined to your WorkSpaces directory, open the Group Policy Management tool \(gpmc\.msc\)\.
 
@@ -472,6 +552,8 @@ By default, Amazon WorkSpaces supports redirecting data from a local microphone\
 1. Expand **Group Policy Objects**\.
 
 1. Select **Default Domain Policy**, open the context \(right\-click\) menu, and choose **Edit**\.
+**Note**  
+If the domain backing the WorkSpaces is an AWS Managed Microsoft AD directory, you cannot use the Default Domain Policy to create your GPO\. Instead, select the *yourdomainname* OU \(or any OU under that one\), open the context \(right\-click\) menu, and choose **Create a GPO in this domain, and Link it here**\. For more information about the *yourdomainname* OU, see [ What Gets Created](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_getting_started_what_gets_created.html) in the *AWS Directory Service Administration Guide*\.
 
 1. In the Group Policy Management Editor, choose **Computer Configuration**, **Policies**, **Administrative Templates**, **Amazon**, and **WSP**\.
 
@@ -482,7 +564,7 @@ By default, Amazon WorkSpaces supports redirecting data from a local microphone\
 1. Choose **OK**\.
 
 1. The Group Policy setting change takes effect after the next Group Policy update for the WorkSpace and after the WorkSpace session is restarted\. To apply the Group Policy changes, do one of the following:
-   + Reboot the WorkSpace \(in the Amazon WorkSpaces console, select the WorkSpace, then choose **Actions**, **Reboot WorkSpaces**\)\.
+   + Reboot the WorkSpace \(in the Amazon Workspaces console, select the WorkSpace, then choose **Actions**, **Reboot WorkSpaces**\)\.
    + From an administrative command prompt, enter gpupdate /force\.
 
 ### Disable Time Zone Redirection for WSP<a name="gp_time_zone_wsp"></a>
@@ -496,7 +578,7 @@ If needed for Windows WorkSpaces, you can use Group Policy settings to disable t
 
 **To disable time zone redirection for Windows WorkSpaces**
 
-1. Make sure that the most recent [Amazon WorkSpaces Group Policy administrative template for WSP](#gp_install_template_wsp) is installed in the Central Store of the domain controller for your WorkSpaces directory\.
+1. Make sure that the most recent [Workspaces Group Policy administrative template for WSP](#gp_install_template_wsp) is installed in the Central Store of the domain controller for your WorkSpaces directory\.
 
 1. On a directory administration WorkSpace or an Amazon EC2 instance that is joined to your WorkSpaces directory, open the Group Policy Management tool \(gpmc\.msc\)\.
 
@@ -509,6 +591,8 @@ If needed for Windows WorkSpaces, you can use Group Policy settings to disable t
 1. Expand **Group Policy Objects**\.
 
 1. Select **Default Domain Policy**, open the context \(right\-click\) menu, and choose **Edit**\.
+**Note**  
+If the domain backing the WorkSpaces is an AWS Managed Microsoft AD directory, you cannot use the Default Domain Policy to create your GPO\. Instead, select the *yourdomainname* OU \(or any OU under that one\), open the context \(right\-click\) menu, and choose **Create a GPO in this domain, and Link it here**\. For more information about the *yourdomainname* OU, see [ What Gets Created](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_getting_started_what_gets_created.html) in the *AWS Directory Service Administration Guide*\.
 
 1. In the Group Policy Management Editor, choose **Computer Configuration**, **Policies**, **Administrative Templates**, **Amazon**, and **WSP**\.
 
@@ -519,7 +603,7 @@ If needed for Windows WorkSpaces, you can use Group Policy settings to disable t
 1. Choose **OK**\.
 
 1. The Group Policy setting change takes effect after the next Group Policy update for the WorkSpace and after the WorkSpace session is restarted\. To apply the Group Policy changes, do one of the following:
-   + Reboot the WorkSpace \(in the Amazon WorkSpaces console, select the WorkSpace, then choose **Actions**, **Reboot WorkSpaces**\)\.
+   + Reboot the WorkSpace \(in the Amazon Workspaces console, select the WorkSpace, then choose **Actions**, **Reboot WorkSpaces**\)\.
    + From an administrative command prompt, enter gpupdate /force\.
 
 1. Set the time zone for the WorkSpaces to the desired time zone\.
@@ -528,7 +612,7 @@ The time zone of the WorkSpaces is now static and no longer mirrors the time zon
 
 ### Enable or Disable Smart Card Redirection for WSP<a name="gp_smart_cards_in_wsp"></a>
 
-By default, Amazon WorkSpaces are not enabled to support the use of smart cards for either *pre\-session authentication* or *in\-session authentication*\. Pre\-session authentication refers to smart card authentication that's performed while users are logging in to their WorkSpaces\. In\-session authentication refers to authentication that's performed after logging in\.
+By default, Amazon Workspaces are not enabled to support the use of smart cards for either *pre\-session authentication* or *in\-session authentication*\. Pre\-session authentication refers to smart card authentication that's performed while users are logging in to their WorkSpaces\. In\-session authentication refers to authentication that's performed after logging in\.
 
 If needed, you can enable pre\-session and in\-session authentication for Windows WorkSpaces by using Group Policy settings\. Pre\-session authentication must also be enabled through your AD Connector directory settings by using the EnableClientAuthentication API action or the enable\-client\-authentication AWS command line interface \(AWS CLI\) command\. For more information, see [ Enable Smart Card Authentication for AD Connector](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ad_connector_clientauth.html) in the *AWS Directory Service Administration Guide*\.
 
@@ -537,7 +621,7 @@ To enable the use of smart cards with Windows WorkSpaces, additional steps are r
 
 **To enable or disable smart card redirection for Windows WorkSpaces**
 
-1. Make sure that the most recent [Amazon WorkSpaces Group Policy administrative template for WSP](#gp_install_template_wsp) is installed in the Central Store of the domain controller for your WorkSpaces directory\.
+1. Make sure that the most recent [Workspaces Group Policy administrative template for WSP](#gp_install_template_wsp) is installed in the Central Store of the domain controller for your WorkSpaces directory\.
 
 1. On a directory administration WorkSpace or an Amazon EC2 instance that is joined to your WorkSpaces directory, open the Group Policy Management tool \(gpmc\.msc\)\.
 
@@ -550,6 +634,8 @@ To enable the use of smart cards with Windows WorkSpaces, additional steps are r
 1. Expand **Group Policy Objects**\.
 
 1. Select **Default Domain Policy**, open the context \(right\-click\) menu, and choose **Edit**\.
+**Note**  
+If the domain backing the WorkSpaces is an AWS Managed Microsoft AD directory, you cannot use the Default Domain Policy to create your GPO\. Instead, select the *yourdomainname* OU \(or any OU under that one\), open the context \(right\-click\) menu, and choose **Create a GPO in this domain, and Link it here**\. For more information about the *yourdomainname* OU, see [ What Gets Created](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_getting_started_what_gets_created.html) in the *AWS Directory Service Administration Guide*\.
 
 1. In the Group Policy Management Editor, choose **Computer Configuration**, **Policies**, **Administrative Templates**, **Amazon**, and **WSP**\.
 
@@ -559,7 +645,7 @@ To enable the use of smart cards with Windows WorkSpaces, additional steps are r
 
 1. Choose **OK**\.
 
-1. The Group Policy setting change takes effect after the WorkSpace session is restarted\. To apply the Group Policy change, reboot the WorkSpace \(in the Amazon WorkSpaces console, select the WorkSpace, then choose **Actions**, **Reboot WorkSpaces**\)\.
+1. The Group Policy setting change takes effect after the WorkSpace session is restarted\. To apply the Group Policy change, reboot the WorkSpace \(in the Amazon Workspaces console, select the WorkSpace, then choose **Actions**, **Reboot WorkSpaces**\)\.
 
 ### Enable or Disable Disconnect Session on Screen Lock for WSP<a name="gp_lock_screen_in_wsp"></a>
 
@@ -574,7 +660,7 @@ To enable the use of smart cards with Windows WorkSpaces, additional steps are r
 
 **To enable or disable disconnect session on screen lock for Windows WorkSpaces**
 
-1. Make sure that the most recent [Amazon WorkSpaces Group Policy administrative template for WSP](#gp_install_template_wsp) is installed in the Central Store of the domain controller for your WorkSpaces directory\.
+1. Make sure that the most recent [Workspaces Group Policy administrative template for WSP](#gp_install_template_wsp) is installed in the Central Store of the domain controller for your WorkSpaces directory\.
 
 1. On a directory administration WorkSpace or an Amazon EC2 instance that is joined to your WorkSpaces directory, open the Group Policy Management tool \(gpmc\.msc\)\.
 
@@ -587,6 +673,8 @@ To enable the use of smart cards with Windows WorkSpaces, additional steps are r
 1. Expand **Group Policy Objects**\.
 
 1. Select **Default Domain Policy**, open the context \(right\-click\) menu, and choose **Edit**\.
+**Note**  
+If the domain backing the WorkSpaces is an AWS Managed Microsoft AD directory, you cannot use the Default Domain Policy to create your GPO\. Instead, select the *yourdomainname* OU \(or any OU under that one\), open the context \(right\-click\) menu, and choose **Create a GPO in this domain, and Link it here**\. For more information about the *yourdomainname* OU, see [ What Gets Created](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_getting_started_what_gets_created.html) in the *AWS Directory Service Administration Guide*\.
 
 1. In the Group Policy Management Editor, choose **Computer Configuration**, **Policies**, **Administrative Templates**, **Amazon**, and **WSP**\.
 
@@ -597,7 +685,7 @@ To enable the use of smart cards with Windows WorkSpaces, additional steps are r
 1. Choose **OK**\.
 
 1. The Group Policy setting change takes effect after the next Group Policy update for the WorkSpace and after the WorkSpace session is restarted\. To apply the Group Policy changes, do one of the following:
-   + Reboot the WorkSpace \(in the Amazon WorkSpaces console, select the WorkSpace, then choose **Actions**, **Reboot WorkSpaces**\)\.
+   + Reboot the WorkSpace \(in the Amazon Workspaces console, select the WorkSpace, then choose **Actions**, **Reboot WorkSpaces**\)\.
    + From an administrative command prompt, enter gpupdate /force\.
 
 ## Set the Maximum Lifetime for a Kerberos Ticket<a name="gp_kerberos_ticket"></a>
@@ -618,4 +706,4 @@ Proxy servers that require authentication with a username and password are not s
 
 You can configure the device proxy server settings for your Windows WorkSpaces through Group Policy by following the steps in [ Configure device proxy and internet connectivity settings](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet) in the Microsoft documentation\.
 
-For more information about configuring the proxy settings in the WorkSpaces Windows client application, see [ Proxy Server](https://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-windows-client.html#windows_proxy_server) in the *Amazon WorkSpaces User Guide*\.
+For more information about configuring the proxy settings in the WorkSpaces Windows client application, see [ Proxy Server](https://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-windows-client.html#windows_proxy_server) in the *Amazon Workspaces User Guide*\.

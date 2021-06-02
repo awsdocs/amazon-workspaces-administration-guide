@@ -5,7 +5,7 @@ Customize your users' access to WorkSpaces by using uniform resource identifiers
 + Their user names are automatically entered on their WorkSpaces client login page\.
 + If multi\-factor authentication \(MFA\) is used in your organization, their user names and MFA codes are automatically entered on their client login page\.
 
-URI access works with both Region\-based registration codes \(for example, `WSpdx+ABC12D`\) and fully qualified domain name \(FQDN\) based registration codes \(for example, `desktop.example.com`\)\. For more information about creating and using FQDN\-based registration codes, see [Cross\-Region Redirection for Amazon WorkSpaces](cross-region-redirection.md)\.
+URI access works with both Region\-based registration codes \(for example, `WSpdx+ABC12D`\) and fully qualified domain name \(FQDN\) based registration codes \(for example, `desktop.example.com`\)\. For more information about creating and using FQDN\-based registration codes, see [Cross\-Region Redirection for Amazon Workspaces](cross-region-redirection.md)\.
 
 You can configure URI access to WorkSpaces for client applications on the following supported devices: 
 + Windows computers
@@ -16,7 +16,7 @@ You can configure URI access to WorkSpaces for client applications on the follow
 
 To use URIs to access their WorkSpaces, users must first install the client application for their device by opening [https://clients\.amazonworkspaces\.com/](https://clients.amazonworkspaces.com/) and following the directions\.
 
-URI access is supported on the Firefox and Chrome browsers on Windows and macOS computers, on the Firefox browser on Ubuntu Linux 18\.04 computers, and on the Internet Explorer and Microsoft Edge browsers on Windows computers\. For more information about WorkSpaces clients, see [Amazon WorkSpaces Clients](https://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-clients.html) in the *Amazon WorkSpaces User Guide*\.
+URI access is supported on the Firefox and Chrome browsers on Windows and macOS computers, on the Firefox browser on Ubuntu Linux 18\.04 computers, and on the Internet Explorer and Microsoft Edge browsers on Windows computers\. For more information about WorkSpaces clients, see [Workspaces Clients](https://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-clients.html) in the *Amazon Workspaces User Guide*\.
 
 **Note**  
 On Android devices, URI access works only with the Firefox browser, not with the Google Chrome browser\.

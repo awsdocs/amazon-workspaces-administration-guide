@@ -1,8 +1,8 @@
 # Administer Your WorkSpaces<a name="administer-workspaces"></a>
 
-You can administer your WorkSpaces using the Amazon WorkSpaces console\.
+You can administer your WorkSpaces using the Workspaces console\.
 
-To perform directory administration tasks, see [Set Up Active Directory Administration Tools for Amazon WorkSpaces](directory_administration.md)\.
+To perform directory administration tasks, see [Set Up Active Directory Administration Tools for Workspaces](directory_administration.md)\.
 
 **Topics**
 + [Manage Your Windows WorkSpaces](group_policy.md)

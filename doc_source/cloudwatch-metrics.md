@@ -1,18 +1,18 @@
 # Monitor Your WorkSpaces Using CloudWatch Metrics<a name="cloudwatch-metrics"></a>
 
-Amazon WorkSpaces and Amazon CloudWatch are integrated, so you can gather and analyze performance metrics\. You can monitor these metrics using the CloudWatch console, the CloudWatch command line interface, or programmatically using the CloudWatch API\. CloudWatch also allows you to set alarms when you reach a specified threshold for a metric\.
+Workspaces and Amazon CloudWatch are integrated, so you can gather and analyze performance metrics\. You can monitor these metrics using the CloudWatch console, the CloudWatch command line interface, or programmatically using the CloudWatch API\. CloudWatch also allows you to set alarms when you reach a specified threshold for a metric\.
 
 For more information about using CloudWatch and alarms, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/)\.
 
 **Prerequisites**  
-To get CloudWatch metrics, enable access on port 443 on the `AMAZON` subset in the `us-east-1` Region\. For more information, see [IP Address and Port Requirements for Amazon WorkSpaces](workspaces-port-requirements.md)\.
+To get CloudWatch metrics, enable access on port 443 on the `AMAZON` subset in the `us-east-1` Region\. For more information, see [IP Address and Port Requirements for Workspaces](workspaces-port-requirements.md)\.
 
 **Topics**
-+ [Amazon WorkSpaces Metrics](#wsp-metrics)
-+ [Dimensions for Amazon WorkSpaces Metrics](#wsp-metric-dimensions)
++ [Workspaces Metrics](#wsp-metrics)
++ [Dimensions for Workspaces Metrics](#wsp-metric-dimensions)
 + [Monitoring Example](#monitoring_example)
 
-## Amazon WorkSpaces Metrics<a name="wsp-metrics"></a>
+## Workspaces Metrics<a name="wsp-metrics"></a>
 
 The `AWS/WorkSpaces` namespace includes the following metrics\.
 
@@ -35,19 +35,19 @@ The `AWS/WorkSpaces` namespace includes the following metrics\.
 | `TrustedDeviceValidationFailure`6 | The number of failed device authentication signature validations\.  | `DirectoryId` | Average, Sum, Maximum, Minimum, Data Samples | Count | 
 | `TrustedDeviceCertificateDaysBeforeExpiration` | Days left before the root certificate associated with the directory is expired\. | `CertificateId` | Average, Sum, Maximum, Minimum, Data Samples | Count | 
 
-1 Amazon WorkSpaces periodically sends status requests to a WorkSpace\. A WorkSpace is marked `Available` when it responds to these requests, and `Unhealthy` when it fails to respond to these requests\. These metrics are available at a per\-WorkSpace level of granularity, and also aggregated for all WorkSpaces in an organization\. 
+1 Workspaces periodically sends status requests to a WorkSpace\. A WorkSpace is marked `Available` when it responds to these requests, and `Unhealthy` when it fails to respond to these requests\. These metrics are available at a per\-WorkSpace level of granularity, and also aggregated for all WorkSpaces in an organization\. 
 
-2 Amazon WorkSpaces records metrics on connections made to each WorkSpace\. These metrics are emitted after a user has successfully authenticated via the WorkSpaces client and the client then initiates a session\. The metrics are available at a per\-WorkSpace level of granularity, and also aggregated for all WorkSpaces in a directory\.
+2 Workspaces records metrics on connections made to each WorkSpace\. These metrics are emitted after a user has successfully authenticated via the WorkSpaces client and the client then initiates a session\. The metrics are available at a per\-WorkSpace level of granularity, and also aggregated for all WorkSpaces in a directory\.
 
-3 Amazon WorkSpaces periodically sends connection status requests to a WorkSpace\. Users are reported as connected when they are actively using their sessions\. This metric is available at a per\-WorkSpace level of granularity, and is also aggregated for all WorkSpaces in an organization\.
+3 Workspaces periodically sends connection status requests to a WorkSpace\. Users are reported as connected when they are actively using their sessions\. This metric is available at a per\-WorkSpace level of granularity, and is also aggregated for all WorkSpaces in an organization\.
 
 4 This metric applies to WorkSpaces that are configured with an AutoStop running mode\. If you have maintenance enabled for your WorkSpaces, this metric captures the number of WorkSpaces that are currently under maintenance\. This metric is available at a per\-WorkSpace level of granularity, which describes when a WorkSpace went into maintenance and when it was removed\.
 
 5 This metric is currently emitted only for PCoIP WorkSpaces\.
 
-6 If the trusted devices feature is enabled for the directory, Amazon WorkSpaces uses certificate\-based authentication to determine whether a device is trusted\. When users attempt to access their WorkSpaces, these metrics are emitted to indicate successful or failed trusted device authentication\. These metrics are available at a per\-directory level of granularity, and only for the Amazon WorkSpaces Windows and macOS client applications\. 
+6 If the trusted devices feature is enabled for the directory, Amazon Workspaces uses certificate\-based authentication to determine whether a device is trusted\. When users attempt to access their WorkSpaces, these metrics are emitted to indicate successful or failed trusted device authentication\. These metrics are available at a per\-directory level of granularity, and only for the Amazon Workspaces Windows and macOS client applications\. 
 
-## Dimensions for Amazon WorkSpaces Metrics<a name="wsp-metric-dimensions"></a>
+## Dimensions for Workspaces Metrics<a name="wsp-metric-dimensions"></a>
 
 To filter the metric data, use the following dimensions\.
 

@@ -21,7 +21,7 @@ Although tags appear 24 hours after activation, it can take 4 to 5 days for valu
 
 **To update the tags for an existing resource using the console \(directories, WorkSpaces, or IP access control groups\)**
 
-1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose one of the following resource types: **Directories**, **WorkSpaces**, or **IP Access Controls**\.
 
@@ -36,7 +36,7 @@ Although tags appear 24 hours after activation, it can take 4 to 5 days for valu
 
 **To update the tags for an existing resource using the console \(images or bundles\)**
 
-1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose one of the following resource types: **Bundles** or **Images**\.
 

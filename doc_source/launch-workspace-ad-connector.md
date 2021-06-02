@@ -1,10 +1,10 @@
 # Launch a WorkSpace Using AD Connector<a name="launch-workspace-ad-connector"></a>
 
-Amazon WorkSpaces enables you to provision virtual, cloud\-based Microsoft Windows desktops for your users, known as *WorkSpaces*\.
+Workspaces enables you to provision virtual, cloud\-based Microsoft Windows desktops for your users, known as *WorkSpaces*\.
 
-Amazon WorkSpaces uses directories to store and manage information for your WorkSpaces and users\. For your directory, you can choose from Simple AD, AD Connector, or AWS Directory Service for Microsoft Active Directory, also known as AWS Managed Microsoft AD\. In addition, you can establish a trust relationship between your AWS Managed Microsoft AD directory and your on\-premises domain\.
+Workspaces uses directories to store and manage information for your WorkSpaces and users\. For your directory, you can choose from Simple AD, AD Connector, or AWS Directory Service for Microsoft Active Directory, also known as AWS Managed Microsoft AD\. In addition, you can establish a trust relationship between your AWS Managed Microsoft AD directory and your on\-premises domain\.
 
-In this tutorial, we launch a WorkSpace that uses AD Connector\. For tutorials that use the other options, see [Launch a Virtual Desktop Using Amazon WorkSpaces](launch-workspaces-tutorials.md)\.
+In this tutorial, we launch a WorkSpace that uses AD Connector\. For tutorials that use the other options, see [Launch a Virtual Desktop Using Workspaces](launch-workspaces-tutorials.md)\.
 
 **Topics**
 + [Before You Begin](#prereqs-ad-connector)
@@ -14,20 +14,20 @@ In this tutorial, we launch a WorkSpace that uses AD Connector\. For tutorials t
 + [Next Steps](#next-steps-ad-connector)
 
 ## Before You Begin<a name="prereqs-ad-connector"></a>
-+ Amazon WorkSpaces is not available in every Region\. Verify the supported Regions and select a Region for your WorkSpaces\. For more information about the supported Regions, see [Amazon WorkSpaces Pricing by AWS Region](https://aws.amazon.com/workspaces/pricing/)\.
++ Workspaces is not available in every Region\. Verify the supported Regions and select a Region for your WorkSpaces\. For more information about the supported Regions, see [Workspaces Pricing by AWS Region](https://aws.amazon.com/workspaces/pricing/)\.
 + When you launch a WorkSpace, you must select a WorkSpace bundle\. A bundle is a combination of an operating system, and storage, compute, and software resources\. For more information, see [Amazon WorkSpaces Bundles](https://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles)\.
-+ Create a virtual private cloud with at least two private subnets\. For more information, see [Configure a VPC for Amazon WorkSpaces](amazon-workspaces-vpc.md)\. The VPC must be connected to your on\-premises network through a virtual private network \(VPN\) connection or AWS Direct Connect\. For more information, see [AD Connector Prerequisites](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/prereq_connector.html) in the *AWS Directory Service Administration Guide*\.
++ Create a virtual private cloud with at least two private subnets\. For more information, see [Configure a VPC for Workspaces](amazon-workspaces-vpc.md)\. The VPC must be connected to your on\-premises network through a virtual private network \(VPN\) connection or AWS Direct Connect\. For more information, see [AD Connector Prerequisites](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/prereq_connector.html) in the *AWS Directory Service Administration Guide*\.
 + Provide access to the internet from the WorkSpace\. For more information, see [Provide Internet Access from Your WorkSpace](amazon-workspaces-internet-access.md)\.
 
 ## Step 1: Create an AD Connector<a name="create-ad-connector"></a>
 
 **Note**  
-AD Connector is made available to you free of charge to use with WorkSpaces\. If there are no WorkSpaces being used with your AD Connector directory for 30 consecutive days, this directory will be automatically deregistered for use with Amazon WorkSpaces, and you will be charged for this directory as per the [AWS Directory Service pricing terms](http://aws.amazon.com/directoryservice/pricing/)\.  
+AD Connector is made available to you free of charge to use with WorkSpaces\. If there are no WorkSpaces being used with your AD Connector directory for 30 consecutive days, this directory will be automatically deregistered for use with Amazon Workspaces, and you will be charged for this directory as per the [AWS Directory Service pricing terms](http://aws.amazon.com/directoryservice/pricing/)\.  
 To delete empty directories, see [Delete the Directory for Your WorkSpaces](delete-workspaces-directory.md)\. If you delete your AD Connector directory, you can always create a new one when you want to start using WorkSpaces again\.
 
 **To create an AD Connector**
 
-1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **Directories**\.
 
@@ -45,7 +45,7 @@ To delete empty directories, see [Delete the Directory for Your WorkSpaces](dele
 
 1. For **DNS address**, enter the IP address of at least one DNS server in your on\-premises directory\.
 **Important**  
-If you need to update your DNS server IP address after launching your WorkSpaces, follow the procedure in [Update DNS Servers for Amazon WorkSpaces](update-dns-server.md) to ensure that your WorkSpaces get properly updated\.
+If you need to update your DNS server IP address after launching your WorkSpaces, follow the procedure in [Update DNS Servers for Amazon Workspaces](update-dns-server.md) to ensure that your WorkSpaces get properly updated\.
 
 1. \(Optional\) For **Description**, enter a description for the directory\.
 
@@ -65,7 +65,7 @@ Now you are ready to launch WorkSpaces for one or more users in your on\-premise
 
 **To launch a WorkSpace for an existing user**
 
-1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **WorkSpaces**\.
 
@@ -75,9 +75,9 @@ Now you are ready to launch WorkSpaces for one or more users in your on\-premise
 
 1. \(Optional\) If this is the first time you have launched a WorkSpace in this directory, and Amazon WorkDocs is supported in the Region, you can enable or disable Amazon WorkDocs for all users in the directory\. For more information about Amazon WorkDocs, see [Amazon WorkDocs Drive](https://docs.aws.amazon.com/workdocs/latest/userguide/workdocs_drive_help.html) in the *Amazon WorkDocs Administration Guide*\.
 
-1. Choose **Next**\. Amazon WorkSpaces registers your AD Connector\.
+1. Choose **Next**\. Workspaces registers your AD Connector\.
 
-1. Select one or more existing users from your on\-premises directory\. Do not add new users to an on\-premises directory through the Amazon WorkSpaces console\.
+1. Select one or more existing users from your on\-premises directory\. Do not add new users to an on\-premises directory through the Workspaces console\.
 
    To find users to select, you can enter all or part of the user's name and choose **Search** or choose **Show All Users**\. Note that you cannot select a user that does not have an email address\.
 
@@ -99,7 +99,7 @@ You can connect to your WorkSpace using the client of your choice\. After you si
 
 1. Open the link in the invitation email\.
 
-1. Review [Amazon WorkSpaces Clients](https://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-clients.html) in the *Amazon WorkSpaces User Guide* for more information about the requirements for each client, and then do one of the following: 
+1. Review [Workspaces Clients](https://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-clients.html) in the *Amazon Workspaces User Guide* for more information about the requirements for each client, and then do one of the following: 
    + When prompted, download one of the client applications or launch Web Access\.
    + If you aren't prompted and you haven't installed a client application already, open [https://clients\.amazonworkspaces\.com/](https://clients.amazonworkspaces.com/) and download one of the client applications or launch Web Access\.
 **Note**  
@@ -112,14 +112,14 @@ You cannot use a web browser \(Web Access\) to connect to Amazon Linux WorkSpace
 1. \(Optional\) When prompted to save your credentials, choose **Yes**\.
 
 **Note**  
-Because you're using AD Connector, your users won't be able to reset their own passwords\. \(The **Forgot password?** option on the WorkSpaces client application login screen won't be available\.\) For information about how to reset user passwords, see [Set Up Active Directory Administration Tools for Amazon WorkSpaces](directory_administration.md)\.
+Because you're using AD Connector, your users won't be able to reset their own passwords\. \(The **Forgot password?** option on the WorkSpaces client application login screen won't be available\.\) For information about how to reset user passwords, see [Set Up Active Directory Administration Tools for Workspaces](directory_administration.md)\.
 
 ## Next Steps<a name="next-steps-ad-connector"></a>
 
 You can continue to customize the WorkSpace that you just created\. For example, you can install software and then create a custom bundle from your WorkSpace\. You can also perform various administrative tasks for your WorkSpaces and your WorkSpaces directory\. If you are finished with your WorkSpace, you can delete it\. For more information, see the following documentation\.
 + [Create a Custom WorkSpaces Image and Bundle](create-custom-bundle.md)
 + [Administer Your WorkSpaces](administer-workspaces.md)
-+ [Manage Directories for Amazon WorkSpaces](manage-workspaces-directory.md)
++ [Manage Directories for Workspaces](manage-workspaces-directory.md)
 + [Delete a WorkSpace](delete-workspaces.md)
 
-For more information about using the WorkSpaces client applications, such as setting up multiple monitors or using peripheral devices, see [Amazon WorkSpaces Clients](https://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-clients.html) and [Peripheral Device Support](https://docs.aws.amazon.com/workspaces/latest/userguide/peripheral_devices.html) in the *Amazon WorkSpaces User Guide*\.
+For more information about using the WorkSpaces client applications, such as setting up multiple monitors or using peripheral devices, see [Workspaces Clients](https://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-clients.html) and [Peripheral Device Support](https://docs.aws.amazon.com/workspaces/latest/userguide/peripheral_devices.html) in the *Amazon Workspaces User Guide*\.

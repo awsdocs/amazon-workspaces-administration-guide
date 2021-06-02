@@ -8,7 +8,7 @@ To delete a bundle, you must first delete all of the WorkSpaces that are based o
 
 **To delete a bundle using the console**
 
-1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **Bundles**\.
 
@@ -17,7 +17,7 @@ To delete a bundle, you must first delete all of the WorkSpaces that are based o
 1. When prompted for confirmation, choose **Delete**\.
 
 **To delete a bundle programmatically**  
-To delete a bundle programmatically, use the DeleteWorkspaceBundle API action\. For more information, see [ DeleteWorkspaceBundle](https://docs.aws.amazon.com/workspaces/latest/api/API_DeleteWorkspaceBundle.html) in the *Amazon WorkSpaces API Reference*\.
+To delete a bundle programmatically, use the DeleteWorkspaceBundle API action\. For more information, see [ DeleteWorkspaceBundle](https://docs.aws.amazon.com/workspaces/latest/api/API_DeleteWorkspaceBundle.html) in the *Amazon Workspaces API Reference*\.
 
 ## Deleting Images<a name="delete_images"></a>
 
@@ -28,7 +28,7 @@ To delete an image, you must first either delete any bundles that are associated
 
 **To delete an image using the console**
 
-1. Open the Amazon WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **Images**\.
 
@@ -37,4 +37,4 @@ To delete an image, you must first either delete any bundles that are associated
 1. When prompted for confirmation, choose **Delete**\.
 
 **To delete an image programmatically**  
-To delete an image programmatically, use the DeleteWorkspaceImage API action\. For more information, see [ DeleteWorkspaceImage](https://docs.aws.amazon.com/workspaces/latest/api/API_DeleteWorkspaceImage.html) in the *Amazon WorkSpaces API Reference*\.
+To delete an image programmatically, use the DeleteWorkspaceImage API action\. For more information, see [ DeleteWorkspaceImage](https://docs.aws.amazon.com/workspaces/latest/api/API_DeleteWorkspaceImage.html) in the *Amazon Workspaces API Reference*\.

@@ -1,4 +1,4 @@
-# Update DNS Servers for Amazon WorkSpaces<a name="update-dns-server"></a>
+# Update DNS Servers for Amazon Workspaces<a name="update-dns-server"></a>
 
 If you need to update the DNS server IP addresses for your Active Directory after launching your WorkSpaces, you must also update your WorkSpaces with the new DNS server settings\.
 
