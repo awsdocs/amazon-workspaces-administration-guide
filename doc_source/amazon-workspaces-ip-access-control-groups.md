@@ -1,15 +1,17 @@
 # IP Access Control Groups for Your WorkSpaces<a name="amazon-workspaces-ip-access-control-groups"></a>
 
-An *IP access control group* acts as a virtual firewall that controls the IP addresses from which users are allowed to access their WorkSpaces\. You can associate each IP access control group with one or more directories\. You can create up to 100 IP access control groups per Region per AWS account\. However, you can only associate up to 25 IP access control groups with a single directory\.
+Amazon Workspaces allows you to control which IP addresses your WorkSpaces can be accessed from\. By using IP address\-based control groups, you can define and manage groups of trusted IP addresses, and only allow users to access their WorkSpaces when they're connected to a trusted network\.
 
-There is a default IP access control group associated with each directory\. The default group allows all traffic\. If you associate an IP access control group with a directory, the default IP access control group is disassociated\.
+An *IP access control group* acts as a virtual firewall that controls the IP addresses from which users are allowed to access their WorkSpaces\. To specify the CIDR address ranges, add rules to your IP access control group, and then associate the group with your directory\. You can associate each IP access control group with one or more directories\. You can create up to 100 IP access control groups per Region per AWS account\. However, you can only associate up to 25 IP access control groups with a single directory\.
+
+A default IP access control group is associated with each directory\. This default group includes a default rule that allows users to access their WorkSpaces from anywhere\. You cannot modify the default IP access control group for your directory\. If you don't associate an IP access control group with your directory, the default group is used\. If you associate an IP access control group with a directory, the default IP access control group is disassociated\.
 
 To specify the public IP addresses and ranges of IP addresses for your trusted networks, add rules to your IP access control groups\. If your users access their WorkSpaces through a NAT gateway or VPN, you must create rules that allow traffic from the public IP addresses for the NAT gateway or VPN\.
 
 **Note**  
 IP access control groups do not allow the use of dynamic IP addresses for NATs\. If you're using a NAT, configure it to use a static IP address instead of a dynamic IP address\. Make sure the NAT routes all the UDP traffic through the same static IP address for the duration of the WorkSpaces session\.
 
-You can use this feature with Web Access and the client applications for macOS, iPad, Windows, Chromebook, and Android\. To use this feature with a PCoIP zero client, you cannot use PCoIP Connection Manager\.
+You can use this feature with Web Access, PCoIP zero clients, and the client applications for macOS, iPad, Windows, Chromebook, and Android\.
 
 ## Create an IP Access Control Group<a name="create-ip-access-control-group"></a>
 

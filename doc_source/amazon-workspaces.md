@@ -74,3 +74,8 @@ To create a WorkSpace, try one of the following tutorials:
 + [Launch a WorkSpace Using Simple AD](launch-workspace-simple-ad.md)
 + [Launch a WorkSpace Using AD Connector](launch-workspace-ad-connector.md)
 + [Launch a WorkSpace Using a Trusted Domain](launch-workspace-trusted-domain.md)
+
+You might also want to explore these resources to learn more about Amazon Workspaces: 
++ [ Implementation guide: Provision Desktops in the Cloud](http://aws.amazon.com/getting-started/hands-on/provision-cloud-desktops/)
++ [ Amazon Workspaces resources](http://aws.amazon.com/workspaces/resources/) — whitepapers, blog posts, webinars, re:Invent sessions, and more
++ [Amazon Workspaces FAQs](http://aws.amazon.com/workspaces/faqs/)

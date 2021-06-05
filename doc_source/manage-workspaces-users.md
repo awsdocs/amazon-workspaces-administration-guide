@@ -41,7 +41,7 @@ The process you use for managing users and groups depends on which type of direc
 You can send an invitation email to a user manually if needed\.
 
 **Note**  
-If you're using AD Connector, welcome emails aren't automatically sent to your users, so you must send them manually\.
+If you're using AD Connector or a trusted domain, invitation emails aren't automatically sent to your users, so you must send them manually\. Invitation emails also aren't sent automatically if the user already exists in Active Directory\.
 
 **To resend an invitation email**
 

@@ -146,9 +146,9 @@ To override the default shell for Linux WorkSpaces, see [Override the Default Sh
 
 ### My Amazon Linux WorkSpaces won't start<a name="linux_workspace_provision_fail_pcoip_agent_upgrade"></a>
 
-Starting July 20, 2020, Amazon Linux WorkSpaces will be using new license certificates\. These new certificates are compatible only with versions 2\.14\.1\.1, 2\.14\.7, and 2\.14\.9 of the PCoIP agent\. 
+Starting July 20, 2020, Amazon Linux WorkSpaces will be using new license certificates\. These new certificates are compatible only with versions 2\.14\.1\.1, 2\.14\.7, 2\.14\.9, and 20\.10\.6 or later of the PCoIP agent\. 
 
-If you're using an unsupported version of the PCoIP agent, you must upgrade it to the latest version \(2\.14\.9\), which has the latest fixes and performance improvements that are compatible with the new certificates\. If you don't make these upgrades by July 20, session provisioning for your Linux WorkSpaces will fail and your end users won't be able to connect to their WorkSpaces\.
+If you're using an unsupported version of the PCoIP agent, you must upgrade it to the latest version \(20\.10\.6\), which has the latest fixes and performance improvements that are compatible with the new certificates\. If you don't make these upgrades by July 20, session provisioning for your Linux WorkSpaces will fail and your end users won't be able to connect to their WorkSpaces\.
 
 **To upgrade your PCoIP agent to the latest version**
 
@@ -175,7 +175,7 @@ If you're using an unsupported version of the PCoIP agent, you must upgrade it t
 1. To update the PCoIP agent, run the following command:
 
    ```
-   sudo yum --enablerepo=pcoip-stable install pcoip-agent-standard-2.14.9
+   sudo yum --enablerepo=pcoip-stable install pcoip-agent-standard-20.10.6
    ```
 
 1. To verify the agent version and to confirm that the update succeeded, run the following command:
@@ -187,7 +187,7 @@ If you're using an unsupported version of the PCoIP agent, you must upgrade it t
    The verification command should produce following result:
 
    ```
-   pcoip-agent-standard-2.14.9-27877.el7.x86_64
+   pcoip-agent-standard-20.10.6-1.el7.x86_64
    ```
 
 1. Disconnect from the WorkSpace and reboot it again\. 
@@ -421,7 +421,7 @@ In some cases, you might need to enable your users' Chromebooks to install Andro
 
 ### My users aren't receiving invitation emails or password reset emails<a name="welcome_emails"></a>
 
-Users do not automatically receive welcome or password reset emails for WorkSpaces that were created using AD Connector or a trusted domain\.
+Users do not automatically receive welcome or password reset emails for WorkSpaces that were created using AD Connector or a trusted domain\. Invitation emails also aren't sent automatically if the user already exists in Active Directory\.
 
 To manually send welcome emails to these users, see [Send an Invitation Email](manage-workspaces-users.md#send-invitation)\.
 

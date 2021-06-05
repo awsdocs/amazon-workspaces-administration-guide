@@ -13,7 +13,10 @@ For a tool that helps you create IAM policies, see the [ AWS Policy Generator](h
 
 **Example 1: Perform all Workspaces tasks**  <a name="perform-workspaces-tasks"></a>
 The following policy statement grants an IAM user permission to perform all Workspaces tasks, including creating and managing directories\. It also grants permission to run the quick setup procedure\.  
-Note that although Workspaces fully supports the `Action` and `Resource` elements when using the API and command line tools, you must set them both to "\*" in order to use the Workspaces console successfully\.  
+Although Amazon Workspaces fully supports the `Action` and `Resource` elements when using the API and command line tools, to use Amazon Workspaces from the AWS Management Console, an IAM user must have permissions for the following actions and resources:   
++ Actions: "`workspaces:*"` and `"ds:*"`
++ Resources: `"Resource": "*"`
+The following example policy shows how to allow an IAM user to use Amazon Workspaces from the AWS Management Console\. 
 
 ```
 {

@@ -27,7 +27,7 @@ To delete empty directories, see [Delete the Directory for Your WorkSpaces](dele
 Shared directories are not currently supported for use with Amazon Workspaces\.
 If your AWS Managed Microsoft AD directory has been configured for multi\-Region replication, only the directory in the primary Region can be registered for use with Amazon Workspaces\. Attempts to register the directory in a replicated Region for use with Amazon Workspaces will fail\. Multi\-Region replication with AWS Managed Microsoft AD isn't supported for use with Amazon Workspaces within replicated Regions\.
 
-1. Select two subnets that are not from the same Availability Zone\.
+1. Select two subnets of your VPC that are not from the same Availability Zone\. These subnets will be used to launch your WorkSpaces\. For more information, see [Availability Zones for Amazon Workspaces](azs-workspaces.md)\.
 
 1. For **Enable Self Service Permissions**, choose **Yes** to enable your users to rebuild their WorkSpaces, change volume size, compute type and running mode\. Enabling may impact how much you pay for Amazon Workspaces\. Choose **No** otherwise\.
 

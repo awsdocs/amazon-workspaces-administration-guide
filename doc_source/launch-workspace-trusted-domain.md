@@ -62,7 +62,7 @@ Note that you must ensure that GPO settings are replicated across domains before
 
 1. Choose **Launch WorkSpaces**\. Note that it can take up to 20 minutes for the WorkSpaces to become available, and up to 40 minutes if encryption is enabled\. The initial status of the WorkSpace is `PENDING`\. When the launch is complete, the status is `AVAILABLE`\.
 
-1. Send invitations to the email address for each user\. For more information, see [Send an Invitation Email](manage-workspaces-users.md#send-invitation)\.
+1. Send invitations to the email address for each user\. \(These invitations aren't sent automatically if you're using a trust relationship\.\) For more information, see [Send an Invitation Email](manage-workspaces-users.md#send-invitation)\.
 
 ## Step 3: Connect to the WorkSpace<a name="connect-workspace-trusted-domain"></a>
 

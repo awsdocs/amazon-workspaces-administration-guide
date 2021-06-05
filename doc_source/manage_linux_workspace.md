@@ -17,7 +17,10 @@ You must use the WorkSpaces Windows client application to connect to Linux WorkS
 
 The behavior of the PCoIP Agent is controlled by configuration settings in the `pcoip-agent.conf` file, which is located in the `/etc/pcoip-agent/` directory\. To deploy and enforce changes to the policy, use a configuration management solution that supports Amazon Linux\. Any changes take effect when the agent starts up\. Restarting the agent ends any open connections and restarts the window manager\. To apply any changes, we recommend rebooting the WorkSpace\. 
 
-For a full listing of the available settings, run `man pcoip-agent.conf` from the terminal on any Amazon Linux WorkSpace\.
+**Note**  
+If you make incorrect or unsupported changes to the `pcoip-agent.conf` file, you might cause your WorkSpace to stop working\. If your WorkSpace stops working, you might need to either [connect to your WorkSpace using SSH](connect-to-linux-workspaces-with-ssh.md) to roll back the changes, or you might have to [ rebuild the WorkSpace](rebuild-workspace.md)\.
+
+The following sections describe how to enable or disable certain features\. For a full listing of the available settings, run `man pcoip-agent.conf` from the terminal on any Amazon Linux WorkSpace\.
 
 **Note**  
 Local printer redirection is not available for Linux WorkSpaces\.

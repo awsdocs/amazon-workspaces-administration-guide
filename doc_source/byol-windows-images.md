@@ -65,6 +65,9 @@ Your VM must run one of the following Windows versions:
 
 All supported OS versions support all of the compute types available in the AWS Region where you're using WorkSpaces\. Versions of Windows that are no longer supported by Microsoft are not guaranteed to work and are not supported by AWS Support\.
 
+**Note**  
+Windows 10 N versions are not supported for BYOL at this time\.
+
 ## Adding Microsoft Office to Your BYOL Image<a name="windows_images_adding_office"></a>
 
 During the BYOL image ingestion process, if you are using Windows 10, you have the option to subscribe to Microsoft Office Professional 2016 \(32\-bit\) or 2019 \(64\-bit\) through AWS\. If you choose this option, Office is pre\-installed in your BYOL image and included on any WorkSpaces that you launch from this image\.

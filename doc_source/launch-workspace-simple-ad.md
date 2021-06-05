@@ -105,6 +105,8 @@ This option is available only if Amazon WorkDocs is available in the selected Re
 1. On the **WorkSpaces Configuration** page, choose a running mode and then choose **Next Step**\.
 
 1. On the **Review & Launch WorkSpaces** page, choose **Launch WorkSpaces**\. The initial status of the WorkSpace is `PENDING`\. When the launch is complete \(this can take up to 20 minutes\), the status is `AVAILABLE` and an invitation is sent to the email address that you specified for the user\.
+**Note**  
+Invitation emails aren't sent if the user already exists in Active Directory\. Instead, make sure you manually send the user an invitation email\. For more information, see [Send an Invitation Email](manage-workspaces-users.md#send-invitation)\.
 
 ## Step 3: Connect to the WorkSpace<a name="connect-workspace-simple-ad"></a>
 

@@ -10,7 +10,8 @@ For Windows WorkSpaces, the computer name format is determined by the bundle typ
 Starting June 22, 2020, Windows WorkSpaces launched from public bundles have the WSAMZN\-*xxxxxxx* format for their computer names instead of the IP\-C*xxxxxx* format\.  
 For custom bundles based on a public image, if the public image was created before June 22, 2020, the computer names are in the EC2AMAZ\-*xxxxxxx* format\. If the public image was created on or after June 22, 2020, the computer names are in the WSAMZN\-*xxxxxxx* format\.   
 For Bring Your Own License \(BYOL\) bundles, either the DESKTOP\-*xxxxxxx* or the EC2AMAZ\-*xxxxxxx* format is used for the computer names by default\.  
-If you've specified a custom format for the computer names in your custom or BYOL bundles, your custom format overrides these defaults\. To specify a custom format, see [Create a Custom WorkSpaces Image and Bundle](create-custom-bundle.md)\. 
+If you've specified a custom format for the computer names in your custom or BYOL bundles, your custom format overrides these defaults\. To specify a custom format, see [Create a Custom WorkSpaces Image and Bundle](create-custom-bundle.md)\.  
+**Important** — If you change the computer name for a WorkSpace through the Windows system settings, you will no longer be able to access the WorkSpace\.
 
 Workspaces uses a directory to store and manage information for your WorkSpaces and users\. You can do any of the following:
 + Create a Simple AD directory\.

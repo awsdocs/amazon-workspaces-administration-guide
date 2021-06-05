@@ -85,6 +85,8 @@ Now that you have created an AWS Managed Microsoft AD directory, you are ready t
 1. On the **WorkSpaces Configuration** page, choose a running mode and then choose **Next Step**\.
 
 1. On the **Review & Launch WorkSpaces** page, choose **Launch WorkSpaces**\. The initial status of the WorkSpace is `PENDING`\. When the launch is complete, the status is `AVAILABLE` and an invitation is sent to the email address that you specified for the user\.
+**Note**  
+Invitation emails aren't sent if the user already exists in Active Directory\. Instead, make sure you manually send the user an invitation email\. For more information, see [Send an Invitation Email](manage-workspaces-users.md#send-invitation)\.
 
 1. \(Optional\) If Amazon WorkDocs is supported in the Region, you can enable Amazon WorkDocs for all users in the directory\. For more information, see [Enable Amazon WorkDocs for AWS Managed Microsoft AD](enable-workdocs-active-directory.md)\. For more information about Amazon WorkDocs, see [ Amazon WorkDocs Drive](https://docs.aws.amazon.com/workdocs/latest/userguide/workdocs_drive_help.html) in the *Amazon WorkDocs Administration Guide*\.
 
