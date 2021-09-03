@@ -13,14 +13,14 @@ Rebuilding a WorkSpace causes the following to occur:
 After January 14, 2020, WorkSpaces created from a public Windows 7 bundle can no longer be rebuilt\. You might want to consider migrating your Windows 7 WorkSpaces to Windows 10\. For more information, see [Migrate a WorkSpace](migrate-workspaces.md)\.
 
 You can rebuild a WorkSpace only if the following conditions are met:
-+ The WorkSpace must have a state of `AVAILABLE`, `ERROR`, `UNHEALTHY`, `STOPPED`, or `REBOOTING`\. To rebuild a WorkSpace in the `REBOOTING` state, you must use the [ RebuildWorkspaces](https://docs.aws.amazon.com/workspaces/latest/api/API_RebuildWorkspaces.html) API operation or the [ rebuild\-workspaces](https://docs.aws.amazon.com/cli/latest/reference/workspaces/rebuild-workspaces.html) AWS Command Line Interface \(CLI\) command\.
++ The WorkSpace must have a state of `AVAILABLE`, `ERROR`, `UNHEALTHY`, `STOPPED`, or `REBOOTING`\. To rebuild a WorkSpace in the `REBOOTING` state, you must use the [ RebuildWorkspaces](https://docs.aws.amazon.com/workspaces/latest/api/API_RebuildWorkspaces.html) API operation or the [ rebuild\-workspaces](https://docs.aws.amazon.com/cli/latest/reference/workspaces/rebuild-workspaces.html) AWS CLI command\.
 + A snapshot of the user volume must exist\.
 
 **To rebuild a WorkSpace**
 **Warning**  
 To rebuild an encrypted WorkSpace, first make sure that the AWS KMS CMK is enabled; otherwise, the WorkSpace becomes unusable\. To determine whether a CMK is enabled, see [ Displaying CMK Details](https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys-console.html#viewing-console-details) in the *AWS Key Management Service Developer Guide*\.
 
-1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **WorkSpaces**\.
 
@@ -30,11 +30,15 @@ To rebuild an encrypted WorkSpace, first make sure that the AWS KMS CMK is enabl
 
 1. Choose **Rebuild / Restore WorkSpace**\.
 
-**Note**  
-If you rebuild a WorkSpace after changing the user's **sAMAccountName** user naming attribute in Active Directory, you might receive the following error message:  
+**To rebuild a WorkSpace using the AWS CLI**  
+Use the [rebuild\-workspaces](https://docs.aws.amazon.com/cli/latest/reference/workspaces/rebuild-workspaces.html) command\.
+
+**Troubleshooting**  
+If you rebuild a WorkSpace after changing the user's **sAMAccountName** user naming attribute in Active Directory, you might receive the following error message:
 
 ```
 "ErrorCode": "InvalidUserConfiguration.Workspace"
 "ErrorMessage": "The user was either not found or is misconfigured."
 ```
+
 To work around this issue, either revert to the original user naming attribute and then reinitiate the rebuild, or create a new WorkSpace for that user\.

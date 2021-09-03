@@ -1,8 +1,8 @@
-# Set Up Amazon Workspaces for FedRAMP Authorization or DoD SRG Compliance<a name="fips-encryption"></a>
+# Set up Amazon WorkSpaces for FedRAMP authorization or DoD SRG compliance<a name="fips-encryption"></a>
 
-To comply with the [Federal Risk and Authorization Management Program \(FedRAMP\)](https://aws.amazon.com/compliance/fedramp/) or the [Department of Defense \(DoD\) Cloud Computing Security Requirements Guide \(SRG\)](https://aws.amazon.com/compliance/dod/), you must configure Amazon Workspaces to use Federal Information Processing Standards \(FIPS\) endpoint encryption at the directory level\. You must also use a US AWS Region that has FedRAMP authorization or is DoD SRG compliant\.
+To comply with the [Federal Risk and Authorization Management Program \(FedRAMP\)](https://aws.amazon.com/compliance/fedramp/) or the [Department of Defense \(DoD\) Cloud Computing Security Requirements Guide \(SRG\)](https://aws.amazon.com/compliance/dod/), you must configure Amazon WorkSpaces to use Federal Information Processing Standards \(FIPS\) endpoint encryption at the directory level\. You must also use a US AWS Region that has FedRAMP authorization or is DoD SRG compliant\.
 
-The level of FedRAMP authorization \(Moderate or High\) or DoD SRG Impact Level \(2, 4, or 5\) depends on the US AWS Region in which Amazon Workspaces is being used\. For the levels of FedRAMP authorization and DoD SRG compliance that apply to each Region, see [AWS Services in Scope by Compliance Program](https://aws.amazon.com/compliance/services-in-scope/)\.
+The level of FedRAMP authorization \(Moderate or High\) or DoD SRG Impact Level \(2, 4, or 5\) depends on the US AWS Region in which Amazon WorkSpaces is being used\. For the levels of FedRAMP authorization and DoD SRG compliance that apply to each Region, see [AWS Services in Scope by Compliance Program](https://aws.amazon.com/compliance/services-in-scope/)\.
 
 **Note**  
 In addition to using FIPS endpoint encryption, you can also encrypt your WorkSpaces\. For more information, see [Encrypted WorkSpaces](encrypt-workspaces.md)\.
@@ -23,7 +23,7 @@ To use the **FIPS 140\-2 Validated Mode** setting, the WorkSpaces directory must
 
 **To use FIPS endpoint encryption**
 
-1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **Directories**\.
 

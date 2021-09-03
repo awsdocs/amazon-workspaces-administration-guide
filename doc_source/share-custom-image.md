@@ -1,22 +1,22 @@
-# Share or Unshare a Custom WorkSpaces Image<a name="share-custom-image"></a>
+# Share or unshare a custom WorkSpaces image<a name="share-custom-image"></a>
 
-You can share custom WorkSpaces images across AWS accounts within the same AWS Region\. After an image has been shared, the recipient account can copy the image to other AWS Regions as needed\. For more information about copying images, see [Copy a Custom WorkSpaces Image](copy-custom-image.md)\.
+You can share custom WorkSpaces images across AWS accounts within the same AWS Region\. After an image has been shared, the recipient account can copy the image to other AWS Regions as needed\. For more information about copying images, see [Copy a custom WorkSpaces image](copy-custom-image.md)\.
 
 **Note**  
 In the China \(Ningxia\) Region, you can copy images only within the same Region\.  
 In the AWS GovCloud \(US\-West\) Region, to copy images to and from other AWS Regions, contact AWS Support\.
 
-There are no additional charges for sharing an image\. However, the quota for the number of images in the AWS Region applies\. A shared image doesn't count against the recipient account's quota until the recipient copies the image\. For more information about Amazon Workspaces quotas, see [Amazon Workspaces Quotas](workspaces-limits.md)\.
+There are no additional charges for sharing an image\. However, the quota for the number of images in the AWS Region applies\. A shared image doesn't count against the recipient account's quota until the recipient copies the image\. For more information about Amazon WorkSpaces quotas, see [Amazon WorkSpaces quotas](workspaces-limits.md)\.
 
 To delete a shared image, you must unshare the image before you can delete it\.
 
-**Sharing Bring Your Own License Images**  
+**Share Bring Your Own License images**  
 You can share Bring Your Own License \(BYOL\) images only with AWS accounts that are enabled for BYOL\. The AWS account that you want to share BYOL images with must also be part of your organization \(under the same payer account\)\.
 
 **Note**  
 Sharing BYOL images across AWS accounts isn't supported at this time in the AWS GovCloud \(US\-West\) Region\. To share BYOL images across accounts in the AWS GovCloud \(US\-West\) Region, contact AWS Support\. 
 
-**Images Shared with You**  
+**Images shared with you**  
 If images are shared with you, you can copy them\. You can then use your copies of the shared images to create bundles for launching new WorkSpaces\.
 
 **Important**  
@@ -28,7 +28,7 @@ If an image has been shared with you, you can't further share that image with ot
 
 **To share an image**
 
-1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **Images**\.
 
@@ -46,7 +46,7 @@ To use the shared image, the recipient account must first [ copy the image](copy
 
 **To stop sharing an image**
 
-1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **Images**\.
 
@@ -61,4 +61,4 @@ If you want to delete the image after unsharing it, you must first unshare it fr
 After you stop sharing an image, the recipient account can no longer make copies of the image\. However, any copies of shared images that are already in the recipient account remain in that account, and new WorkSpaces can be launched from those copies\.
 
 **To share or unshare images programmatically**  
-To share or unshare images programmatically, use the [UpdateWorkspaceImagePermission](https://docs.aws.amazon.com/workspaces/latest/api/API_UpdateWorkspaceImagePermission.html) API operation or the [update\-workspace\-image\-permission](https://docs.aws.amazon.com/cli/latest/reference/workspaces/update-workspace-image-permission.html) AWS command line interface \(CLI\) command\. To determine if an image has been shared, use the [DescribeWorkspaceImagePermissions](https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImagePermissions.html) API operation or the [describe\-workspace\-image\-permissions](https://docs.aws.amazon.com/cli/latest/reference/workspaces/describe-workspace-image-permissions.html) CLI command\. 
+To share or unshare images programmatically, use the [UpdateWorkspaceImagePermission](https://docs.aws.amazon.com/workspaces/latest/api/API_UpdateWorkspaceImagePermission.html) API operation or the [update\-workspace\-image\-permission](https://docs.aws.amazon.com/cli/latest/reference/workspaces/update-workspace-image-permission.html) AWS Command Line Interface \(AWS CLI\) command\. To determine if an image has been shared, use the [DescribeWorkspaceImagePermissions](https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImagePermissions.html) API operation or the [describe\-workspace\-image\-permissions](https://docs.aws.amazon.com/cli/latest/reference/workspaces/describe-workspace-image-permissions.html) CLI command\. 

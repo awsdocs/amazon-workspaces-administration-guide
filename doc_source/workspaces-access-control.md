@@ -1,22 +1,22 @@
-# Identity and Access Management for Workspaces<a name="workspaces-access-control"></a>
+# Identity and access management for WorkSpaces<a name="workspaces-access-control"></a>
 
-By default, IAM users don't have permissions for Workspaces resources and operations\. To allow IAM users to manage Workspaces resources, you must create an IAM policy that explicitly grants them permissions, and attach the policy to the IAM users or groups that require those permissions\. For more information about IAM policies, see [Policies and Permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html) in the *IAM User Guide* guide\.
+By default, IAM users don't have permissions for WorkSpaces resources and operations\. To allow IAM users to manage WorkSpaces resources, you must create an IAM policy that explicitly grants them permissions, and attach the policy to the IAM users or groups that require those permissions\. For more information about IAM policies, see [Policies and Permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html) in the *IAM User Guide* guide\.
 
-Workspaces also creates an IAM role to allow the Workspaces service access to required resources\.
+WorkSpaces also creates an IAM role to allow the WorkSpaces service access to required resources\.
 
 **Note**  
-Amazon Workspaces doesn’t support the provisioning of IAM credentials into a WorkSpace \(such as with an instance profile\)\.
+Amazon WorkSpaces doesn’t support the provisioning of IAM credentials into a WorkSpace \(such as with an instance profile\)\.
 
 For more information about IAM, see [Identity and Access Management \(IAM\)](https://aws.amazon.com/iam) and the [https://docs.aws.amazon.com/IAM/latest/UserGuide/](https://docs.aws.amazon.com/IAM/latest/UserGuide/)\. You can find the WorkSpaces\-specific resources, actions, and condition context keys for use in IAM permission policies at [Actions, Resources, and Condition Keys for Amazon WorkSpaces](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonworkspaces.html) in the *IAM User Guide*\.
 
 For a tool that helps you create IAM policies, see the [ AWS Policy Generator](http://aws.amazon.com/blogs/aws/aws-policy-generator/)\. You can also use the [IAM Policy Simulator](https://docs.aws.amazon.com/IAM/latest/UsingPolicySimulatorGuide/) to test whether a policy would allow or deny a specific request to AWS\.
 
-**Example 1: Perform all Workspaces tasks**  <a name="perform-workspaces-tasks"></a>
-The following policy statement grants an IAM user permission to perform all Workspaces tasks, including creating and managing directories\. It also grants permission to run the quick setup procedure\.  
-Although Amazon Workspaces fully supports the `Action` and `Resource` elements when using the API and command line tools, to use Amazon Workspaces from the AWS Management Console, an IAM user must have permissions for the following actions and resources:   
+**Example 1: Perform all WorkSpaces tasks**  <a name="perform-workspaces-tasks"></a>
+The following policy statement grants an IAM user permission to perform all WorkSpaces tasks, including creating and managing directories\. It also grants permission to run the quick setup procedure\.  
+Although Amazon WorkSpaces fully supports the `Action` and `Resource` elements when using the API and command line tools, to use Amazon WorkSpaces from the AWS Management Console, an IAM user must have permissions for the following actions and resources:   
 + Actions: "`workspaces:*"` and `"ds:*"`
 + Resources: `"Resource": "*"`
-The following example policy shows how to allow an IAM user to use Amazon Workspaces from the AWS Management Console\. 
+The following example policy shows how to allow an IAM user to use Amazon WorkSpaces from the AWS Management Console\. 
 
 ```
 {
@@ -85,7 +85,7 @@ The following policy statement grants an IAM user permission to perform WorkSpac
   ]
 }
 ```
-To also grant the user the ability to enable Amazon WorkDocs for users within Workspaces, add the `workdocs` operation shown in the following example\.  
+To also grant the user the ability to enable Amazon WorkDocs for users within WorkSpaces, add the `workdocs` operation shown in the following example\.  
 
 ```
 {
@@ -124,8 +124,8 @@ To also grant the user the ability to use the Launch WorkSpaces wizard, add the 
 }
 ```
 
-**Example 3: Perform all Workspaces tasks for BYOL WorkSpaces**  <a name="perform-byol-workspaces-tasks"></a>
-The following policy statement grants an IAM user permission to perform all Workspaces tasks, including those Amazon EC2 tasks necessary for creating Bring Your Own License \(BYOL\) WorkSpaces\.  
+**Example 3: Perform all WorkSpaces tasks for BYOL WorkSpaces**  <a name="perform-byol-workspaces-tasks"></a>
+The following policy statement grants an IAM user permission to perform all WorkSpaces tasks, including those Amazon EC2 tasks necessary for creating Bring Your Own License \(BYOL\) WorkSpaces\.  
 
 ```
 {
@@ -235,9 +235,9 @@ Before you can register a directory using the API, you must create the workspace
 
 1. Choose **Update Trust Policy**\.
 
-## Specifying Workspaces Resources in an IAM Policy<a name="wsp_iam_resource"></a>
+## Specify WorkSpaces resources in an IAM policy<a name="wsp_iam_resource"></a>
 
-To specify an Workspaces resource in the `Resource` element of the policy statement, use the Amazon Resource Name \(ARN\) of the resource\. You control access to your Workspaces resources by either allowing or denying permissions to use the API actions that are specified in the `Action` element of your IAM policy statement\. Workspaces defines ARNs for WorkSpaces, bundles, IP groups, and directories\.
+To specify an WorkSpaces resource in the `Resource` element of the policy statement, use the Amazon Resource Name \(ARN\) of the resource\. You control access to your WorkSpaces resources by either allowing or denying permissions to use the API actions that are specified in the `Action` element of your IAM policy statement\. WorkSpaces defines ARNs for WorkSpaces, bundles, IP groups, and directories\.
 
 ### WorkSpace ARN<a name="wsp_arn_syntax"></a>
 
@@ -364,7 +364,7 @@ The following is the format of the `Resource` element of a policy statement that
 
 You can use the `*` wildcard to specify all directories that belong to a specific account in a specific Region\.
 
-### Connection Alias ARN<a name="connection_alias_arn_syntax"></a>
+### Connection alias ARN<a name="connection_alias_arn_syntax"></a>
 
 A connection alias ARN has the syntax shown in the following example\.
 
@@ -389,7 +389,7 @@ The following is the format of the `Resource` element of a policy statement that
 
 You can use the `*` wildcard to specify all connection aliases that belong to a specific account in a specific Region\.
 
-### API Actions with No Support for Resource\-Level Permissions<a name="no-resource-level-permissions"></a>
+### API actions with no support for resource\-level permissions<a name="no-resource-level-permissions"></a>
 
 You can't specify a resource ARN with the following API actions:
 + `AssociateIpGroups`
@@ -415,7 +415,7 @@ For API actions that don't support resource\-level permissions, you must specify
 "Resource": "*"
 ```
 
-### API Actions That Don't Support Account\-Level Restrictions on Shared Resources<a name="shared-resource-permissions"></a>
+### API actions that don't support account\-level restrictions on shared resources<a name="shared-resource-permissions"></a>
 
 For the following API actions, you can't specify an account ID in the resource ARN when the resource isn't owned by the account:
 + `AssociateConnectionAlias`

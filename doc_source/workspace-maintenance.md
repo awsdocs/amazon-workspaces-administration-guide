@@ -1,11 +1,11 @@
-# WorkSpace Maintenance<a name="workspace-maintenance"></a>
+# WorkSpace maintenance<a name="workspace-maintenance"></a>
 
-We recommend that you maintain your WorkSpaces on a regular basis\. Workspaces schedules default maintenance windows for your WorkSpaces\. During the maintenance window, the WorkSpace installs important updates from Amazon Workspaces and reboots as necessary\. If available, operating system updates are also installed from the OS update server that the WorkSpace is configured to use\. During maintenance, your WorkSpaces might be unavailable\.
+We recommend that you maintain your WorkSpaces on a regular basis\. WorkSpaces schedules default maintenance windows for your WorkSpaces\. During the maintenance window, the WorkSpace installs important updates from Amazon WorkSpaces and reboots as necessary\. If available, operating system updates are also installed from the OS update server that the WorkSpace is configured to use\. During maintenance, your WorkSpaces might be unavailable\.
 
 **Note**  
 By default, your Windows WorkSpaces are configured to receive updates from Windows Update\. To configure your own automatic update mechanisms for Windows, see the documentation for [ Windows Server Update Services \(WSUS\)](https://docs.microsoft.com/windows-server/administration/windows-server-update-services/deploy/deploy-windows-server-update-services) and [Configuration Manager](https://docs.microsoft.com/configmgr/sum/deploy-use/deploy-software-updates)\.
 
-## Maintenance Windows for AlwaysOn WorkSpaces<a name="alwayson-maintenance"></a>
+## Maintenance windows for AlwaysOn WorkSpaces<a name="alwayson-maintenance"></a>
 
 For AlwaysOn WorkSpaces, the maintenance window is determined by operating system settings\. The default is a four\-hour period from 00h00 to 04h00, in the time zone of the WorkSpace, each Sunday morning\. By default, the time zone of an AlwaysOn WorkSpace is the time zone of the AWS Region for the WorkSpace\. However, if you connect from another Region and time zone redirection is enabled, and then you disconnect, the time zone of the WorkSpace is updated to the time zone of the Region that you connected from\.
 
@@ -13,7 +13,7 @@ You can [disable time zone redirection for Windows WorkSpaces](group_policy.md#g
 
 For Windows WorkSpaces, you can configure the maintenance window using Group Policy; see [Configure Group Policy Settings for Automatic Updates](https://docs.microsoft.com/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates)\. You cannot configure the maintenance window for Linux WorkSpaces\.
 
-## Maintenance Windows for AutoStop WorkSpaces<a name="autostop-maintenance"></a>
+## Maintenance windows for AutoStop WorkSpaces<a name="autostop-maintenance"></a>
 
 AutoStop WorkSpaces are started automatically once a month in order to install important updates\. Beginning on the third Monday of the month, and for up to two weeks, the maintenance window is open each day from about 00h00 to 05h00, in the time zone of the AWS Region for the WorkSpace\. The WorkSpace can be maintained on any one day in the maintenance window\.
 
@@ -23,7 +23,7 @@ Although you cannot modify the time zone that is used for maintaining AutoStop W
 
 **To disable maintenance mode**
 
-1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **Directories**\.
 
@@ -35,7 +35,7 @@ Although you cannot modify the time zone that is used for maintaining AutoStop W
 
 1. Choose **Update and Exit**\.
 
-## Manual Maintenance<a name="admin-maintenance"></a>
+## Manual maintenance<a name="admin-maintenance"></a>
 
 If you prefer, you can maintain your WorkSpaces on your own schedule\. When you perform maintenance tasks, we recommend that you change the state of the WorkSpace to `ADMIN_MAINTENANCE`\. When you are finished, change the state of the WorkSpace to `AVAILABLE`\.
 
@@ -48,7 +48,7 @@ When a WorkSpace is in `ADMIN_MAINTENANCE` mode, the following behaviors occur:
 **Note**  
 To change the state of a WorkSpace, the WorkSpace must have a status of `AVAILABLE`\. The **Modify State** setting is not available when a WorkSpace has a status of `STOPPED`\.
 
-1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **WorkSpaces**\.
 

@@ -1,21 +1,27 @@
 # Migrate a WorkSpace<a name="migrate-workspaces"></a>
 
-You can migrate a WorkSpace from one bundle to another, while retaining the data on the user volume\. You can use this feature to migrate WorkSpaces from the Windows 7 desktop experience to the Windows 10 desktop experience, or from the PCoIP protocol to the WorkSpaces Streaming Protocol \(WSP\)\. You can also use this feature to migrate WorkSpaces from one public or custom bundle to another\. For example, you can migrate from GPU\-enabled \(Graphics and GraphicsPro\) bundles to non\-GPU\-enabled bundles, and vice versa\. For more information about Amazon Workspaces bundles, see [WorkSpace Bundles and Images](amazon-workspaces-bundles.md)\.
+You can migrate a WorkSpace from one bundle to another, while retaining the data on the user volume\. The following are example scenarios:
++ You can migrate WorkSpaces from the Windows 7 desktop experience to the Windows 10 desktop experience\.
++ You can migrate WorkSpaces from the PCoIP protocol to the WorkSpaces Streaming Protocol \(WSP\)\.
++ You can migrate WorkSpaces from the 32\-bit Microsoft Office on Windows Server 2016\-powered WorkSpaces bundle to the 64\-bit Microsoft Office on Windows Server 2019\-powered WorkSpaces bundle\.
++ You can migrate WorkSpaces from one public or custom bundle to another\. For example, you can migrate from GPU\-enabled \(Graphics and GraphicsPro\) bundles to non\-GPU\-enabled bundles, and vice versa\.
 
-The migration process recreates the WorkSpace by using a new root volume from the target bundle image and the user volume from the last available snapshot of the original WorkSpace\. A new user profile is generated during migration for better compatibility\. The old user profile is renamed, and then certain files in the old user profile are moved to the new user profile\. \(For details about what gets moved, see [What Happens During Migration](#during-migration)\.\)
+For more information about Amazon WorkSpaces bundles, see [WorkSpace bundles and images](amazon-workspaces-bundles.md)\.
+
+The migration process recreates the WorkSpace by using a new root volume from the target bundle image and the user volume from the last available snapshot of the original WorkSpace\. A new user profile is generated during migration for better compatibility\. The old user profile is renamed, and then certain files in the old user profile are moved to the new user profile\. \(For details about what gets moved, see [What happens during migration](#during-migration)\.\)
 
 The migration process takes up to one hour per WorkSpace\. When you initiate the migration process, a new WorkSpace is created\. If an error occurs that prevents successful migration, the original WorkSpace is recovered and returned to its original state, and the new WorkSpace is terminated\.
 
 **Contents**
-+ [Migration Limits](#migration-limits)
-+ [Available Migration Scenarios](#migration-scenarios)
-+ [What Happens During Migration](#during-migration)
-+ [Best Practices](#migration-best-practices)
++ [Migration limits](#migration-limits)
++ [Migration scenarios](#migration-scenarios)
++ [What happens during migration](#during-migration)
++ [Best practices](#migration-best-practices)
 + [Troubleshooting](#migration_troubleshooting)
-+ [How Billing Is Affected](#migration-billing)
++ [How billing is affected](#migration-billing)
 + [Migrating a WorkSpace](#migration-workspaces)
 
-## Migration Limits<a name="migration-limits"></a>
+## Migration limits<a name="migration-limits"></a>
 + You cannot migrate to a public or custom Windows 7 desktop experience bundle\. You also cannot migrate to Bring Your Own License \(BYOL\) Windows 7 bundles\.
 + You can migrate BYOL WorkSpaces only to other BYOL bundles\. To migrate a BYOL WorkSpace from PCoIP to WSP, you must first create a BYOL bundle with the WSP protocol\. You can then migrate your PCoIP BYOL WorkSpaces to that WSP BYOL bundle\. 
 + You cannot migrate a WorkSpace created from public or custom bundles to a BYOL bundle\.
@@ -26,7 +32,7 @@ The migration process takes up to one hour per WorkSpace\. When you initiate the
 + You cannot migrate WorkSpaces across Regions\.
 + In some cases, if migration is unable to finish successfully, you might not receive an error message, and it might appear that the migration process did not start\. If the WorkSpace bundle remains the same one hour after attempting migration, the migration is unsuccessful\. Contact the [AWS Support Center](https://console.aws.amazon.com/support/home#/) for assistance\.
 
-## Available Migration Scenarios<a name="migration-scenarios"></a>
+## Migration scenarios<a name="migration-scenarios"></a>
 
 The following table shows which migration scenarios are available:
 
@@ -44,8 +50,16 @@ The following table shows which migration scenarios are available:
 | Windows 7 BYOL bundle |  Windows 10 BYOL bundle  |  Yes  | 
 |  Windows 10 BYOL bundle  |  Windows 7 BYOL bundle  |  No  | 
 |  Windows 10 BYOL bundle  |  Windows 10 BYOL bundle  |  Yes  | 
+|  Windows Server 2016\-powered Public Windows 10 bundle  |  Windows Server 2019\-powered Public Windows 10 bundle ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/images/icon-alert-warning.png)  |  Yes  | 
+|  Windows Server 2019\-powered Public Windows 10 bundle ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/images/icon-alert-warning.png)  |  Windows Server 2016\-powered Public Windows 10 bundle  |  Yes  | 
 
-## What Happens During Migration<a name="during-migration"></a>
+**Note**  
+Web access is not available for the Windows Server 2019\-powered Public Windows 10 bundle PCoIP branch\.
+
+**Important**  
+The Windows Server 2016\-powered Public Windows 10 plus bundle includes Microsoft Office 2016 and Trend Micro Worry\-Free Business Security Services\. The Windows Server 2019\-powered Public Windows 10 plus bundle includes Microsoft Office 2019 only, and does not include Trend Micro Services\.
+
+## What happens during migration<a name="during-migration"></a>
 
 During migration, the data on the user volume \(drive D\) is preserved, but all of the data on the root volume \(drive C\) is lost\. This means that none of the installed applications, settings, and changes to the registry are preserved\. The old user profile folder is renamed with the `.NotMigrated` suffix, and a new user profile is created\.
 
@@ -66,11 +80,11 @@ By default, the public bundles have local search indexing disabled\. If you were
 
 Any tags assigned to the original WorkSpace are carried over during migration, and the running mode of the WorkSpace is preserved\. However, the new WorkSpace gets a new WorkSpace ID, computer name, and IP address\.
 
-## Best Practices<a name="migration-best-practices"></a>
+## Best practices<a name="migration-best-practices"></a>
 
 Before you migrate a WorkSpace, do the following:
 + Back up any important data on drive C to another location\. All data on drive C is erased during migration\.
-+ Make sure that the WorkSpace being migrated is at least 12 hours old, to ensure that a snapshot of the user volume has been created\. On the **Migrate WorkSpaces** page in the Amazon Workspaces console, you can see the time of the last snapshot\. Any data created after the last snapshot is lost during migration\.
++ Make sure that the WorkSpace being migrated is at least 12 hours old, to ensure that a snapshot of the user volume has been created\. On the **Migrate WorkSpaces** page in the Amazon WorkSpaces console, you can see the time of the last snapshot\. Any data created after the last snapshot is lost during migration\.
 + To avoid potential data loss, make sure that your users log out of their WorkSpaces and don't log back in until after the migration process is finished\. Note that WorkSpaces cannot be migrated when they are in `ADMIN_MAINTENANCE` mode\.
 + Make sure that the WorkSpaces you want to migrate have a status of `AVAILABLE`, `STOPPED`, or `ERROR`\.
 + Make sure that you have enough IP addresses for the WorkSpaces you are migrating\. During migration, new IP addresses will be allocated for the WorkSpaces\.
@@ -81,7 +95,7 @@ Before you migrate a WorkSpace, do the following:
 + If you are using the API to migrate WorkSpaces and the migration does not succeed, the target WorkSpace ID returned by the API will not be used, and the WorkSpace will still have the original WorkSpace ID\.
 + If a migration does not successfully finish, check the Active Directory to see if it was cleaned up accordingly\. You might need to manually remove WorkSpaces that you no longer need\.
 
-## How Billing Is Affected<a name="migration-billing"></a>
+## How billing is affected<a name="migration-billing"></a>
 
 During the month in which migration occurs, you are charged prorated amounts for both the new and the original WorkSpaces\. For example, if you migrate WorkSpace A to WorkSpace B on May 10, you will be charged for WorkSpace A from May 1 to May 10, and you will be charged for WorkSpace B from May 11 to May 30\.
 
@@ -90,11 +104,11 @@ If you are migrating a WorkSpace to a different bundle type \(for example, from 
 
 ## Migrating a WorkSpace<a name="migration-workspaces"></a>
 
-You can migrate WorkSpaces through the Amazon Workspaces console, the AWS command line interface \(CLI\), or the Amazon Workspaces API\.
+You can migrate WorkSpaces through the Amazon WorkSpaces console, the AWS CLI or the Amazon WorkSpaces API\.
 
 **To migrate a WorkSpace**
 
-1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **WorkSpaces**\.
 
@@ -110,8 +124,8 @@ For each WorkSpace, take note of the listed snapshot time\. Any changes made to 
 
 1. Choose **Migrate WorkSpaces**\.
 
-   A new WorkSpace with a status of `PENDING` appears in the Amazon Workspaces console\. When the migration is finished, the original WorkSpace is terminated, and the status of the new WorkSpace is set to `AVAILABLE`\.
+   A new WorkSpace with a status of `PENDING` appears in the Amazon WorkSpaces console\. When the migration is finished, the original WorkSpace is terminated, and the status of the new WorkSpace is set to `AVAILABLE`\.
 
-1. \(Optional\) To delete any custom bundles and images that you no longer need, see [Delete a Custom WorkSpaces Bundle or Image](delete_bundle.md)\.
+1. \(Optional\) To delete any custom bundles and images that you no longer need, see [Delete a custom WorkSpaces bundle or image](delete_bundle.md)\.
 
-To migrate WorkSpaces through the AWS CLI, use the [migrate\-workspace](https://docs.aws.amazon.com/cli/latest/reference/workspaces/migrate-workspace.html) command\. To migrate WorkSpaces through the Amazon Workspaces API, see [MigrateWorkSpace](https://docs.aws.amazon.com/workspaces/latest/api/API_MigrateWorkspace.html) in the *Amazon Workspaces API Reference*\.
+To migrate WorkSpaces through the AWS CLI, use the [migrate\-workspace](https://docs.aws.amazon.com/cli/latest/reference/workspaces/migrate-workspace.html) command\. To migrate WorkSpaces through the Amazon WorkSpaces API, see [MigrateWorkSpace](https://docs.aws.amazon.com/workspaces/latest/api/API_MigrateWorkspace.html) in the *Amazon WorkSpaces API Reference*\.

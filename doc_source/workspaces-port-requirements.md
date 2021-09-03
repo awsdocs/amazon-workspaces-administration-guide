@@ -1,12 +1,12 @@
-# IP Address and Port Requirements for Workspaces<a name="workspaces-port-requirements"></a>
+# IP address and port requirements for WorkSpaces<a name="workspaces-port-requirements"></a>
 
-To connect to your WorkSpaces, the network that your Workspaces clients are connected to must have certain ports open to the IP address ranges for the various AWS services \(grouped in subsets\)\. These address ranges vary by AWS Region\. These same ports must also be open on any firewall running on the client\. For more information about the AWS IP address ranges for different Regions, see [AWS IP Address Ranges](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html) in the *Amazon Web Services General Reference*\.
+To connect to your WorkSpaces, the network that your WorkSpaces clients are connected to must have certain ports open to the IP address ranges for the various AWS services \(grouped in subsets\)\. These address ranges vary by AWS Region\. These same ports must also be open on any firewall running on the client\. For more information about the AWS IP address ranges for different Regions, see [AWS IP Address Ranges](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html) in the *Amazon Web Services General Reference*\.
 
-For an architecture diagram, see [ WorkSpaces Architecture](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html#architecture)\. For additional architecture diagrams, see the [ *Best Practices for Deploying Amazon Workspaces*](https://d1.awsstatic.com/whitepapers/Best-Practices-for-Deploying-Amazon-WorkSpaces.pdf) whitepaper\.
+For an architecture diagram, see [ WorkSpaces Architecture](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html#architecture)\. For additional architecture diagrams, see the [ *Best Practices for Deploying Amazon WorkSpaces*](https://d1.awsstatic.com/whitepapers/Best-Practices-for-Deploying-Amazon-WorkSpaces.pdf) whitepaper\.
 
-## Ports for Client Applications<a name="client-application-ports"></a>
+## Ports for client applications<a name="client-application-ports"></a>
 
-The Workspaces client application requires outbound access on the following ports:
+The WorkSpaces client application requires outbound access on the following ports:
 
 Port 443 \(TCP\)  
 This port is used for client application updates, registration, and authentication\. The desktop client applications support the use of a proxy server for port 443 \(HTTPS\) traffic\. To enable the use of a proxy server, open the client application, choose **Advanced Settings**, select **Use Proxy Server**, specify the address and port of the proxy server, and choose **Save**\.  
@@ -18,14 +18,14 @@ This port must be open to the following IP address ranges:
 + The `S3` subset in the `us-west-2` Region\.
 
 Port 4172 and 4195 \(UDP and TCP\)  
-These ports are used for streaming the WorkSpace desktop and health checks\. The desktop client applications do not support the use of a proxy server for port 4172 and 4195 traffic; they require a direct connection to ports 4172 and 4195\. These ports must be open to the PCoIP Gateway and WorkSpaces Streaming Protocol \(WSP\) Gateway IP address ranges, and to the health check servers in the Region that the WorkSpace is in\. For more information, see [Health Check Servers](#health_check), [PCoIP Gateway Servers](#gateway_IP), and [WSP Gateway Servers](#gateway_WSP)\.
+These ports are used for streaming the WorkSpace desktop and health checks\. The desktop client applications do not support the use of a proxy server for port 4172 and 4195 traffic; they require a direct connection to ports 4172 and 4195\. These ports must be open to the PCoIP Gateway and WorkSpaces Streaming Protocol \(WSP\) Gateway IP address ranges, and to the health check servers in the Region that the WorkSpace is in\. For more information, see [Health check servers](#health_check), [PCoIP gateway servers](#gateway_IP), and [WSP gateway servers](#gateway_WSP)\.
 
 **Note**  
-If your firewall uses stateful filtering, ephemeral \(also known as dynamic\) ports are automatically opened to allow return communication\. If your firewall uses stateless filtering, you must open ephemeral ports explicitly to allow return communication\. The required ephemeral port range that you must open will vary depending on your configuration\.
+If your firewall uses stateful filtering, ephemeral ports \(also known as dynamic ports\) are automatically opened to allow return communication\. If your firewall uses stateless filtering, you must open ephemeral ports explicitly to allow return communication\. The required ephemeral port range that you must open will vary depending on your configuration\.
 
 ## Ports for Web Access<a name="web-access-ports"></a>
 
-Workspaces Web Access requires inbound and outbound access for the following ports:
+WorkSpaces Web Access requires outbound access for the following ports:
 
 Port 53 \(UDP\)  
 This port is used to access DNS servers\. It must be open to your DNS server IP addresses so that the client can resolve public domain names\. This port requirement is optional if you are not using DNS servers for domain name resolution\.
@@ -36,13 +36,17 @@ This port is used for initial connections to `https://clients.amazonworkspaces.c
 Port 443 \(UDP and TCP\)  
 This port is used for registration and authentication using HTTPS\. It must be open to all IP address ranges in the `EC2` subset in the Region that the WorkSpace is in\.
 
-Typically, the web browser randomly selects a source port in the high range to use for streaming traffic\. Workspaces Web Access does not have control over the port that the browser selects\. You must ensure that return traffic to this port is allowed\.
+Port 4195 \(UDP and TCP\)  
+For WorkSpaces that are configured for WorkSpaces Streaming Protocol \(WSP\), this port is used for streaming the WorkSpaces desktop\. Web access does not support the use of a proxy server for port 4195 traffic\. Direct connections are required\. This port must be open to the WSP Gateway IP address ranges\. For more information, see [WSP gateway servers](#gateway_WSP)\.
 
-Workspaces Web Access prefers UDP over TCP for desktop streams, but falls back to TCP if UDP is not available\. If all UDP ports are blocked except 53, 80, and 443, Web Access will work on Chrome and Firefox using TCP connections\.
+**Note**  
+If your firewall uses stateful filtering, ephemeral ports \(also known as dynamic ports\) are automatically opened to allow return communication\. If your firewall uses stateless filtering, you must open ephemeral ports explicitly to allow return communication\. The required ephemeral port range that you must open varies depending on your configuration\.
 
-## Domains and IP Addresses to Add to Your Allow List<a name="whitelisted_ports"></a>
+Typically, the web browser randomly selects a source port in the high range to use for streaming traffic\. WorkSpaces Web Access does not have control over the port that the browser selects\. You must ensure that return traffic to this port is allowed\.
 
-For the Workspaces client application to be able to access the Workspaces service, you must add the following domains and IP addresses to the allow list on the network from which the client is trying to access the service\.
+## Domains and IP addresses to add to your allow list<a name="whitelisted_ports"></a>
+
+For the WorkSpaces client application to be able to access the WorkSpaces service, you must add the following domains and IP addresses to the allow list on the network from which the client is trying to access the service\.
 
 
 **Domains and IP addresses to add to your allow list**  
@@ -57,7 +61,7 @@ For the Workspaces client application to be able to access the Workspaces servic
 | Dynamic Messaging Service \(for 3\.0\+ WorkSpaces client applications\) |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 | Directory Settings |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 | Forrester Log Service  | https://fls\-na\.amazon\.com/ | 
-| Health Check \(DRP\) Servers | [Health Check Servers](#health_check) | 
+| Health Check \(DRP\) Servers | [Health check servers](#health_check) | 
 | Registration Dependency \(for Web Access and Teradici PCoIP Zero Clients\) | https://s3\.amazonaws\.com | 
 | User Login Pages | https://<directory id>\.awsapps\.com/ \(where <directory id> is the customer's domain\)  In the AWS GovCloud \(US\-West\) Region: https://login\.us\-gov\-home\.awsapps\.com/directory/<directory id>/ \(where <directory id> is the customer's domain\)    | 
 | WS Broker |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
@@ -66,27 +70,27 @@ For the Workspaces client application to be able to access the Workspaces servic
 ## <a name="pcoip-allow-list"></a>
 
 
-**Domains and IP Addresses to Add to Your Allow List for PCoIP**  
+**Domains and IP addresses to add to your allow list for PCoIP**  
 
 | Category | Domain or IP address | 
 | --- | --- | 
-| PCoIP Session Gateway \(PSG\) | [PCoIP Gateway Servers](#gateway_IP) | 
+| PCoIP Session Gateway \(PSG\) | [PCoIP gateway servers](#gateway_IP) | 
 | Session Broker \(PCM\) |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 | Web Access TURN Servers for PCoIP |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 
 ## <a name="wsp-allow-list"></a>
 
 
-**Domains and IP Addresses to Add to Your Allow List for WorkSpaces Streaming Protocol \(WSP\)**  
+**Domains and IP addresses to add to your allow list for WorkSpaces Streaming Protocol \(WSP\)**  
 
 | Category | Domain or IP address | 
 | --- | --- | 
-| WSP Session Gateway \(WSG\) | [WSP Gateway Servers](#gateway_WSP) | 
-| Web Access TURN Servers for WSP |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
+| WSP Session Gateway \(WSG\) | [WSP gateway servers](#gateway_WSP) | 
+| Web Access TURN Servers for WSP | [WSP gateway servers](#gateway_WSP) | 
 
-## Health Check Servers<a name="health_check"></a>
+## Health check servers<a name="health_check"></a>
 
-The Workspaces client applications perform health checks over ports 4172 and 4195\. These checks validate whether TCP or UDP traffic streams from the Workspaces servers to the client applications\. For these checks to finish successfully, your firewall policies must allow outbound traffic to the IP addresses of the following Regional health check servers\.
+The WorkSpaces client applications perform health checks over ports 4172 and 4195\. These checks validate whether TCP or UDP traffic streams from the WorkSpaces servers to the client applications\. For these checks to finish successfully, your firewall policies must allow outbound traffic to the IP addresses of the following Regional health check servers\.
 
 
 | Region | Health check hostname | IP addresses | 
@@ -105,15 +109,15 @@ The Workspaces client applications perform health checks over ports 4172 and 419
 | South America \(São Paulo\) | drp\-gru\.amazonworkspaces\.com |  18\.231\.0\.105 52\.67\.55\.29 54\.233\.156\.245 54\.233\.216\.234  | 
 | AWS GovCloud \(US\-West\) | drp\-pdt\.amazonworkspaces\.com |  52\.61\.60\.65 52\.61\.65\.14 52\.61\.88\.170 52\.61\.137\.87 52\.61\.155\.110 52\.222\.20\.88  | 
 
-## PCoIP Gateway Servers<a name="gateway_IP"></a>
+## PCoIP gateway servers<a name="gateway_IP"></a>
 
-Workspaces uses PCoIP to stream the desktop session to clients over port 4172\. For its PCoIP gateway servers, Workspaces uses a small range of Amazon EC2 public IPv4 addresses\. This enables you to set more finely grained firewall policies for devices that access Workspaces\. Note that the Workspaces clients do not support IPv6 addresses as a connectivity option at this time\.
+WorkSpaces uses PCoIP to stream the desktop session to clients over port 4172\. For its PCoIP gateway servers, WorkSpaces uses a small range of Amazon EC2 public IPv4 addresses\. This enables you to set more finely grained firewall policies for devices that access WorkSpaces\. Note that the WorkSpaces clients do not support IPv6 addresses as a connectivity option at this time\.
 
 **Note**  
-We are regularly updating our IP address ranges in the [ AWS IP Address Ranges](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html) `ip-ranges.json` file\. To ingest the most up\-to\-date IP address ranges for Workspaces, look for entries in the `ip-ranges.json` file where `service: "WORKSPACES_GATEWAYS"`\.
+We are regularly updating our IP address ranges in the [ AWS IP Address Ranges](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html) `ip-ranges.json` file\. To ingest the most up\-to\-date IP address ranges for WorkSpaces, look for entries in the `ip-ranges.json` file where `service: "WORKSPACES_GATEWAYS"`\.
 
 
-| Region | Public IP Address Range | 
+| Region | Public IP address range | 
 | --- | --- | 
 | US East \(N\. Virginia\) |  3\.217\.228\.0 \- 3\.217\.231\.255 3\.235\.112\.0 \- 3\.235\.119\.255 52\.23\.61\.0 \- 52\.23\.62\.255  | 
 | US West \(Oregon\) |  35\.80\.88\.0 \- 35\.80\.95\.255 44\.234\.54\.0 \- 44\.234\.55\.255 54\.244\.46\.0 \- 54\.244\.47\.255  | 
@@ -129,15 +133,15 @@ We are regularly updating our IP address ranges in the [ AWS IP Address Ranges](
 | South America \(São Paulo\) |  18\.230\.103\.0 \- 18\.230\.103\.255 18\.230\.104\.0 \- 18\.230\.105\.255 54\.233\.204\.0 \- 54\.233\.204\.255  | 
 | AWS GovCloud \(US\-West\) |  52\.61\.193\.0 \- 52\.61\.193\.255  | 
 
-## WSP Gateway Servers<a name="gateway_WSP"></a>
+## WSP gateway servers<a name="gateway_WSP"></a>
 
 **Important**  
-Starting in June 2020, Workspaces streams the desktop session for WSP WorkSpaces to clients over port 4195 instead of port 4172\. If you want to use WSP WorkSpaces, make sure that port 4195 is open to traffic\.
+Starting in June 2020, WorkSpaces streams the desktop session for WSP WorkSpaces to clients over port 4195 instead of port 4172\. If you want to use WSP WorkSpaces, make sure that port 4195 is open to traffic\.
 
-Workspaces uses a small range of Amazon EC2 public IPv4 addresses for its WSP gateway servers\. This enables you to set more finely grained firewall policies for devices that access Workspaces\. Note that the Workspaces clients do not support IPv6 addresses as a connectivity option at this time\.
+WorkSpaces uses a small range of Amazon EC2 public IPv4 addresses for its WSP gateway servers\. This enables you to set more finely grained firewall policies for devices that access WorkSpaces\. Note that the WorkSpaces clients do not support IPv6 addresses as a connectivity option at this time\.
 
 
-| Region | Public IP Address Range | 
+| Region | Public IP address range | 
 | --- | --- | 
 | US East \(N\. Virginia\) | 3\.227\.4\.0/22 | 
 | US West \(Oregon\) | 34\.223\.96\.0/22 | 
@@ -153,19 +157,19 @@ Workspaces uses a small range of Amazon EC2 public IPv4 addresses for its WSP ga
 | South America \(São Paulo\) | 15\.228\.64\.0/22 | 
 | AWS GovCloud \(US\-West\) | 3\.32\.139\.0/24 | 
 
-## Network Interfaces<a name="network-interfaces"></a>
+## Network interfaces<a name="network-interfaces"></a>
 
 Each WorkSpace has the following network interfaces:
 + The primary network interface \(eth1\) provides connectivity to the resources within your VPC and on the internet, and is used to join the WorkSpace to the directory\.
-+ The management network interface \(eth0\) is connected to a secure Workspaces management network\. It is used for interactive streaming of the WorkSpace desktop to Workspaces clients, and to allow Workspaces to manage the WorkSpace\.
++ The management network interface \(eth0\) is connected to a secure WorkSpaces management network\. It is used for interactive streaming of the WorkSpace desktop to WorkSpaces clients, and to allow WorkSpaces to manage the WorkSpace\.
 
-Workspaces selects the IP address for the management network interface from various address ranges, depending on the Region that the WorkSpaces are created in\. When a directory is registered, Workspaces tests the VPC CIDR and the route tables in your VPC to determine if these address ranges create a conflict\. If a conflict is found in all available address ranges in the Region, an error message is displayed and the directory is not registered\. If you change the route tables in your VPC after the directory is registered, you might cause a conflict\.
+WorkSpaces selects the IP address for the management network interface from various address ranges, depending on the Region that the WorkSpaces are created in\. When a directory is registered, WorkSpaces tests the VPC CIDR and the route tables in your VPC to determine if these address ranges create a conflict\. If a conflict is found in all available address ranges in the Region, an error message is displayed and the directory is not registered\. If you change the route tables in your VPC after the directory is registered, you might cause a conflict\.
 
 **Warning**  
 Do not modify or delete any of the network interfaces that are attached to a WorkSpace\. Doing so might cause the WorkSpace to become unreachable or lose internet access\. For example, if you have [enabled automatic assignment of Elastic IP addresses](update-directory-details.md#automatic-assignment) at the directory level, an [ Elastic IP address](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html) \(from the Amazon\-provided pool\) is assigned to your WorkSpace when it is launched\. However, if you associate an Elastic IP address that you own to a WorkSpace, and then you later disassociate that Elastic IP address from the WorkSpace, the WorkSpace loses its public IP address, and it doesn't automatically get a new one from the Amazon\-provided pool\.  
 To associate a new public IP address from the Amazon\-provided pool with the WorkSpace, you must [rebuild the WorkSpace](rebuild-workspace.md)\. If you don't want to rebuild the WorkSpace, you must associate another Elastic IP address that you own to the WorkSpace\.
 
-### Management Interface IP Ranges<a name="management-ip-ranges"></a>
+### Management interface IP ranges<a name="management-ip-ranges"></a>
 
 The following table lists the IP address ranges used for the management network interface\.
 
@@ -174,7 +178,7 @@ The following table lists the IP address ranges used for the management network 
 **If you're using WSP WorkSpaces created from public bundles**, the IP address range 10\.0\.0\.0/8 also applies for management interface traffic in all AWS Regions, in addition to the PCoIP/WSP ranges shown in the following table\.
 
 
-| Region | IP Address Range | 
+| Region | IP address range | 
 | --- | --- | 
 | US East \(N\. Virginia\) | PCoIP/WSP: 172\.31\.0\.0/16, 192\.168\.0\.0/16, 198\.19\.0\.0/16 WSP: 10\.0\.0\.0/8 | 
 | US West \(Oregon\) | PCoIP/WSP: 172\.31\.0\.0/16, 192\.168\.0\.0/16, and 198\.19\.0\.0/16 WSP: 10\.0\.0\.0/8 | 
@@ -190,7 +194,7 @@ The following table lists the IP address ranges used for the management network 
 | South America \(São Paulo\) | PCoIP/WSP: 198\.19\.0\.0/16 WSP: 10\.0\.0\.0/8 | 
 | AWS GovCloud \(US\-West\) | PCoIP/WSP: 198\.19\.0\.0/16 WSP: 10\.0\.0\.0/8 | 
 
-### Management Interface Ports<a name="management_ports"></a>
+### Management interface ports<a name="management_ports"></a>
 
 The following ports must be open on the management network interface of all WorkSpaces:
 + Inbound TCP on port 4172\. This is used for establishment of the streaming connection on the PCoIP protocol\.
@@ -208,9 +212,9 @@ The following ports must be open on the management network interface of all Work
   If you're using Office through one of the WorkSpaces public bundles, the IP address for Microsoft KMS for Office activation varies\. To determine that IP address, find the IP address for the management interface of the WorkSpace, and then replace the last two octets with `64.250`\. For example, if the IP address of the management interface is 192\.168\.3\.5, the IP address for Microsoft KMS Office activation is 192\.168\.64\.250\.
 + Outbound TCP to IP address 127\.0\.0\.2 for WSP WorkSpaces when the WorkSpace host is configured to use a proxy server\.
 
-Under normal circumstances, the Workspaces service configures these ports for your WorkSpaces\. If any security or firewall software is installed on a WorkSpace that blocks any of these ports, the WorkSpace may not function correctly or may be unreachable\.
+Under normal circumstances, the WorkSpaces service configures these ports for your WorkSpaces\. If any security or firewall software is installed on a WorkSpace that blocks any of these ports, the WorkSpace may not function correctly or may be unreachable\.
 
-### Primary Interface Ports<a name="primary_ports"></a>
+### Primary interface ports<a name="primary_ports"></a>
 
 No matter which type of directory you have, the following ports must be open on the primary network interface of all WorkSpaces:
 + For internet connectivity, the following ports must be open outbound to all destinations and inbound from the WorkSpaces VPC\. You need to add these manually to the security group for your WorkSpaces if you want them to have internet access\.

@@ -7,10 +7,13 @@ To reboot an encrypted WorkSpace, first make sure that the AWS KMS CMK is enable
 
 **To reboot a WorkSpace**
 
-1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **WorkSpaces**\.
 
 1. Select the WorkSpaces to be rebooted and choose **Actions**, **Reboot WorkSpaces**\.
 
 1. When prompted for confirmation, choose **Reboot WorkSpaces**\.
+
+**To reboot a WorkSpace using the AWS CLI**  
+Use the [reboot\-workspaces](https://docs.aws.amazon.com/cli/latest/reference/workspaces/reboot-workspaces.html) command\.

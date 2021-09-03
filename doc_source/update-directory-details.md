@@ -1,16 +1,16 @@
-# Update Directory Details for Your WorkSpaces<a name="update-directory-details"></a>
+# Update directory details for your WorkSpaces<a name="update-directory-details"></a>
 
-You can complete the following directory management tasks using the Workspaces console\.
+You can complete the following directory management tasks using the WorkSpaces console\.
 
 **Topics**
-+ [Select an Organizational Unit](#select-ou)
-+ [Configure Automatic IP Addresses](#automatic-assignment)
-+ [Control Device Access](#control-device-access)
-+ [Manage Local Administrator Permissions](#local-admin-setting)
-+ [Update the AD Connector Account \(AD Connector\)](#connect-account)
-+ [Multi\-factor Authentication \(AD Connector\)](#connect-mfa)
++ [Select an organizational unit](#select-ou)
++ [Configure automatic IP addresses](#automatic-assignment)
++ [Control device access](#control-device-access)
++ [Manage local administrator permissions](#local-admin-setting)
++ [Update the AD Connector account \(AD Connector\)](#connect-account)
++ [Multi\-factor authentication \(AD Connector\)](#connect-mfa)
 
-## Select an Organizational Unit<a name="select-ou"></a>
+## Select an organizational unit<a name="select-ou"></a>
 
 WorkSpace machine accounts are placed in the default organizational unit \(OU\) for the WorkSpaces directory\. Initially, the machine accounts are placed in the Computers OU of your directory or the directory that your AD Connector is connected to\. You can select a different OU from your directory or connected directory, or specify an OU in a separate target domain\. Note that you can select only one OU per directory\.
 
@@ -18,7 +18,7 @@ After you select a new OU, the machine accounts for all WorkSpaces that are crea
 
 **To select an organizational unit**
 
-1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **Directories**\.
 
@@ -34,7 +34,7 @@ After you select a new OU, the machine accounts for all WorkSpaces that are crea
 
 **To specify a target domain and organizational unit**
 
-1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **Directories**\.
 
@@ -46,18 +46,18 @@ After you select a new OU, the machine accounts for all WorkSpaces that are crea
 
 1. \(Optional\) Rebuild the existing WorkSpaces to update the OU\. For more information, see [Rebuild a WorkSpace](rebuild-workspace.md)\.
 
-## Configure Automatic IP Addresses<a name="automatic-assignment"></a>
+## Configure automatic IP addresses<a name="automatic-assignment"></a>
 
 After you enable automatic assignment of [ Elastic IP addresses](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html), each WorkSpace that you launch is assigned an Elastic IP address \(a static public IP address\) from the Amazon\-provided pool of Elastic IP addresses\. These Elastic IP addresses allow WorkSpaces in public subnets to access the internet\. WorkSpaces that already exist before you enable automatic assignment do not receive an Elastic IP address until you rebuild them\.
 
-Note that you do not need to enable automatic assignment of Elastic IP addresses if your WorkSpaces are in private subnets and you configured a NAT gateway for the virtual private cloud \(VPC\), or if your WorkSpaces are in public subnets and you manually assigned Elastic IP addresses\. For more information, see [Configure a VPC for Workspaces](amazon-workspaces-vpc.md)\.
+Note that you do not need to enable automatic assignment of Elastic IP addresses if your WorkSpaces are in private subnets and you configured a NAT gateway for the virtual private cloud \(VPC\), or if your WorkSpaces are in public subnets and you manually assigned Elastic IP addresses\. For more information, see [Configure a VPC for WorkSpaces](amazon-workspaces-vpc.md)\.
 
 **Warning**  
 If you associate an Elastic IP address that you own to a WorkSpace, and then you later disassociate that Elastic IP address from the WorkSpace, the WorkSpace loses its public IP address, and it doesn't automatically get a new one from the Amazon\-provided pool\. To associate a new public IP address from the Amazon\-provided pool with the WorkSpace, you must [rebuild the WorkSpace](rebuild-workspace.md)\. If you don't want to rebuild the WorkSpace, you must associate another Elastic IP address that you own to the WorkSpace\.
 
 **To configure Elastic IP addresses**
 
-1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **Directories**\.
 
@@ -69,13 +69,13 @@ If you associate an Elastic IP address that you own to a WorkSpace, and then you
 
 1. Choose **Update**\.
 
-## Control Device Access<a name="control-device-access"></a>
+## Control device access<a name="control-device-access"></a>
 
 You can specify the types of devices that have access to WorkSpaces\. In addition, you can restrict access to WorkSpaces to trusted devices \(also known as managed devices\)\.
 
 **To control device access to WorkSpaces**
 
-1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **Directories**\.
 
@@ -85,17 +85,17 @@ You can specify the types of devices that have access to WorkSpaces\. In additio
 
 1. Select the device types to enable and clear the device types to disable\. To block access from all selected device types, choose **Block**\.
 
-1. \(Optional\) You can also restrict access to trusted devices only\. For more information, see [Restrict WorkSpaces Access to Trusted Devices](trusted-devices.md)\.
+1. \(Optional\) You can also restrict access to trusted devices only\. For more information, see [Restrict WorkSpaces access to trusted devices](trusted-devices.md)\.
 
 1. Choose **Update and Exit**\.
 
-## Manage Local Administrator Permissions<a name="local-admin-setting"></a>
+## Manage local administrator permissions<a name="local-admin-setting"></a>
 
 You can specify whether users are local administrators on their WorkSpaces, which enables them to install application and modify settings on their WorkSpaces\. Users are local administrators by default\. If you modify this setting, the change applies to all new WorkSpaces that you create and any WorkSpaces that you rebuild\.
 
 **To modify local administrator permissions**
 
-1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **Directories**\.
 
@@ -107,13 +107,13 @@ You can specify whether users are local administrators on their WorkSpaces, whic
 
 1. Choose **Update and Exit**\.
 
-## Update the AD Connector Account \(AD Connector\)<a name="connect-account"></a>
+## Update the AD Connector account \(AD Connector\)<a name="connect-account"></a>
 
-You can update the AD Connector account that is used to read users and groups and join Workspaces machine accounts to your AD Connector directory\.
+You can update the AD Connector account that is used to read users and groups and join WorkSpaces machine accounts to your AD Connector directory\.
 
 **To update the AD Connector account**
 
-1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **Directories**\.
 
@@ -125,7 +125,7 @@ You can update the AD Connector account that is used to read users and groups an
 
 1. Choose **Update and Exit**\.
 
-## Multi\-factor Authentication \(AD Connector\)<a name="connect-mfa"></a>
+## Multi\-factor authentication \(AD Connector\)<a name="connect-mfa"></a>
 
 You can enable multi\-factor authentication \(MFA\) for your AD Connector directory\. For more information about using multi\-factor authentication with AWS Directory Service, see [ Enable multi\-factor authentication for AD Connector](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ad_connector_mfa.html) and [ AD Connector prerequisites](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/prereq_connector.html)\. 
 
@@ -135,7 +135,7 @@ The usernames must match between Active Directory and your RADIUS server\.
 
 **To enable multi\-factor authentication**
 
-1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **Directories**\.
 

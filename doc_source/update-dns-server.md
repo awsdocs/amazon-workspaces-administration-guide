@@ -1,4 +1,4 @@
-# Update DNS Servers for Amazon Workspaces<a name="update-dns-server"></a>
+# Update DNS servers for Amazon WorkSpaces<a name="update-dns-server"></a>
 
 If you need to update the DNS server IP addresses for your Active Directory after launching your WorkSpaces, you must also update your WorkSpaces with the new DNS server settings\.
 
@@ -10,14 +10,14 @@ We recommend updating the DNS settings on the WorkSpaces before updating the DNS
 
 If you want to rebuild the WorkSpaces instead, update one of the DNS server IP addresses in your Active Directory \([Step 2](#update-dns-active-directory)\), and then follow the procedure in [Rebuild a WorkSpace](rebuild-workspace.md) to rebuild your WorkSpaces\. After you've rebuilt your WorkSpaces, follow the procedure in [Step 3](#test-updated-dns-settings) to test your DNS server updates\. After completing that step, update the IP address of your second DNS server in Active Directory, and then rebuild your WorkSpaces again\. Be sure to follow the procedure in [Step 3](#test-updated-dns-settings) to test your second DNS server update\. As noted in the [ Best Practices](#update-dns-best-practices) section, we recommend updating your DNS server IP addresses one at a time\. 
 
-## Best Practices<a name="update-dns-best-practices"></a>
+## Best practices<a name="update-dns-best-practices"></a>
 
 When you're updating your DNS server settings, we recommend the following best practices:
 + To avoid disconnections and inaccessibility of domain resources, we strongly recommend performing DNS server updates during off\-peak hours or during a planned maintenance period\.
 + Don't launch any new WorkSpaces during the 15 minutes before and the 15 minutes after changing your DNS server settings\.
 + When updating your DNS server settings, change one DNS server IP address at a time\. Verify that the first update is correct before updating the second IP address\. We recommend performing the following procedure \([Step 1](#update-registry-dns), [Step 2](#update-dns-active-directory), and [Step 3](#test-updated-dns-settings)\) twice to update the IP addresses one at a time\.
 
-## Step 1: Update the DNS Server Settings on Your WorkSpaces<a name="update-registry-dns"></a>
+## Step 1: Update the DNS server settings on your WorkSpaces<a name="update-registry-dns"></a>
 
 In the following procedure, the current and new DNS server IP address values are referred to as follows:
 + Current DNS IP addresses: `OldIP1`, `OldIP2`
@@ -26,9 +26,9 @@ In the following procedure, the current and new DNS server IP address values are
 **Note**  
  If this is the second time you're performing this procedure, replace `OldIP1` with `OldIP2` and `NewIP1` with `NewIP2`\.
 
-### Update the DNS Server Settings for Windows WorkSpaces<a name="update-registry-dns-windows"></a>
+### Update the DNS server settings for Windows WorkSpaces<a name="update-registry-dns-windows"></a>
 
-If you have multiple WorkSpaces, you can deploy the following registry update to the WorkSpaces by applying a Group Policy Object \(GPO\) on the Active Directory OU for your WorkSpaces\. For more information about working with GPOs, see [Manage Your Windows WorkSpaces](group_policy.md)\.
+If you have multiple WorkSpaces, you can deploy the following registry update to the WorkSpaces by applying a Group Policy Object \(GPO\) on the Active Directory OU for your WorkSpaces\. For more information about working with GPOs, see [Manage your Windows WorkSpaces](group_policy.md)\.
 
 You can make these updates either by using the Registry Editor or by using Windows PowerShell\. Both procedures are described in this section\.
 
@@ -93,9 +93,9 @@ After you restart the service SkyLightWorkspaceConfigService, it can take up to 
 
 1. Proceed to [Step 2](#update-dns-active-directory), and update your DNS server settings in Active Directory to replace `OldIP1` with `NewIP1`\.
 
-### Update the DNS Server Settings for Linux WorkSpaces<a name="update-registry-dns-linux"></a>
+### Update the DNS server settings for Linux WorkSpaces<a name="update-registry-dns-linux"></a>
 
-If you have more than one Linux WorkSpace, we recommend that you use a configuration management solution to distribute and enforce policy\. For example, you can use [AWS Opsworks for Chef Automate](https://aws.amazon.com/opsworks/chefautomate/), [AWS OpsWorks for Puppet Enterprise](https://aws.amazon.com/opsworks/puppetenterprise/), or [Ansible](https://www.ansible.com/)\.
+If you have more than one Linux WorkSpace, we recommend that you use a configuration management solution to distribute and enforce policy\. For example, you can use [AWS OpsWorks for Chef Automate](https://aws.amazon.com/opsworks/chefautomate/), [AWS OpsWorks for Puppet Enterprise](https://aws.amazon.com/opsworks/puppetenterprise/), or [Ansible](https://www.ansible.com/)\.
 
 **To update the DNS server settings on a Linux WorkSpace**
 
@@ -121,7 +121,7 @@ If you have more than one Linux WorkSpace, we recommend that you use a configura
 
 1. Proceed to [Step 2](#update-dns-active-directory), and update your DNS server settings in Active Directory to replace `OldIP1` with `NewIP1`\.
 
-## Step 2: Update the DNS Server Settings for Active Directory<a name="update-dns-active-directory"></a>
+## Step 2: Update the DNS server settings for Active Directory<a name="update-dns-active-directory"></a>
 
 In this step, you update your DNS server settings for Active Directory\. As noted in the [Best Practices](#update-dns-best-practices) section, we recommend updating your DNS server IP addresses one at a time\.
 
@@ -132,7 +132,7 @@ To update your DNS server settings for Active Directory, see the following docum
 
 After updating your DNS server settings, proceed to [Step 3](#test-updated-dns-settings)\.
 
-## Step 3: Test the Updated DNS Server Settings<a name="test-updated-dns-settings"></a>
+## Step 3: Test the updated DNS server settings<a name="test-updated-dns-settings"></a>
 
 After completing [Step 1](#update-registry-dns) and [Step 2](#update-dns-active-directory), use the following procedure to verify that your updated DNS server settings are working as expected\.
 
@@ -143,7 +143,7 @@ In the following procedure, the current and new DNS server IP address values are
 **Note**  
 If this is the second time you're performing this procedure, replace `OldIP1` with `OldIP2` and `NewIP1` with `NewIP2`\.
 
-### Test the Updated DNS Server Settings for Windows WorkSpaces<a name="test-updated-dns-settings-windows"></a>
+### Test the updated DNS server settings for Windows WorkSpaces<a name="test-updated-dns-settings-windows"></a>
 
 1. Shut down the `OldIP1` DNS server\.
 
@@ -174,7 +174,7 @@ If this is the second time you're performing this procedure, replace `OldIP1` wi
 
 1. After you've verified that the first DNS server is working properly, repeat [Step 1](#update-registry-dns) to update the second DNS server, this time replacing `OldIP2` with `NewIP2`\. Then repeat Step 2 and Step 3\. 
 
-### Test the Updated DNS Server Settings for Linux WorkSpaces<a name="test-updated-dns-settings-linux"></a>
+### Test the updated DNS server settings for Linux WorkSpaces<a name="test-updated-dns-settings-linux"></a>
 
 1. Shut down the `OldIP1` DNS server\.
 

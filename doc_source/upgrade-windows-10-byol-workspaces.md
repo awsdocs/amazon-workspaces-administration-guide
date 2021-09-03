@@ -9,20 +9,20 @@ Do not run Sysprep on an upgraded WorkSpace\. If you do so, an error that preven
 
 **Topics**
 + [Prerequisites](#upgrade_byol_prerequisites)
-+ [Important Considerations](#upgrade_byol_important_considerations)
-+ [Known Limitations](#byol-known-limitations)
-+ [Summary of Registry Key Settings](#upgrade_byol_registry_summary)
-+ [Steps to Perform an In\-place Upgrade](#upgrade_byol_procedure)
++ [Considerations](#upgrade_byol_important_considerations)
++ [Known limitations](#byol-known-limitations)
++ [Summary of registry key settings](#upgrade_byol_registry_summary)
++ [Perform an in\-place upgrade](#upgrade_byol_procedure)
 + [Troubleshooting](#byol-troubleshooting)
-+ [Update Your WorkSpace Registry Using a PowerShell Script](#update-windows-10-byol-script)
++ [Update your WorkSpace registry using a PowerShell script](#update-windows-10-byol-script)
 
 ## Prerequisites<a name="upgrade_byol_prerequisites"></a>
 + If you have deferred or paused Windows 10 upgrades by using Group Policy or System Center Configuration Manager \(SCCM\), enable operating system upgrades for your Windows 10 WorkSpaces\.
-+ If the WorkSpace is an AutoStop WorkSpace, change it to an AlwaysOn WorkSpace before the in\-place upgrade process so that it won't be stopped automatically while updates are being applied\. For more information, see [Modify the Running Mode](running-mode.md#modify-running-mode)\. If you prefer to keep the WorkSpace set to AutoStop, change the AutoStop time to three hours or more while the upgrade takes place\.
++ If the WorkSpace is an AutoStop WorkSpace, change it to an AlwaysOn WorkSpace before the in\-place upgrade process so that it won't be stopped automatically while updates are being applied\. For more information, see [Modify the running mode](running-mode.md#modify-running-mode)\. If you prefer to keep the WorkSpace set to AutoStop, change the AutoStop time to three hours or more while the upgrade takes place\.
 + The in\-place upgrade process recreates the user profile by making a copy of a special profile named Default User \(`C:\Users\Default`\)\. Do not use this default user profile to make customizations\. We recommend making any customizations to the user profile through Group Policy Objects \(GPOs\) instead\. Customizations made through GPOs can be easily modified or rolled back and are less prone to error\.
 + The in\-place upgrade process can back up and recreate only one user profile\. If you have multiple user profiles on drive D, delete all the profiles except for the one that you need\.
 
-## Important Considerations<a name="upgrade_byol_important_considerations"></a>
+## Considerations<a name="upgrade_byol_important_considerations"></a>
 
 The in\-place upgrade process uses two registry scripts \(`enable-inplace-upgrade.ps1` and `update-pvdrivers.ps1`\) to make the necessary changes to your WorkSpaces that enable the Windows Update process to run\. These changes involve creating a \(temporary\) user profile on drive C instead of drive D\. If a user profile already exists on drive D, the data in that original user profile remains on drive D\.
 
@@ -32,13 +32,13 @@ After the in\-place upgrade, you have the choice of leaving your user profiles o
 
 To ensure that you can rebuild or migrate your WorkSpaces and to avoid any potential problems with user shell folder redirection, we recommend that you choose to restore your user profiles to drive D after the in\-place upgrade\. You can do so by using the **PostUpgradeRestoreProfileOnD** registry key, as explained later in this topic\. 
 
-## Known Limitations<a name="byol-known-limitations"></a>
+## Known limitations<a name="byol-known-limitations"></a>
 + The user profile location change from drive D to drive C does not happen during WorkSpace rebuilds or migrations\. If you perform an in\-place upgrade on a Windows 10 BYOL WorkSpace and then rebuild or migrate it, the new WorkSpace will have the user profile on drive D\.
 **Warning**  
 If you leave the user profile on drive C after the in\-place upgrade, the user profile data stored on drive C will be lost during rebuilds or migrations unless you manually back up the user profile data prior to rebuilding or migrating, and then manually restore the user profile data after running the rebuild or migration process\.
 + If your default BYOL bundle contains an image that is based on an earlier release of Windows 10, you must perform the in\-place upgrade again after the WorkSpace is rebuilt or migrated\.
 
-## Summary of Registry Key Settings<a name="upgrade_byol_registry_summary"></a>
+## Summary of registry key settings<a name="upgrade_byol_registry_summary"></a>
 
 To enable the in\-place upgrade process and to specify where you would like the user profile to be located after the upgrade, you must set a number of registry keys\.
 
@@ -59,11 +59,11 @@ To enable the in\-place upgrade process and to specify where you would like the 
 | --- | --- | --- | 
 | Enabled | DWORD |  **0** – \(Default\) Disables AWS PV drivers update **1** – Enables AWS PV drivers update  | 
 
-## Steps to Perform an In\-place Upgrade<a name="upgrade_byol_procedure"></a>
+## Perform an in\-place upgrade<a name="upgrade_byol_procedure"></a>
 
 To enable in\-place Windows upgrades on your BYOL WorkSpaces, you must set certain registry keys, as described in the following procedure\. You must also set certain registry keys to indicate the drive \(C or D\) where you want the user profiles to be located after the in\-place upgrades are finished\.
 
-You can make these registry changes manually\. If you have multiple WorkSpaces to update, you can use Group Policy or SCCM to push a PowerShell script\. For a sample PowerShell script, see [Update Your WorkSpace Registry Using a PowerShell Script](#update-windows-10-byol-script)\.
+You can make these registry changes manually\. If you have multiple WorkSpaces to update, you can use Group Policy or SCCM to push a PowerShell script\. For a sample PowerShell script, see [Update your WorkSpace registry using a PowerShell script](#update-windows-10-byol-script)\.
 
 **To perform an in\-place upgrade of Windows 10**
 
@@ -79,7 +79,7 @@ If these keys do not exist, reboot the WorkSpace\. The keys should be added when
 
    **HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Amazon\\WorkSpacesConfig\\enable\-inplace\-upgrade\.ps1\\NoReboot**
 
-1. Decide which drive you want user profiles to be located on after the in\-place upgrade process \(for more information, see [Important Considerations](#upgrade_byol_important_considerations)\), and set the registry keys as follows:
+1. Decide which drive you want user profiles to be located on after the in\-place upgrade process \(for more information, see [Considerations](#upgrade_byol_important_considerations)\), and set the registry keys as follows:
    + Settings if you want the user profile on drive C after the upgrade:
 
      **HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Amazon\\WorkSpacesConfig\\enable\-inplace\-upgrade\.ps1**
@@ -121,7 +121,7 @@ If the in\-place upgrade fails, Windows automatically rolls back to use the Wind
 
    **HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Amazon\\WorkSpacesConfig\\enable\-inplace\-upgrade\.ps1\\scriptExecutionComplete**
 
-1. If you modified the running mode of the WorkSpace by setting it to AlwaysOn or by changing the AutoStop time period so that the in\-place upgrade process could run without interruption, set the running mode back to your original settings\. For more information, see [Modify the Running Mode](running-mode.md#modify-running-mode)\.
+1. If you modified the running mode of the WorkSpace by setting it to AlwaysOn or by changing the AutoStop time period so that the in\-place upgrade process could run without interruption, set the running mode back to your original settings\. For more information, see [Modify the running mode](running-mode.md#modify-running-mode)\.
 
 If you haven't set the **PostUpgradeRestoreProfileOnD** registry key to **1**, the user profile is regenerated by Windows and placed in `C:\Users\%USERNAME%` after the in\-place upgrade, so that you do not have to go through the above steps again for future Windows 10 in\-place upgrades\. By default, the `enable-inplace-upgrade.ps1` script redirects the following shell folders to drive D:
 + `D:\Users\%USERNAME%\Downloads`
@@ -157,9 +157,9 @@ If you encounter any issues with the update, you can check the following items t
 **Tip**  
 During the in\-place upgrade process, if you see that some icon shortcuts on the desktop no longer work, it's because WorkSpaces moves any user profiles located on drive D to drive C to prepare for the upgrade\. After the upgrade is completed, the shortcuts will work as expected\.
 
-## Update Your WorkSpace Registry Using a PowerShell Script<a name="update-windows-10-byol-script"></a>
+## Update your WorkSpace registry using a PowerShell script<a name="update-windows-10-byol-script"></a>
 
-You can use the following sample PowerShell script to update the registry on your WorkSpaces to enable in\-place upgrades\. Follow the [Steps to Perform an In\-place Upgrade](#upgrade_byol_procedure), but use this script to update the registry on each WorkSpace\.
+You can use the following sample PowerShell script to update the registry on your WorkSpaces to enable in\-place upgrades\. Follow the [Perform an in\-place upgrade](#upgrade_byol_procedure), but use this script to update the registry on each WorkSpace\.
 
 ```
 # AWS WorkSpaces 1.28.20

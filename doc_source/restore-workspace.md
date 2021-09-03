@@ -6,7 +6,7 @@ Restoring a WorkSpace causes the following to occur:
 + The root volume \(for Microsoft Windows, drive C; for Linux, /\) is restored to the most recent snapshot\. Any applications that were installed, or system settings that were changed after the most recent snapshot was created, are lost\.
 + The user volume \(for Microsoft Windows, the D drive; for Linux, /home\) is recreated from the most recent snapshot\. The current contents of the user volume are overwritten\.
 
-**When Snapshots Are Taken**  
+**When snapshots are taken**  
 Snapshots of the root and user volume are taken on the following basis\. When you choose **Actions**, **Rebuild / Restore WorkSpace**, the date and time of the most recent snapshots are shown\. 
 + **After a WorkSpace is first created** — Typically, the initial snapshots of the root and user volumes are taken soon after a WorkSpace is created \(often within 30 minutes\)\. In some AWS Regions, it might take several hours for the initial snapshots to be taken after a WorkSpace is created\.
 
@@ -22,7 +22,7 @@ You can restore a WorkSpace only if the following conditions are met:
 
 **To restore a WorkSpace**
 
-1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **WorkSpaces**\.
 
@@ -31,3 +31,6 @@ You can restore a WorkSpace only if the following conditions are met:
 1. Select the **Restore WorkSpace** option\.
 
 1. Choose **Rebuild / Restore WorkSpace**\.
+
+**To restore a WorkSpace using the AWS CLI**  
+Use the [restore\-workspace](https://docs.aws.amazon.com/cli/latest/reference/workspaces/restore-workspace.html) command\.

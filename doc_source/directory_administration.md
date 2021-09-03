@@ -1,6 +1,6 @@
-# Set Up Active Directory Administration Tools for Workspaces<a name="directory_administration"></a>
+# Set up Active Directory Administration Tools for WorkSpaces<a name="directory_administration"></a>
 
-You'll perform most administrative tasks for your WorkSpaces directory using directory management tools, such as the Active Directory Administration Tools\. However, you'll use the Workspaces console to perform some directory\-related tasks\. For more information, see [Manage Directories for Workspaces](manage-workspaces-directory.md)\.
+You'll perform most administrative tasks for your WorkSpaces directory using directory management tools, such as the Active Directory Administration Tools\. However, you'll use the WorkSpaces console to perform some directory\-related tasks\. For more information, see [Manage directories for WorkSpaces](manage-workspaces-directory.md)\.
 
 If you create a directory with AWS Managed Microsoft AD or Simple AD that includes five or more WorkSpaces, we recommend that you centralize administration on an Amazon EC2 instance\. Although you can install the directory management tools on a WorkSpace, using an Amazon EC2 instance is a more robust solution\.
 
@@ -46,7 +46,7 @@ This procedure applies only to directories created with Simple AD, not AWS Manag
    + **Schema Admins**
 
 **To add or remove users**  
-You can create new users from the Amazon Workspaces console only during the process of launching a WorkSpace, and you cannot delete users through the Amazon Workspaces console\. Most user management tasks, including managing user groups, must be performed through your directory\. 
+You can create new users from the Amazon WorkSpaces console only during the process of launching a WorkSpace, and you cannot delete users through the Amazon WorkSpaces console\. Most user management tasks, including managing user groups, must be performed through your directory\. 
 
 **Important**  
 Before you can remove a user, you must delete the WorkSpace assigned to that user\. For more information, see [Delete a WorkSpace](delete-workspaces.md)\.

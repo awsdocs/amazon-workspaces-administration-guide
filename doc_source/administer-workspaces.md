@@ -1,16 +1,16 @@
-# Administer Your WorkSpaces<a name="administer-workspaces"></a>
+# Administer your WorkSpaces<a name="administer-workspaces"></a>
 
-You can administer your WorkSpaces using the Workspaces console\.
+You can administer your WorkSpaces using the WorkSpaces console\.
 
-To perform directory administration tasks, see [Set Up Active Directory Administration Tools for Workspaces](directory_administration.md)\.
+To perform directory administration tasks, see [Set up Active Directory Administration Tools for WorkSpaces](directory_administration.md)\.
 
 **Topics**
-+ [Manage Your Windows WorkSpaces](group_policy.md)
-+ [Manage Your Amazon Linux WorkSpaces](manage_linux_workspace.md)
-+ [Manage the WorkSpace Running Mode](running-mode.md)
++ [Manage your Windows WorkSpaces](group_policy.md)
++ [Manage your Amazon Linux WorkSpaces](manage_linux_workspace.md)
++ [Manage the WorkSpace running mode](running-mode.md)
 + [Modify a WorkSpace](modify-workspaces.md)
-+ [Tag WorkSpaces Resources](tag-workspaces-resources.md)
-+ [WorkSpace Maintenance](workspace-maintenance.md)
++ [Tag WorkSpaces resources](tag-workspaces-resources.md)
++ [WorkSpace maintenance](workspace-maintenance.md)
 + [Encrypted WorkSpaces](encrypt-workspaces.md)
 + [Reboot a WorkSpace](reboot-workspaces.md)
 + [Rebuild a WorkSpace](rebuild-workspace.md)

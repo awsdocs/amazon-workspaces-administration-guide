@@ -1,4 +1,4 @@
-# Tag WorkSpaces Resources<a name="tag-workspaces-resources"></a>
+# Tag WorkSpaces resources<a name="tag-workspaces-resources"></a>
 
 You can organize and manage the resources for your WorkSpaces by assigning your own metadata to each resource in the form of *tags*\. You specify a *key* and a *value* for each tag\. A key can be a general category, such as "project," "owner," or "environment," with specific associated values\. Using tags is a simple yet powerful way to manage AWS resources and to organize data, including billing data\.
 
@@ -8,20 +8,20 @@ When you add tags to an existing resource, those tags don't appear in your cost 
 To view your WorkSpaces resource tags in the Cost Explorer, you must activate the tags that you have applied to your WorkSpaces resources by following the instructions in [Activating User\-Defined Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/activating-tags.html) in the *AWS Billing and Cost Management User Guide*\.  
 Although tags appear 24 hours after activation, it can take 4 to 5 days for values associated with those tags to appear in the Cost Explorer\. Additionally, to appear and provide cost data in Cost Explorer, WorkSpaces resources that have been tagged must incur charges during that time\. Cost Explorer only shows cost data from the time when the tags were activated and onward\. No historical data is available at this time\.
 
-**Resources That You Can Tag**
+**Resources that you can tag**
 + You can add tags to the following resources when you create them—WorkSpaces, imported images, and IP access control groups\.
 + You can add tags to existing resources of the following types—WorkSpaces, registered directories, custom bundles, images, and IP access control groups\.
 
-**Tag Restrictions**
+**Tag restrictions**
 + Maximum number of tags per resource—50
 + Maximum key length—127 Unicode characters
 + Maximum value length—255 Unicode characters
 + Tag keys and values are case\-sensitive\. Allowed characters are letters, spaces, and numbers representable in UTF\-8, plus the following special characters: \+ \- = \. \_ : / @\. Do not use leading or trailing spaces\.
-+ Do not use the "aws:" or "aws:workspaces:" prefixes in your tag names or values because they are reserved for AWS use\. You can't edit or delete tag names or values with these prefixes\.
++ Do not use the `aws:` or `aws:workspaces:` prefixes in your tag names or values because they are reserved for AWS use\. You can't edit or delete tag names or values with these prefixes\.
 
 **To update the tags for an existing resource using the console \(directories, WorkSpaces, or IP access control groups\)**
 
-1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose one of the following resource types: **Directories**, **WorkSpaces**, or **IP Access Controls**\.
 
@@ -36,7 +36,7 @@ Although tags appear 24 hours after activation, it can take 4 to 5 days for valu
 
 **To update the tags for an existing resource using the console \(images or bundles\)**
 
-1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose one of the following resource types: **Bundles** or **Images**\.
 

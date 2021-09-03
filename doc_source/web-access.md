@@ -1,22 +1,22 @@
-# Enable and Configure Amazon Workspaces Web Access<a name="web-access"></a>
+# Enable and configure Amazon WorkSpaces Web Access<a name="web-access"></a>
 
-Most WorkSpaces bundles support Amazon Workspaces Web Access through Chrome or Firefox browsers\. For a list of WorkSpaces that support web browser access, see "Which Amazon Workspaces bundles support Web Access?" in [ Client Access, Web Access, and User Experience](https://aws.amazon.com/workspaces/faqs/#Client_Access.2C_Web_Access.2C_and_User_Experience)\.
+Most WorkSpaces bundles support Amazon WorkSpaces Web Access\. For a list of WorkSpaces that support web browser access, see "Which Amazon WorkSpaces bundles support Web Access?" in [ Client Access, Web Access, and User Experience](https://aws.amazon.com/workspaces/faqs/#Client_Access.2C_Web_Access.2C_and_User_Experience)\.
 
 **Note**  
+Web Access is currently unavailable in the Asia Pacific \(Mumbai\) Region\.
+Web Access is not available for some Windows 10 WorkSpaces that are using the PCoIP protocol\. If your PCoIP WorkSpace is powered by Windows Server 2019, Web Access is not available\.
 A web browser cannot be used to connect to Amazon Linux WorkSpaces\.
-Web Access isn't currently supported for WorkSpaces using the WorkSpaces Streaming Protocol \(WSP\)\.
-Web Access isn't currently available in the Asia Pacific \(Mumbai\) Region\.
 
 **Important**  
-Beginning October 1, 2020, customers will no longer be able to use the Amazon Workspaces Web Access client to connect to Windows 7 custom WorkSpaces or to Windows 7 Bring Your Own License \(BYOL\) WorkSpaces\.
+Beginning October 1, 2020, customers will no longer be able to use the Amazon WorkSpaces Web Access client to connect to Windows 7 custom WorkSpaces or to Windows 7 Bring Your Own License \(BYOL\) WorkSpaces\.
 
-## Step 1: Enable Web Access to Your WorkSpaces<a name="enable-web-access"></a>
+## Step 1: Enable Web Access to your WorkSpaces<a name="enable-web-access"></a>
 
 You control Web Access to your WorkSpaces at the directory level\. For each directory containing WorkSpaces that you want to allow users to access through the Web Access client, do the following steps\.
 
 **To enable Web Access to your WorkSpaces**
 
-1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **Directories**\.
 
@@ -28,13 +28,13 @@ You control Web Access to your WorkSpaces at the directory level\. For each dire
 
 1. Choose **Update and Exit**\.
 
-## Step 2: Configure Inbound and Outbound Access to Ports for Web Access<a name="configure_inbound_outbound"></a>
+## Step 2: Configure inbound and outbound access to ports for Web Access<a name="configure_inbound_outbound"></a>
 
-Amazon Workspaces Web Access requires inbound and outbound access for certain ports\. For more information, see [Ports for Web Access](workspaces-port-requirements.md#web-access-ports)\.
+Amazon WorkSpaces Web Access requires inbound and outbound access for certain ports\. For more information, see [Ports for Web Access](workspaces-port-requirements.md#web-access-ports)\.
 
-## Step 3: Configure Group Policy and Security Policy Settings to Enable Users to Log On<a name="configure_group_policy"></a>
+## Step 3: Configure Group Policy and security policy settings to enable users to log on<a name="configure_group_policy"></a>
 
-Amazon Workspaces relies on a specific logon screen configuration to enable users to successfully log on from their Web Access client\.
+Amazon WorkSpaces relies on a specific logon screen configuration to enable users to successfully log on from their Web Access client\.
 
 To enable Web Access users to log on to their WorkSpaces, you must configure a Group Policy setting and three Security Policy settings\. If these settings are not correctly configured, users might experience long logon times or black screens when they try to log on to their WorkSpaces\. To configure these settings, use the following procedures\. 
 
@@ -48,7 +48,7 @@ In most cases, when a user attempts to log on to a WorkSpace, the user name fiel
 
 To avoid this issue, disable the **Hide entry points for Fast User Switching** Group Policy setting\. When you disable this setting, the WorkSpaces logon agent can use the **Switch User** button to populate the user name field with the correct name\.
 
-1. Open the Group Policy Management tool \(gpmc\.msc\) and navigate to and select a GPO at the domain or domain controller level of the directory that you use for your WorkSpaces\. \(If you have the [ Workspaces Group Policy administrative template](group_policy.md#gp_install_template) installed in your domain, you can use the WorkSpaces GPO for your WorkSpaces machine accounts\.\)
+1. Open the Group Policy Management tool \(gpmc\.msc\) and navigate to and select a GPO at the domain or domain controller level of the directory that you use for your WorkSpaces\. \(If you have the [ WorkSpaces Group Policy administrative template](group_policy.md#gp_install_template) installed in your domain, you can use the WorkSpaces GPO for your WorkSpaces machine accounts\.\)
 
 1. Choose **Action**, **Edit** in the main menu\.
 
@@ -64,7 +64,7 @@ By default, the list of last logged on users is displayed instead of the **Switc
 
 To avoid this issue, enable the Security Policy setting **Interactive logon: Don't display last signed\-in** or **Interactive logon: Do not display last user name** \(depending on which version of Windows you're using\)\.
 
-1. Open the Group Policy Management tool \(gpmc\.msc\) and navigate to and select a GPO at the domain or domain controller level of the directory that you use for your WorkSpaces\. \(If you have the [ Workspaces Group Policy administrative template](group_policy.md#gp_install_template) installed in your domain, you can use the WorkSpaces GPO for your WorkSpaces machine accounts\.\)
+1. Open the Group Policy Management tool \(gpmc\.msc\) and navigate to and select a GPO at the domain or domain controller level of the directory that you use for your WorkSpaces\. \(If you have the [ WorkSpaces Group Policy administrative template](group_policy.md#gp_install_template) installed in your domain, you can use the WorkSpaces GPO for your WorkSpaces machine accounts\.\)
 
 1. Choose **Action**, **Edit** in the main menu\.
 
@@ -80,7 +80,7 @@ To avoid this issue, enable the Security Policy setting **Interactive logon: Don
 
 For WorkSpaces Web Access, you need to require that users press CTRL\+ALT\+DEL before they can log on\. Requiring users to press CTRL\+ALT\+DEL before they log on ensures that users are using a trusted path when they're entering their passwords\.
 
-1. Open the Group Policy Management tool \(gpmc\.msc\) and navigate to and select a GPO at the domain or domain controller level of the directory that you use for your WorkSpaces\. \(If you have the [ Workspaces Group Policy administrative template](group_policy.md#gp_install_template) installed in your domain, you can use the WorkSpaces GPO for your WorkSpaces machine accounts\.\)
+1. Open the Group Policy Management tool \(gpmc\.msc\) and navigate to and select a GPO at the domain or domain controller level of the directory that you use for your WorkSpaces\. \(If you have the [ WorkSpaces Group Policy administrative template](group_policy.md#gp_install_template) installed in your domain, you can use the WorkSpaces GPO for your WorkSpaces machine accounts\.\)
 
 1. Choose **Action**, **Edit** in the main menu\.
 
@@ -94,7 +94,7 @@ For WorkSpaces Web Access, you need to require that users press CTRL\+ALT\+DEL b
 
 The WorkSpaces logon agent looks for the user's name and domain\. After this setting is configured, the lock screen will display the user's full name \(if it is specified in Active Directory\), their domain name, and their user name\.
 
-1. Open the Group Policy Management tool \(gpmc\.msc\) and navigate to and select a GPO at the domain or domain controller level of the directory that you use for your WorkSpaces\. \(If you have the [ Workspaces Group Policy administrative template](group_policy.md#gp_install_template) installed in your domain, you can use the WorkSpaces GPO for your WorkSpaces machine accounts\.\)
+1. Open the Group Policy Management tool \(gpmc\.msc\) and navigate to and select a GPO at the domain or domain controller level of the directory that you use for your WorkSpaces\. \(If you have the [ WorkSpaces Group Policy administrative template](group_policy.md#gp_install_template) installed in your domain, you can use the WorkSpaces GPO for your WorkSpaces machine accounts\.\)
 
 1. Choose **Action**, **Edit** in the main menu\.
 
@@ -106,5 +106,5 @@ The WorkSpaces logon agent looks for the user's name and domain\. After this set
 
 **To apply the Group Policy and Security Policy settings changes**  
 Group Policy and Security Policy settings changes take effect after the next Group Policy update for the WorkSpace and after the WorkSpace session is restarted\. To apply the Group Policy and Security Policy changes in the prior procedures, do one of the following:
-+ Reboot the WorkSpace \(in the Amazon Workspaces console, select the WorkSpace, then choose **Actions**, **Reboot WorkSpaces**\)\.
++ Reboot the WorkSpace \(in the Amazon WorkSpaces console, select the WorkSpace, then choose **Actions**, **Reboot WorkSpaces**\)\.
 + From an administrative command prompt, enter gpupdate /force\.

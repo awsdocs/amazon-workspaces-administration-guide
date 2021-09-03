@@ -1,37 +1,37 @@
-# Bring Your Own Windows Desktop Licenses<a name="byol-windows-images"></a>
+# Bring Your Own Windows desktop licenses<a name="byol-windows-images"></a>
 
 If your licensing agreement with Microsoft allows it, you can use your Windows 10 Enterprise or Windows 10 Pro desktop licenses for your WorkSpaces\. To do this, you must Bring Your Own License \(BYOL\) and provide a Windows 10 license that meets the following requirements\. For more information about using Microsoft software on AWS, see [Amazon Web Services and Microsoft](http://aws.amazon.com/windows/faq/)\.
 
-To stay compliant with Microsoft licensing terms, AWS runs your BYOL WorkSpaces on hardware that is dedicated to you in the AWS Cloud\. By bringing your own license, you can provide a consistent experience for your users\. For more information, see [Workspaces Pricing](https://aws.amazon.com/workspaces/pricing/)\.
+To stay compliant with Microsoft licensing terms, AWS runs your BYOL WorkSpaces on hardware that is dedicated to you in the AWS Cloud\. By bringing your own license, you can provide a consistent experience for your users\. For more information, see [WorkSpaces Pricing](https://aws.amazon.com/workspaces/pricing/)\.
 
 **Important**  
 Image creation is not supported on Windows 10 systems that have been upgraded from one version of Windows 10 to a newer version of Windows 10 \(a Windows feature/version upgrade\)\. However, Windows cumulative or security updates are supported by the WorkSpaces image\-creation process\. 
 
 **Topics**
 + [Requirements](#windows_images_prerequisites)
-+ [Windows Versions That Are Supported for BYOL](#windows_images_supported_versions)
-+ [Adding Microsoft Office to Your BYOL Image](#windows_images_adding_office)
-+ [Step 1: Check the Eligibility of Your Account for BYOL by Using the Amazon Workspaces Console](#windows_images_eligibility_byol)
-+ [Step 2: Enable BYOL for Your Account for BYOL by Using the Amazon Workspaces Console](#windows_images_enable_byol)
-+ [Step 3: Run the BYOL Checker PowerShell Script on a Windows VM](#windows_images_run_byol_checker_script)
-+ [Step 4: Export the VM from Your Virtualization Environment](#windows_images_create_image_byol)
-+ [Step 5: Import the VM as an Image into Amazon EC2](#windows_images_import_image_ec2_byol)
-+ [Step 6: Create a BYOL Image by Using the Workspaces Console](#windows_images_create_byol_image_console)
-+ [Step 7: Create a Custom Bundle from the BYOL Image](#windows_images_create_custom_bundle_byol)
-+ [Step 8: Register a Directory for Dedicated WorkSpaces](#windows_images_dedicate_directory_for_byol)
-+ [Step 9: Launch Your BYOL WorkSpaces](#windows_images_launch_byol_workspaces)
++ [Windows versions supported for BYOL](#windows_images_supported_versions)
++ [Add Microsoft Office to Your BYOL image](#windows_images_adding_office)
++ [Step 1: Check the eligibility of your account for BYOL using the Amazon WorkSpaces console](#windows_images_eligibility_byol)
++ [Step 2: Enable BYOL for your account for BYOL using the Amazon WorkSpaces console](#windows_images_enable_byol)
++ [Step 3: Run the BYOL Checker PowerShell script on a Windows VM](#windows_images_run_byol_checker_script)
++ [Step 4: Export the VM from your virtualization environment](#windows_images_create_image_byol)
++ [Step 5: Import the VM as an image into Amazon EC2](#windows_images_import_image_ec2_byol)
++ [Step 6: Create a BYOL image using the WorkSpaces console](#windows_images_create_byol_image_console)
++ [Step 7: Create a custom bundle from the BYOL image](#windows_images_create_custom_bundle_byol)
++ [Step 8: Register a dedicated directory for WorkSpaces](#windows_images_dedicate_directory_for_byol)
++ [Step 9: Launch your BYOL WorkSpaces](#windows_images_launch_byol_workspaces)
 
 ## Requirements<a name="windows_images_prerequisites"></a>
 
 Before you begin, verify the following:
 + Your Microsoft licensing agreement allows Windows to be run in a virtual hosted environment\.
-+ If you will be using non\-GPU\-enabled bundles \(bundles other than Graphics and GraphicsPro\), verify that you will use a minimum of 200 Workspaces per Region\. These 200 WorkSpaces can be any mix of AlwaysOn and AutoStop WorkSpaces\. Using a minimum of 200 WorkSpaces per Region is a requirement for running your Workspaces on dedicated hardware\. Running your Workspaces on dedicated hardware is necessary to comply with Microsoft licensing requirements\. The dedicated hardware is provisioned on the AWS side, so your VPC can stay on default tenancy\.
++ If you will be using non\-GPU\-enabled bundles \(bundles other than Graphics and GraphicsPro\), verify that you will use a minimum of 200 WorkSpaces per Region\. These 200 WorkSpaces can be any mix of AlwaysOn and AutoStop WorkSpaces\. Using a minimum of 200 WorkSpaces per Region is a requirement for running your WorkSpaces on dedicated hardware\. Running your WorkSpaces on dedicated hardware is necessary to comply with Microsoft licensing requirements\. The dedicated hardware is provisioned on the AWS side, so your VPC can stay on default tenancy\.
 
   If you plan to use GPU\-enabled \(Graphics and GraphicsPro\) bundles, verify that you will run a minimum of 4 AlwaysOn or 20 AutoStop GPU\-enabled WorkSpaces in a Region per month on dedicated hardware\.
 **Note**  
 Graphics and GraphicsPro bundles can be created only for the PCoIP protocol at this time\.
 Graphics and GraphicsPro bundles aren't currently available in the Asia Pacific \(Mumbai\) Region\.
-+ Workspaces can use a management interface in the /16 IP address range\. The management interface is connected to a secure Workspaces management network used for interactive streaming\. This allows Workspaces to manage your WorkSpaces\. For more information, see [Network Interfaces](workspaces-port-requirements.md#network-interfaces)\. You must reserve a /16 netmask from at least one of the following IP address ranges for this purpose:
++ WorkSpaces can use a management interface in the /16 IP address range\. The management interface is connected to a secure WorkSpaces management network used for interactive streaming\. This allows WorkSpaces to manage your WorkSpaces\. For more information, see [Network interfaces](workspaces-port-requirements.md#network-interfaces)\. You must reserve a /16 netmask from at least one of the following IP address ranges for this purpose:
   + 10\.0\.0\.0/8
   + 100\.64\.0\.0/10
   + 172\.16\.0\.0/12
@@ -40,8 +40,8 @@ Graphics and GraphicsPro bundles aren't currently available in the Asia Pacific 
 **Note**  
 As you adopt the WorkSpaces service, the available management interface IP address ranges frequently change\. To determine which ranges are currently available, run the [ list\-available\-management\-cidr\-ranges](https://docs.aws.amazon.com/cli/latest/reference/workspaces/list-available-management-cidr-ranges.html) AWS Command Line Interface \(AWS CLI\) command\.
 In addition to the /16 CIDR block that you select, the 54\.239\.224\.0/20 IP address range is used for management interface traffic in all AWS Regions\.
-+ Make sure you have opened the necessary management interface ports for Microsoft Windows and Microsoft Office KMS activation for BYOL WorkSpaces\. For more information, see [Management Interface Ports](workspaces-port-requirements.md#management_ports)\.
-+ You have a virtual machine \(VM\) that runs a supported 64\-bit version of Windows\. For a list of supported versions, see the next section in this topic, [Windows Versions That Are Supported for BYOL](#windows_images_supported_versions)\. The VM must also meet these requirements: 
++ Make sure you have opened the necessary management interface ports for Microsoft Windows and Microsoft Office KMS activation for BYOL WorkSpaces\. For more information, see [Management interface ports](workspaces-port-requirements.md#management_ports)\.
++ You have a virtual machine \(VM\) that runs a supported 64\-bit version of Windows\. For a list of supported versions, see the next section in this topic, [Windows versions supported for BYOL](#windows_images_supported_versions)\. The VM must also meet these requirements: 
   + The Windows operating system must be activated against your key management servers\.
   + The Windows operating system must have **English \(United States\)** as the primary language\.
   + No software beyond what is included with Windows can be installed on the VM\. You can add additional software, such as an antivirus solution, when you later create a custom image\.
@@ -49,12 +49,12 @@ In addition to the /16 CIDR block that you select, the 54\.239\.224\.0/20 IP add
   + You must create a **WorkSpaces\_BYOL** account with local administrator access before you share the image\. The password for this account might be required later, so make note of it\.
   + The VM must be on a single volume with a maximum size of 70 GB and at least 10 GB of free space\. If you're also planning to subscribe to Microsoft Office for your BYOL image, the VM must be on a single volume with a maximum size of 70 GB and at least 20 GB of free space\.
   + Your VM must run Windows PowerShell version 4 or later\.
-+ Make sure that you have installed the latest Microsoft Windows patches before you run the BYOL checker script in [Step 3: Run the BYOL Checker PowerShell Script on a Windows VM](#windows_images_run_byol_checker_script)\.
++ Make sure that you have installed the latest Microsoft Windows patches before you run the BYOL checker script in [Step 3: Run the BYOL Checker PowerShell script on a Windows VM](#windows_images_run_byol_checker_script)\.
 
 **Note**  
 For BYOL AutoStop WorkSpaces, a large number of concurrent logins could result in significantly increased time for WorkSpaces to be available\. If you expect many users to log into your BYOL AutoStop WorkSpaces at the same time, please consult your account manager for advice\.
 
-## Windows Versions That Are Supported for BYOL<a name="windows_images_supported_versions"></a>
+## Windows versions supported for BYOL<a name="windows_images_supported_versions"></a>
 
 Your VM must run one of the following Windows versions:
 + Windows 10 Version 1809 \(October 2018 Update\)
@@ -68,11 +68,11 @@ All supported OS versions support all of the compute types available in the AWS 
 **Note**  
 Windows 10 N versions are not supported for BYOL at this time\.
 
-## Adding Microsoft Office to Your BYOL Image<a name="windows_images_adding_office"></a>
+## Add Microsoft Office to Your BYOL image<a name="windows_images_adding_office"></a>
 
 During the BYOL image ingestion process, if you are using Windows 10, you have the option to subscribe to Microsoft Office Professional 2016 \(32\-bit\) or 2019 \(64\-bit\) through AWS\. If you choose this option, Office is pre\-installed in your BYOL image and included on any WorkSpaces that you launch from this image\.
 
-If you choose to subscribe to Office through AWS, additional charges will apply\. For more information, see [Workspaces Pricing](https://aws.amazon.com/workspaces/pricing/)\.
+If you choose to subscribe to Office through AWS, additional charges will apply\. For more information, see [WorkSpaces Pricing](https://aws.amazon.com/workspaces/pricing/)\.
 
 **Important**  
 If Microsoft Office is already installed on the VM that you are using to create your BYOL image, you must uninstall it from the VM if you want to subscribe to Office through AWS\.
@@ -80,9 +80,9 @@ If you plan to subscribe to Office through AWS, make sure that your VM has at le
 
 If you choose to subscribe to Office, the BYOL image ingestion process takes a minimum of 3 hours\.
 
-For details about subscribing to Office during the BYOL ingestion process, see [Step 6: Create a BYOL Image by Using the Workspaces Console](#windows_images_create_byol_image_console)\.
+For details about subscribing to Office during the BYOL ingestion process, see [Step 6: Create a BYOL image using the WorkSpaces console](#windows_images_create_byol_image_console)\.
 
-**Office Language Settings**  
+**Office language settings**  
 We choose the language used for your Office subscription based on the AWS Region where you're performing your BYOL image ingestion\. For example, if you're performing your BYOL image ingestion in the Asia Pacific \(Tokyo\) Region, your Office subscription has Japanese as its language\.
 
 By default, we install a number of frequently used Office language packs on your WorkSpaces\. If the language pack that you want isn't installed, you can download additional language packs from Microsoft\. For more information, see [ Language Accessory Pack for Office](https://support.microsoft.com/office/language-accessory-pack-for-office-82ee1236-0f9a-45ee-9c72-05b026ee809f) in the Microsoft documentation\.
@@ -102,7 +102,7 @@ Your WorkSpaces users will not be able to override language settings enforced th
 
 For more information about using GPO to set the language for Office, see [ Customize language setup and settings for Office](https://docs.microsoft.com/deployoffice/office2016/customize-language-setup-and-settings-for-office-2016#customize-language-settings) in the Microsoft documentation\. Office 2016 and Office 2019 use the same GPO settings \(labeled with Office 2016\)\.
 
-To work with GPOs, you must install the Active Directory administration tools\. For information about using the Active Directory administration tools to work with GPOs, see [Set Up Active Directory Administration Tools for Workspaces](directory_administration.md)\.
+To work with GPOs, you must install the Active Directory administration tools\. For information about using the Active Directory administration tools to work with GPOs, see [Set up Active Directory Administration Tools for WorkSpaces](directory_administration.md)\.
 
 Before you can configure Office 2016 or Office 2019 policy settings, you must download the [ administrative template files \(\.admx/\.adml\) for Office](https://www.microsoft.com/download/details.aspx?id=49030) from the Microsoft Download Center\. After you download the administrative template files, you must add the `office16.admx` and `office16.adml` files to the Central Store of the domain controller for your WorkSpaces directory\. \(The `office16.admx` and `office16.adml` files apply to both Office 2016 and Office 2019\.\) For more information about working with `.admx` and `.adml` files, see [ How to create and manage the Central Store for Group Policy Administrative Templates in Windows](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra) in the Microsoft documentation\.
 
@@ -160,7 +160,7 @@ Office 2016 and Office 2019 use the same GPO settings \(labeled with Office 2016
 1. Close the Group Policy Management tool when you're finished\.
 
 1. Group Policy setting changes take effect after the next Group Policy update for the WorkSpace and after the WorkSpace session is restarted\. To apply the Group Policy changes, do one of the following:
-   + Reboot the WorkSpace \(in the Amazon Workspaces console, select the WorkSpace, then choose **Actions**, **Reboot WorkSpaces**\)\.
+   + Reboot the WorkSpace \(in the Amazon WorkSpaces console, select the WorkSpace, then choose **Actions**, **Reboot WorkSpaces**\)\.
    + From an administrative command prompt, enter gpupdate /force\.
 
 ### Option 3: Update the Office language registry settings on your WorkSpaces<a name="option3_office_languages"></a>
@@ -175,32 +175,32 @@ You can apply these registry settings to your WorkSpaces through GPO settings or
 
 For more information about working with the language settings for Office, see [ Customize language setup and settings for Office](https://docs.microsoft.com/deployoffice/office2016/customize-language-setup-and-settings-for-office-2016) in the Microsoft documentation\. 
 
-**Adding Office to Your Existing BYOL WorkSpaces**  
+**Add Office to your existing BYOL WorkSpaces**  
 You can also add a subscription to Office to your existing BYOL WorkSpaces\. After you have created a BYOL bundle with Office installed, you can use the WorkSpaces migration feature to migrate your existing BYOL WorkSpaces to the BYOL bundle that is subscribed to Office\. For more information, see [Migrate a WorkSpace](migrate-workspaces.md)\.
 
-**Migrating Between Versions of Microsoft Office**  
+**Migrate between versions of Microsoft Office**  
 To migrate from Office 2016 to Office 2019 or from Office 2019 to Office 2016, you must create a BYOL bundle that is subscribed to the version of Office that you want to migrate to\. Then, you use the WorkSpaces migration feature to migrate your existing BYOL WorkSpaces that are subscribed to Office to the BYOL bundle that is subscribed to the version of Office that you want to migrate to\.
 
 For example, to migrate from Office 2016 to Office 2019, create a BYOL bundle that is subscribed to Office 2019\. Then use the WorkSpaces migration feature to migrate your existing BYOL WorkSpaces that are subscribed to Office 2016 to the BYOL bundle that is subscribed to Office 2019\.
 
 For more information about the migration process, see [Migrate a WorkSpace](migrate-workspaces.md)\.
 
-**Unsubscribing from Office**  
+**Unsubscribe from Office**  
 To unsubscribe from Office, you must create a BYOL bundle that is not subscribed to Office\. Then use the WorkSpaces migration feature to migrate your existing BYOL WorkSpaces to the BYOL bundle that is not subscribed to Office\. For more information, see [Migrate a WorkSpace](migrate-workspaces.md)\.
 
-**Office Updates**  
+**Office updates**  
 If you have subscribed to Office through AWS, Office updates are included as part of your regular Windows updates\. To stay current on all security patches and updates, we recommend that you periodically update your BYOL base images\.
 
-## Step 1: Check the Eligibility of Your Account for BYOL by Using the Amazon Workspaces Console<a name="windows_images_eligibility_byol"></a>
+## Step 1: Check the eligibility of your account for BYOL using the Amazon WorkSpaces console<a name="windows_images_eligibility_byol"></a>
 
-Before you can enable your account for BYOL, you must go through a verification process to confirm your eligibility for BYOL\. Until you go through this process, the **Enable BYOL** option will not be available in your Amazon Workspaces console\. 
+Before you can enable your account for BYOL, you must go through a verification process to confirm your eligibility for BYOL\. Until you go through this process, the **Enable BYOL** option will not be available in your Amazon WorkSpaces console\. 
 
 **Note**  
 The verification process takes at least one business day and can take longer if you want to link two or more BYOL\-enabled AWS accounts together so that they use the same underlying hardware\.
 
-**To check the eligibility of your account for BYOL by using the Amazon Workspaces console**
+**To check the eligibility of your account for BYOL by using the Amazon WorkSpaces console**
 
-1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **Account Settings**, and then under **Bring your own license \(BYOL\)**, choose **View WorkSpaces BYOL settings**\. If your account is not currently eligible for BYOL, a message provides guidance for next steps\. To get started, contact your AWS account manager or sales representative, or contact the [AWS Support Center](https://console.aws.amazon.com/support/home#/)\. Your contact will verify your eligibility for BYOL\.
 
@@ -215,38 +215,38 @@ The verification process takes at least one business day and can take longer if 
 
      If the accounts are linked, the total number of WorkSpaces deployed in these accounts is aggregated together for the purposes of determining your eligibility for BYOL\. Be aware that linking the accounts will take additional time\. If you want to link the accounts, be ready to provide the account numbers to your contact\.
 
-1. After your eligibility is confirmed for BYOL, you can proceed to the next step, where you enable BYOL for your account in the Amazon Workspaces console\.
+1. After your eligibility is confirmed for BYOL, you can proceed to the next step, where you enable BYOL for your account in the Amazon WorkSpaces console\.
 
-## Step 2: Enable BYOL for Your Account for BYOL by Using the Amazon Workspaces Console<a name="windows_images_enable_byol"></a>
+## Step 2: Enable BYOL for your account for BYOL using the Amazon WorkSpaces console<a name="windows_images_enable_byol"></a>
 
-To enable BYOL for your account, you must specify a management network interface\. This interface is connected to a secure Amazon Workspaces management network\. It is used for interactive streaming of the WorkSpace desktop to Amazon Workspaces clients, and to allow Amazon Workspaces to manage the WorkSpace\.
+To enable BYOL for your account, you must specify a management network interface\. This interface is connected to a secure Amazon WorkSpaces management network\. It is used for interactive streaming of the WorkSpace desktop to Amazon WorkSpaces clients, and to allow Amazon WorkSpaces to manage the WorkSpace\.
 
 **Note**  
 The steps in this procedure for enabling BYOL for your account need to be performed only once per account, per Region\.
 
-**To enable BYOL for your account by using the Amazon Workspaces console**
+**To enable BYOL for your account by using the Amazon WorkSpaces console**
 
-1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **Account Settings**, and then under **Bring your own license \(BYOL\)**, choose **View WorkSpaces BYOL settings**\. 
 
 1. On the **Account Settings** page, under **Bring Your Own License \(BYOL\)**, choose **Enable BYOL**\.
 
-   If you don't see the **Enable BYOL** option, this means that your account is not currently eligible for BYOL\. For more information, see [Step 1: Check the Eligibility of Your Account for BYOL by Using the Amazon Workspaces Console](#windows_images_eligibility_byol)\.
+   If you don't see the **Enable BYOL** option, this means that your account is not currently eligible for BYOL\. For more information, see [Step 1: Check the eligibility of your account for BYOL using the Amazon WorkSpaces console](#windows_images_eligibility_byol)\.
 
 1. Under **Bring Your Own License \(BYOL\)**, in the **Management network interface IP address range** area, choose an IP address range, and then choose **Display available CIDR blocks**\.
 
-   Amazon Workspaces searches for and displays available IP address ranges as IPv4 Classless Inter\-Domain Routing \(CIDR\) blocks, within the range that you specify\. If you require a specific IP address range, you can edit the search range\.
+   Amazon WorkSpaces searches for and displays available IP address ranges as IPv4 Classless Inter\-Domain Routing \(CIDR\) blocks, within the range that you specify\. If you require a specific IP address range, you can edit the search range\.
 **Important**  
 **After you specify an IP address range, you cannot modify it\.** Make sure to specify an IP address range that doesn't conflict with the ranges used by your internal network\. If you have any questions about which range to specify, contact your AWS account manager or sales representative, or contact the [AWS Support Center](https://console.aws.amazon.com/support/home#/) before proceeding\.
 
 1. Choose the CIDR block that you want from the list of results, and then choose **Enable BYOL**\.
 
-   This process may take several hours\. While Workspaces is enabling your account for BYOL, proceed to the next step\. 
+   This process may take several hours\. While WorkSpaces is enabling your account for BYOL, proceed to the next step\. 
 
-## Step 3: Run the BYOL Checker PowerShell Script on a Windows VM<a name="windows_images_run_byol_checker_script"></a>
+## Step 3: Run the BYOL Checker PowerShell script on a Windows VM<a name="windows_images_run_byol_checker_script"></a>
 
-After you enable BYOL for your account, you must confirm that your VM meets the requirements for BYOL\. To do so, perform these steps to download and run the Workspaces BYOL Checker PowerShell script\. The script performs a series of tests on the VM that you plan to use to create your image\. 
+After you enable BYOL for your account, you must confirm that your VM meets the requirements for BYOL\. To do so, perform these steps to download and run the WorkSpaces BYOL Checker PowerShell script\. The script performs a series of tests on the VM that you plan to use to create your image\. 
 
 **Important**  
 The VM must pass all tests before you can use it for BYOL\.
@@ -285,7 +285,7 @@ Perform these steps to run the BYOL Checker script\.
 
 1. If a security notification appears, press the **R** key to Run Once\.
 
-1. <a name="step_begin_tests"></a>In the **Workspaces Image Validation** dialog box, choose **Begin Tests**\.
+1. <a name="step_begin_tests"></a>In the **WorkSpaces Image Validation** dialog box, choose **Begin Tests**\.
 
 1. <a name="step_resolve_issues"></a>After each test is completed, you can view the status of the test\. For any test with a status of **FAILED**, choose **Info** to display information about how to resolve the issue that caused the failure\. If any tests display a status of **WARNING**, choose the **Fix All Warnings** button\.
 
@@ -305,11 +305,11 @@ Do not delete these files\. If an issue occurs, they might be helpful in trouble
 
 1. After you have successfully created your image, you can remove the **WorkSpaces\_BYOL** account\.
 
-## Step 4: Export the VM from Your Virtualization Environment<a name="windows_images_create_image_byol"></a>
+## Step 4: Export the VM from your virtualization environment<a name="windows_images_create_image_byol"></a>
 
 To create an image for BYOL, you must first export the VM from your virtualization environment\. The VM must be on a single volume with a maximum size of 70 GB and at least 10 GB of free space\. For more information, see the documentation for your virtualization environment and [Export Your VM from its Virtualization Environment](https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#export-vm-image) in the *VM Import/Export User Guide*\.
 
-## Step 5: Import the VM as an Image into Amazon EC2<a name="windows_images_import_image_ec2_byol"></a>
+## Step 5: Import the VM as an image into Amazon EC2<a name="windows_images_import_image_ec2_byol"></a>
 
 After you export your VM, review the requirements for importing Windows operating systems from a VM\. Take action as needed\. For more information, see [VM Import/Export Requirements](https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html)\.
 
@@ -322,35 +322,35 @@ Import your VM into Amazon EC2 as an Amazon Machine Image \(AMI\)\. Use one of t
 
 For more information, see [Importing a VM as an Image](https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html) in the *VM Import/Export User Guide*\.
 
-## Step 6: Create a BYOL Image by Using the Workspaces Console<a name="windows_images_create_byol_image_console"></a>
+## Step 6: Create a BYOL image using the WorkSpaces console<a name="windows_images_create_byol_image_console"></a>
 
-Perform these steps to create an Workspaces BYOL image\. 
+Perform these steps to create an WorkSpaces BYOL image\. 
 
 **Note**  
 To perform this procedure, verify that you have AWS Identity and Access Management \(IAM\) permissions to:  
-Call Workspaces **ImportWorkspaceImage**\.
+Call WorkSpaces **ImportWorkspaceImage**\.
 Call Amazon EC2 **DescribeImages** on the Amazon EC2 image that you want to use to create the BYOL image\.
 Call Amazon EC2 **ModifyImageAttribute** on the Amazon EC2 image that you want to use to create the BYOL image\. Make sure that the launch permissions on the Amazon EC2 image are not restricted\. The image must be shareable throughout the BYOL image creation process\.
-For an example IAM policy specific to BYOL WorkSpaces, see [Identity and Access Management for Workspaces](workspaces-access-control.md)\. For more information about working with IAM permissions, see [Changing Permissions for an IAM User ](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html) in the *IAM User Guide*\.  
+For an example IAM policy specific to BYOL WorkSpaces, see [Identity and access management for WorkSpaces](workspaces-access-control.md)\. For more information about working with IAM permissions, see [Changing Permissions for an IAM User ](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html) in the *IAM User Guide*\.  
 To create a Graphics or GraphicsPro bundle from your image, contact the [AWS Support Center](https://console.aws.amazon.com/support/home#/) to get your account added to the allow list\. After your account is on the allow list, you can use the AWS CLI import\-workspace\-image command to ingest the Graphics or GraphicsPro image\. For more information, see [import\-workspace\-image](https://docs.aws.amazon.com/cli/latest/reference/workspaces/import-workspace-image.html) in the *AWS CLI Command Reference*\.
 
 **To create an image from the Windows VM**
 
-1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **Images**\.
 
 1. Choose **Create BYOL image**\. 
 
 1. On the **Create BYOL image** page, do the following: 
-   + For **AMI ID**, choose the **EC2 Console** link, and choose the Amazon EC2 image that you imported as described in the previous section \([Step 5: Import the VM as an Image into Amazon EC2](#windows_images_import_image_ec2_byol)\)\. The image name must begin with `ami-` and be followed by the identifier for the AMI \(for example, `ami-1234567e`\)\.
+   + For **AMI ID**, choose the **EC2 Console** link, and choose the Amazon EC2 image that you imported as described in the previous section \([Step 5: Import the VM as an image into Amazon EC2](#windows_images_import_image_ec2_byol)\)\. The image name must begin with `ami-` and be followed by the identifier for the AMI \(for example, `ami-1234567e`\)\.
    + For **Image name**, enter a unique name for the image\.
    + For **Description**, enter a description to help you quickly identify the image\.
    + For **Instance type**, choose the appropriate bundle type \(either **Regular**, **Graphics**, or **GraphicsPro**\), depending on which protocol you want to use for your image, either PCoIP or WorkSpaces Streaming Protocol \(WSP\)\. For non\-GPU\-enabled bundles \(bundles other than Graphics or GraphicsPro\), choose **Regular**\.
 **Note**  
 Graphics and GraphicsPro images can be created only for the PCoIP protocol at this time\.
-   + \(Optional\) For **Select applications**, choose which version of Microsoft Office you want to subscribe to\. For more information, see [Adding Microsoft Office to Your BYOL Image](#windows_images_adding_office)\.
-   + \(Optional\) For **Tags**, choose **Add new tag** to associate tags with this image\. For more information, see [Tag WorkSpaces Resources](tag-workspaces-resources.md)\.
+   + \(Optional\) For **Select applications**, choose which version of Microsoft Office you want to subscribe to\. For more information, see [Add Microsoft Office to Your BYOL image](#windows_images_adding_office)\.
+   + \(Optional\) For **Tags**, choose **Add new tag** to associate tags with this image\. For more information, see [Tag WorkSpaces resources](tag-workspaces-resources.md)\.
 
 1. Choose **Create BYOL image**\.
 
@@ -358,17 +358,17 @@ Graphics and GraphicsPro images can be created only for the PCoIP protocol at th
 
    If the image validation does not succeed, the console displays an error code\. When the image creation is complete, the status changes to** Available**\.
 
-## Step 7: Create a Custom Bundle from the BYOL Image<a name="windows_images_create_custom_bundle_byol"></a>
+## Step 7: Create a custom bundle from the BYOL image<a name="windows_images_create_custom_bundle_byol"></a>
 
-After your BYOL image is created, you can use the image to create a custom bundle\. For information, see [Create a Custom WorkSpaces Image and Bundle](create-custom-bundle.md)\.
+After your BYOL image is created, you can use the image to create a custom bundle\. For information, see [Create a custom WorkSpaces image and bundle](create-custom-bundle.md)\.
 
-## Step 8: Register a Directory for Dedicated WorkSpaces<a name="windows_images_dedicate_directory_for_byol"></a>
+## Step 8: Register a dedicated directory for WorkSpaces<a name="windows_images_dedicate_directory_for_byol"></a>
 
-To use BYOL images for WorkSpaces, you must register a directory for this purpose\. To do so, perform these steps\. 
+To use BYOL images for WorkSpaces, you must register a directory for this purpose\.
 
-**To register a directory for dedicated WorkSpaces**
+**To register a directory for WorkSpaces**
 
-1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **Directories**\.
 
@@ -385,7 +385,7 @@ You can only perform this procedure if no WorkSpaces are associated with the dir
 
 **To deregister a directory and reregister it for dedicated WorkSpaces**
 
-1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. Terminate existing WorkSpaces\.
 
@@ -401,6 +401,6 @@ You can only perform this procedure if no WorkSpaces are associated with the dir
 
 1. Choose **Register**\.
 
-## Step 9: Launch Your BYOL WorkSpaces<a name="windows_images_launch_byol_workspaces"></a>
+## Step 9: Launch your BYOL WorkSpaces<a name="windows_images_launch_byol_workspaces"></a>
 
-After you register a directory for dedicated WorkSpaces, you can launch your BYOL WorkSpaces in this directory\. For information about how to launch WorkSpaces, see [Launch a Virtual Desktop Using Workspaces](launch-workspaces-tutorials.md)\.
+After you register a directory for dedicated WorkSpaces, you can launch your BYOL WorkSpaces in this directory\. For information about how to launch WorkSpaces, see [Launch a virtual desktop using WorkSpaces](launch-workspaces-tutorials.md)\.

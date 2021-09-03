@@ -1,10 +1,10 @@
-# Troubleshooting Workspaces Issues<a name="amazon-workspaces-troubleshooting"></a>
+# Troubleshoot WorkSpaces issues<a name="amazon-workspaces-troubleshooting"></a>
 
 The following information can help you troubleshoot issues with your WorkSpaces\.
 
-## Enabling Advanced Logging<a name="advanced-logging"></a>
+## Enabling advanced logging<a name="advanced-logging"></a>
 
-To help troubleshoot issues that your users might experience, you can enable advanced logging on any Amazon Workspaces client\. Advanced logging is enabled for every subsequent client session until you disable it\.
+To help troubleshoot issues that your users might experience, you can enable advanced logging on any Amazon WorkSpaces client\.
 
 Advanced logging generates log files that contain diagnostic information and debugging\-level details, including verbose performance data\. For the 1\.0\+ and 2\.0\+ clients, these advanced logging files are automatically uploaded to a database in AWS\.
 
@@ -21,7 +21,7 @@ The Windows client logs are stored in the following location:
 
 **To enable advanced logging for Windows clients**
 
-1. Close the Amazon Workspaces client\.
+1. Close the Amazon WorkSpaces client\.
 
 1. Open the Command Prompt app\.
 
@@ -46,7 +46,7 @@ The macOS client logs are stored in the following location:
 
 **To enable advanced logging for macOS clients**
 
-1. Close the Amazon Workspaces client\.
+1. Close the Amazon WorkSpaces client\.
 
 1. Open Terminal\.
 
@@ -62,7 +62,7 @@ The Linux client logs are stored in the following location:
 
 **To enable advanced logging for Linux clients**
 
-1. Close the Amazon Workspaces client\.
+1. Close the Amazon WorkSpaces client\.
 
 1. Open Terminal\.
 
@@ -90,7 +90,7 @@ The macOS client logs are stored in the following location:
 
 `~/Library/Logs/Amazon Web Services/Amazon WorkSpaces/1.0`
 
-## Troubleshooting for Specific Issues<a name="troubleshooting-specific-issues"></a>
+## Troubleshoot specific issues<a name="troubleshooting-specific-issues"></a>
 
 The following information can help you troubleshoot specific issues with your WorkSpaces\.
 
@@ -104,7 +104,7 @@ The following information can help you troubleshoot specific issues with your Wo
 + [My users can't connect to a Windows WorkSpace with an interactive logon banner](#logon_banner)
 + [My users can't connect to a Windows WorkSpace](#gpo_security_user_rights)
 + [My users are having issues when they try to log on to WorkSpaces from WorkSpaces Web Access](#byol_logon_issues)
-+ [The Amazon Workspaces client displays a gray "Loading\.\.\." screen for a while before returning to the login screen\. No other error message appears\.](#loading_screen)
++ [The Amazon WorkSpaces client displays a gray "Loading\.\.\." screen for a while before returning to the login screen\. No other error message appears\.](#loading_screen)
 + [My users receive the message "WorkSpace Status: Unhealthy\. We were unable to connect you to your WorkSpace\. Please try again in a few minutes\."](#unhealthy_cant_connect)
 + [My users receive the message "This device is not authorized to access the WorkSpace\. Please contact your administrator for assistance\."](#device_not_authorized)
 + [My users receive the message "No network\. Network connection lost\. Check your network connection or contact your administrator for help\." when trying to connect to a WSP WorkSpace](#no_network)
@@ -126,7 +126,7 @@ The following information can help you troubleshoot specific issues with your Wo
 + [One of my WorkSpaces has a state of `UNHEALTHY`](#unhealthy)
 + [My WorkSpace is unexpectedly crashing or rebooting](#crash_web_access)
 + [The same username has more than one WorkSpace, but the user can log in to only one of the WorkSpaces](#multiple_workspaces_same_username)
-+ [I'm having trouble using Docker with Amazon Workspaces](#docker_support)
++ [I'm having trouble using Docker with Amazon WorkSpaces](#docker_support)
 + [I receive ThrottlingException errors to some of my API calls](#throttled-api-calls)
 
 ### I can't create an Amazon Linux WorkSpace because there are non\-valid characters in the user name<a name="linux_workspace_provision_fail_username"></a>
@@ -142,7 +142,7 @@ These limitations do not apply to Windows WorkSpaces\. Windows WorkSpaces suppor
 
 ### I changed the shell for my Amazon Linux WorkSpace and now I can't provision a PCoIP session<a name="linux_workspace_provision_fail_shell_override"></a>
 
-To override the default shell for Linux WorkSpaces, see [Override the Default Shell for Amazon Linux WorkSpaces](manage_linux_workspace.md#linux_shell)\. 
+To override the default shell for Linux WorkSpaces, see [Override the default shell for Amazon Linux WorkSpaces](manage_linux_workspace.md#linux_shell)\. 
 
 ### My Amazon Linux WorkSpaces won't start<a name="linux_workspace_provision_fail_pcoip_agent_upgrade"></a>
 
@@ -152,7 +152,7 @@ If you're using an unsupported version of the PCoIP agent, you must upgrade it t
 
 **To upgrade your PCoIP agent to the latest version**
 
-1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **WorkSpaces**\.
 
@@ -170,7 +170,7 @@ If you're using an unsupported version of the PCoIP agent, you must upgrade it t
 
    1. Choose **Modify**\.
 
-1. Connect to your Linux WorkSpace through SSH\. For more information, see [Enable SSH Connections for Your Linux WorkSpaces](connect-to-linux-workspaces-with-ssh.md)\. 
+1. Connect to your Linux WorkSpace through SSH\. For more information, see [Enable SSH connections for your Linux WorkSpaces](connect-to-linux-workspaces-with-ssh.md)\. 
 
 1. To update the PCoIP agent, run the following command:
 
@@ -194,7 +194,7 @@ If you're using an unsupported version of the PCoIP agent, you must upgrade it t
 
 1. If you set the status of the WorkSpace to `ADMIN_MAINTENANCE` in [Step 4](#step_maintenance_mode), repeat [Step 4](#step_maintenance_mode) and set **Intended State** to `AVAILABLE`\.
 
-If your Linux WorkSpace still fails to start after you upgrade the PCoIP agent, contact AWS Support\. 
+If your Linux WorkSpace still fails to start after you upgrade the PCoIP agent, contact AWS Support\.
 
 ### Launching WorkSpaces in my connected directory often fails<a name="provision_fail"></a>
 
@@ -206,11 +206,11 @@ Check whether your subnets are configured to automatically assign IPv6 addresses
 
 ### When I try to register a directory, the registration fails and leaves the directory in an ERROR state<a name="cannot-register-directory"></a>
 
-This problem can occur if you're trying to register an AWS Managed Microsoft AD directory that has been configured for multi\-Region replication\. Although the directory in the primary Region can be successfully registered for use with Amazon Workspaces, attempting to register the directory in a replicated Region fails\. Multi\-Region replication with AWS Managed Microsoft AD isn't supported for use with Amazon Workspaces within replicated Regions\.
+This problem can occur if you're trying to register an AWS Managed Microsoft AD directory that has been configured for multi\-Region replication\. Although the directory in the primary Region can be successfully registered for use with Amazon WorkSpaces, attempting to register the directory in a replicated Region fails\. Multi\-Region replication with AWS Managed Microsoft AD isn't supported for use with Amazon WorkSpaces within replicated Regions\.
 
 ### My users can't connect to a Windows WorkSpace with an interactive logon banner<a name="logon_banner"></a>
 
-If an interactive logon message has been implemented to display a logon banner, this prevents users from being able to access their Windows WorkSpaces\. The interactive logon message Group Policy setting is not currently supported by Workspaces\. Move the WorkSpaces to an organizational unit \(OU\) where the Interactive logon: Message text for users attempting to log on Group Policy isn’t applied\.
+If an interactive logon message has been implemented to display a logon banner, this prevents users from being able to access their Windows WorkSpaces\. The interactive logon message Group Policy setting is not currently supported by WorkSpaces\. Move the WorkSpaces to an organizational unit \(OU\) where the Interactive logon: Message text for users attempting to log on Group Policy isn’t applied\.
 
 ### My users can't connect to a Windows WorkSpace<a name="gpo_security_user_rights"></a>
 
@@ -222,8 +222,8 @@ My users receive the following error when they try to connect to their Windows W
 
 This error often occurs when the WorkSpace can't load the Windows desktop using PCoIP\. Check the following:
 + This message appears if the PCoIP Standard Agent for Windows service is not running\. [Connect using RDP](https://aws.amazon.com/premiumsupport/knowledge-center/connect-workspace-rdp/) to verify that the service is running, that it's set to start automatically, and that it can communicate over the management interface \(eth0\)\.
-+ If the PCoIP agent was uninstalled, reboot the WorkSpace through the Amazon Workspaces console to reinstall it automatically\.
-+ You might also receive this error on the Amazon Workspaces client after a long delay if the [WorkSpaces security group](amazon-workspaces-security-groups.md) was modified to restrict outbound traffic\. Restricting outbound traffic prevents Windows from communicating with your directory controllers for login\. Verify that your security groups allow your WorkSpaces to communicate with your directory controllers on all [required ports](workspaces-port-requirements.md) over the primary network interface\.
++ If the PCoIP agent was uninstalled, reboot the WorkSpace through the Amazon WorkSpaces console to reinstall it automatically\.
++ You might also receive this error on the Amazon WorkSpaces client after a long delay if the [WorkSpaces security group](amazon-workspaces-security-groups.md) was modified to restrict outbound traffic\. Restricting outbound traffic prevents Windows from communicating with your directory controllers for login\. Verify that your security groups allow your WorkSpaces to communicate with your directory controllers on all [required ports](workspaces-port-requirements.md) over the primary network interface\.
 
 Another cause of this error is related to the User Rights Assignment Group Policy\. If the following group policy is incorrectly configured, it prevents users from being able to access their Windows WorkSpaces:
 
@@ -250,14 +250,14 @@ For more information, see [ Access this computer from the network \- security po
 
 ### My users are having issues when they try to log on to WorkSpaces from WorkSpaces Web Access<a name="byol_logon_issues"></a>
 
-Amazon Workspaces relies on a specific logon screen configuration to enable users to successfully log on from their Web Access client\.
+Amazon WorkSpaces relies on a specific logon screen configuration to enable users to successfully log on from their Web Access client\.
 
-To enable Web Access users to log on to their WorkSpaces, you must configure a Group Policy setting and three Security Policy settings\. If these settings are not correctly configured, users might experience long logon times or black screens when they try to log on to their WorkSpaces\. To configure these settings, see [Enable and Configure Amazon Workspaces Web Access](web-access.md)\.
+To enable Web Access users to log on to their WorkSpaces, you must configure a Group Policy setting and three Security Policy settings\. If these settings are not correctly configured, users might experience long logon times or black screens when they try to log on to their WorkSpaces\. To configure these settings, see [Enable and configure Amazon WorkSpaces Web Access](web-access.md)\.
 
 **Important**  
-Beginning October 1, 2020, customers will no longer be able to use the Amazon Workspaces Web Access client to connect to Windows 7 custom WorkSpaces or to Windows 7 Bring Your Own License \(BYOL\) WorkSpaces\.
+Beginning October 1, 2020, customers will no longer be able to use the Amazon WorkSpaces Web Access client to connect to Windows 7 custom WorkSpaces or to Windows 7 Bring Your Own License \(BYOL\) WorkSpaces\.
 
-### The Amazon Workspaces client displays a gray "Loading\.\.\." screen for a while before returning to the login screen\. No other error message appears\.<a name="loading_screen"></a>
+### The Amazon WorkSpaces client displays a gray "Loading\.\.\." screen for a while before returning to the login screen\. No other error message appears\.<a name="loading_screen"></a>
 
 This behavior usually indicates that the WorkSpaces client can authenticate over port 443, but can't establish a streaming connection over port 4172 \(PCoIP\) or port 4195 \(WSP\)\. This situation can occur when [network prerequisites](workspaces-port-requirements.md) aren't met\. Issues on the client side often cause the network check in the client to fail\. To see which health checks are failing, choose the network check icon \(typically a red triangle with an exclamation point in the bottom\-right corner of the login screen for 2\.0\+ clients or the network icon ![\[Network icon\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/images/network-icon.png) in the upper\-right corner of the 3\.0\+ clients\)\.
 
@@ -292,7 +292,7 @@ If this error occurs and your users don't have connectivity issues, make sure th
 
 The WorkSpaces client applications rely on access to resources in the AWS Cloud, and require a connection that provides at least 1 Mbps download bandwidth\. If a device has an intermittent connection to the network, the WorkSpaces client application might report an issue with the network\.
 
-Workspaces enforces the use of digital certificates issued by Amazon Trust Services, as of May 2018\. Amazon Trust Services is already a trusted Root CA on the operating systems that are supported by Workspaces\. If the Root CA list for the operating system is not up to date, the device cannot connect to WorkSpaces and the client gives a network error\.
+WorkSpaces enforces the use of digital certificates issued by Amazon Trust Services, as of May 2018\. Amazon Trust Services is already a trusted Root CA on the operating systems that are supported by WorkSpaces\. If the Root CA list for the operating system is not up to date, the device cannot connect to WorkSpaces and the client gives a network error\.
 
 **To recognize connection issues due to certificate failures**
 + PCoIP zero clients — The following error message is displayed\.
@@ -305,16 +305,16 @@ Workspaces enforces the use of digital certificates issued by Amazon Trust Servi
 + Other clients — The health checks fail with a red warning triangle for **Internet**\.
 
 **Topics**
-+ [Windows Client Application](#certificate-issues-windows)
-+ [PCoIP Zero Clients](#certificate-issues-zero-clients)
-+ [Other Client Applications](#certificate-issues-other)
++ [Windows client application](#certificate-issues-windows)
++ [PCoIP zero clients](#certificate-issues-zero-clients)
++ [Other client applications](#certificate-issues-other)
 
-#### Windows Client Application<a name="certificate-issues-windows"></a>
+#### Windows client application<a name="certificate-issues-windows"></a>
 
 Use one of the following solutions for certificate failures\.
 
 **Solution 1: Update the client application**  
-Download and install the latest Windows client application from [Amazon Workspaces Client Downloads](https://clients.amazonworkspaces.com/)\. During installation, the client application ensures that your operating system trusts certificates issued by Amazon Trust Services\.
+Download and install the latest Windows client application from [Amazon WorkSpaces Client Downloads](https://clients.amazonworkspaces.com/)\. During installation, the client application ensures that your operating system trusts certificates issued by Amazon Trust Services\.
 
 **Solution 2: Add Amazon Trust Services to the local Root CA list**
 
@@ -337,7 +337,7 @@ Download and install the latest Windows client application from [Amazon Workspac
 **Solution 3: Deploy Amazon Trust Services as a trusted CA using Group Policy**  
 Add the Starfield certificate to the trusted Root CAs for the domain using Group Policy\. For more information, see [Use Policy to Distribute Certificates](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc772491(v=ws.11))\.
 
-#### PCoIP Zero Clients<a name="certificate-issues-zero-clients"></a>
+#### PCoIP zero clients<a name="certificate-issues-zero-clients"></a>
 
 To connect directly to a WorkSpace using firmware version 6\.0 or later, download and install the certificate issued by Amazon Trust Services\.
 
@@ -349,7 +349,7 @@ To connect directly to a WorkSpace using firmware version 6\.0 or later, downloa
 
 1. Upload the certificate to the zero client\. For more information, see [Uploading Certificates](https://www.teradici.com/web-help/TER1504003/6.0/default.htm#05_Managing/04_UploadCertificate.htm) in the Teradici documentation\.
 
-#### Other Client Applications<a name="certificate-issues-other"></a>
+#### Other client applications<a name="certificate-issues-other"></a>
 
 Add the Starfield certificate \(2b071c59a0a0ae76b0eadb2bad23bad4580b69c3601b630c2eaf0613afa83f92\) from [Amazon Trust Services](https://www.amazontrust.com/repository/)\. For more information about how to add a Root CA, see the following documentation:
 + Android: [Add & remove certificates](https://support.google.com/nexus/answer/2844832)
@@ -364,11 +364,11 @@ This error occurs when the WorkSpaces client application can't reach the registr
 
 ### My PCoIP zero client users are receiving the error "The supplied certificate is invalid due to timestamp"<a name="pcoip_zero_client_ntp"></a>
 
-If Network Time Protocol \(NTP\) isn't enabled in Teradici, your PCoIP zero client users might receive certificate failure errors\. To set up NTP, see [Set Up PCoIP Zero Client for WorkSpaces](set-up-pcoip-zero-client.md)\.
+If Network Time Protocol \(NTP\) isn't enabled in Teradici, your PCoIP zero client users might receive certificate failure errors\. To set up NTP, see [Set up PCoIP zero clients for WorkSpaces](set-up-pcoip-zero-client.md)\.
 
 ### USB printers and other USB peripherals aren't working for PCoIP zero clients<a name="pcoip_zero_client_usb"></a>
 
-Starting with version 20\.10\.4 of the PCoIP agent, Amazon Workspaces disables USB redirection by default through the Windows registry\. This registry setting affects the behavior of USB peripherals when your users are using PCoIP zero client devices to connect to their WorkSpaces\. 
+Starting with version 20\.10\.4 of the PCoIP agent, Amazon WorkSpaces disables USB redirection by default through the Windows registry\. This registry setting affects the behavior of USB peripherals when your users are using PCoIP zero client devices to connect to their WorkSpaces\. 
 
 If your WorkSpaces are using version 20\.10\.4 or later of the PCoIP agent, USB peripheral devices won't work with PCoIP zero client devices until you've enabled USB redirection\.
 
@@ -403,41 +403,41 @@ We recommend that you push out these registry changes to your WorkSpaces through
 
 ### My users skipped updating their Windows or macOS client applications and aren't getting prompted to install the latest version<a name="client_update_skipped"></a>
 
-When users skip updates to the Amazon Workspaces Windows client application, the **SkipThisVersion** registry key gets set, and they are no longer prompted to update their clients when a new version of the client is released\. To update to the latest version, you can edit the registry as described in [ Update the WorkSpaces Windows Client Application to a Newer Version](https://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-windows-client.html#windows_setup) in the *Amazon Workspaces User Guide*\. You can also run the following PowerShell command: 
+When users skip updates to the Amazon WorkSpaces Windows client application, the **SkipThisVersion** registry key gets set, and they are no longer prompted to update their clients when a new version of the client is released\. To update to the latest version, you can edit the registry as described in [ Update the WorkSpaces Windows Client Application to a Newer Version](https://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-windows-client.html#windows_setup) in the *Amazon WorkSpaces User Guide*\. You can also run the following PowerShell command: 
 
 ```
 Remove-ItemProperty -Path "HKCU:\Software\Amazon Web Services. LLC\Amazon WorkSpaces\WinSparkle" -Name "SkipThisVersion"
 ```
 
-When users skip updates to the Amazon Workspaces macOS client application, the `SUSkippedVersion` preference gets set, and they are no longer prompted to update their clients when a new version of the client is released\. To update to the latest version, you can reset this preference as described in [ Update the WorkSpaces macOS Client Application to a Newer Version](https://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-osx-client.html#osx_setup) in the *Amazon Workspaces User Guide*\.
+When users skip updates to the Amazon WorkSpaces macOS client application, the `SUSkippedVersion` preference gets set, and they are no longer prompted to update their clients when a new version of the client is released\. To update to the latest version, you can reset this preference as described in [ Update the WorkSpaces macOS Client Application to a Newer Version](https://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-osx-client.html#osx_setup) in the *Amazon WorkSpaces User Guide*\.
 
 ### My users are unable to install the Android client application on their Chromebooks<a name="install_android_chromebook"></a>
 
 Version 2\.4\.13 is the final release of the Amazon WorkSpaces Chromebook client application\. Because [ Google is phasing out support for Chrome Apps](https://blog.chromium.org/2020/01/moving-forward-from-chrome-apps.html), there will be no further updates to the WorkSpaces Chromebook client application, and its use is unsupported\.
 
-For [ Chromebooks that support installing Android applications](https://sites.google.com/a/chromium.org/dev/chromium-os/chrome-os-systems-supporting-android-apps), we recommend using the [ Workspaces Android client application](https://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-android-client.html) instead\.
+For [ Chromebooks that support installing Android applications](https://sites.google.com/a/chromium.org/dev/chromium-os/chrome-os-systems-supporting-android-apps), we recommend using the [ WorkSpaces Android client application](https://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-android-client.html) instead\.
 
-In some cases, you might need to enable your users' Chromebooks to install Android applications\. For more information, see [Set Up Android for Chromebooks](set-up-android-chromebook.md)\.
+In some cases, you might need to enable your users' Chromebooks to install Android applications\. For more information, see [Set up Android for Chromebooks](set-up-android-chromebook.md)\.
 
 ### My users aren't receiving invitation emails or password reset emails<a name="welcome_emails"></a>
 
 Users do not automatically receive welcome or password reset emails for WorkSpaces that were created using AD Connector or a trusted domain\. Invitation emails also aren't sent automatically if the user already exists in Active Directory\.
 
-To manually send welcome emails to these users, see [Send an Invitation Email](manage-workspaces-users.md#send-invitation)\.
+To manually send welcome emails to these users, see [Send an invitation email](manage-workspaces-users.md#send-invitation)\.
 
-To reset user passwords, see [Set Up Active Directory Administration Tools for Workspaces](directory_administration.md)\.
+To reset user passwords, see [Set up Active Directory Administration Tools for WorkSpaces](directory_administration.md)\.
 
 ### My users don't see the Forgot password? option on the client login screen<a name="forgot_password"></a>
 
-If you're using AD Connector or a trusted domain, your users won't be able to reset their own passwords\. \(The **Forgot password?** option on the WorkSpaces client application login screen won't be available\.\) For information about how to reset user passwords, see [Set Up Active Directory Administration Tools for Workspaces](directory_administration.md)\.
+If you're using AD Connector or a trusted domain, your users won't be able to reset their own passwords\. \(The **Forgot password?** option on the WorkSpaces client application login screen won't be available\.\) For information about how to reset user passwords, see [Set up Active Directory Administration Tools for WorkSpaces](directory_administration.md)\.
 
 ### I receive the message "The system administrator has set policies to prevent this installation" when I try to install applications on a Windows WorkSpace<a name="msi_wont_install"></a>
 
 You can address this issue by modifying the Windows Installer Group Policy setting\. To deploy this policy to multiple WorkSpaces in your directory, apply this setting to a Group Policy object that is linked to the WorkSpaces organizational unit \(OU\) from a domain\-joined EC2 instance\. If you are using AD Connector, you can make these changes from a domain controller\. For more information about using the Active Directory administration tools to work with Group Policy objects, see [Installing the Active Directory Administration Tools](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_install_ad_tools.html) in the *AWS Directory Service Administration Guide*\.
 
-The following procedure shows how to configure the Windows Installer setting for the Workspaces Group Policy object\.
+The following procedure shows how to configure the Windows Installer setting for the WorkSpaces Group Policy object\.
 
-1. Make sure that the most recent [Workspaces Group Policy administrative template](group_policy.md#gp_install_template) is installed in your domain\.
+1. Make sure that the most recent [WorkSpaces Group Policy administrative template](group_policy.md#gp_install_template) is installed in your domain\.
 
 1. Open the Group Policy Management tool on your Windows WorkSpace client and navigate to and select the WorkSpaces Group Policy object for your WorkSpaces machine accounts\. From the main menu, choose **Action**, **Edit**\.
 
@@ -450,12 +450,12 @@ The following procedure shows how to configure the Windows Installer setting for
 1. Choose **OK**\.
 
 1. To apply the group policy changes, do one of the following:
-   + Reboot the WorkSpace \(in the Workspaces console, select the WorkSpace, then choose **Actions**, **Reboot WorkSpaces**\)\.
+   + Reboot the WorkSpace \(in the WorkSpaces console, select the WorkSpace, then choose **Actions**, **Reboot WorkSpaces**\)\.
    + From an administrative command prompt, enter gpupdate /force\.
 
 ### No WorkSpaces in my directory can connect to the internet<a name="no_internet"></a>
 
-WorkSpaces cannot communicate with the internet by default\. You must explicitly provide internet access\. For more information, see [Provide Internet Access from Your WorkSpace](amazon-workspaces-internet-access.md)\.
+WorkSpaces cannot communicate with the internet by default\. You must explicitly provide internet access\. For more information, see [Provide internet access from your WorkSpace](amazon-workspaces-internet-access.md)\.
 
 ### My WorkSpace has lost its internet access<a name="lost_internet_access"></a>
 
@@ -539,13 +539,13 @@ If the preceding steps do not solve the issue, do the following:
 
 ### One of my WorkSpaces has a state of `UNHEALTHY`<a name="unhealthy"></a>
 
-The Workspaces service periodically sends status requests to a WorkSpace\. A WorkSpace is marked `UNHEALTHY` when it fails to respond to these requests\. Common causes for this problem are:
+The WorkSpaces service periodically sends status requests to a WorkSpace\. A WorkSpace is marked `UNHEALTHY` when it fails to respond to these requests\. Common causes for this problem are:
 + An application on the WorkSpace is blocking network ports, which prevents the WorkSpace from responding to the status request\.
 + High CPU utilization is preventing the WorkSpace from responding to the status request in a timely manner\.
-+ The computer name of the WorkSpace has been changed\. This prevents a secure channel from being established between Workspaces and the WorkSpace\.
++ The computer name of the WorkSpace has been changed\. This prevents a secure channel from being established between WorkSpaces and the WorkSpace\.
 
 You can attempt to correct the situation using the following methods:
-+ Reboot the WorkSpace from the Workspaces console\.
++ Reboot the WorkSpace from the WorkSpaces console\.
 + Connect to the unhealthy WorkSpace using the following procedure, which should be used only for troubleshooting purposes:
 
   1. Connect to an operational WorkSpace in the same directory as the unhealthy WorkSpace\.
@@ -554,11 +554,11 @@ You can attempt to correct the situation using the following methods:
 
   1. On the unhealthy WorkSpace, confirm that the minimum [port requirements](workspaces-port-requirements.md) are met\.
 + Make sure the SkyLightWorkSpacesConfigService service can respond to health checks\. To troubleshoot this issue, see [My users receive the message "WorkSpace Status: Unhealthy\. We were unable to connect you to your WorkSpace\. Please try again in a few minutes\."](#unhealthy_cant_connect)\.
-+ Rebuild the WorkSpace from the Workspaces console\. Because rebuilding a WorkSpace can potentially cause a loss of data, this option should be used only if all other attempts to correct the problem have been unsuccessful\.
++ Rebuild the WorkSpace from the WorkSpaces console\. Because rebuilding a WorkSpace can potentially cause a loss of data, this option should be used only if all other attempts to correct the problem have been unsuccessful\.
 
 ### My WorkSpace is unexpectedly crashing or rebooting<a name="crash_web_access"></a>
 
-If your WorkSpace is repeatedly crashing or rebooting and your error logs or crash dumps are pointing to problems with `spacedeskHookKmode.sys` or `spacedeskHookUmode.dll`, or if you're receiving the following error messages, you might need to disable Web Access to the WorkSpace:
+If your WorkSpace configured for PCoIP is repeatedly crashing or rebooting and your error logs or crash dumps are pointing to problems with `spacedeskHookKmode.sys` or `spacedeskHookUmode.dll`, or if you're receiving the following error messages, you might need to disable Web Access to the WorkSpace:
 
 ```
 The kernel power manager has initiated a shutdown transition.
@@ -570,8 +570,8 @@ The computer has rebooted from a bugcheck.
 ```
 
 **Note**  
+These troubleshooting steps are not applicable to WorkSpaces that are configured for WorkSpaces Streaming Protocol \(WSP\)\. They are applicable only to WorkSpaces that are configured for PCoIP\.
 You should disable Web Access only if you aren't allowing your users to use Web Access\.
-Web Access is available only for PCoIP WorkSpaces\. Web Access isn't available for WorkSpaces Streaming Protocol \(WSP\) WorkSpaces\.
 
 To disable Web Access to the WorkSpace, you must set a group policy and modify two registry settings\. For information about using the Active Directory administration tools to work with Group Policy Objects, see [ Installing the Active Directory Administration Tools](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_install_ad_tools.html) in the *AWS Directory Service Administration Guide*\.
 
@@ -650,15 +650,15 @@ Additionally, searches for the username in the Amazon WorkSpaces console return 
 
 This behavior can also occur if you rename a user in Active Directory without first deleting their WorkSpace\. If you then change their username back to the original username and create a new WorkSpace for the user, the same username will have two WorkSpaces in the directory\. 
 
-This problem occurs because Active Directory uses the user's security identifier \(SID\), rather than the username, to uniquely identify the user\. When a user is deleted and recreated in Active Directory, the user is assigned a new SID, even if their username remains the same\. During searches for a username, the Amazon Workspaces console uses the SID to search Active Directory for matches\. The Amazon Workspaces clients also use the SID to identify users when they are connecting to WorkSpaces\.
+This problem occurs because Active Directory uses the user's security identifier \(SID\), rather than the username, to uniquely identify the user\. When a user is deleted and recreated in Active Directory, the user is assigned a new SID, even if their username remains the same\. During searches for a username, the Amazon WorkSpaces console uses the SID to search Active Directory for matches\. The Amazon WorkSpaces clients also use the SID to identify users when they are connecting to WorkSpaces\.
 
 To resolve this problem, do one of the following: 
 + If this problem occurred because the user was deleted and recreated in Active Directory, you might be able to restore the original deleted user object if you have enabled the [ Recycle Bin feature in Active Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/adac/introduction-to-active-directory-administrative-center-enhancements--level-100-)\. If you're able to restore the original user object, make sure the user can connect to their original WorkSpace\. If they can, you can [delete the new WorkSpace](delete-workspaces.md) after manually backing up and transferring any user data from the new WorkSpace to the original WorkSpace \(if needed\)\.
 + If you can't restore the original user object, [ delete the user's original WorkSpace](delete-workspaces.md)\. The user should be able to connect to and use their new WorkSpace instead\. Be sure to manually back up and transfer any user data from the original WorkSpace to the new WorkSpace\. 
 **Warning**  
-Deleting a WorkSpace is a permanent action and cannot be undone\. The WorkSpace user's data does not persist and is destroyed\. For help with backing up user data, contact AWS Support\. 
+Deleting a WorkSpace is a permanent action and cannot be undone\. The WorkSpace user's data does not persist and is destroyed\. For help with backing up user data, contact AWS Support\.
 
-### I'm having trouble using Docker with Amazon Workspaces<a name="docker_support"></a>
+### I'm having trouble using Docker with Amazon WorkSpaces<a name="docker_support"></a>
 
 **Windows WorkSpaces**  
 Nested virtualization \(including the use of Docker\) is not supported on Windows WorkSpaces\. For more information, see the [ Docker documentation](https://docs.docker.com/docker-for-windows/troubleshoot/#running-docker-desktop-in-nested-virtualization-scenarios)\.
@@ -668,10 +668,10 @@ To use Docker on Linux WorkSpaces, make sure that the CIDR blocks used by Docker
 
 ### I receive ThrottlingException errors to some of my API calls<a name="throttled-api-calls"></a>
 
-The default allowed rate for Workspaces API calls is a constant rate of two API calls per second, with a maximum allowed "burst" rate of five API calls per second\. The following table shows how the burst rate limit works for API requests\.
+The default allowed rate for WorkSpaces API calls is a constant rate of two API calls per second, with a maximum allowed "burst" rate of five API calls per second\. The following table shows how the burst rate limit works for API requests\.
 
 
-| Second | Number of Requests Sent | Net Requests Allowed | Details | 
+| Second | Number of requests sent | Net requests allowed | Details | 
 | --- | --- | --- | --- | 
 |  1  |  0  |  5  |  During the first second \(second 1\), five requests are allowed, up to the burst rate maximum of five calls per second\.  | 
 |  2  |  2  |  5  |  Because two or fewer calls were issued in second 1, the full burst capacity of five calls is still available\.  | 

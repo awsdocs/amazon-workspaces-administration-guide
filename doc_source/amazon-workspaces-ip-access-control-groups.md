@@ -1,6 +1,6 @@
-# IP Access Control Groups for Your WorkSpaces<a name="amazon-workspaces-ip-access-control-groups"></a>
+# IP access control groups for your WorkSpaces<a name="amazon-workspaces-ip-access-control-groups"></a>
 
-Amazon Workspaces allows you to control which IP addresses your WorkSpaces can be accessed from\. By using IP address\-based control groups, you can define and manage groups of trusted IP addresses, and only allow users to access their WorkSpaces when they're connected to a trusted network\.
+Amazon WorkSpaces allows you to control which IP addresses your WorkSpaces can be accessed from\. By using IP address\-based control groups, you can define and manage groups of trusted IP addresses, and only allow users to access their WorkSpaces when they're connected to a trusted network\.
 
 An *IP access control group* acts as a virtual firewall that controls the IP addresses from which users are allowed to access their WorkSpaces\. To specify the CIDR address ranges, add rules to your IP access control group, and then associate the group with your directory\. You can associate each IP access control group with one or more directories\. You can create up to 100 IP access control groups per Region per AWS account\. However, you can only associate up to 25 IP access control groups with a single directory\.
 
@@ -13,13 +13,13 @@ IP access control groups do not allow the use of dynamic IP addresses for NATs\.
 
 You can use this feature with Web Access, PCoIP zero clients, and the client applications for macOS, iPad, Windows, Chromebook, and Android\.
 
-## Create an IP Access Control Group<a name="create-ip-access-control-group"></a>
+## Create an IP access control group<a name="create-ip-access-control-group"></a>
 
 You can create an IP access control group as follows\. Each IP access control group can contain up to 10 rules\.
 
 **To create an IP access control group**
 
-1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **IP Access Controls**\.
 
@@ -31,7 +31,7 @@ You can create an IP access control group as follows\. Each IP access control gr
 
 1. For each IP address, choose **Add Rule**\. For **Source**, enter the IP address or IP address range\. For **Description**, enter a description\. When you are done adding rules, choose **Save**\.
 
-## Associate an IP Access Control Group with a Directory<a name="associate-ip-access-control-group"></a>
+## Associate an IP access control group with a directory<a name="associate-ip-access-control-group"></a>
 
 You can associate an IP access control group with a directory to ensure that WorkSpaces are accessed only from trusted networks\.
 
@@ -39,7 +39,7 @@ If you associate an IP access control group that has no rules with a directory, 
 
 **To associate an IP access control group with a directory**
 
-1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **Directories**\.
 
@@ -49,13 +49,13 @@ If you associate an IP access control group that has no rules with a directory, 
 
 1. Choose **Update and Exit**\.
 
-## Copy an IP Access Control Group<a name="copy-ip-access-control-group"></a>
+## Copy an IP access control group<a name="copy-ip-access-control-group"></a>
 
 You can use an existing IP access control group as a base for creating a new IP access control group\.
 
 **To create an IP access control group from an existing one**
 
-1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **IP Access Controls**\.
 
@@ -65,7 +65,7 @@ You can use an existing IP access control group as a base for creating a new IP 
 
 1. \(Optional\) To modify the rules copied from the original group, select the new group and choose **Edit**\. Add, update, or remove rules as needed\. Choose **Save**\.
 
-## Delete an IP Access Control Group<a name="delete-ip-access-control-group"></a>
+## Delete an IP access control group<a name="delete-ip-access-control-group"></a>
 
 You can delete a rule from an IP access control group at any time\. If you remove a rule that was used to allow a connection to a WorkSpace, the user is disconnected from the WorkSpace\.
 
@@ -73,7 +73,7 @@ Before you can delete an IP access control group, you must disassociate it from 
 
 **To delete an IP access control group**
 
-1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **Directories**\.
 

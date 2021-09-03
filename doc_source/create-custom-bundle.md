@@ -1,4 +1,4 @@
-# Create a Custom WorkSpaces Image and Bundle<a name="create-custom-bundle"></a>
+# Create a custom WorkSpaces image and bundle<a name="create-custom-bundle"></a>
 
 If you've launched a Windows or Amazon Linux WorkSpace and have customized it, you can create a custom image and custom bundles from that WorkSpace\.
 
@@ -13,19 +13,19 @@ If you plan to create an image from a Windows 10 WorkSpace, note that image crea
 After January 14, 2020, images cannot be created from public Windows 7 bundles\. You might want to consider migrating your Windows 7 WorkSpaces to Windows 10\. For more information, see [Migrate a WorkSpace](migrate-workspaces.md)\.
 Graphics and GraphicsPro bundles aren't currently available in the Asia Pacific \(Mumbai\) Region\.
 
-Custom bundles cost as same as the public bundles they are created from\. For more information about pricing, see [Amazon Workspaces Pricing](http://aws.amazon.com/workspaces/pricing/)\.
+Custom bundles cost as same as the public bundles they are created from\. For more information about pricing, see [Amazon WorkSpaces Pricing](http://aws.amazon.com/workspaces/pricing/)\.
 
 **Topics**
-+ [Requirements to Create Windows Custom Images](#windows_custom_image_requirements)
-+ [Requirements to Create Amazon Linux Custom Images](#linux_custom_image_requirements)
-+ [Best Practices](#custom_image_best_practices)
-+ [\(Optional\) Step 1: Specify a Custom Computer Name Format for Your Images](#custom_computer_name)
++ [Requirements to create Windows custom images](#windows_custom_image_requirements)
++ [Requirements to create Amazon Linux custom images](#linux_custom_image_requirements)
++ [Best practices](#custom_image_best_practices)
++ [\(Optional\) Step 1: Specify a custom computer name format for your image](#custom_computer_name)
 + [Step 2: Run the Image Checker](#run_image_checker)
-+ [Step 3: Create a Custom Image and Custom Bundle](#create_custom_image_bundle)
-+ [What's Included with Windows WorkSpaces Custom Images](#image_creation_windows)
-+ [What's Included with Amazon Linux WorkSpace Custom Images](#image_creation_linux)
++ [Step 3: Create a custom image and custom bundle](#create_custom_image_bundle)
++ [What's included with Windows WorkSpaces custom images](#image_creation_windows)
++ [What's included with Amazon Linux WorkSpace custom images](#image_creation_linux)
 
-## Requirements to Create Windows Custom Images<a name="windows_custom_image_requirements"></a>
+## Requirements to create Windows custom images<a name="windows_custom_image_requirements"></a>
 + The status of the WorkSpace must be **Available** and its modification state must be **None**\.
 + All applications and user profiles on WorkSpaces images must be compatible with Microsoft Sysprep\.
 + All applications to be included in the image must be installed on the `C` drive\.
@@ -43,7 +43,7 @@ Custom bundles cost as same as the public bundles they are created from\. For mo
   + AWS and WorkSpaces certificates
   + Skylight agent
 
-## Requirements to Create Amazon Linux Custom Images<a name="linux_custom_image_requirements"></a>
+## Requirements to create Amazon Linux custom images<a name="linux_custom_image_requirements"></a>
 + The status of the WorkSpace must be **Available** and its modification state must be **None**\.
 + All applications to be included in the image must be installed outside of the user volume \(the `/home` directory\)\.
 + The root volume \(/\) should be less than 97% full\.
@@ -53,7 +53,7 @@ Custom bundles cost as same as the public bundles they are created from\. For mo
   + Teradici PCoIP agents and drivers
   + Skylight agent
 
-## Best Practices<a name="custom_image_best_practices"></a>
+## Best practices<a name="custom_image_best_practices"></a>
 
 Before you create an image from a WorkSpace, do the following:
 + Use a separate VPC that is not connected to your production environment\.
@@ -64,16 +64,16 @@ Before you create an image from a WorkSpace, do the following:
 + Delete cached data from the WorkSpace that shouldn't be included in the bundle \(for example, browser history, cached files, and browser cookies\)\.
 + Delete configuration settings from the WorkSpace that shouldn't be included in the bundle \(for example, email profiles\)\.
 + Switch to dynamic IP address settings using DHCP\.
-+ Make sure that you haven't exceeded your quota for WorkSpace images allowed in a Region\. By default, you're allowed 40 WorkSpace images per Region\. If you've reached this quota, new attempts to create an image will fail\. To request a quota increase, use the [Workspaces Limits form](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=workspaces)\.
++ Make sure that you haven't exceeded your quota for WorkSpace images allowed in a Region\. By default, you're allowed 40 WorkSpace images per Region\. If you've reached this quota, new attempts to create an image will fail\. To request a quota increase, use the [WorkSpaces Limits form](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=workspaces)\.
 + Make sure that you aren't trying to create an image from an encrypted WorkSpace\. Image creation from an encrypted WorkSpace is not currently supported\.
 + If you're running any antivirus software on the WorkSpace, disable it while you're attempting to create an image\.
-+ If you have a firewall enabled on your WorkSpace, make sure that it isn't blocking any necessary ports\. For more information, see [IP Address and Port Requirements for Workspaces](workspaces-port-requirements.md)\.
++ If you have a firewall enabled on your WorkSpace, make sure that it isn't blocking any necessary ports\. For more information, see [IP address and port requirements for WorkSpaces](workspaces-port-requirements.md)\.
 + For Windows WorkSpaces, don't configure any Group Policy Objects \(GPOs\) before image creation\.
 + For Windows WorkSpaces, do not customize the default user profile \(`C:\Users\Default`\) before creating an image\. We recommend making any customizations to the user profile through GPOs, and applying them after image creation\. GPOs can be easily modified or rolled back, and are therefore less prone to error than customizations made to the default user profile\.
 + For Linux WorkSpaces, see also the [ "Best Practices to Prepare Your Amazon WorkSpaces for Linux Images"](https://docs.aws.amazon.com/whitepapers/latest/workspaces-linux-best-practices/welcome.html) whitepaper\.
-+ If you want to use smart cards on Linux WorkSpaces with WorkSpaces Streaming Protocol \(WSP\) enabled, see [Use Smart Cards for Authentication](smart-cards.md) for the customizations that you must make to your Linux WorkSpace before creating your image\. 
++ If you want to use smart cards on Linux WorkSpaces with WorkSpaces Streaming Protocol \(WSP\) enabled, see [Use smart cards for authentication](smart-cards.md) for the customizations that you must make to your Linux WorkSpace before creating your image\. 
 
-## \(Optional\) Step 1: Specify a Custom Computer Name Format for Your Images<a name="custom_computer_name"></a>
+## \(Optional\) Step 1: Specify a custom computer name format for your image<a name="custom_computer_name"></a>
 
 For the WorkSpaces launched from your custom or Bring Your Own License \(BYOL\) images, you can specify a custom prefix for the computer name format instead of using the [default computer name format](launch-workspaces-tutorials.md)\. To specify a custom prefix, follow the appropriate procedure for your image type\. 
 
@@ -110,7 +110,7 @@ The `<RegisteredOrganization>` and `<RegisteredOwner>` values in the `<settings 
 ## Step 2: Run the Image Checker<a name="run_image_checker"></a>
 
 **Note**  
-The Image Checker is available only for Windows WorkSpaces\. If you are creating an image from a Linux WorkSpace, skip to [Step 3: Create a Custom Image and Custom Bundle](#create_custom_image_bundle)\.
+The Image Checker is available only for Windows WorkSpaces\. If you are creating an image from a Linux WorkSpace, skip to [Step 3: Create a custom image and custom bundle](#create_custom_image_bundle)\.
 
 To confirm that your Windows WorkSpace meets the requirements for image creation, we recommend running the Image Checker\. The Image Checker performs a series of tests on the WorkSpace that you want to use to create your image, and provides guidance on how to resolve any issues it finds\.
 
@@ -121,7 +121,7 @@ The Image Checker does not check the user profile size for Windows 10 WorkSpaces
 
 To get the Image Checker, do one of the following:
 + [Reboot your WorkSpace](reboot-workspaces.md)\. The Image Checker is downloaded automatically during the reboot and installed at `C:\Program Files\Amazon\ImageChecker.exe`\.
-+ Download the Amazon Workspaces Image Checker from [https://tools\.amazonworkspaces\.com/ImageChecker\.zip](https://tools.amazonworkspaces.com/ImageChecker.zip) and extract the `ImageChecker.exe` file\. Copy this file to `C:\Program Files\Amazon\`\.
++ Download the Amazon WorkSpaces Image Checker from [https://tools\.amazonworkspaces\.com/ImageChecker\.zip](https://tools.amazonworkspaces.com/ImageChecker.zip) and extract the `ImageChecker.exe` file\. Copy this file to `C:\Program Files\Amazon\`\.
 
 **To run the Image Checker**
 
@@ -131,7 +131,7 @@ To get the Image Checker, do one of the following:
 
 1. After each test is completed, you can view the status of the test\.
 
-   For any test with a status of **FAILED**, choose **Info** to display information about how to resolve the issue that caused the failure\. For more information about how to resolve these issues, see [Tips for Resolving Issues Detected by the Image Checker](#image_checker_tips)\.
+   For any test with a status of **FAILED**, choose **Info** to display information about how to resolve the issue that caused the failure\. For more information about how to resolve these issues, see [Tips for resolving issues detected by the Image Checker](#image_checker_tips)\.
 
    If any tests display a status of **WARNING**, choose the **Fix All Warnings** button\.
 
@@ -143,7 +143,7 @@ Do not delete this log file\. If an issue occurs, this log file might be helpful
 
 1. After your WorkSpace passes all tests, you see a **Validation Successful** message\. You are now ready to create a custom bundle\.
 
-### Tips for Resolving Issues Detected by the Image Checker<a name="image_checker_tips"></a>
+### Tips for resolving issues detected by the Image Checker<a name="image_checker_tips"></a>
 
 In addition to consulting the following tips for resolving issues that are detected by the Image Checker, be sure to review the Image Checker log file at `C:\Program Files\Amazon\ImageChecker_yyyyMMddhhmmss.log`\.
 
@@ -396,7 +396,7 @@ The rearm feature allows you to extend the activation period for the trial versi
 
 To reset the rearm count to a value other than 0, see [ Sysprep \(Generalize\) a Windows installation](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation) in the Microsoft Windows documentation\.
 
-#### Other Troubleshooting Tips<a name="images_troubleshooting_tips"></a>
+#### Other troubleshooting tips<a name="images_troubleshooting_tips"></a>
 
 If your WorkSpace passes all of the tests run by the Image Checker, but you are still unable to create an image from the WorkSpace, check for the following issues:
 + Make sure that the WorkSpace isn't assigned to a user within a **Domain Guests** group\. To check if there are any domain accounts, run the following PowerShell command\.
@@ -421,7 +421,7 @@ If your WorkSpace passes all of the tests run by the Image Checker, but you are 
 
   1. Choose **OK**\.
 
-## Step 3: Create a Custom Image and Custom Bundle<a name="create_custom_image_bundle"></a>
+## Step 3: Create a custom image and custom bundle<a name="create_custom_image_bundle"></a>
 
 After you have validated your WorkSpace image, you can proceed with creating your custom image and custom bundle\.
 
@@ -429,13 +429,13 @@ After you have validated your WorkSpace image, you can proceed with creating you
 
 1. If you are still connected to the WorkSpace, disconnect by choosing **Amazon Workspaces** and **Disconnect** in the WorkSpaces client application\.
 
-1. Open the Workspaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
+1. Open the WorkSpaces console at [https://console\.aws\.amazon\.com/workspaces/](https://console.aws.amazon.com/workspaces/)\.
 
 1. In the navigation pane, choose **WorkSpaces**\.
 
 1. <a name="step_create_image"></a>Select the WorkSpace and choose **Actions**, **Create Image**\. If the status of the WorkSpace is `STOPPED`, you must start it first \(choose **Actions**, **Start WorkSpaces**\) before you can choose **Actions**, **Create Image**\.
 
-1. A message displays, prompting you to reboot \(restart\) your WorkSpace before continuing\. Rebooting your WorkSpace updates your Amazon Workspaces software to the latest version\.
+1. A message displays, prompting you to reboot \(restart\) your WorkSpace before continuing\. Rebooting your WorkSpace updates your Amazon WorkSpaces software to the latest version\.
 
    Reboot your WorkSpace by closing the message and following the steps in [Reboot a WorkSpace](reboot-workspaces.md)\. When you're done, repeat [Step 4](#step_create_image) of this procedure, but this time choose **Next** when the reboot message appears\. To create an image, the status of the WorkSpace must be `AVAILABLE` and its modification state must be **None**\.
 
@@ -445,7 +445,7 @@ After you have validated your WorkSpace image, you can proceed with creating you
 
 1. Select the image and choose **Actions**, **Create bundle**\.
 **Note**  
-To create a bundle programmatically, use the CreateWorkspaceBundle API action\. For more information, see [ CreateWorkspaceBundle](https://docs.aws.amazon.com/workspaces/latest/api/API_CreateWorkspaceBundle.html) in the *Amazon Workspaces API Reference*\.
+To create a bundle programmatically, use the CreateWorkspaceBundle API action\. For more information, see [ CreateWorkspaceBundle](https://docs.aws.amazon.com/workspaces/latest/api/API_CreateWorkspaceBundle.html) in the *Amazon WorkSpaces API Reference*\.
 
 1. Enter a bundle name and a description, and then do the following: 
    + For **Bundle hardware type**, choose the hardware to use when launching WorkSpaces from this custom bundle\.
@@ -464,7 +464,7 @@ To ensure that your data is preserved, you cannot decrease the size of the root 
 
 1. To confirm that your bundle has been created, choose **Bundles** and verify that the bundle is listed\.
 
-## What's Included with Windows WorkSpaces Custom Images<a name="image_creation_windows"></a>
+## What's included with Windows WorkSpaces custom images<a name="image_creation_windows"></a>
 
 When you create an image from a Windows 7 or 10 WorkSpace, the entire contents of the `C` drive are included\.
 
@@ -505,7 +505,7 @@ For Windows 7 WorkSpaces, the entire contents of the user profile in `D:\Users\u
 + appdata\\local\\microsoft\\internet explorer\\recovery\\
 + appdata\\local\\mozilla\\firefox\\profiles\\
 
-## What's Included with Amazon Linux WorkSpace Custom Images<a name="image_creation_linux"></a>
+## What's included with Amazon Linux WorkSpace custom images<a name="image_creation_linux"></a>
 
 When you create an image from an Amazon Linux WorkSpace, the entire contents of the user volume \(/home\) are removed\. The contents of the root volume \(/\) are included, except the following folders and keys, which are removed:
 + /tmp
