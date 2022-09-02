@@ -12,7 +12,7 @@ Europe \(Ireland\)
 Asia Pacific \(Singapore\)
 Asia Pacific \(Sydney\)
 Asia Pacific \(Tokyo\)
-To change your Region, see [ Choosing a Region](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html#select-region)\.
+To change your Region, see [Choosing a Region](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/select-region.html)\.
 
 **Topics**
 + [Before you begin](#quick-setup-prereqs)
@@ -28,8 +28,8 @@ Before you begin, make sure that you meet the following requirements:
 + You must have an AWS account to create or administer a WorkSpace\. Users do not need an AWS account to connect to and use their WorkSpaces\.
 + WorkSpaces is not available in every Region\. Verify the supported Regions and [ select a Region](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html#select-region) for your WorkSpaces\. For more information about the supported Regions, see [WorkSpaces Pricing by AWS Region](https://aws.amazon.com/workspaces/pricing/#Amazon_WorkSpaces_Pricing_by_AWS_Region)\.
 
-It's also helpful to review and understand the following concepts before you proceed:
-+ When you launch a WorkSpace, you must select a WorkSpace bundle\. For more information, see [Amazon WorkSpaces Bundles](https://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles)\.
+It's also helpful to review and understand the following before you proceed:
++ When you launch a WorkSpace, you must select a WorkSpace bundle\. For more information, see [Amazon WorkSpaces Bundles](https://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles) and [Amazon WorkSpaces Pricing](http://aws.amazon.com/workspaces/pricing/)\.
 + When you launch a WorkSpace, you must select which protocol \(PCoIP or WorkSpaces Streaming Protocol \[WSP\]\) you want to use with your bundle\. For more information, see [Protocols for Amazon WorkSpaces](amazon-workspaces-protocols.md)\.
 + When you launch a WorkSpace, you must specify profile information for the user, including a user name and email address\. Users complete their profiles by specifying a password\. Information about WorkSpaces and users is stored in a directory\. For more information, see [Manage directories for WorkSpaces](manage-workspaces-directory.md)\.
 

@@ -28,11 +28,11 @@ To designate your primary and failover Regions, you define the Region priority \
 + [Security considerations if you stop using cross\-Region redirection](#cross-region-redirection-security-considerations)
 
 ## Prerequisites<a name="cross-region-redirection-prerequisites"></a>
-+ You must own and register the domain that you want to use as the FQDN in your connection aliases\. If you're not already using another domain registrar, you can use Amazon Route 53 to register your domain\. For more information, see [ Registering domain names using Amazon Route 53 ](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar.html) in the *Amazon Route 53 Developer Guide*\.
++ You must own and register the domain that you want to use as the FQDN in your connection aliases\. If you're not already using another domain registrar, you can use Amazon Route 53 to register your domain\. For more information, see [ Registering domain names using Amazon Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar.html) in the *Amazon Route 53 Developer Guide*\.
 **Important**  
 You must have all necessary rights to use any domain name that you use in conjunction with Amazon WorkSpaces\. You agree that the domain name does not violate or infringe on the legal rights of any third party or otherwise violate applicable law\.
 
-  The total length of your domain name can't exceed 255 characters\. For more information about domain names, see [ DNS domain name format](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DomainNameFormat.html) in the *Amazon Route 53 Developer Guide*\.
+  The total length of your domain name can't exceed 255 characters\. For more information about domain names, see [ DNS domain name format](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DomainNameFormat.html) in the *Amazon Route 53 Developer Guide*\.
 
   Cross\-Region redirection works with both public domain names and domain names in private DNS zones\. If you're using a private DNS zone, you must provide a virtual private network \(VPN\) connection to the virtual private cloud \(VPC\) that contains your WorkSpaces\. If your WorkSpaces users attempt to use a private FQDN from the public internet, the WorkSpaces client applications return the following error message:
 
@@ -49,10 +49,10 @@ If you create your users in the WorkSpaces console instead of creating them in A
 ## Limitations<a name="cross-region-redirection-limitations"></a>
 + Cross\-Region redirection doesn't automatically check whether connections to the primary Region have failed and then fails your WorkSpaces over to another Region\. In other words, automatic failover doesn't occur\.
 
-  To implement an automatic failover scenario, you must use some other mechanism in conjunction with cross\-Region redirection\. For example, you can use an Amazon Route 53 failover DNS routing policy paired with a Route 53 health check that monitors a CloudWatch alarm in the primary Region\. If the CloudWatch alarm in the primary Region is triggered, your DNS failover routing policy then redirects your WorkSpaces users to the WorkSpaces that you've set up for them in the failover Region\.
+  To implement an automatic failover scenario, you must use some other mechanism in conjunction with cross\-Region redirection\. For example, you can use an Amazon Route 53 failover DNS routing policy paired with a Route 53 health check that monitors a CloudWatch alarm in the primary Region\. If the CloudWatch alarm in the primary Region is triggered, your DNS failover routing policy then redirects your WorkSpaces users to the WorkSpaces that you've set up for them in the failover Region\.
 + When you're using cross\-Region redirection, user data isn't persisted between WorkSpaces in different Regions\. To ensure that users can access their files from different Regions, we recommend that you set up Amazon WorkDocs for your WorkSpaces users, if Amazon WorkDocs is supported in your primary and failover Regions\. For more information about Amazon WorkDocs, see [Amazon WorkDocs Drive](https://docs.aws.amazon.com/workdocs/latest/userguide/workdocs_drive_help.html) in the *Amazon WorkDocs Administration Guide*\. For more information about enabling Amazon WorkDocs for your WorkSpace users, see [Register a directory with WorkSpaces](register-deregister-directory.md) and [Enable Amazon WorkDocs for AWS Managed Microsoft AD](enable-workdocs-active-directory.md)\. For information about how WorkSpaces users can set up Amazon WorkDocs on their WorkSpaces, see [ Integrate with WorkDocs](https://docs.aws.amazon.com/workspaces/latest/userguide/workspaces-user-getting-started.html#workdocs-integration) in the *Amazon WorkSpaces User Guide*\.
 + Cross\-Region redirection is supported only on version 3\.0\.9 or later of the Linux, macOS, and Windows WorkSpaces client applications\.
-+ Cross\-Region redirection is available in all [ AWS Regions where Amazon WorkSpaces is available](http://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/), except for the AWS GovCloud \(US\-West\) Region and the China \(Ningxia\) Region\. 
++ Cross\-Region redirection is available in all [AWS Regions where Amazon WorkSpaces is available](http://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/), except for the AWS GovCloud \(US\-West\) Region and the China \(Ningxia\) Region\. 
 
 ## Step 1: Create connection aliases<a name="cross-region-redirection-create-connection-aliases"></a>
 
@@ -134,11 +134,11 @@ If you configure your AWS Managed Microsoft AD directory for multi\-Region repli
 
 ## Step 4: Configure your DNS service and set up DNS routing policies<a name="cross-region-redirection-configure-DNS-routing"></a>
 
-After you've created your connection aliases and your connection alias association pairs, you can then configure the DNS service for the domain that you've used in your connection strings\. You can use any DNS service provider for this purpose\. If you don't already have a preferred DNS service provider, you can use Amazon Route 53 \. For more information, see [ Configuring Amazon Route 53 as your DNS service](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring.html) in the *Amazon Route 53 Developer Guide*\.
+After you've created your connection aliases and your connection alias association pairs, you can then configure the DNS service for the domain that you've used in your connection strings\. You can use any DNS service provider for this purpose\. If you don't already have a preferred DNS service provider, you can use Amazon Route 53\. For more information, see [ Configuring Amazon Route 53 as your DNS service](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring.html) in the *Amazon Route 53 Developer Guide*\.
 
-After you've configured the DNS service for your domain, you must set up the DNS routing policies that you want to use for cross\-Region redirection\. For example, you can use Amazon Route 53 health checks to determine whether your users can connect to their WorkSpaces in a particular Region\. If your users can't connect, you can use a DNS failover policy to route your DNS traffic from one Region to another\.
+After you've configured the DNS service for your domain, you must set up the DNS routing policies that you want to use for cross\-Region redirection\. For example, you can use Amazon Route 53 health checks to determine whether your users can connect to their WorkSpaces in a particular Region\. If your users can't connect, you can use a DNS failover policy to route your DNS traffic from one Region to another\.
 
-For more information about choosing your DNS routing policy, see [Choosing a routing policy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html) in the *Amazon Route 53 Developer Guide*\. For more information about Amazon Route 53 health checks, see [ How Amazon Route 53 checks the health of your resources](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/welcome-health-checks.html) in the *Amazon Route 53 Developer Guide*\.
+For more information about choosing your DNS routing policy, see [Choosing a routing policy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html) in the *Amazon Route 53 Developer Guide*\. For more information about Amazon Route 53 health checks, see [ How Amazon Route 53 checks the health of your resources](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/welcome-health-checks.html) in the *Amazon Route 53 Developer Guide*\.
 
 When you're setting up your DNS routing policies, you will need the *connection identifier* for the association between the connection alias and the WorkSpaces directory in the primary Region\. You will also need the connection identifier for the association between the connection alias and the WorkSpaces directory in your failover Region or Regions\.
 
@@ -161,17 +161,17 @@ The connection identifier is **not** the same as the connection alias ID\. The c
 
 **Example: To set up a DNS failover routing policy using Route 53**
 
-The following example sets up a public hosted zone for your domain\. However, you can set up a public or a private hosted zone\. For more information about setting up a hosted zone, see [ Working with hosted zones](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-working-with.html) in the *Amazon Route 53 Developer Guide*\.
+The following example sets up a public hosted zone for your domain\. However, you can set up a public or a private hosted zone\. For more information about setting up a hosted zone, see [ Working with hosted zones](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-working-with.html) in the *Amazon Route 53 Developer Guide*\.
 
-This example also uses a failover routing policy\. You can use other routing policy types for your cross\-Region redirection strategy\. For more information about choosing your DNS routing policy, see [Choosing a routing policy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html) in the *Amazon Route 53 Developer Guide*\.
+This example also uses a failover routing policy\. You can use other routing policy types for your cross\-Region redirection strategy\. For more information about choosing your DNS routing policy, see [Choosing a routing policy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html) in the *Amazon Route 53 Developer Guide*\.
 
-When you're setting up a failover routing policy in Route 53, a health check is required for the primary Region\. For more information about creating a health check in Route 53, see [ Creating Amazon Route 53 health checks and configuring DNS failover](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html) and [ Creating, updating, and deleting health checks](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-creating-deleting.html) in the *Amazon Route 53 Developer Guide*\.
+When you're setting up a failover routing policy in Route 53, a health check is required for the primary Region\. For more information about creating a health check in Route 53, see [ Creating Amazon Route 53 health checks and configuring DNS failover](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html) and [ Creating, updating, and deleting health checks](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-creating-deleting.html) in the *Amazon Route 53 Developer Guide*\.
 
-If you want to use an Amazon CloudWatch alarm with your Route 53 health check, you'll also need to set up a CloudWatch alarm to monitor the resources in your primary Region\. For more information about CloudWatch, see [ What Is Amazon CloudWatch?](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html) in the *Amazon CloudWatch User Guide*\. For more information about how Route 53 uses CloudWatch alarms in its health checks, see [ How Route 53 determines the status of health checks that monitor CloudWatch alarms](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html#dns-failover-determining-health-of-endpoints-cloudwatch) and [ Monitoring a CloudWatch alarm](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-creating-values.html#health-checks-creating-values-cloudwatch) in the *Amazon Route 53 Developer Guide*\.
+If you want to use an Amazon CloudWatch alarm with your Route 53 health check, you'll also need to set up a CloudWatch alarm to monitor the resources in your primary Region\. For more information about CloudWatch, see [ What Is Amazon CloudWatch?](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html) in the *Amazon CloudWatch User Guide*\. For more information about how Route 53 uses CloudWatch alarms in its health checks, see [ How Route 53 determines the status of health checks that monitor CloudWatch alarms](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html#dns-failover-determining-health-of-endpoints-cloudwatch) and [ Monitoring a CloudWatch alarm](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-creating-values.html#health-checks-creating-values-cloudwatch) in the *Amazon Route 53 Developer Guide*\.
 
 To set up a DNS failover routing policy in Route 53, you first need to create a hosted zone for your domain\.
 
-1. Open the Route 53 console at [https://console\.aws\.amazon\.com/route53/](https://console.aws.amazon.com/route53/)\.
+1. Open the Route 53 console at [https://console\.aws\.amazon\.com/route53/](https://console.aws.amazon.com/route53/)\.
 
 1. In the navigation pane, choose **Hosted zones**, and then choose **Create hosted zone**\.
 
@@ -183,7 +183,7 @@ To set up a DNS failover routing policy in Route 53, you first need to create a 
 
 Then create a health check for your primary Region\.
 
-1. Open the Route 53 console at [https://console\.aws\.amazon\.com/route53/](https://console.aws.amazon.com/route53/)\.
+1. Open the Route 53 console at [https://console\.aws\.amazon\.com/route53/](https://console.aws.amazon.com/route53/)\.
 
 1. In the navigation pane, choose **Health checks**, and then choose **Create health check**\.
 
@@ -199,7 +199,7 @@ Then create a health check for your primary Region\.
 
 After you've created your health check, you can create the DNS failover records\.
 
-1. Open the Route 53 console at [https://console\.aws\.amazon\.com/route53/](https://console.aws.amazon.com/route53/)\.
+1. Open the Route 53 console at [https://console\.aws\.amazon\.com/route53/](https://console.aws.amazon.com/route53/)\.
 
 1. In the navigation pane, choose **Hosted zones**\.
 
@@ -253,7 +253,7 @@ Now you need to set up the failover records for your primary and failover Region
 
 If the health check that you've set up for your primary Region fails, your DNS failover routing policy redirects your WorkSpaces users to your failover Region\. Route 53 continues to monitor the health check for your primary Region, and when the health check for your primary Region no longer fails, Route 53 automatically redirects your WorkSpaces users back to their WorkSpaces in the primary Region\.
 
-For more information about creating DNS records, see [ Creating records by using the Amazon Route 53 console](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-creating.html) in the *Amazon Route 53 Developer Guide*\. For more information about configuring DNS TXT records, see [TXT record type](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/ResourceRecordTypes.html#TXTFormat) in the *Amazon Route 53 Developer Guide*\.
+For more information about creating DNS records, see [ Creating records by using the Amazon Route 53 console](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-creating.html) in the *Amazon Route 53 Developer Guide*\. For more information about configuring DNS TXT records, see [TXT record type](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/ResourceRecordTypes.html#TXTFormat) in the *Amazon Route 53 Developer Guide*\.
 
 ## Step 5: Send the connection string to your WorkSpaces users<a name="cross-region-redirection-send-connection-string-to-users"></a>
 

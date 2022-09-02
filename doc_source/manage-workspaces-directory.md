@@ -9,7 +9,7 @@ WorkSpaces uses a directory to store and manage information for your WorkSpaces 
 For tutorials that demonstrate how to set up these directories and launch WorkSpaces, see [Launch a virtual desktop using WorkSpaces](launch-workspaces-tutorials.md)\.
 
 **Tip**  
-For a detailed exploration of directory and virtual private cloud \(VPC\) design considerations for various deployment scenarios, see the [ *Best Practices for Deploying Amazon WorkSpaces*](https://d1.awsstatic.com/whitepapers/Best-Practices-for-Deploying-Amazon-WorkSpaces.pdf) whitepaper\.
+For a detailed exploration of directory and virtual private cloud \(VPC\) design considerations for various deployment scenarios, see [Best Practices for Deploying Amazon WorkSpaces](https://docs.aws.amazon.com/whitepapers/latest/best-practices-deploying-amazon-workspaces/best-practices-deploying-amazon-workspaces.html)\.
 
 After you create a directory, you'll perform most directory administration tasks using tools such as the Active Directory Administration Tools\. You can perform some directory administration tasks using the WorkSpaces console and other tasks using Group Policy\. For more information about managing users and groups, see [Manage WorkSpaces users](manage-workspaces-users.md) and [Set up Active Directory Administration Tools for WorkSpaces](directory_administration.md)\.
 

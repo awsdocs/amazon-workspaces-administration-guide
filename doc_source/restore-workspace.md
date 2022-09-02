@@ -11,7 +11,7 @@ Snapshots of the root and user volume are taken on the following basis\. When yo
 + **After a WorkSpace is first created** — Typically, the initial snapshots of the root and user volumes are taken soon after a WorkSpace is created \(often within 30 minutes\)\. In some AWS Regions, it might take several hours for the initial snapshots to be taken after a WorkSpace is created\.
 
   If a WorkSpace becomes unhealthy before the initial snapshots are taken, the WorkSpace can't be restored\. In that case, you can try [ rebuilding the WorkSpace](rebuild-workspace.md) or contact AWS Support for assistance\.
-+ **During regular use** — Automatic snapshots for use when restoring a WorkSpace are scheduled every 12 hours\. If the WorkSpace is healthy, snapshots of both the root volume and user volume are created around the same time\. If the WorkSpace is unhealthy, these snapshots are not created\.
++ **During regular use** — Automatic snapshots for use when restoring a WorkSpace are scheduled every 12 hours\. If the WorkSpace is healthy, snapshots of both the root volume and user volume are created around the same time\. If the WorkSpace is unhealthy, snapshots are created only for the user volume\.
 + **After a WorkSpace has been restored** — When you restore a WorkSpace, new snapshots are taken soon after the restore is finished \(often within 30 minutes\)\. In some AWS Regions, it might take several hours for these snapshots to be taken after a WorkSpace is restored\.
 
   After a WorkSpace has been restored, if the WorkSpace becomes unhealthy before new snapshots can be taken, the WorkSpace can't be restored again\. In that case, you can try [rebuilding the WorkSpace](rebuild-workspace.md) or contact AWS Support for assistance\.

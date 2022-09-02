@@ -2,8 +2,10 @@
 
 We recommend that you maintain your WorkSpaces on a regular basis\. WorkSpaces schedules default maintenance windows for your WorkSpaces\. During the maintenance window, the WorkSpace installs important updates from Amazon WorkSpaces and reboots as necessary\. If available, operating system updates are also installed from the OS update server that the WorkSpace is configured to use\. During maintenance, your WorkSpaces might be unavailable\.
 
-**Note**  
 By default, your Windows WorkSpaces are configured to receive updates from Windows Update\. To configure your own automatic update mechanisms for Windows, see the documentation for [ Windows Server Update Services \(WSUS\)](https://docs.microsoft.com/windows-server/administration/windows-server-update-services/deploy/deploy-windows-server-update-services) and [Configuration Manager](https://docs.microsoft.com/configmgr/sum/deploy-use/deploy-software-updates)\.
+
+**Requirement**  
+Your WorkSpaces must have access to the internet so that you can install updates to the operating system and deploy applications\. For more information, see [Provide internet access from your WorkSpace](amazon-workspaces-internet-access.md)\.
 
 ## Maintenance windows for AlwaysOn WorkSpaces<a name="alwayson-maintenance"></a>
 

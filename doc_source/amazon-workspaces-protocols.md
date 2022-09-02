@@ -5,7 +5,7 @@ Amazon WorkSpaces supports two protocols: PCoIP and WorkSpaces Streaming Protoco
 **When to use PCoIP**
 + If you want to use the iPad, Android, or Linux clients\.
 + If you use Teradici zero client devices\.
-+ If you need to use GPU\-based bundles \(Graphics or GraphicsPro\)\.
++ If you need to use GPU\-based bundles \(Graphics\.g4dn, GraphicsPro\.g4dn, Graphics, or GraphicsPro\)\.
 + If you need to use a Linux bundle for non\-smart card use cases\.
 + If you need to use WorkSpaces in the China \(Ningxia\) Region\.
 

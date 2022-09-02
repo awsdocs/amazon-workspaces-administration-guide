@@ -9,7 +9,7 @@ Because Linux instances do not adhere to Group Policy, we recommend that you use
 **Note**  
 Linux WorkSpaces on WorkSpaces Streaming Protocol \(WSP\) bundles are available only in the AWS GovCloud \(US\-West\) Region at this time\.  
 Linux WorkSpaces on WSP currently have the following limitations:  
-Clipboard, audio\-in, video\-in, and time zone redirection aren't supported\.
+Video\-in and time zone redirection aren't supported\.
 Multiple monitors aren't supported\.
 You must use the WorkSpaces Windows client application to connect to Linux WorkSpaces on WSP\.
 
@@ -30,7 +30,7 @@ Local printer redirection is not available for Linux WorkSpaces\.
 By default, WorkSpaces supports clipboard redirection\. Use the PCoIP Agent conf to disable this feature, if needed\. This setting takes effect when you reboot the WorkSpace\.
 
 **Note**  
-Clipboard redirection is not currently supported in the WorkSpaces Linux client application or on Linux WorkSpaces using WSP\.
+Clipboard redirection is not currently supported on Linux WorkSpaces using WSP\.
 
 **To enable or disable clipboard redirection for Amazon Linux WorkSpaces**
 

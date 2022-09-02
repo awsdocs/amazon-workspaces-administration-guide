@@ -30,7 +30,7 @@ If your AWS Managed Microsoft AD directory has been configured for multi\-Region
 
 1. Create a trust relationship between your AWS Managed Microsoft AD and your on\-premises domain\. Ensure that the trust is configured as a two\-way trust\. For more information, see [Tutorial: Create a Trust Relationship Between Your AWS Managed Microsoft AD and Your On\-Premises Domain](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/tutorial_setup_trust.html) in the *AWS Directory Service Administration Guide*\.
 
-A one\-way or two\-way trust can be used to manage and authenticate with WorkSpaces, and so that WorkSpaces can be provisioned to on\-premises users and groups\. For more information, see [Deploy Amazon WorkSpaces using a One\-Way Trust Resource Domain with AWS Directory Service](https://aws.amazon.com/getting-started/hands-on/deploy-workspaces-one-way-trust/)\.
+A one\-way or two\-way trust can be used to manage and authenticate with WorkSpaces, and so that WorkSpaces can be provisioned to on\-premises users and groups\. For more information, see [Deploy Amazon WorkSpaces using a One\-Way Trust Resource Domain with AWS Directory Service](http://aws.amazon.com/getting-started/hands-on/deploy-workspaces-one-way-trust/)\.
 
 ## Step 2: Create a WorkSpace<a name="create-workspace-trusted-domain"></a>
 

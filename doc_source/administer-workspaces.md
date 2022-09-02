@@ -9,6 +9,7 @@ To perform directory administration tasks, see [Set up Active Directory Administ
 + [Manage your Amazon Linux WorkSpaces](manage_linux_workspace.md)
 + [Manage the WorkSpace running mode](running-mode.md)
 + [Modify a WorkSpace](modify-workspaces.md)
++ [Customize WorkSpace branding](customize-branding.md)
 + [Tag WorkSpaces resources](tag-workspaces-resources.md)
 + [WorkSpace maintenance](workspace-maintenance.md)
 + [Encrypted WorkSpaces](encrypt-workspaces.md)

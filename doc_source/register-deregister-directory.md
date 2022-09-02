@@ -8,7 +8,7 @@ To register a directory for use with WorkSpaces, it must meet the following requ
 + If you're using AD Connector, your AD Connector must be directly attached to the subnets of the same VPC that will be used for WorkSpaces deployments\.
 + If you're using AWS Managed Microsoft AD or Simple AD, your directory can be in a dedicated private subnet, as long as the directory has access to the VPC where the WorkSpaces are located\.
 
-For more information about directory and VPC design, see the [ *Best Practices for Deploying Amazon WorkSpaces*](https://d1.awsstatic.com/whitepapers/Best-Practices-for-Deploying-Amazon-WorkSpaces.pdf) whitepaper\.
+For more information about directory and VPC design, see the [https://d1.awsstatic.com/whitepapers/Best-Practices-for-Deploying-Amazon-WorkSpaces.pdf](https://d1.awsstatic.com/whitepapers/Best-Practices-for-Deploying-Amazon-WorkSpaces.pdf) whitepaper\.
 
 **Note**  
 Simple AD and AD Connector are made available to you free of charge to use with WorkSpaces\. If there are no WorkSpaces being used with your Simple AD or AD Connector directory for 30 consecutive days, this directory will be automatically deregistered for use with Amazon WorkSpaces, and you will be charged for this directory as per the [AWS Directory Service pricing terms](http://aws.amazon.com/directoryservice/pricing/)\.  
@@ -28,6 +28,8 @@ Shared directories are not currently supported for use with Amazon WorkSpaces\.
 If your AWS Managed Microsoft AD directory has been configured for multi\-Region replication, only the directory in the primary Region can be registered for use with Amazon WorkSpaces\. Attempts to register the directory in a replicated Region for use with Amazon WorkSpaces will fail\. Multi\-Region replication with AWS Managed Microsoft AD isn't supported for use with Amazon WorkSpaces within replicated Regions\.
 
 1. Select two subnets of your VPC that are not from the same Availability Zone\. These subnets will be used to launch your WorkSpaces\. For more information, see [Availability Zones for Amazon WorkSpaces](azs-workspaces.md)\.
+**Note**  
+If you do not know which subnets to choose, select **No Preference**\.
 
 1. For **Enable Self Service Permissions**, choose **Yes** to enable your users to rebuild their WorkSpaces, change volume size, compute type and running mode\. Enabling may impact how much you pay for Amazon WorkSpaces\. Choose **No** otherwise\.
 

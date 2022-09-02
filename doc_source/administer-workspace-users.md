@@ -7,3 +7,4 @@ Each WorkSpace is assigned to a single user and cannot be shared by multiple use
 + [Create multiple WorkSpaces for a user](create-multiple-workspaces-for-user.md)
 + [Customize how users log in to their WorkSpaces](customize-workspaces-user-login.md)
 + [Enable self\-service WorkSpace management capabilities for your users](enable-user-self-service-workspace-management.md)
++ [Enable Amazon Connect audio optimization for your users](enable-amazon-connect-audio-optimization.md)

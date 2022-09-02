@@ -5,7 +5,7 @@ Amazon WorkSpaces enables you to provision virtual, cloud\-based Microsoft Windo
 For more information, see [Amazon WorkSpaces](https://aws.amazon.com/workspaces/)\.
 
 ## Features<a name="features"></a>
-+ Choose your operating system \(Windows or Amazon Linux\) and select from a range of hardware configurations, software configurations, and AWS Regions\. For more information, see [Amazon WorkSpaces Bundles](https://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles) and [Create a custom WorkSpaces image and bundle](create-custom-bundle.md)\.
++ Choose your operating system \(Windows or Amazon Linux\) and select from a range of hardware configurations, software configurations, and AWS Regions\. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles) and [Create a custom WorkSpaces image and bundle](create-custom-bundle.md)\.
 + Choose your protocol: PCoIP or WorkSpaces Streaming Protocol \(WSP\)\. For more information, see [Protocols for Amazon WorkSpaces](amazon-workspaces-protocols.md)\.
 + Connect to your WorkSpace and pick up from right where you left off\. WorkSpaces provides a persistent desktop experience\.
 + WorkSpaces provides the flexibility of either monthly or hourly billing for WorkSpaces\. For more information, see [WorkSpaces Pricing](https://aws.amazon.com/workspaces/pricing/)\.
@@ -30,8 +30,6 @@ Each WorkSpace has two elastic network interfaces associated with it: a network 
 The following diagram shows the architecture of WorkSpaces\.
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/images/architectural-diagram-new-2.png)
-
-For additional architecture diagrams, see the [ *Best Practices for Deploying Amazon WorkSpaces*](https://d1.awsstatic.com/whitepapers/Best-Practices-for-Deploying-Amazon-WorkSpaces.pdf) whitepaper\.
 
 ## Access your WorkSpace<a name="devices"></a>
 
@@ -76,6 +74,7 @@ To create a WorkSpace, try one of the following tutorials:
 + [Launch a WorkSpace using a trusted domain](launch-workspace-trusted-domain.md)
 
 You might also want to explore these resources to learn more about Amazon WorkSpaces: 
-+ [ Implementation guide: Provision Desktops in the Cloud](http://aws.amazon.com/getting-started/hands-on/provision-cloud-desktops/)
-+ [ Amazon WorkSpaces resources](http://aws.amazon.com/workspaces/resources/) — whitepapers, blog posts, webinars, re:Invent sessions, and more
++ [Provision Desktops in the Cloud](http://aws.amazon.com/getting-started/hands-on/provision-cloud-desktops/)
++ [Best Practices for Deploying Amazon WorkSpaces](https://docs.aws.amazon.com/whitepapers/latest/best-practices-deploying-amazon-workspaces/best-practices-deploying-amazon-workspaces.html)
++ [ Amazon WorkSpaces resources](http://aws.amazon.com/workspaces/resources/) — includes whitepapers, blog posts, webinars, and re:Invent sessions
 + [Amazon WorkSpaces FAQs](http://aws.amazon.com/workspaces/faqs/)

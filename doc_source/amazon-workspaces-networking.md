@@ -9,6 +9,7 @@ As a WorkSpace administrator, you must understand the following about WorkSpaces
 + [IP address and port requirements for WorkSpaces](workspaces-port-requirements.md)
 + [Amazon WorkSpaces client network requirements](workspaces-network-requirements.md)
 + [Restrict WorkSpaces access to trusted devices](trusted-devices.md)
++ [WorkSpaces Integration with SAML 2\.0 \(preview\)](amazon-workspaces-saml.md)
 + [Use smart cards for authentication](smart-cards.md)
 + [Provide internet access from your WorkSpace](amazon-workspaces-internet-access.md)
 + [Security groups for your WorkSpaces](amazon-workspaces-security-groups.md)

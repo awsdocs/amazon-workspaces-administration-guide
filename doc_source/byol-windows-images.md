@@ -25,11 +25,11 @@ Image creation is not supported on Windows 10 systems that have been upgraded fr
 
 Before you begin, verify the following:
 + Your Microsoft licensing agreement allows Windows to be run in a virtual hosted environment\.
-+ If you will be using non\-GPU\-enabled bundles \(bundles other than Graphics and GraphicsPro\), verify that you will use a minimum of 200 WorkSpaces per Region\. These 200 WorkSpaces can be any mix of AlwaysOn and AutoStop WorkSpaces\. Using a minimum of 200 WorkSpaces per Region is a requirement for running your WorkSpaces on dedicated hardware\. Running your WorkSpaces on dedicated hardware is necessary to comply with Microsoft licensing requirements\. The dedicated hardware is provisioned on the AWS side, so your VPC can stay on default tenancy\.
++ If you will be using non\-GPU\-enabled bundles \(bundles other than Graphics\.g4dn, GraphicsPro\.g4dn, Graphics, and GraphicsPro\), verify that you will use a minimum of 100 WorkSpaces per Region\. These 100 WorkSpaces can be any mix of AlwaysOn and AutoStop WorkSpaces\. Using a minimum of 100 WorkSpaces per Region is a requirement for running your WorkSpaces on dedicated hardware\. Running your WorkSpaces on dedicated hardware is necessary to comply with Microsoft licensing requirements\. The dedicated hardware is provisioned on the AWS side, so your VPC can stay on default tenancy\.
 
-  If you plan to use GPU\-enabled \(Graphics and GraphicsPro\) bundles, verify that you will run a minimum of 4 AlwaysOn or 20 AutoStop GPU\-enabled WorkSpaces in a Region per month on dedicated hardware\.
+  If you plan to use GPU\-enabled \(Graphics\.g4dn, GraphicsPro\.g4dn, Graphics, and GraphicsPro\) bundles, verify that you will run a minimum of 4 AlwaysOn or 20 AutoStop GPU\-enabled WorkSpaces in a Region per month on dedicated hardware\.
 **Note**  
-Graphics and GraphicsPro bundles can be created only for the PCoIP protocol at this time\.
+Graphics\.g4dn, GraphicsPro\.g4dn, Graphics, and GraphicsPro bundles can be created only for the PCoIP protocol at this time\.
 Graphics and GraphicsPro bundles aren't currently available in the Asia Pacific \(Mumbai\) Region\.
 + WorkSpaces can use a management interface in the /16 IP address range\. The management interface is connected to a secure WorkSpaces management network used for interactive streaming\. This allows WorkSpaces to manage your WorkSpaces\. For more information, see [Network interfaces](workspaces-port-requirements.md#network-interfaces)\. You must reserve a /16 netmask from at least one of the following IP address ranges for this purpose:
   + 10\.0\.0\.0/8
@@ -57,11 +57,10 @@ For BYOL AutoStop WorkSpaces, a large number of concurrent logins could result i
 ## Windows versions supported for BYOL<a name="windows_images_supported_versions"></a>
 
 Your VM must run one of the following Windows versions:
-+ Windows 10 Version 1809 \(October 2018 Update\)
-+ Windows 10 Version 1903 \(May 2019 Update\)
-+ Windows 10 Version 1909 \(November 2019 Update\)
 + Windows 10 Version 2004 \(May 2020 Update\)
 + Windows 10 Version 20H2 \(October 2020 Update\)
++ Windows 10 Version 21H1 \(May 2021 Update\)
++ Windows 10 Version 21H2 \(December 2021 Update\)
 
 All supported OS versions support all of the compute types available in the AWS Region where you're using WorkSpaces\. Versions of Windows that are no longer supported by Microsoft are not guaranteed to work and are not supported by AWS Support\.
 
@@ -77,6 +76,9 @@ If you choose to subscribe to Office through AWS, additional charges will apply\
 **Important**  
 If Microsoft Office is already installed on the VM that you are using to create your BYOL image, you must uninstall it from the VM if you want to subscribe to Office through AWS\.
 If you plan to subscribe to Office through AWS, make sure that your VM has at least 20 GB of free disk space\.
+
+**Note**  
+Graphics\.g4dn and GraphicsPro\.g4dn BYOL images only support Office 2019 and do not support Office 2016\.
 
 If you choose to subscribe to Office, the BYOL image ingestion process takes a minimum of 3 hours\.
 
@@ -332,7 +334,7 @@ Call WorkSpaces **ImportWorkspaceImage**\.
 Call Amazon EC2 **DescribeImages** on the Amazon EC2 image that you want to use to create the BYOL image\.
 Call Amazon EC2 **ModifyImageAttribute** on the Amazon EC2 image that you want to use to create the BYOL image\. Make sure that the launch permissions on the Amazon EC2 image are not restricted\. The image must be shareable throughout the BYOL image creation process\.
 For an example IAM policy specific to BYOL WorkSpaces, see [Identity and access management for WorkSpaces](workspaces-access-control.md)\. For more information about working with IAM permissions, see [Changing Permissions for an IAM User ](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html) in the *IAM User Guide*\.  
-To create a Graphics or GraphicsPro bundle from your image, contact the [AWS Support Center](https://console.aws.amazon.com/support/home#/) to get your account added to the allow list\. After your account is on the allow list, you can use the AWS CLI import\-workspace\-image command to ingest the Graphics or GraphicsPro image\. For more information, see [import\-workspace\-image](https://docs.aws.amazon.com/cli/latest/reference/workspaces/import-workspace-image.html) in the *AWS CLI Command Reference*\.
+To create a Graphics\.g4dn, GraphicsPro\.g4dn, Graphics, or GraphicsPro bundle from your image, contact the [AWS Support Center](https://console.aws.amazon.com/support/home#/) to get your account added to the allow list\. After your account is on the allow list, you can use the AWS CLI import\-workspace\-image command to ingest the Graphics\.g4dn, GraphicsPro\.g4dn, Graphics, or GraphicsPro image\. For more information, see [import\-workspace\-image](https://docs.aws.amazon.com/cli/latest/reference/workspaces/import-workspace-image.html) in the *AWS CLI Command Reference*\.
 
 **To create an image from the Windows VM**
 
@@ -346,9 +348,9 @@ To create a Graphics or GraphicsPro bundle from your image, contact the [AWS Sup
    + For **AMI ID**, choose the **EC2 Console** link, and choose the Amazon EC2 image that you imported as described in the previous section \([Step 5: Import the VM as an image into Amazon EC2](#windows_images_import_image_ec2_byol)\)\. The image name must begin with `ami-` and be followed by the identifier for the AMI \(for example, `ami-1234567e`\)\.
    + For **Image name**, enter a unique name for the image\.
    + For **Description**, enter a description to help you quickly identify the image\.
-   + For **Instance type**, choose the appropriate bundle type \(either **Regular**, **Graphics**, or **GraphicsPro**\), depending on which protocol you want to use for your image, either PCoIP or WorkSpaces Streaming Protocol \(WSP\)\. For non\-GPU\-enabled bundles \(bundles other than Graphics or GraphicsPro\), choose **Regular**\.
+   + For **Instance type**, choose the appropriate bundle type \(either **Regular**, **Graphics\.g4dn**, **GraphicsPro\.g4dn**, **Graphics**, or **GraphicsPro**\), depending on which protocol you want to use for your image, either PCoIP or WorkSpaces Streaming Protocol \(WSP\)\. For non\-GPU\-enabled bundles \(bundles other than Graphics\.g4dn, GraphicsPro\.g4dn, Graphics, or GraphicsPro\), choose **Regular**\.
 **Note**  
-Graphics and GraphicsPro images can be created only for the PCoIP protocol at this time\.
+Graphics\.g4dn, GraphicsPro\.g4dn, Graphics, and GraphicsPro images can be created only for the PCoIP protocol at this time\.
    + \(Optional\) For **Select applications**, choose which version of Microsoft Office you want to subscribe to\. For more information, see [Add Microsoft Office to Your BYOL image](#windows_images_adding_office)\.
    + \(Optional\) For **Tags**, choose **Add new tag** to associate tags with this image\. For more information, see [Tag WorkSpaces resources](tag-workspaces-resources.md)\.
 

@@ -4,7 +4,7 @@ You can complete the following directory management tasks using the WorkSpaces c
 
 **Topics**
 + [Select an organizational unit](#select-ou)
-+ [Configure automatic IP addresses](#automatic-assignment)
++ [Configure automatic public IP addresses](#automatic-assignment)
 + [Control device access](#control-device-access)
 + [Manage local administrator permissions](#local-admin-setting)
 + [Update the AD Connector account \(AD Connector\)](#connect-account)
@@ -46,11 +46,11 @@ After you select a new OU, the machine accounts for all WorkSpaces that are crea
 
 1. \(Optional\) Rebuild the existing WorkSpaces to update the OU\. For more information, see [Rebuild a WorkSpace](rebuild-workspace.md)\.
 
-## Configure automatic IP addresses<a name="automatic-assignment"></a>
+## Configure automatic public IP addresses<a name="automatic-assignment"></a>
 
-After you enable automatic assignment of [ Elastic IP addresses](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html), each WorkSpace that you launch is assigned an Elastic IP address \(a static public IP address\) from the Amazon\-provided pool of Elastic IP addresses\. These Elastic IP addresses allow WorkSpaces in public subnets to access the internet\. WorkSpaces that already exist before you enable automatic assignment do not receive an Elastic IP address until you rebuild them\.
+After you enable automatic assignment of public IP addresses, each WorkSpace that you launch is assigned a public IP address from the Amazon\-provided pool of public addresses\. A WorkSpace in a public subnet can access the internet through the internet gateway if it has a public IP address\. WorkSpaces that already exist before you enable automatic assignment do not receive public addresses until you rebuild them\.
 
-Note that you do not need to enable automatic assignment of Elastic IP addresses if your WorkSpaces are in private subnets and you configured a NAT gateway for the virtual private cloud \(VPC\), or if your WorkSpaces are in public subnets and you manually assigned Elastic IP addresses\. For more information, see [Configure a VPC for WorkSpaces](amazon-workspaces-vpc.md)\.
+Note that you do not need to enable automatic assignment of public addresses if your WorkSpaces are in private subnets and you configured a NAT gateway for the virtual private cloud \(VPC\), or if your WorkSpaces are in public subnets and you assigned them Elastic IP addresses\. For more information, see [Configure a VPC for WorkSpaces](amazon-workspaces-vpc.md)\.
 
 **Warning**  
 If you associate an Elastic IP address that you own to a WorkSpace, and then you later disassociate that Elastic IP address from the WorkSpace, the WorkSpace loses its public IP address, and it doesn't automatically get a new one from the Amazon\-provided pool\. To associate a new public IP address from the Amazon\-provided pool with the WorkSpace, you must [rebuild the WorkSpace](rebuild-workspace.md)\. If you don't want to rebuild the WorkSpace, you must associate another Elastic IP address that you own to the WorkSpace\.

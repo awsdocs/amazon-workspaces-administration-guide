@@ -4,13 +4,13 @@
 *****Copyright &copy; Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
-Amazon's trademarks and trade dress may not be used in 
-     connection with any product or service that is not Amazon's, 
-     in any manner that is likely to cause confusion among customers, 
-     or in any manner that disparages or discredits Amazon. All other 
-     trademarks not owned by Amazon are the property of their respective
-     owners, who may or may not be affiliated with, connected to, or 
-     sponsored by Amazon.
+Amazon's trademarks and trade dress may not be used in
+connection with any product or service that is not Amazon's,
+in any manner that is likely to cause confusion among customers,
+or in any manner that disparages or discredits Amazon. All other
+trademarks not owned by Amazon are the property of their respective
+owners, who may or may not be affiliated with, connected to, or
+sponsored by Amazon.
 
 -----
 ## Contents
@@ -23,6 +23,8 @@ Amazon's trademarks and trade dress may not be used in
    + [IP address and port requirements for WorkSpaces](workspaces-port-requirements.md)
    + [Amazon WorkSpaces client network requirements](workspaces-network-requirements.md)
    + [Restrict WorkSpaces access to trusted devices](trusted-devices.md)
+   + [WorkSpaces Integration with SAML 2.0 (preview)](amazon-workspaces-saml.md)
+      + [Setting up SAML 2.0 (preview)](setting-up-saml.md)
    + [Use smart cards for authentication](smart-cards.md)
    + [Provide internet access from your WorkSpace](amazon-workspaces-internet-access.md)
    + [Security groups for your WorkSpaces](amazon-workspaces-security-groups.md)
@@ -50,11 +52,13 @@ Amazon's trademarks and trade dress may not be used in
    + [Create multiple WorkSpaces for a user](create-multiple-workspaces-for-user.md)
    + [Customize how users log in to their WorkSpaces](customize-workspaces-user-login.md)
    + [Enable self-service WorkSpace management capabilities for your users](enable-user-self-service-workspace-management.md)
+   + [Enable Amazon Connect audio optimization for your users](enable-amazon-connect-audio-optimization.md)
 + [Administer your WorkSpaces](administer-workspaces.md)
    + [Manage your Windows WorkSpaces](group_policy.md)
    + [Manage your Amazon Linux WorkSpaces](manage_linux_workspace.md)
    + [Manage the WorkSpace running mode](running-mode.md)
    + [Modify a WorkSpace](modify-workspaces.md)
+   + [Customize WorkSpace branding](customize-branding.md)
    + [Tag WorkSpaces resources](tag-workspaces-resources.md)
    + [WorkSpace maintenance](workspace-maintenance.md)
    + [Encrypted WorkSpaces](encrypt-workspaces.md)

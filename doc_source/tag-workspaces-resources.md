@@ -2,10 +2,10 @@
 
 You can organize and manage the resources for your WorkSpaces by assigning your own metadata to each resource in the form of *tags*\. You specify a *key* and a *value* for each tag\. A key can be a general category, such as "project," "owner," or "environment," with specific associated values\. Using tags is a simple yet powerful way to manage AWS resources and to organize data, including billing data\.
 
-When you add tags to an existing resource, those tags don't appear in your cost allocation report until the first day of the following month\. For example, if you add tags to an existing WorkSpace on July 15, the tags won't appear in your cost allocation report until August 1\. For more information, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *AWS Billing and Cost Management User Guide*\.
+When you add tags to an existing resource, those tags don't appear in your cost allocation report until the first day of the following month\. For example, if you add tags to an existing WorkSpace on July 15, the tags won't appear in your cost allocation report until August 1\. For more information, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *AWS Billing User Guide*\.
 
 **Note**  
-To view your WorkSpaces resource tags in the Cost Explorer, you must activate the tags that you have applied to your WorkSpaces resources by following the instructions in [Activating User\-Defined Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/activating-tags.html) in the *AWS Billing and Cost Management User Guide*\.  
+To view your WorkSpaces resource tags in the Cost Explorer, you must activate the tags that you have applied to your WorkSpaces resources by following the instructions in [Activating User\-Defined Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/activating-tags.html) in the *AWS Billing User Guide*\.  
 Although tags appear 24 hours after activation, it can take 4 to 5 days for values associated with those tags to appear in the Cost Explorer\. Additionally, to appear and provide cost data in Cost Explorer, WorkSpaces resources that have been tagged must incur charges during that time\. Cost Explorer only shows cost data from the time when the tags were activated and onward\. No historical data is available at this time\.
 
 **Resources that you can tag**

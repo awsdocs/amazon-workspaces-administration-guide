@@ -3,7 +3,7 @@
 You can use events from Amazon CloudWatch Events to view, search, download, archive, analyze, and respond to successful logins to your WorkSpaces\. For example, you can use events for the following purposes:
 + Store or archive WorkSpaces login events as logs for future reference, analyze the logs to look for patterns, and take action based on those patterns\.
 + Use the WAN IP address to determine where users are logged in from, and then use policies to allow users access only to files or data from WorkSpaces that meet the access criteria found in the CloudWatch Event type of `WorkSpaces Access`\.
-+ Analyze login data, which is available in near real\-time, and perform automated actions by using AWS Lambda\.
++ Analyze login data and perform automated actions by using AWS Lambda\.
 + Use policy controls to block access to files and applications from unauthorized IP addresses\.
 
 For more information about events, see the [Amazon CloudWatch Events User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/)\.

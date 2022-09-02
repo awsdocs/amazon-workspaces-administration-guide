@@ -7,7 +7,7 @@ As an administrator for WorkSpaces, you can perform the following tasks to manag
 You can use the WorkSpaces console to edit the user information for a WorkSpace\.
 
 **Note**  
-This feature is available only if you use AWS Managed Microsoft AD or Simple AD\. If you use Microsoft Active Directory through AD Connector or a trust relationship, you can manage users and groups by using [ Active Directory](https://docs.microsoft.com/powershell/module/addsadministration/?view=win10-ps)\.
+This feature is available only if you use AWS Managed Microsoft AD or Simple AD\. If you use Microsoft Active Directory through AD Connector or a trust relationship, you can manage users and groups using the [ Active Directory module](https://docs.microsoft.com/powershell/module/activedirectory/)\.
 
 **To edit user information**
 
@@ -34,7 +34,7 @@ Before you can remove a user, you must delete the WorkSpace assigned to that use
 The process you use for managing users and groups depends on which type of directory you're using\.
 + If you're using AWS Managed Microsoft AD, see [ Manage Users and Groups in AWS Managed Microsoft AD](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_manage_users_groups.html) in the *AWS Directory Service Administration Guide*\.
 + If you're using Simple AD, see [ Manage Users and Groups in Simple AD](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/simple_ad_manage_users_groups.html) in the *AWS Directory Service Administration Guide*\. 
-+ If you use Microsoft Active Directory through AD Connector or a trust relationship, you can manage users and groups by using [ Active Directory](https://docs.microsoft.com/en-us/powershell/module/activedirectory/)\. 
++ If you use Microsoft Active Directory through AD Connector or a trust relationship, you can manage users and groups by using the [ Active Directory module](https://docs.microsoft.com/powershell/module/activedirectory/)\.
 
 ## Send an invitation email<a name="send-invitation"></a>
 

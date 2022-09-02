@@ -29,11 +29,11 @@ Custom bundles cost as same as the public bundles they are created from\. For mo
 + The status of the WorkSpace must be **Available** and its modification state must be **None**\.
 + All applications and user profiles on WorkSpaces images must be compatible with Microsoft Sysprep\.
 + All applications to be included in the image must be installed on the `C` drive\.
-+ The user profile must exist, must be located at `D:\Users\username`, and its total size \(files and data\) must be less than 10 GB\.
-+ The `C` drive must have at least 12 GB of available space\.
++ For Windows 7 WorkSpaces, and its total size \(files and data\) must be less than 10 GB\.
++ For Windows 7 WorkSpaces, the `C` drive must have at least 12 GB of available space\.
 + All application services running on the WorkSpace must use a local system account instead of domain user credentials\. For example, you cannot have a Microsoft SQL Server Express installation running with a domain user's credentials\.
 + The WorkSpace must not be encrypted\. Image creation from an encrypted WorkSpace is not currently supported\.
-+ The following components are required in an image\. Without these components, the WorkSpaces that you launch from the image will not function correctly:
++ The following components are required in an image\. Without these components, the WorkSpaces that you launch from the image will not function correctly\. For more information, see [Required configuration and service components for WorkSpaces](required-service-components.md)\.
   + Windows PowerShell version 3\.0 or later
   + Remote Desktop Services
   + AWS PV drivers
@@ -168,11 +168,11 @@ If there are problems with your Sysprep file, contact the [AWS Support Center](h
 
 #### The user profile size must be less than 10 GB<a name="tips_large_profile"></a>
 
-The user profile \(`D:\Users\username`\) must be less than 10 GB total\. Remove files as needed to reduce the size of the user profile\.
+For Windows 7 WorkSpaces, the user profile \(`D:\Users\username`\) must be less than 10 GB total\. Remove files as needed to reduce the size of the user profile\.
 
 #### Drive C must have enough free space<a name="tips_drive_c_full"></a>
 
-You must have at least 12 GB of free space on drive `C`\. Remove files as needed to free up space on drive `C`\.
+For Windows 7 WorkSpaces, you must have at least 12 GB of free space on drive `C`\. Remove files as needed to free up space on drive `C`\. For Windows 10 WorkSpaces, ignore if you receive a `FAILED` message and the disk space is above 2GB\.
 
 #### No services can be running under a domain account<a name="tips_services_domain_accounts"></a>
 
@@ -454,11 +454,11 @@ To create a bundle programmatically, use the CreateWorkspaceBundle API action\. 
      The default available size combinations for the root volume \(for Microsoft Windows, the `C` drive, for Linux, /\) and the user volume \(for Windows, the `D` drive; for Linux, /home\) are as follows: 
      + Root: 80 GB, User: 10 GB, 50 GB, or 100 GB
      + Root: 175 GB, User: 100 GB
-     + For Graphics and GraphicsPro WorkSpaces only: Root: 100 GB, User: 100 GB
+     + For Graphics\.g4dn, GraphicsPro\.g4dn, Graphics, and GraphicsPro WorkSpaces only: Root: 100 GB, User: 100 GB
 
      Alternatively, you can expand the root and user volumes up to 2000 GB each\.
 **Note**  
-To ensure that your data is preserved, you cannot decrease the size of the root or user volumes after you launch a WorkSpace\. Instead, make sure that you specify the minimum sizes for these volumes when launching a WorkSpace\. You can launch a Value, Standard, Performance, Power, or PowerPro WorkSpace with a minimum of 80 GB for the root volume and 10 GB for the user volume\. You can launch a Graphics or GraphicsPro WorkSpace with a minimum of 100 GB for the root volume and 100 GB for the user volume\.
+To ensure that your data is preserved, you cannot decrease the size of the root or user volumes after you launch a WorkSpace\. Instead, make sure that you specify the minimum sizes for these volumes when launching a WorkSpace\. You can launch a Value, Standard, Performance, Power, or PowerPro WorkSpace with a minimum of 80 GB for the root volume and 10 GB for the user volume\. You can launch a Graphics\.g4dn, GraphicsPro\.g4dn, Graphics, or GraphicsPro WorkSpace with a minimum of 100 GB for the root volume and 100 GB for the user volume\.
 
 1. Choose **Create bundle**\.
 

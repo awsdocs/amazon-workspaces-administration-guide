@@ -14,7 +14,7 @@ After a WorkSpace is disconnected and the AutoStop Time period has expired, it m
 
 When possible, the state of the desktop is saved to the root volume of the WorkSpace\. The WorkSpace resumes when a user logs in, and all open documents and running programs return to their saved state\.
 
-AutoStop GraphicsPro WorkSpaces do not preserve the state of data and programs when they stop\. For GraphicsPro WorkSpaces, we recommend saving your work when you’re done using them each time\.
+AutoStop Graphics\.g4dn, GraphicsPro\.g4dn, Graphics, and GraphicsPro WorkSpaces do not preserve the state of data and programs when they stop\. For these Autostop WorkSpaces, we recommend saving your work when you’re done using them each time\.
 
 For Bring Your Own License \(BYOL\) AutoStop WorkSpaces, a large number of concurrent logins could result in significantly increased time for WorkSpaces to be available\. If you expect many users to log into your BYOL AutoStop WorkSpaces at the same time, please consult your account manager for advice\.
 
@@ -80,4 +80,4 @@ You can reboot \(restart\) AutoStop WorkSpaces that are available or in an error
 To remove the fixed infrastructure costs that are associated with AutoStop WorkSpaces, remove the WorkSpace from your account\. For more information, see [Delete a WorkSpace](delete-workspaces.md)\.
 
 **To stop and start an AutoStop WorkSpace using the AWS CLI**  
-Use the [stop\-workspaces](https://docs.aws.amazon.com/cli/latest/reference/workspaces/stop-workspaces.html) and [start\-workspaces](https://docs.aws.amazon.com/cli/latest/reference/workspaces/start-workspaces.html) commands\.
+Use the [stop\-WorkSpaces](https://docs.aws.amazon.com/cli/latest/reference/workspaces/stop-workspaces.html) and [start\-WorkSpaces](https://docs.aws.amazon.com/cli/latest/reference/workspaces/start-workspaces.html) commands\.

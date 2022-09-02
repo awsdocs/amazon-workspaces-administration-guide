@@ -16,7 +16,7 @@ For more information about WorkSpaces and FIPS endpoint encryption, see [Set up 
 
 ## Encryption at rest<a name="encryption-rest"></a>
 
-You can encrypt the storage volumes for your WorkSpaces using customer master keys \(CMK\) from AWS Key Management Service\. For more information, see [Encrypted WorkSpaces](encrypt-workspaces.md)\.
+You can encrypt the storage volumes for your WorkSpaces using AWS KMS Key from AWS Key Management Service\. For more information, see [Encrypted WorkSpaces](encrypt-workspaces.md)\.
 
 When you create WorkSpaces with encrypted volumes, WorkSpaces uses Amazon Elastic Block Store \(Amazon EBS\) to create and manage those volumes\. EBS encrypts your volumes with a data key using the industry\-standard AES\-256 algorithm\. For more information, see [ Amazon EBS Encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) in the *Amazon EC2 User Guide for Windows Instances*\.
 

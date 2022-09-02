@@ -4,7 +4,7 @@ After you launch a WorkSpace, you can modify its configuration in two ways:
 + You can change the size of its root volume \(for Windows, drive C; for Linux, /\) and its user volume \(for Windows, drive D; for Linux /home\)\.
 + You can change its compute type to select a new bundle\.
 
-The current modification state of a WorkSpace is displayed in the **State** setting in the WorkSpaces console\. The possible values for **State** are **Modifying Compute**, **Modifying Storage,** and **None**\.
+To see the current modification state of a WorkSpace, select the arrow to show more details about that WorkSpace\. The possible values for **State** are **Modifying Compute**, **Modifying Storage,** and **None**\.
 
 If you want to modify a WorkSpace, it must have a status of `AVAILABLE` or `STOPPED`\. When you are modifying the volume size, you can't change the compute type at the same time, and vice versa\.
 
@@ -29,7 +29,7 @@ You can expand the root and user volumes whether they are encrypted or unencrypt
 **Note**  
 When you expand a volume for a WorkSpace, WorkSpaces automatically extends the volume's partition within Windows or Linux\. When the process is finished, you must reboot the WorkSpace for the changes to take effect\. 
 
-To ensure that your data is preserved, you cannot decrease the size of the root or user volumes after you launch a WorkSpace\. Instead, make sure that you specify the minimum sizes for these volumes when launching a WorkSpace\. You can launch a Value, Standard, Performance, Power, or PowerPro WorkSpace with a minimum of 80 GB for the root volume and 10 GB for the user volume\. You can launch a Graphics or GraphicsPro WorkSpace with a minimum of 100 GB for the root volume and 100 GB for the user volume\.
+To ensure that your data is preserved, you cannot decrease the size of the root or user volumes after you launch a WorkSpace\. Instead, make sure that you specify the minimum sizes for these volumes when launching a WorkSpace\. You can launch a Value, Standard, Performance, Power, or PowerPro WorkSpace with a minimum of 80 GB for the root volume and 10 GB for the user volume\. You can launch a Graphics\.g4dn, GraphicsPro\.g4dn, Graphics, or GraphicsPro WorkSpace with a minimum of 100 GB for the root volume and 100 GB for the user volume\.
 
 While a WorkSpace disk size increase is in progress, users can perform most tasks on their WorkSpace\. However, they can't change their WorkSpace compute type, switch the WorkSpace running mode, rebuild their WorkSpace, or reboot \(restart\) their WorkSpace\.
 
@@ -44,7 +44,7 @@ In most cases, the disk size increase process might take up to two hours\. Howev
 + You cannot increase the size of the root and user volumes at the same time\. To increase the root volume, you must first change the user volume to 100 GB\. After that change is made, you can then update the root volume to any value between 175 and 2000 GB\. After the root volume has been changed to any value between 175 and 2000 GB, you can then update the user volume further, to any value between 100 and 2000 GB\.
 **Note**  
 If you want to increase both volumes, you must wait 20\-30 minutes for the first operation to finish before you can start the second operation\.
-+ Unless the WorkSpace is a Graphics or GraphicsPro WorkSpace, the root volume cannot be less than 175 GB when the user volume is 100 GB\. Graphics and GraphicsPro WorkSpaces can have the root and user volumes both set to 100 GB minimum\.
++ Unless the WorkSpace is a Graphics\.g4dn, GraphicsPro\.g4dn, Graphics, or GraphicsPro WorkSpace, the root volume cannot be less than 175 GB when the user volume is 100 GB\. Graphics\.g4dn, GraphicsPro\.g4dn, Graphics, and GraphicsPro WorkSpaces can have the root and user volumes both set to 100 GB minimum\.
 + If the user volume is 50 GB, you cannot update the root volume to anything other than 80 GB\. If the root volume is 80 GB, the user volume can only be 10, 50, or 100 GB\.
 
 **To change the volume sizes of a WorkSpace**
@@ -69,7 +69,8 @@ Use the [modify\-workspace\-properties](https://docs.aws.amazon.com/cli/latest/r
 You can switch a WorkSpace between the Value, Standard, Performance, Power, and PowerPro bundles\. For more information about these bundle types, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/features/#Amazon_WorkSpaces_Bundles)\.
 
 **Note**  
-You cannot change the compute type for Graphics and GraphicsPro WorkSpaces\.
+You can change the compute type from Graphics\.g4dn to GraphicsPro\.g4dn and vice versa\. You cannot change the compute type of Graphics\.g4dn and GraphicsPro\.g4dn to any other value\.
+You cannot change the compute type of Graphics and GraphicsPro to any other value\.
 
 When you request a bundle change, WorkSpaces reboots the WorkSpace using the new bundle\. WorkSpaces preserves the operating system, applications, data, and storage settings for the WorkSpace\.
 

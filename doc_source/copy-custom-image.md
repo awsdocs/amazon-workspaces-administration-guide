@@ -59,7 +59,7 @@ You can specify an account ID in the ARN only when that account owns the images 
 
 For more information about working with IAM, see [Identity and access management for WorkSpaces](workspaces-access-control.md)\.
 
-**Build copy images**  
+**Bulk copy images**  
 You can copy images one by one using the console\. To bulk copy images, use the CopyWorkspaceImage API operation or the copy\-workspace\-image command in the AWS Command Line Interface \(AWS CLI\)\. For more information, see [ CopyWorkspaceImage](https://docs.aws.amazon.com/workspaces/latest/api/API_CopyWorkspaceImage.html) in the *Amazon WorkSpaces API Reference* or see [ copy\-workspace\-image](https://docs.aws.amazon.com/cli/latest/reference/workspaces/copy-workspace-image.html) in the *AWS CLI Command Reference*\.
 
 **Important**  

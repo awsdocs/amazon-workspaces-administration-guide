@@ -106,6 +106,7 @@ If these keys do not exist, reboot the WorkSpace\. The keys should be added when
 1. After saving the changes to the registry, reboot the WorkSpace again so that the changes are applied\.
 **Note**  
 After the reboot, logging in to the WorkSpace creates a new user profile\. You might see placeholder icons in the **Start** menu\. This behavior is automatically resolved after the in\-place upgrade is complete\.
+Wait for 10 minutes to allow the WorkSpace to be unblocked\.
 
    \(Optional\) Confirm that the following key value is set to **1**, which unblocks the WorkSpace for updating:
 

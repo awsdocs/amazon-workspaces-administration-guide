@@ -9,7 +9,7 @@ Amazon WorkSpaces doesn’t support the provisioning of IAM credentials into a W
 
 For more information about IAM, see [Identity and Access Management \(IAM\)](https://aws.amazon.com/iam) and the [https://docs.aws.amazon.com/IAM/latest/UserGuide/](https://docs.aws.amazon.com/IAM/latest/UserGuide/)\. You can find the WorkSpaces\-specific resources, actions, and condition context keys for use in IAM permission policies at [Actions, Resources, and Condition Keys for Amazon WorkSpaces](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonworkspaces.html) in the *IAM User Guide*\.
 
-For a tool that helps you create IAM policies, see the [ AWS Policy Generator](http://aws.amazon.com/blogs/aws/aws-policy-generator/)\. You can also use the [IAM Policy Simulator](https://docs.aws.amazon.com/IAM/latest/UsingPolicySimulatorGuide/) to test whether a policy would allow or deny a specific request to AWS\.
+For a tool that helps you create IAM policies, see the [AWS Policy Generator](http://aws.amazon.com/blogs/aws/aws-policy-generator/)\. You can also use the [IAM Policy Simulator](https://docs.aws.amazon.com/IAM/latest/UsingPolicySimulatorGuide/) to test whether a policy would allow or deny a specific request to AWS\.
 
 **Example 1: Perform all WorkSpaces tasks**  <a name="perform-workspaces-tasks"></a>
 The following policy statement grants an IAM user permission to perform all WorkSpaces tasks, including creating and managing directories\. It also grants permission to run the quick setup procedure\.  
@@ -27,40 +27,50 @@ The following example policy shows how to allow an IAM user to use Amazon WorkSp
       "Action": [
         "workspaces:*",
         "ds:*",
-        "iam:PassRole", 
-        "iam:GetRole", 
-        "iam:CreateRole", 
-        "iam:PutRolePolicy", 
+        "iam:GetRole",
+        "iam:CreateRole",
+        "iam:PutRolePolicy",
         "kms:ListAliases",
         "kms:ListKeys",
-        "ec2:CreateVpc", 
-        "ec2:CreateSubnet", 
-        "ec2:CreateNetworkInterface", 
-        "ec2:CreateInternetGateway", 
-        "ec2:CreateRouteTable", 
-        "ec2:CreateRoute", 
-        "ec2:CreateTags", 
-        "ec2:CreateSecurityGroup", 
+        "ec2:CreateVpc",
+        "ec2:CreateSubnet",
+        "ec2:CreateNetworkInterface",
+        "ec2:CreateInternetGateway",
+        "ec2:CreateRouteTable",
+        "ec2:CreateRoute",
+        "ec2:CreateTags",
+        "ec2:CreateSecurityGroup",
         "ec2:DescribeInternetGateways",
         "ec2:DescribeSecurityGroups",
-        "ec2:DescribeRouteTables", 
-        "ec2:DescribeVpcs", 
-        "ec2:DescribeSubnets", 
-        "ec2:DescribeNetworkInterfaces", 
-        "ec2:DescribeAvailabilityZones", 
-        "ec2:AttachInternetGateway", 
-        "ec2:AssociateRouteTable", 
-        "ec2:AuthorizeSecurityGroupEgress", 
-        "ec2:AuthorizeSecurityGroupIngress", 
-        "ec2:DeleteSecurityGroup", 
-        "ec2:DeleteNetworkInterface", 
-        "ec2:RevokeSecurityGroupEgress", 
+        "ec2:DescribeRouteTables",
+        "ec2:DescribeVpcs",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeNetworkInterfaces",
+        "ec2:DescribeAvailabilityZones",
+        "ec2:AttachInternetGateway",
+        "ec2:AssociateRouteTable",
+        "ec2:AuthorizeSecurityGroupEgress",
+        "ec2:AuthorizeSecurityGroupIngress",
+        "ec2:DeleteSecurityGroup",
+        "ec2:DeleteNetworkInterface",
+        "ec2:RevokeSecurityGroupEgress",
         "ec2:RevokeSecurityGroupIngress",
         "workdocs:RegisterDirectory",
         "workdocs:DeregisterDirectory",
         "workdocs:AddUserToGroup"
       ],
       "Resource": "*"
+    },
+    {
+      "Sid": "iamPassRole",
+      "Effect": "Allow",
+      "Action": "iam:PassRole",
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "iam:PassedToService": "workspaces.amazonaws.com"
+        }
+      }
     }
   ]
 }
@@ -136,42 +146,52 @@ The following policy statement grants an IAM user permission to perform all Work
       "Action": [
         "workspaces:*",
         "ds:*",
-        "iam:PassRole", 
-        "iam:GetRole", 
-        "iam:CreateRole", 
-        "iam:PutRolePolicy", 
+        "iam:GetRole",
+        "iam:CreateRole",
+        "iam:PutRolePolicy",
         "kms:ListAliases",
         "kms:ListKeys",
-        "ec2:CreateVpc", 
-        "ec2:CreateSubnet", 
-        "ec2:CreateNetworkInterface", 
-        "ec2:CreateInternetGateway", 
-        "ec2:CreateRouteTable", 
-        "ec2:CreateRoute", 
-        "ec2:CreateTags", 
+        "ec2:CreateVpc",
+        "ec2:CreateSubnet",
+        "ec2:CreateNetworkInterface",
+        "ec2:CreateInternetGateway",
+        "ec2:CreateRouteTable",
+        "ec2:CreateRoute",
+        "ec2:CreateTags",
         "ec2:CreateSecurityGroup",
         "ec2:DescribeImages",
         "ec2:ModifyImageAttribute",
         "ec2:DescribeInternetGateways",
         "ec2:DescribeSecurityGroups",
-        "ec2:DescribeRouteTables", 
-        "ec2:DescribeVpcs", 
-        "ec2:DescribeSubnets", 
-        "ec2:DescribeNetworkInterfaces", 
-        "ec2:DescribeAvailabilityZones", 
-        "ec2:AttachInternetGateway", 
-        "ec2:AssociateRouteTable", 
-        "ec2:AuthorizeSecurityGroupEgress", 
-        "ec2:AuthorizeSecurityGroupIngress", 
-        "ec2:DeleteSecurityGroup", 
-        "ec2:DeleteNetworkInterface", 
-        "ec2:RevokeSecurityGroupEgress", 
+        "ec2:DescribeRouteTables",
+        "ec2:DescribeVpcs",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeNetworkInterfaces",
+        "ec2:DescribeAvailabilityZones",
+        "ec2:AttachInternetGateway",
+        "ec2:AssociateRouteTable",
+        "ec2:AuthorizeSecurityGroupEgress",
+        "ec2:AuthorizeSecurityGroupIngress",
+        "ec2:DeleteSecurityGroup",
+        "ec2:DeleteNetworkInterface",
+        "ec2:RevokeSecurityGroupEgress",
         "ec2:RevokeSecurityGroupIngress",
         "workdocs:RegisterDirectory",
         "workdocs:DeregisterDirectory",
         "workdocs:AddUserToGroup"
       ],
       "Resource": "*"
+    },
+    {
+      "Sid": "iamPassRole",
+      "Effect": "Allow",
+      "Action": "iam:PassRole",
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "iam:PassedToService": "workspaces.amazonaws.com"
+        }
+      }
     }
   ]
 }
@@ -399,6 +419,7 @@ You can't specify a resource ARN with the following API actions:
 + `DeleteWorkspaceImage`
 + `DescribeAccount`
 + `DescribeAccountModifications`
++ `DescribeIpGroups`
 + `DescribeTags`
 + `DescribeWorkspaceDirectories`
 + `DescribeWorkspaceImages`
@@ -427,3 +448,115 @@ For these API actions, you can specify an account ID in the resource ARN only wh
 ```
 "arn:aws:workspaces:region:*:resource_type/resource_identifier"
 ```
+
+## AWS managed policies for WorkSpaces<a name="managed-policies"></a>
+
+Using AWS managed policies makes adding permissions to users, groups, and roles easier than writing policies yourself\. It takes time and expertise to create [ IAM customer managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create-console.html) that provide your team with only the permissions they need\. Use AWS managed policies to get started quickly\. These policies cover common use cases and are available in your AWS account\. For more information about AWS managed policies, see [AWS managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies) in the *IAM User Guide*\.
+
+AWS services maintain and update AWS managed policies\. You can't change the permissions in AWS managed policies\. Services may occasionally add additional permissions to an AWS managed policy to support new features\. This type of update affects all identities \(users, groups, and roles\) where the policy is attached\. Services are most likely to update an AWS managed policy when a new feature is launched or when new operations become available\. Services don't remove permissions from an AWS managed policy, so policy updates won't break your existing permissions\.
+
+Additionally, AWS supports managed policies for job functions that span multiple services\. For example, the `ReadOnlyAccess` AWS managed policy provides read\-only access to all AWS services and resources\. When a service launches a new feature, AWS adds read\-only permissions for new operations and resources\. For a list and descriptions of job function policies, see [AWS managed policies for job functions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_job-functions.html) in the *IAM User Guide*\.
+
+### AWS managed policy: AmazonWorkSpacesAdmin<a name="workspaces-admin"></a>
+
+This policy provides access to Amazon WorkSpaces administrative actions via AWS SDK and CLI\.
+
+#### Permission details<a name="workspaces-admin-permissions-details"></a>
+
+This policy includes the following permissions:
++ `workspaces` \- Allows access to perform administrative actions on WorkSpaces resources\.
++ `kms` \- Allows access to list and describe KMS keys, as well as list aliases\.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "kms:DescribeKey",
+                "kms:ListAliases",
+                "kms:ListKeys",
+                "workspaces:CreateTags",
+                "workspaces:CreateWorkspaces",
+                "workspaces:CreateWorkspaceImage",
+                "workspaces:DeleteTags",
+                "workspaces:DescribeTags",
+                "workspaces:DescribeWorkspaceBundles",
+                "workspaces:DescribeWorkspaceDirectories",
+                "workspaces:DescribeWorkspaces",
+                "workspaces:DescribeWorkspacesConnectionStatus",
+                "workspaces:ModifyWorkspaceProperties",
+                "workspaces:ModifySamlProperties",
+                "workspaces:RebootWorkspaces",
+                "workspaces:RebuildWorkspaces",
+                "workspaces:StartWorkspaces",
+                "workspaces:StopWorkspaces",
+                "workspaces:TerminateWorkspaces"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+#### AWS managed policy: AmazonWorkSpacesServiceAccess<a name="workspaces-service-access"></a>
+
+This policy provides customer account access to the Amazon WorkSpaces service for launching a WorkSpace\.
+
+##### Permission details<a name="workspaces-service-access-permissions-details"></a>
+
+This policy includes the following permissions:
++ `ec2` \- Allows access to manage Amazon EC2 resources associated with a WorkSpace, such as network interfaces\.
+
+  ```
+  {
+      "Version": "2012-10-17",
+      "Statement": [
+          {
+              "Action": [
+                  "ec2:CreateNetworkInterface",
+                  "ec2:DeleteNetworkInterface",
+                  "ec2:DescribeNetworkInterfaces"
+              ],
+              "Effect": "Allow",
+              "Resource": "*"
+          }
+      ]
+  }
+  ```
+
+##### AWS managed policy: AmazonWorkSpacesSelfServiceAccess<a name="workspaces-self-service-access"></a>
+
+This policy provides access to the Amazon WorkSpaces service to perform WorkSpaces self\-service actions initiated by a user\.
+
+##### Permission details<a name="workspaces-self-service-access-permissions-details"></a>
+
+This policy includes the following permissions:
++ `workspaces` \- Allows access to self\-service WorkSpaces management capabilities for users\.
+
+  ```
+  {
+      "Version": "2012-10-17",
+      "Statement": [
+          {
+              "Action": [
+                  "workspaces:RebootWorkspaces",
+                  "workspaces:RebuildWorkspaces",
+                  "workspaces:ModifyWorkspaceProperties"
+              ],
+              "Effect": "Allow",
+              "Resource": "*"
+          }
+      ]
+  }
+  ```
+
+#### WorkSpaces updates to AWS managed policies<a name="updates-managed-policies"></a>
+
+View details about updates to AWS managed policies for WorkSpaces since this service began tracking these changes\. For automatic alerts about changes to this page, subscribe to the RSS feed on the [ Document history for the Amazon WorkSpaces Administration Guide](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-document-history.html) page\.
+
+
+| Change | Description | Date | 
+| --- | --- | --- | 
+| WorkSpaces started tracking changes | WorkSpaces started tracking changes for its WorkSpaces managed policies\. |  | 

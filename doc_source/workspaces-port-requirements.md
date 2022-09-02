@@ -2,7 +2,7 @@
 
 To connect to your WorkSpaces, the network that your WorkSpaces clients are connected to must have certain ports open to the IP address ranges for the various AWS services \(grouped in subsets\)\. These address ranges vary by AWS Region\. These same ports must also be open on any firewall running on the client\. For more information about the AWS IP address ranges for different Regions, see [AWS IP Address Ranges](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html) in the *Amazon Web Services General Reference*\.
 
-For an architecture diagram, see [ WorkSpaces Architecture](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html#architecture)\. For additional architecture diagrams, see the [ *Best Practices for Deploying Amazon WorkSpaces*](https://d1.awsstatic.com/whitepapers/Best-Practices-for-Deploying-Amazon-WorkSpaces.pdf) whitepaper\.
+For an architecture diagram, see [WorkSpaces Architecture](amazon-workspaces.md#architecture)\. For additional architecture diagrams, see [Best Practices for Deploying Amazon WorkSpaces](https://docs.aws.amazon.com/whitepapers/latest/best-practices-deploying-amazon-workspaces/best-practices-deploying-amazon-workspaces.html)\.
 
 ## Ports for client applications<a name="client-application-ports"></a>
 
@@ -53,17 +53,17 @@ For the WorkSpaces client application to be able to access the WorkSpaces servic
 
 | Category | Domain or IP address | 
 | --- | --- | 
-| CAPTCHA | https://opfcaptcha\-prod\.s3\.amazonaws\.com/  | 
+| CAPTCHA |  https://opfcaptcha\-prod\.s3\.amazonaws\.com/  | 
 | Client Auto\-update |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 | Connectivity Check |  https://connectivity\.amazonworkspaces\.com/  | 
-| Device Metrics \(for 1\.0\+ and 2\.0\+ WorkSpaces client applications\) | https://device\-metrics\-us\-2\.amazon\.com/ | 
+| Device Metrics \(for 1\.0\+ and 2\.0\+ WorkSpaces client applications\) |  https://device\-metrics\-us\-2\.amazon\.com/  | 
 | Client Metrics \(for 3\.0\+ WorkSpaces client applications\) |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 | Dynamic Messaging Service \(for 3\.0\+ WorkSpaces client applications\) |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 | Directory Settings |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
-| Forrester Log Service  | https://fls\-na\.amazon\.com/ | 
+| Forrester Log Service  |  https://fls\-na\.amazon\.com/  | 
 | Health Check \(DRP\) Servers | [Health check servers](#health_check) | 
-| Registration Dependency \(for Web Access and Teradici PCoIP Zero Clients\) | https://s3\.amazonaws\.com | 
-| User Login Pages | https://<directory id>\.awsapps\.com/ \(where <directory id> is the customer's domain\)  In the AWS GovCloud \(US\-West\) Region: https://login\.us\-gov\-home\.awsapps\.com/directory/<directory id>/ \(where <directory id> is the customer's domain\)    | 
+| Registration Dependency \(for Web Access and Teradici PCoIP Zero Clients\) |  https://s3\.amazonaws\.com  | 
+| User Login Pages | https://<directory id>\.awsapps\.com/ \(where <directory id> is the customer's domain\)  In the AWS GovCloud \(US\-West\) Region: https://login\.us\-gov\-home\.awsapps\.com/directory/<directory id>/ \(where <directory id> is the customer's domain\)      | 
 | WS Broker |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 | WorkSpaces API Endpoints |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 
@@ -85,8 +85,8 @@ For the WorkSpaces client application to be able to access the WorkSpaces servic
 
 | Category | Domain or IP address | 
 | --- | --- | 
-| WSP Session Gateway \(WSG\) | [WSP gateway servers](#gateway_WSP) | 
-| Web Access TURN Servers for WSP | [WSP gateway servers](#gateway_WSP) | 
+| WSP Session Gateway \(WSG\) |  [WSP gateway servers](#gateway_WSP)  | 
+| Web Access TURN Servers for WSP |  [WSP gateway servers](#gateway_WSP)  | 
 
 ## Health check servers<a name="health_check"></a>
 
@@ -114,7 +114,7 @@ The WorkSpaces client applications perform health checks over ports 4172 and 419
 WorkSpaces uses PCoIP to stream the desktop session to clients over port 4172\. For its PCoIP gateway servers, WorkSpaces uses a small range of Amazon EC2 public IPv4 addresses\. This enables you to set more finely grained firewall policies for devices that access WorkSpaces\. Note that the WorkSpaces clients do not support IPv6 addresses as a connectivity option at this time\.
 
 **Note**  
-We are regularly updating our IP address ranges in the [ AWS IP Address Ranges](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html) `ip-ranges.json` file\. To ingest the most up\-to\-date IP address ranges for WorkSpaces, look for entries in the `ip-ranges.json` file where `service: "WORKSPACES_GATEWAYS"`\.
+We are regularly updating our IP address ranges in the [AWS IP Address Ranges](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html) `ip-ranges.json` file\. To ingest the most up\-to\-date IP address ranges for WorkSpaces, look for entries in the `ip-ranges.json` file where `service: "WORKSPACES_GATEWAYS"`\.
 
 
 | Region | Public IP address range | 
@@ -143,7 +143,7 @@ WorkSpaces uses a small range of Amazon EC2 public IPv4 addresses for its WSP ga
 
 | Region | Public IP address range | 
 | --- | --- | 
-| US East \(N\. Virginia\) | 3\.227\.4\.0/22 | 
+| US East \(N\. Virginia\) | [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
 | US West \(Oregon\) | 34\.223\.96\.0/22 | 
 | Asia Pacific \(Mumbai\) | 65\.1\.156\.0/22 | 
 | Asia Pacific \(Seoul\) | 3\.35\.160\.0/22 | 
@@ -155,7 +155,7 @@ WorkSpaces uses a small range of Amazon EC2 public IPv4 addresses for its WSP ga
 | Europe \(Ireland\) | 3\.248\.176\.0/22 | 
 | Europe \(London\) | 18\.134\.68\.0/22 | 
 | South America \(São Paulo\) | 15\.228\.64\.0/22 | 
-| AWS GovCloud \(US\-West\) | 3\.32\.139\.0/24 | 
+| AWS GovCloud \(US\-West\) |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
 
 ## Network interfaces<a name="network-interfaces"></a>
 
@@ -199,11 +199,12 @@ The following table lists the IP address ranges used for the management network 
 The following ports must be open on the management network interface of all WorkSpaces:
 + Inbound TCP on port 4172\. This is used for establishment of the streaming connection on the PCoIP protocol\.
 + Inbound UDP on port 4172\. This is used for streaming user input on the PCoIP protocol\.
-+ Inbound TCP on port 4489\. This is used for access using the web client\. \(The Web Access client is not supported for the WSP protocol\.\)
++ Inbound TCP on port 4489\. This is used for access using the web client\.
 + Inbound TCP on port 8200\. This is used for management and configuration of the WorkSpace on the PCoIP protocol\.
 + Inbound TCP on ports 8201\-8250\. These ports are used for establishment of the streaming connection and for streaming user input on the WSP protocol\.
-+ Outbound TCP on ports 8443 and 9997\. This is used for access using the web client\. \(The Web Access client is not supported for the WSP protocol\.\)
-+ Outbound UDP on ports 3478, 4172, and 4195\. This is used for access using the web client\. \(The Web Access client is not supported for the WSP protocol\.\)
++ Inbound UDP on port 8220\. This port is used for establishment of the streaming connection and for streaming user input on the WSP protocol
++ Outbound TCP on ports 8443 and 9997\. This is used for access using the web client\.
++ Outbound UDP on ports 3478, 4172, and 4195\. This is used for access using the web client\.
 + Outbound UDP on ports 50002 and 55002\. This is used for streaming\. If your firewall uses stateful filtering, the ephemeral ports 50002 and 55002 are automatically opened to allow return communication\. If your firewall uses stateless filtering, you must open ephemeral ports 49152 \- 65535 to allow return communication\.
 + Outbound TCP on port 80 to IP address 169\.254\.169\.254 for access to the EC2 metadata service\. Any HTTP proxy assigned to your WorkSpaces must also exclude 169\.254\.169\.254\.
 + Outbound TCP on port 1688 to IP addresses 169\.254\.169\.250 and 169\.254\.169\.251 to allow access to Microsoft KMS for Windows activation for Workspaces that are based on public bundles\. If you're using Bring Your Own License \(BYOL\) Windows WorkSpaces, you must allow access to your own KMS servers for Windows activation\.
@@ -232,3 +233,367 @@ No matter which type of directory you have, the following ports must be open on 
   + TCP 1024\-65535 \- Dynamic ports for RPC
 
   If any security or firewall software is installed on a WorkSpace that blocks any of these ports, the WorkSpace may not function correctly or may be unreachable\.
+
+## IP address and port requirements by Region<a name="ip-address-regions"></a>
+
+### US East \(N\. Virginia\)<a name="us-east"></a>
+
+
+**Domains and IP Addresses to add to your allowlist**  
+
+| Category | Details | 
+| --- | --- | 
+| CAPTCHA | https://opfcaptcha\-prod\.s3\.amazonaws\.com/ | 
+| Client Auto\-update |  https://d2td7dqidlhjx7\.cloudfront\.net/  | 
+| Connectivity Check |  https://connectivity\.amazonworkspaces\.com/  | 
+| Device Metrics \(for 1\.0\+ and 2\.0\+ WorkSpaces client applications\) | https://device\-metrics\-us\-2\.amazon\.com/ | 
+| Client Metrics \(for 3\.0\+ WorkSpaces client applications\) |  Domain: https://skylight\-client\-ds\.us\-east\-1\.amazonaws\.com   | 
+| Dynamic Messaging Service \(for 3\.0\+ WorkSpaces client applications\) |  Domain: https://ws\-client\-service\.us\-east\-1\.amazonaws\.com  | 
+| Directory Settings |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
+| Forrester Log Service  | https://fls\-na\.amazon\.com/ | 
+| Health Check \(DRP\) Servers | [Health check servers](#health_check) | 
+| Registration Dependency \(for Web Access and Teradici PCoIP Zero Clients\) | https://s3\.amazonaws\.com | 
+| User Login Pages | https://<directory id>\.awsapps\.com/ \(where <directory id> is the customer's domain\)  | 
+| WS Broker |  Domains: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
+| WorkSpaces API Endpoints |  Domains: https://workspaces\.us\-east\-1\.amazonaws\.com  | 
+| Session Broker \(PCM\) | Domains: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| Web Access TURN Servers for PCoIP | Server: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| Health check hostname | drp\-iad\.amazonworkspaces\.com | 
+| Health check IP addresses |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| PCoIP gateway servers public IP address ranges |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| WSP gateway servers IP address range |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
+| Management interface IP address ranges |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+
+### US West \(Oregon\)<a name="us-west"></a>
+
+
+**Domains and IP Addresses to add to your allowlist**  
+
+| Category | Details | 
+| --- | --- | 
+| CAPTCHA | https://opfcaptcha\-prod\.s3\.amazonaws\.com/ | 
+| Client Auto\-update |  https://d2td7dqidlhjx7\.cloudfront\.net/  | 
+| Connectivity Check |  https://connectivity\.amazonworkspaces\.com/  | 
+| Device Metrics \(for 1\.0\+ and 2\.0\+ WorkSpaces client applications\) | https://device\-metrics\-us\-2\.amazon\.com/ | 
+| Client Metrics \(for 3\.0\+ WorkSpaces client applications\) |  Domain: https://skylight\-client\-ds\.us\-west\-2\.amazonaws\.com   | 
+| Dynamic Messaging Service \(for 3\.0\+ WorkSpaces client applications\) |  Domain: https://ws\-client\-service\.us\-west\-2\.amazonaws\.com  | 
+| Directory Settings |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
+| Forrester Log Service  | https://fls\-na\.amazon\.com/ | 
+| Health Check \(DRP\) Servers | [Health check servers](#health_check) | 
+| Registration Dependency \(for Web Access and Teradici PCoIP Zero Clients\) | https://s3\.amazonaws\.com | 
+| User Login Pages | https://<directory id>\.awsapps\.com/ \(where <directory id> is the customer's domain\)  | 
+| WS Broker |  Domains: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
+| WorkSpaces API Endpoints |  Domains: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
+| Session Broker \(PCM\) | Domains: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| Web Access TURN Servers for PCoIP | Server: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| Health check hostname | drp\-pdx\.amazonworkspaces\.com | 
+| Health check IP addresses |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| PCoIP gateway servers public IP address ranges |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| WSP gateway servers IP address range | 34\.223\.96\.0/22 | 
+| Management interface IP address ranges |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+
+### Asia Pacific \(Mumbai\)<a name="ap-south"></a>
+
+
+**Domains and IP Addresses to add to your allowlist**  
+
+| Category | Details | 
+| --- | --- | 
+| CAPTCHA | https://opfcaptcha\-prod\.s3\.amazonaws\.com/ | 
+| Client Auto\-update |  https://d2td7dqidlhjx7\.cloudfront\.net/  | 
+| Connectivity Check |  https://connectivity\.amazonworkspaces\.com/  | 
+| Device Metrics \(for 1\.0\+ and 2\.0\+ WorkSpaces client applications\) | https://device\-metrics\-us\-2\.amazon\.com/ | 
+| Client Metrics \(for 3\.0\+ WorkSpaces client applications\) |  Domain: https://skylight\-client\-ds\.ap\-south\-1\.amazonaws\.com   | 
+| Dynamic Messaging Service \(for 3\.0\+ WorkSpaces client applications\) |  Domain: https://ws\-client\-service\.ap\-south\-1\.amazonaws\.com  | 
+| Directory Settings |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
+| Forrester Log Service  | https://fls\-na\.amazon\.com/ | 
+| Health Check \(DRP\) Servers | [Health check servers](#health_check) | 
+| Registration Dependency \(for Web Access and Teradici PCoIP Zero Clients\) | https://s3\.amazonaws\.com | 
+| User Login Pages | https://<directory id>\.awsapps\.com/ \(where <directory id> is the customer's domain\)  | 
+| WS Broker |  Domain: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
+| WorkSpaces API Endpoints |  Domain: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
+| Session Broker \(PCM\) | Domain: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| Web Access TURN Servers for PCoIP | Web Access isn't currently available in the Asia Pacific \(Mumbai\) Region | 
+| Health check hostname | drp\-bom\.amazonworkspaces\.com | 
+| Health check IP addresses |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| PCoIP gateway servers public IP address ranges | 13\.126\.243\.0 \- 13\.126\.243\.255 | 
+| WSP gateway servers IP address range | 65\.1\.156\.0/22 | 
+| Management interface IP address ranges |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+
+### Asia Pacific \(Seoul\)<a name="ap-northeast-2"></a>
+
+
+**Domains and IP Addresses to add to your allowlist**  
+
+| Category | Details | 
+| --- | --- | 
+| CAPTCHA | https://opfcaptcha\-prod\.s3\.amazonaws\.com/ | 
+| Client Auto\-update |  https://d2td7dqidlhjx7\.cloudfront\.net/  | 
+| Connectivity Check |  https://connectivity\.amazonworkspaces\.com/  | 
+| Device Metrics \(for 1\.0\+ and 2\.0\+ WorkSpaces client applications\) | https://device\-metrics\-us\-2\.amazon\.com/ | 
+| Client Metrics \(for 3\.0\+ WorkSpaces client applications\) |  Domain: https://skylight\-client\-ds\.ap\-northeast\-2\.amazonaws\.com  | 
+| Dynamic Messaging Service \(for 3\.0\+ WorkSpaces client applications\) |  Domain: https://ws\-client\-service\.ap\-northeast\-2\.amazonaws\.com  | 
+| Directory Settings |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
+| Forrester Log Service  | https://fls\-na\.amazon\.com/ | 
+| Health Check \(DRP\) Servers | [Health check servers](#health_check) | 
+| Registration Dependency \(for Web Access and Teradici PCoIP Zero Clients\) | https://s3\.amazonaws\.com | 
+| User Login Pages | https://<directory id>\.awsapps\.com/ \(where <directory id> is the customer's domain\)  | 
+| WS Broker |  Domain: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
+| WorkSpaces API Endpoints |  Domain: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
+| Session Broker \(PCM\) | Domain: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| Web Access TURN Servers for PCoIP | Server: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| Health check hostname | drp\-icn\.amazonworkspaces\.com | 
+| Health check IP addresses |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| PCoIP gateway servers public IP address ranges |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| WSP gateway servers IP address range | 3\.35\.160\.0/22 | 
+| Management interface IP address ranges |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+
+### Asia Pacific \(Singapore\)<a name="ap-southeast-1"></a>
+
+
+**Domains and IP Addresses to add to your allowlist**  
+
+| Category | Details | 
+| --- | --- | 
+| CAPTCHA | https://opfcaptcha\-prod\.s3\.amazonaws\.com/ | 
+| Client Auto\-update |  https://d2td7dqidlhjx7\.cloudfront\.net/  | 
+| Connectivity Check |  https://connectivity\.amazonworkspaces\.com/  | 
+| Device Metrics \(for 1\.0\+ and 2\.0\+ WorkSpaces client applications\) | https://device\-metrics\-us\-2\.amazon\.com/ | 
+| Client Metrics \(for 3\.0\+ WorkSpaces client applications\) |  Domain: https://skylight\-client\-ds\.ap\-southeast\-1\.amazonaws\.com  | 
+| Dynamic Messaging Service \(for 3\.0\+ WorkSpaces client applications\) |  Domain: https://ws\-client\-service\.ap\-southeast\-1\.amazonaws\.com  | 
+| Directory Settings |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
+| Forrester Log Service  | https://fls\-na\.amazon\.com/ | 
+| Health Check \(DRP\) Servers | [Health check servers](#health_check) | 
+| Registration Dependency \(for Web Access and Teradici PCoIP Zero Clients\) | https://s3\.amazonaws\.com | 
+| User Login Pages | https://<directory id>\.awsapps\.com/ \(where <directory id> is the customer's domain\)  | 
+| WS Broker |  Domain: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
+| WorkSpaces API Endpoints |  Domain: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
+| Session Broker \(PCM\) | Domain: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| Web Access TURN Servers for PCoIP | Server: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| Health check hostname | drp\-sin\.amazonworkspaces\.com | 
+| Health check IP addresses |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| PCoIP gateway servers public IP address ranges |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| WSP gateway servers IP address range | 13\.212\.132\.0/22 | 
+| Management interface IP address ranges |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+
+### Asia Pacific \(Sydney\)<a name="ap-southeast-2"></a>
+
+
+**Domains and IP Addresses to add to your allowlist**  
+
+| Category | Details | 
+| --- | --- | 
+| CAPTCHA | https://opfcaptcha\-prod\.s3\.amazonaws\.com/ | 
+| Client Auto\-update |  https://d2td7dqidlhjx7\.cloudfront\.net/  | 
+| Connectivity Check |  https://connectivity\.amazonworkspaces\.com/  | 
+| Device Metrics \(for 1\.0\+ and 2\.0\+ WorkSpaces client applications\) | https://device\-metrics\-us\-2\.amazon\.com/ | 
+| Client Metrics \(for 3\.0\+ WorkSpaces client applications\) |  Domain: https://skylight\-client\-ds\.ap\-southeast\-2\.amazonaws\.com  | 
+| Dynamic Messaging Service \(for 3\.0\+ WorkSpaces client applications\) |  Domain:  https://ws\-client\-service\.ap\-southeast\-2\.amazonaws\.com  | 
+| Directory Settings |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
+| Forrester Log Service  | https://fls\-na\.amazon\.com/ | 
+| Health Check \(DRP\) Servers | [Health check servers](#health_check) | 
+| Registration Dependency \(for Web Access and Teradici PCoIP Zero Clients\) | https://s3\.amazonaws\.com | 
+| User Login Pages | https://<directory id>\.awsapps\.com/ \(where <directory id> is the customer's domain\)  | 
+| WS Broker |  Domain: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
+| WorkSpaces API Endpoints |  Domain: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
+| Session Broker \(PCM\) | Domain: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| Web Access TURN Servers for PCoIP | Server: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| Health check hostname | drp\-syd\.amazonworkspaces\.com | 
+| Health check IP addresses |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| PCoIP gateway servers public IP address ranges |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| WSP gateway servers IP address range | 3\.25\.248\.0/22 | 
+| Management interface IP address ranges |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+
+### Asia Pacific \(Tokyo\)<a name="ap-northeast-1"></a>
+
+
+**Domains and IP Addresses to add to your allowlist**  
+
+| Category | Details | 
+| --- | --- | 
+| CAPTCHA | https://opfcaptcha\-prod\.s3\.amazonaws\.com/ | 
+| Client Auto\-update |  https://d2td7dqidlhjx7\.cloudfront\.net/  | 
+| Connectivity Check |  https://connectivity\.amazonworkspaces\.com/  | 
+| Device Metrics \(for 1\.0\+ and 2\.0\+ WorkSpaces client applications\) | https://device\-metrics\-us\-2\.amazon\.com/ | 
+| Client Metrics \(for 3\.0\+ WorkSpaces client applications\) |  Domain: https://skylight\-client\-ds\.ap\-northeast\-1\.amazonaws\.com  | 
+| Dynamic Messaging Service \(for 3\.0\+ WorkSpaces client applications\) |  Domain:  https://ws\-client\-service\.ap\-northeast\-1\.amazonaws\.com  | 
+| Directory Settings |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
+| Forrester Log Service  | https://fls\-na\.amazon\.com/ | 
+| Health Check \(DRP\) Servers | [Health check servers](#health_check) | 
+| Registration Dependency \(for Web Access and Teradici PCoIP Zero Clients\) | https://s3\.amazonaws\.com | 
+| User Login Pages | https://<directory id>\.awsapps\.com/ \(where <directory id> is the customer's domain\)  | 
+| WS Broker |  Domain: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
+| WorkSpaces API Endpoints |  Domain: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
+| Session Broker \(PCM\) | Domain: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| Web Access TURN Servers for PCoIP | Server: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| Health check hostname | drp\-nrt\.amazonworkspaces\.com | 
+| Health check IP addresses |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| PCoIP gateway servers public IP address ranges |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| WSP gateway servers IP address range | 3\.114\.164\.0/22 | 
+| Management interface IP address ranges |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+
+### Canada \(Central\)<a name="ca-central-1"></a>
+
+
+**Domains and IP Addresses to add to your allowlist**  
+
+| Category | Details | 
+| --- | --- | 
+| CAPTCHA | https://opfcaptcha\-prod\.s3\.amazonaws\.com/ | 
+| Client Auto\-update |  https://d2td7dqidlhjx7\.cloudfront\.net/  | 
+| Connectivity Check |  https://connectivity\.amazonworkspaces\.com/  | 
+| Device Metrics \(for 1\.0\+ and 2\.0\+ WorkSpaces client applications\) | https://device\-metrics\-us\-2\.amazon\.com/ | 
+| Client Metrics \(for 3\.0\+ WorkSpaces client applications\) |  Domain: https://skylight\-client\-ds\.ca\-central\-1\.amazonaws\.com  | 
+| Dynamic Messaging Service \(for 3\.0\+ WorkSpaces client applications\) |  Domain:  https://ws\-client\-service\.ca\-central\-1\.amazonaws\.com  | 
+| Directory Settings |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
+| Forrester Log Service  | https://fls\-na\.amazon\.com/ | 
+| Health Check \(DRP\) Servers | [Health check servers](#health_check) | 
+| Registration Dependency \(for Web Access and Teradici PCoIP Zero Clients\) | https://s3\.amazonaws\.com | 
+| User Login Pages | https://<directory id>\.awsapps\.com/ \(where <directory id> is the customer's domain\)  | 
+| WS Broker |  Domain: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
+| WorkSpaces API Endpoints |  Domain: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
+| Session Broker \(PCM\) | Domain: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| Web Access TURN Servers for PCoIP | Server: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| Health check hostname | drp\-yul\.amazonworkspaces\.com | 
+| Health check IP addresses |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| PCoIP gateway servers public IP address ranges |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| WSP gateway servers IP address range | 3\.97\.20\.0/22 | 
+| Management interface IP address ranges |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+
+### Europe \(Frankfurt\)<a name="eu-central-1"></a>
+
+
+**Domains and IP Addresses to add to your allowlist**  
+
+| Category | Details | 
+| --- | --- | 
+| CAPTCHA | https://opfcaptcha\-prod\.s3\.amazonaws\.com/ | 
+| Client Auto\-update |  https://d2td7dqidlhjx7\.cloudfront\.net/  | 
+| Connectivity Check |  https://connectivity\.amazonworkspaces\.com/  | 
+| Device Metrics \(for 1\.0\+ and 2\.0\+ WorkSpaces client applications\) | https://device\-metrics\-us\-2\.amazon\.com/ | 
+| Client Metrics \(for 3\.0\+ WorkSpaces client applications\) |  Domain: https://skylight\-client\-ds\.eu\-central\-1\.amazonaws\.com  | 
+| Dynamic Messaging Service \(for 3\.0\+ WorkSpaces client applications\) |  Domain:  https://ws\-client\-service\.eu\-central\-1\.amazonaws\.com  | 
+| Directory Settings |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
+| Forrester Log Service  | https://fls\-na\.amazon\.com/ | 
+| Health Check \(DRP\) Servers | [Health check servers](#health_check) | 
+| Registration Dependency \(for Web Access and Teradici PCoIP Zero Clients\) | https://s3\.amazonaws\.com | 
+| User Login Pages | https://<directory id>\.awsapps\.com/ \(where <directory id> is the customer's domain\)  | 
+| WS Broker |  Domain: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
+| WorkSpaces API Endpoints |  Domain: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
+| Session Broker \(PCM\) | Domain: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| Web Access TURN Servers for PCoIP | Server: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| Health check hostname | drp\-fra\.amazonworkspaces\.com | 
+| Health check IP addresses |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| PCoIP gateway servers public IP address ranges |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| WSP gateway servers IP address range | 18\.192\.216\.0/22 | 
+| Management interface IP address ranges |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+
+### Europe \(Ireland\)<a name="eu-west-1"></a>
+
+
+**Domains and IP Addresses to add to your allowlist**  
+
+| Category | Details | 
+| --- | --- | 
+| CAPTCHA | https://opfcaptcha\-prod\.s3\.amazonaws\.com/ | 
+| Client Auto\-update |  https://d2td7dqidlhjx7\.cloudfront\.net/  | 
+| Connectivity Check |  https://connectivity\.amazonworkspaces\.com/  | 
+| Device Metrics \(for 1\.0\+ and 2\.0\+ WorkSpaces client applications\) | https://device\-metrics\-us\-2\.amazon\.com/ | 
+| Client Metrics \(for 3\.0\+ WorkSpaces client applications\) |  Domain: https://skylight\-client\-ds\.eu\-west\-1\.amazonaws\.com  | 
+| Dynamic Messaging Service \(for 3\.0\+ WorkSpaces client applications\) |  Domain:  https://ws\-client\-service\.eu\-west\-1\.amazonaws\.com  | 
+| Directory Settings |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
+| Forrester Log Service  | https://fls\-na\.amazon\.com/ | 
+| Health Check \(DRP\) Servers | [Health check servers](#health_check) | 
+| Registration Dependency \(for Web Access and Teradici PCoIP Zero Clients\) | https://s3\.amazonaws\.com | 
+| User Login Pages | https://<directory id>\.awsapps\.com/ \(where <directory id> is the customer's domain\)  | 
+| WS Broker |  Domain: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
+| WorkSpaces API Endpoints |  Domain: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
+| Session Broker \(PCM\) | Domain: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| Web Access TURN Servers for PCoIP | Server: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| Health check hostname | drp\-dub\.amazonworkspaces\.com | 
+| Health check IP addresses |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| PCoIP gateway servers public IP address ranges |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| WSP gateway servers IP address range | 3\.248\.176\.0/22 | 
+| Management interface IP address ranges |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+
+### Europe \(London\)<a name="eu-west-2"></a>
+
+
+**Domains and IP Addresses to add to your allowlist**  
+
+| Category | Details | 
+| --- | --- | 
+| CAPTCHA | https://opfcaptcha\-prod\.s3\.amazonaws\.com/ | 
+| Client Auto\-update |  https://d2td7dqidlhjx7\.cloudfront\.net/  | 
+| Connectivity Check |  https://connectivity\.amazonworkspaces\.com/  | 
+| Device Metrics \(for 1\.0\+ and 2\.0\+ WorkSpaces client applications\) | https://device\-metrics\-us\-2\.amazon\.com/ | 
+| Client Metrics \(for 3\.0\+ WorkSpaces client applications\) |  Domain: https://skylight\-client\-ds\.eu\-west\-2\.amazonaws\.com  | 
+| Dynamic Messaging Service \(for 3\.0\+ WorkSpaces client applications\) |  Domain:  https://ws\-client\-service\.eu\-west\-2\.amazonaws\.com  | 
+| Directory Settings |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
+| Forrester Log Service  | https://fls\-na\.amazon\.com/ | 
+| Health Check \(DRP\) Servers | [Health check servers](#health_check) | 
+| Registration Dependency \(for Web Access and Teradici PCoIP Zero Clients\) | https://s3\.amazonaws\.com | 
+| User Login Pages | https://<directory id>\.awsapps\.com/ \(where <directory id> is the customer's domain\)  | 
+| WS Broker |  Domain: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
+| WorkSpaces API Endpoints |  Domain: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
+| Session Broker \(PCM\) | Domain: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| Web Access TURN Servers for PCoIP | Server: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| Health check hostname | drp\-lhr\.amazonworkspaces\.com | 
+| Health check IP addresses |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| PCoIP gateway servers public IP address ranges |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| WSP gateway servers IP address range | 18\.134\.68\.0/22 | 
+| Management interface IP address ranges |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+
+### South America \(São Paulo\)<a name="sa-east-1"></a>
+
+
+**Domains and IP Addresses to add to your allowlist**  
+
+| Category | Details | 
+| --- | --- | 
+| CAPTCHA | https://opfcaptcha\-prod\.s3\.amazonaws\.com/ | 
+| Client Auto\-update |  https://d2td7dqidlhjx7\.cloudfront\.net/  | 
+| Connectivity Check |  https://connectivity\.amazonworkspaces\.com/  | 
+| Device Metrics \(for 1\.0\+ and 2\.0\+ WorkSpaces client applications\) | https://device\-metrics\-us\-2\.amazon\.com/ | 
+| Client Metrics \(for 3\.0\+ WorkSpaces client applications\) |  Domain: https://skylight\-client\-ds\.sa\-east\-1\.amazonaws\.com  | 
+| Dynamic Messaging Service \(for 3\.0\+ WorkSpaces client applications\) |  Domain:  https://ws\-client\-service\.sa\-east\-1\.amazonaws\.com  | 
+| Directory Settings |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
+| Forrester Log Service  | https://fls\-na\.amazon\.com/ | 
+| Health Check \(DRP\) Servers | [Health check servers](#health_check) | 
+| Registration Dependency \(for Web Access and Teradici PCoIP Zero Clients\) | https://s3\.amazonaws\.com | 
+| User Login Pages | https://<directory id>\.awsapps\.com/ \(where <directory id> is the customer's domain\)  | 
+| WS Broker |  Domain: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
+| WorkSpaces API Endpoints |  Domain: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
+| Session Broker \(PCM\) | Domain: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| Web Access TURN Servers for PCoIP | Server: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| Health check hostname | drp\-gru\.amazonworkspaces\.com | 
+| Health check IP addresses |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| PCoIP gateway servers public IP address ranges |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| WSP gateway servers IP address range | 15\.228\.64\.0/22 | 
+| Management interface IP address ranges |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+
+### AWS GovCloud \(US\-West\) Region<a name="govcloud-region"></a>
+
+
+**Domains and IP Addresses to add to your allowlist**  
+
+| Category | Details | 
+| --- | --- | 
+| CAPTCHA | https://opfcaptcha\-prod\.s3\.amazonaws\.com/ | 
+| Client Auto\-update |  https://s3\.amazonaws\.com/workspaces\-client\-updates/prod/pdt/windows/WorkSpacesAppCast\.xml  | 
+| Connectivity Check |  https://connectivity\.amazonworkspaces\.com/  | 
+| Device Metrics \(for 1\.0\+ and 2\.0\+ WorkSpaces client applications\) | https://device\-metrics\-us\-2\.amazon\.com/ | 
+| Client Metrics \(for 3\.0\+ WorkSpaces client applications\) |  Domain: hhttps://skylight\-client\-ds\.us\-gov\-west\-1\.amazonaws\.com  | 
+| Directory Settings |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
+| Forrester Log Service  | https://fls\-na\.amazon\.com/ | 
+| Health Check \(DRP\) Servers | [Health check servers](#health_check) | 
+| Registration Dependency \(for Web Access and Teradici PCoIP Zero Clients\) | https://s3\.amazonaws\.com | 
+| User Login Pages | https://login\.us\-gov\-home\.awsapps\.com/directory/<directory id>/ \(where <directory id> is the customer's domain\)  | 
+| WS Broker |  Domain: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
+| WorkSpaces API Endpoints |  Domain: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html)  | 
+| Session Broker \(PCM\) | Domain: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| Health check hostname | drp\-pdt\.amazonworkspaces\.com | 
+| Health check IP addresses |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| PCoIP gateway servers public IP address ranges |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| WSP gateway servers IP address range | [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 
+| Management interface IP address ranges |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html) | 

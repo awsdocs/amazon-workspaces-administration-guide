@@ -20,6 +20,7 @@ Group Policy settings can be used to restrict drive access\. **If you configure 
 For more information about enabling or disabling audio\-in redirection, see [Enable or disable audio\-in redirection for PCoIP](#gp_audio) or [Enable or disable audio\-in redirection for WSP](#gp_audio_in_wsp)\.
 Using Group Policy to set the Windows power plan to **Balanced** or **Power saver** might cause your WorkSpaces to sleep when they're left idle\. We strongly recommend using Group Policy to set the Windows power plan to **High performance**\. For more information, see [My Windows WorkSpace goes to sleep when it's left idle](amazon-workspaces-troubleshooting.md#windows_workspace_sleeps_when_idle)\. 
 Some Group Policy settings force users to log off when they are disconnected from a session\. Any applications that users have open on their WorkSpaces are closed\.
+"Set time limit for active but idle Remote Desktop Services sessions" is currently not supported on WSP WorkSpaces\. Avoid using it during WSP sessions as it causes a disconnect even when there is activity and the session is not idle\.
 
 For information about using the Active Directory administration tools to work with GPOs, see [Set up Active Directory Administration Tools for WorkSpaces](directory_administration.md)\.
 
@@ -93,7 +94,7 @@ For more information about working with \.adm files, see [ Recommendations for m
 
 1. You can now use this **PCoIP Session Variables** Group Policy object to modify the Group Policy settings that are specific to Amazon WorkSpaces when using PCoIP\. 
 **Note**  
-To allow the user to override your setting, choose **Overridable Administrator Defaults**; otherwise, choose **Not Overridable Administrator Defaults**\.
+To allow the user to override your settings, choose **Overridable Administrator Settings**; otherwise, choose **Not Overridable Administrator Settings**\.
 
 ### Install the Group Policy administrative template for PCoIP \(64\-Bit\)<a name="gp_install_template_pcoip_64_bit"></a>
 
@@ -148,7 +149,7 @@ For more information about the *yourdomainname* OU, see [ What Gets Created](htt
 
 1. You can now use this **PCoIP Session Variables** Group Policy object to modify the Group Policy settings that are specific to WorkSpaces when using PCoIP\.
 **Note**  
-To allow the user to override your settings, choose **Overridable Administrator Defaults**; otherwise, choose **Not Overridable Administrator Defaults**\.
+To allow the user to override your settings, choose **Overridable Administrator Settings**; otherwise, choose **Not Overridable Administrator Settings**\.
 
 ### Configure printer support for PCoIP<a name="gp_local_printers"></a>
 
@@ -165,8 +166,6 @@ For Windows WorkSpaces, you can use Group Policy settings to configure printer s
 1. Make sure that you've installed the most recent [WorkSpaces Group Policy administrative template for PCoIP \(32\-Bit\)](#gp_install_template_pcoip_32_bit) or [WorkSpaces Group Policy administrative template for PCoIP \(64\-Bit\)](#gp_install_template_pcoip_64_bit)\.
 
 1. On a directory administration WorkSpace or an Amazon EC2 instance that is joined to your WorkSpaces directory, open the Group Policy Management tool \(gpmc\.msc\) and navigate to **PCoIP Session Variables**\.
-
-   To allow the user to override your setting, choose **Overridable Administrator Defaults**; otherwise, choose **Not Overridable Administrator Defaults**\.
 
 1. Open the **Configure remote printing** setting\.
 
@@ -191,8 +190,6 @@ Local printer redirection is not available for Amazon Linux WorkSpaces\.
 
 1. On a directory administration WorkSpace or an Amazon EC2 instance that is joined to your WorkSpaces directory, open the Group Policy Management tool \(gpmc\.msc\) and navigate to **PCoIP Session Variables**\.
 
-   To allow the user to override your setting, choose **Overridable Administrator Defaults**; otherwise, choose **Not Overridable Administrator Defaults**\.
-
 1. Open the **Configure remote printing** setting\.
 
 1. Choose **Enabled**, and then under **Options**, **Configure remote printing**, choose one of the following:
@@ -214,8 +211,6 @@ By default, WorkSpaces supports clipboard redirection\. If needed for Windows Wo
 1. Make sure that you've installed the most recent [WorkSpaces Group Policy administrative template for PCoIP \(32\-Bit\)](#gp_install_template_pcoip_32_bit) or [WorkSpaces Group Policy administrative template for PCoIP \(64\-Bit\)](#gp_install_template_pcoip_64_bit)\.
 
 1. On a directory administration WorkSpace or an Amazon EC2 instance that is joined to your WorkSpaces directory, open the Group Policy Management tool \(gpmc\.msc\) and navigate to **PCoIP Session Variables**\.
-
-   To allow the user to override your setting, choose **Overridable Administrator Defaults**; otherwise, choose **Not Overridable Administrator Defaults**\.
 
 1. Open the **Configure clipboard redirection** setting\.
 
@@ -242,8 +237,6 @@ When using the WorkSpaces client applications, an interruption of network connec
 
 1. On a directory administration WorkSpace or an Amazon EC2 instance that is joined to your WorkSpaces directory, open the Group Policy Management tool \(gpmc\.msc\) and navigate to **PCoIP Session Variables**\.
 
-   To allow the user to override your setting, choose **Overridable Administrator Defaults**; otherwise, choose **Not Overridable Administrator Defaults**\.
-
 1. Open the **Configure Session Automatic Reconnection Policy** setting\.
 
 1. In the **Configure Session Automatic Reconnection Policy** dialog box, choose **Enabled**, set the **Configure Session Automatic Reconnection Policy** option to the desired timeout, in minutes, and choose **OK**\. 
@@ -264,8 +257,6 @@ If you have a Group Policy setting that restricts users' local logon in their Wo
 1. Make sure that you've installed the most recent [WorkSpaces Group Policy administrative template for PCoIP \(32\-Bit\)](#gp_install_template_pcoip_32_bit) or [WorkSpaces Group Policy administrative template for PCoIP \(64\-Bit\)](#gp_install_template_pcoip_64_bit)\.
 
 1. On a directory administration WorkSpace or an Amazon EC2 instance that is joined to your WorkSpaces directory, open the Group Policy Management tool \(gpmc\.msc\) and navigate to **PCoIP Session Variables**\.
-
-   To allow the user to override your setting, choose **Overridable Administrator Defaults**; otherwise, choose **Not Overridable Administrator Defaults**\.
 
 1. Open the **Enable/disable audio in the PCoIP session** setting\.
 
@@ -291,8 +282,6 @@ If needed for Windows WorkSpaces, you can use Group Policy settings to disable t
 1. Make sure that you've installed the most recent [WorkSpaces Group Policy administrative template for PCoIP \(32\-Bit\)](#gp_install_template_pcoip_32_bit) or [WorkSpaces Group Policy administrative template for PCoIP \(64\-Bit\)](#gp_install_template_pcoip_64_bit)\.
 
 1. On a directory administration WorkSpace or an Amazon EC2 instance that is joined to your WorkSpaces directory, open the Group Policy Management tool \(gpmc\.msc\) and navigate to **PCoIP Session Variables**\.
-
-   To allow the user to override your setting, choose **Overridable Administrator Defaults**; otherwise, choose **Not Overridable Administrator Defaults**\.
 
 1. Open the **Configure timezone redirection** setting\.
 
@@ -320,8 +309,6 @@ You can also use this Group Policy setting to modify the TLS Security Mode and t
 
 1. On a directory administration WorkSpace or an Amazon EC2 instance that is joined to your WorkSpaces directory, open the Group Policy Management tool \(gpmc\.msc\) and navigate to **PCoIP Session Variables**\.
 
-   To allow the user to override your setting, choose **Overridable Administrator Defaults**; otherwise, choose **Not Overridable Administrator Defaults**\.
-
 1. Open the **Configure PCoIP Security Settings** setting\.
 
 1. In the **Configure PCoIP Security Settings** dialog box, choose **Enabled**\. To set the default encryption for streaming traffic to 256\-bit, go to the **PCoIP Data Encryption Ciphers** option, and select **AES\-256\-GCM only**\.
@@ -344,8 +331,6 @@ Amazon WorkSpaces currently supports USB redirection only for YubiKey U2F\. Othe
 1. Make sure that you've installed the most recent [WorkSpaces Group Policy administrative template for PCoIP \(32\-Bit\)](#gp_install_template_pcoip_32_bit) or [WorkSpaces Group Policy administrative template for PCoIP \(64\-Bit\)](#gp_install_template_pcoip_64_bit)\.
 
 1. On a directory administration WorkSpace or an Amazon EC2 instance that is joined to your WorkSpaces directory, open the Group Policy Management tool \(gpmc\.msc\) and navigate to **PCoIP Session Variables**\.
-
-1. To allow the user to override your setting, choose **Overridable Administrator Defaults**\. Otherwise, choose **Not Overridable Administrator Defaults**\.
 
 1. Open the **Enable/disable USB in the PCOIP session** setting\.
 
