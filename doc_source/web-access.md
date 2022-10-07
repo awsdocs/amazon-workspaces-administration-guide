@@ -20,13 +20,15 @@ You control Web Access to your WorkSpaces at the directory level\. For each dire
 
 1. In the navigation pane, choose **Directories**\.
 
-1. Choose the appropriate directory, and then choose **Actions**, **Update Details**\.
+1. Choose the appropriate directory by selecting the **Directory ID**.
 
-1. Expand **Access Control Options** and find the **Other Platforms** section\.
+1. Scroll to the **Other platforms** section
+
+1. Select **Edit**\.
 
 1. Choose **Web Access**\.
 
-1. Choose **Update and Exit**\.
+1. Choose **Save**\.
 
 ## Step 2: Configure inbound and outbound access to ports for Web Access<a name="configure_inbound_outbound"></a>
 
